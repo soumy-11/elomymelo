@@ -41,10 +41,10 @@
 	}
 	#Web_1920__1 {
 		position: absolute;
-		width: 3554px;
+		width: var(--set-mainwidth);
 		border: 0px grey solid;
 		background-color: rgba(255,255,255,1);
-		overflow: visible;
+		overflow: hidden;
 		visibility: hidden;
 		--web-view-name: Web 1920 – 1;
 		--web-view-id: Web_1920__1;
@@ -1290,9 +1290,9 @@
     }
     .gsc-results-wrapper-overlay
     {
-        left: 15% !important;
-        
+        left: calc(var(--set-mainwidth)*0.15) !important;
         top: calc(var(--set-mainheight)*0.1) !important;
+        width: calc(var(--set-mainwidth)*0.7) !important;
         height: calc(var(--set-mainheight)*0.8) !important;
         
     }
