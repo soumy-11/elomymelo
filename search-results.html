@@ -1325,10 +1325,10 @@
     }
     .gsc-results-wrapper-overlay
     {
-        left: 15% !important;
+        left: calc(var(--set-mainwidth)*0.15) !important;
         padding-right: 16px;
         top: calc(var(--set-mainheight)*0.1) !important;
-      
+        width: calc(var(--set-mainwidth)*0.7) !important;
         height: calc(var(--set-mainheight)*0.8) !important;
         
     }
@@ -2381,6 +2381,7 @@ function changesecond()
            const mainheight = window.innerHeight * 1.0;
            document.getElementById("search-box").style.setProperty('--set-mainheight', mainheight + "px");
            document.getElementById("Web_1920__1").style.setProperty('--set-mainwidth', mainwidth + "px");
+	       document.getElementById("search-box").style.setProperty('--set-mainwidth', mainwidth + "px");
        }
 
    }, 292);
