@@ -3493,6 +3493,12 @@
     {
     	visibility: hidden;
     }
+    .gsc-results-wrapper-overlay
+    {
+        left: 15% !important;
+        top: calc(var(--set-mainheight)*0.1) !important;    
+        height: calc(var(--set-mainheight)*0.8) !important;        
+    }
 
 	#Rectangle_12 {
         fill: rgba(255,255,255,1);
@@ -4233,6 +4239,12 @@ function scrolltotop()
            document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
            document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
            document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
+       }
+       if (window.matchMedia("(min-width: 215px)").matches) 
+       {
+           const mainwidth = window.innerWidth * 1.0;
+           const mainheight = window.innerHeight * 1.0;
+           document.getElementById("search-box").style.setProperty('--set-mainheight', mainheight + "px");
        }
 
    }, 292);
