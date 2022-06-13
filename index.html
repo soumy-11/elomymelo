@@ -106,7 +106,7 @@
 		stroke-linecap: butt;
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
-		visibility: visible;
+		visibility: hidden;
 	}
 	.Rectangle_2 {
 		position: absolute;
@@ -300,7 +300,6 @@
 		left: 182px;
 		top: 124px;
 		overflow: visible;
-
 	}
 	.profilepic-border
 	{
@@ -2786,6 +2785,13 @@ function changesecond()
    	   document.getElementById("Rectangle_2").style.visibility = "visible";
 
    }, 292);   
+	
+   setInterval(function()
+   
+   { 	   
+   	   document.getElementById("Rectangle_2").style.visibility = "visible";
+
+   }, 0); 	
 
 
   function outsideclick()
