@@ -4537,6 +4537,30 @@ function toppicksout()
 }
 
 </script>
+	
+<script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', updateLogo);
+window.addEventListener('resize', updateLogo);
+
+function updateLogo() 
+{
+      if (window.matchMedia("(min-width: 615px)").matches) 
+       {
+           const mypage = window.innerWidth;
+           document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
+           document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+       }
+
+      if (window.matchMedia("(max-width: 615px)").matches) 
+       {
+           const mypagephone = window.innerWidth;
+           document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
+           document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+       }
+}
+
+</script>
 
 <script type="text/javascript">
 
