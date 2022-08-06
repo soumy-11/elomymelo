@@ -91,9 +91,9 @@
     {
 		position: absolute;
 		background-color: rgba(0,0,0,0);
-		width: 2358px;
+		width: auto;
 		height: 5216px;
-		overflow: visible;
+		overflow: hidden;
 	}
     ::selection
     {
@@ -4673,6 +4673,8 @@ else
            const mypagephone = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+	   document.getElementById("Web_1920__1").style.width = "2358px";
+           document.getElementById("Web_1920__1").style.overflow = "visible";
       }
   }
   scaleMe();
