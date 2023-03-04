@@ -3300,11 +3300,15 @@ function updateAds()
 
 		image.onload = function() 
 		{
-			canvas.width = 240;
-			canvas.height = 180;
-			context.drawImage(image, 0, 0, 240, 180);
+			const intrwidth = 960; const intrheight = 720;
+			const finalwidth = 240; const finalheight = 180;
+
+			canvas1.width = intrwidth; canvas1.height = intrheight;
+			context1.drawImage(image, 0, 0, 480, 360);
+			canvas2.width = finalwidth; canvas2.height = finalheight;
+			context2.drawImage(canvas1, 0, 0, intrwidth, intrheight, 0, 0, finalwidth, finalheight);
 			// Get the data URL of the canvas
-			var dataURL = canvas.toDataURL();
+			var dataURL = canvas2.toDataURL();
 			// Set the data URL as the source of the image tag
 			var img = document.getElementById('draw-image');
 			img.crossOrigin = "anonymous";
