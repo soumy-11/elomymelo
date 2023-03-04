@@ -3304,7 +3304,7 @@ function updateAds()
 			canvas.height = 360;
 			context.drawImage(image, 0, 0, 480, 360);
 			context.imageSmoothingEnabled = "true";
-			context.imageSmoothingQuality = "low";
+			context.imageSmoothingQuality = "high";
 			// Get the data URL of the canvas
 			var dataURL = canvas.toDataURL();
 			console.log(dataURL);
