@@ -3300,16 +3300,11 @@ function updateAds()
 
 		image.onload = function() 
 		{
-			canvas.width = 480;
-			canvas.height = 360;
-			context.drawImage(image, 0, 0, 480, 360);
-			context.imageSmoothingEnabled = "true";
-			context.imageSmoothingQuality = "high";
-			console.log(context.imageSmoothingEnabled);
-			console.log(context.imageSmoothingQuality);
+			canvas.width = 240;
+			canvas.height = 180;
+			context.drawImage(image, 0, 0, 240, 180);
 			// Get the data URL of the canvas
 			var dataURL = canvas.toDataURL();
-			console.log(dataURL);
 			// Set the data URL as the source of the image tag
 			var img = document.getElementById('draw-image');
 			img.crossOrigin = "anonymous";
