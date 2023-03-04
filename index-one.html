@@ -3304,6 +3304,7 @@ function updateAds()
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, 240, 180);
             const newDataUrl = canvas.toDataURL();
+	    console.log(newDataUrl);
             img.src = newDataUrl;
           } 
        }		
