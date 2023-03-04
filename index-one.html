@@ -3292,28 +3292,21 @@ function updateAds()
            document.getElementById("sc-clk-char").style.left = "66px";
        }
 
-		// Create a canvas element and draw an image on it
-		var canvas = document.createElement('canvas');
-		var context = canvas.getContext('2d');
-		var image = new Image();
-		image.src = 'old-images/soundcoremotionplus.jpg';
-
-		image.onload = function() 
-		{
-			const intrwidth = 960; const intrheight = 720;
-			const finalwidth = 240; const finalheight = 180;
-
-			canvas1.width = intrwidth; canvas1.height = intrheight;
-			context1.drawImage(image, 0, 0, 480, 360);
-			canvas2.width = finalwidth; canvas2.height = finalheight;
-			context2.drawImage(canvas1, 0, 0, intrwidth, intrheight, 0, 0, finalwidth, finalheight);
-			// Get the data URL of the canvas
-			var dataURL = canvas2.toDataURL();
-			// Set the data URL as the source of the image tag
-			var img = document.getElementById('draw-image');
-			img.crossOrigin = "anonymous";
-			img.src = dataURL;
-		}		
+       const images = document.getElementsByClassName('my-class');
+       for (let i = 0; i < images.length; i++) 
+       {
+          images.onload = function() 
+	  {
+            const img = images[i];
+            const canvas = document.createElement('canvas');
+            canvas.width = 240;
+            canvas.height = 180;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, 240, 180);
+            const newDataUrl = canvas.toDataURL();
+            img.src = newDataUrl;
+          } 
+       }		
 }
 
 function updateLogo() 
