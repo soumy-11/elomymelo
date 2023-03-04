@@ -3292,7 +3292,7 @@ function updateAds()
            document.getElementById("sc-clk-char").style.left = "66px";
        }
 
-       const images = document.getElementsByClassName('latest-art-pic-common');
+       const images = document.querySelectorAll('latest-art-pic-common');
        for (let i = 0; i < images.length; i++) 
        {
           images.onload = function() 
