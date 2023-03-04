@@ -3292,22 +3292,25 @@ function updateAds()
            document.getElementById("sc-clk-char").style.left = "66px";
        }
 
-       const images = document.querySelectorAll('latest-art-pic-common');
-       for (let i = 0; i < images.length; i++) 
-       {
-          images.onload = function() 
-	  {
-            const img = images[i];
-            const canvas = document.createElement('canvas');
-            canvas.width = 240;
-            canvas.height = 180;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, 240, 180);
-            const newDataUrl = canvas.toDataURL();
-	    console.log(newDataUrl);
-            img.src = newDataUrl;
-          } 
-       }		
+       // Create a canvas element and draw an image on it
+		var canvas = document.createElement('canvas');
+		var context = canvas.getContext('2d');
+		var image = new Image();
+		image.src = 'old-images/soundcoremotionplus.jpg';
+
+		image.onload = function() 
+		{
+			canvas.width = 480;
+			canvas.height = 360;
+			context.drawImage(image, 0, 0, 480, 360);
+			// Get the data URL of the canvas
+			var dataURL = canvas.toDataURL();
+			console.log(dataURL);
+			// Set the data URL as the source of the image tag
+			var img = document.getElementById('draw-image');
+			img.crossOrigin = "anonymous";
+			img.src = dataURL;
+		}		
 }
 
 function updateLogo() 
