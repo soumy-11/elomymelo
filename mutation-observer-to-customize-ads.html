@@ -4390,7 +4390,7 @@ function scrollmethod()
     }
 }
 
-
+/*
   // for other than windows and mac
   window.addEventListener('resize', upme);
   document.addEventListener('DOMContentLoaded', upme);
@@ -4423,7 +4423,7 @@ function scrollmethod()
         document.getElementById("footer-id").style.display = "none";
     }
   }
-
+*/
   var timer = null;
   window.addEventListener('scroll', function() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
@@ -4499,7 +4499,7 @@ function scrollmethod()
 
     var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   
-    if(scsc > alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
+    if(scsc > alttrigr && window.matchMedia("(min-width: 615px)").matches)
     {
         var xoxo = nunn;
         var voso = nunn + 932 + 114;
@@ -4517,7 +4517,7 @@ function scrollmethod()
         document.getElementById("top-pos").style.bottom = topo + "px";
         document.getElementById("top-pos").style.visibility = "visible";
     }
-    if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
+    if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches)
     {
         document.getElementById("out-cmnt").style.top = "7954px";
         document.getElementById("hot-dvs-sctn").style.top = "5226px";
@@ -4525,11 +4525,11 @@ function scrollmethod()
         document.getElementById("ads-vertical-two").style.top = "7077px"; 
         document.getElementById("top-pos").style.top = "8934px"; 
     } 
-    if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
+    if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches)
     {
         document.getElementById("last-dab").style.visibility = "hidden";
     }
-    if(nunn > 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
+    if(nunn > 100 && window.matchMedia("(min-width: 615px)").matches)
     {
         document.getElementById("last-dab").style.visibility = "visible";
     }
