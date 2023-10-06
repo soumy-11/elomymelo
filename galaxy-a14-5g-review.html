@@ -4985,6 +4985,29 @@ function toppicksout()
            // document.getElementById("ins-dis-v2").style.display = "none";
        }
 
+    // Array of IDs
+    var ids = ['ins-feed-two', 'ins-feed-four'];
+
+    // Common attributes
+    var newKey = '-5c+c0-2e-5v+wq';
+    var newSlot = '7222082881';
+
+    // Function to update the style and add data-ad-status attribute for multiple elements
+    function updateElementsAttributes(ids, newKey, newSlot) {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
+           element.setAttribute('data-ad-layout-key', newKey);
+           element.setAttribute('data-ad-slot', newSlot);
+        }
+     });
+    }
+
+    // Call the function to update all elements at once
+    updateElementsAttributes(ids, newKey, newSlot);
+
    }, 500);
 
    setTimeout(() => { clearInterval(timer2); }, 4000);
