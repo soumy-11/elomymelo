@@ -4924,7 +4924,7 @@ function updateLogo()
 
     // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
-    updateAttributes(); console.log("check"); }
+    updateAttributes(); }
 
     if (window.matchMedia("(max-width: 615px)").matches) {
     oldAttributes(); }
@@ -5080,6 +5080,53 @@ function updateLogo()
 }
 
 </script>
+
+<script>
+    /*
+    // Function to refresh AdSense ad units
+    function refreshAdSenseAds() {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+
+    // Listen for the 'resize' event and call the refresh function
+    window.addEventListener('resize', function() {
+        // Delay the refresh to prevent excessive reloads during rapid resizing
+        clearTimeout(this.resizeTimeout);
+        if(window.matchMedia("(min-width: 615px)").matches) {
+        this.resizeTimeout = setTimeout(refreshAdSenseAds, 200); } // Adjust the delay as needed
+        if(window.matchMedia("(max-width: 615px)").matches) {
+        this.resizeTimeout = setTimeout(refreshAdSenseAds, 200); }
+    });
+
+    // Initialize AdSense
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    */
+
+    var isResized = false;
+    var width = window.innerWidth;
+
+    // Function to refresh AdSense ad units
+    function refreshAdSenseAds() {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+
+    // Listen for the 'resize' event and call the refresh function only once
+    window.addEventListener('resize', function() {
+        // Check if the function hasn't been executed after the resize
+        if (!isResized) {
+            isResized = true;
+            // Delay the refresh to prevent excessive reloads during rapid resizing
+            setTimeout(function() {
+                refreshAdSenseAds();
+                isResized = false; // Reset the flag after executing
+            }, 1200); // Adjust the delay as needed
+        }
+    });
+
+    // Initialize AdSense
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
 
