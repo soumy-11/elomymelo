@@ -4865,6 +4865,7 @@ function updateAdsAttributes()
            element.setAttribute('style', 
            'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
            element.removeAttribute('data-ad-format', 'fluid');
+           element.setAttribute('data-full-width-responsive', 'null');
         }
      });
     }
@@ -4945,21 +4946,21 @@ function updateLogo()
     if (element) 
         {
            // Add the data-ad-status attribute
-           var value2 = element.getAttribute('style');
+           var value2 = element.getAttribute('data-full-width-responsive');
            console.log("value 2 is = ", value2);
-           if(value2 == 'display:block;width:970.8px;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(max-width: 615px)").matches)
+           if(value2 == 'null' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
            }
-           if(value2 == 'display:block;width:970.8px;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(min-width: 615px)").matches)
+           if(value2 == 'null' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "block";
            }
-           if(value2 == 'display:block' && window.matchMedia("(min-width: 615px)").matches)
+           if(value2 == 'true' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "none";
            }
-           if(value2 == 'display:block' && window.matchMedia("(max-width: 615px)").matches)
+           if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "block";
            }
