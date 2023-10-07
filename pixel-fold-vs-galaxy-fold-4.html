@@ -4912,10 +4912,23 @@ function updateLogo()
     if (element) 
         {
            // Add the data-ad-status attribute
-           var value = element.getAttribute('data-ad-layout-key');
-           if(value = '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
+           var value1 = element.getAttribute('data-ad-layout-key');
+           console.log("value 1 is = ", value1);
+           if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
+           }
+           if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(min-width: 615px)").matches)
+           {
+              element.style.display = "block";
+           }
+           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(min-width: 615px)").matches)
+           {
+              element.style.display = "none";
+           }
+           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
+           {
+              element.style.display = "block";
            }
         }
      });
@@ -4932,10 +4945,23 @@ function updateLogo()
     if (element) 
         {
            // Add the data-ad-status attribute
-           var value = element.getAttribute('style');
-           if(value = 'display:block;width:100%;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(max-width: 615px)").matches)
+           var value2 = element.getAttribute('style');
+           console.log("value 2 is = ", value2);
+           if(value2 == 'display:block;width:100%;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
+           }
+           if(value2 == 'display:block;width:100%;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(min-width: 615px)").matches)
+           {
+              element.style.display = "block";
+           }
+           if(value2 == 'display:block' && window.matchMedia("(min-width: 615px)").matches)
+           {
+              element.style.display = "none";
+           }
+           if(value2 == 'display:block' && window.matchMedia("(max-width: 615px)").matches)
+           {
+              element.style.display = "block";
            }
         }
      });
