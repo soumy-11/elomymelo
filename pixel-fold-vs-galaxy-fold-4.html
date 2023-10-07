@@ -4829,8 +4829,50 @@ function toppicksout()
 
 <script type="text/javascript">
 
+document.addEventListener('DOMContentLoaded', updateAdsAttributes);
 document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
+
+function updateAdsAttributes() 
+{
+    // Array of IDs
+    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+    // Function to update the style and add data-ad-status attribute for multiple elements
+    function updateElementsAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
+           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
+           element.setAttribute('data-ad-slot', '5190331789');
+        }
+     });
+    }
+
+    // Call the function to update all elements at once
+    if (window.matchMedia("(min-width: 615px)").matches) {
+    updateElementsAttributes(); }
+
+    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
+    // Function to update the style and add data-ad-status attribute for multiple elements
+    function updateAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
+           element.setAttribute('style', 
+           'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
+           element.removeAttribute('data-ad-format', 'fluid');
+        }
+     });
+    }
+
+    // Call the function to update all elements at once
+    if (window.matchMedia("(min-width: 615px)").matches) {
+    updateAttributes(); }
+}
 
 function updateLogo() 
 {
@@ -4861,6 +4903,48 @@ function updateLogo()
            el.style.transform = "scale(4.34, 4.34)"; });
        }
 
+    // Array of IDs
+    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+    // Function to update the style and add data-ad-status attribute for multiple elements
+    function getAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
+           var value = element.getAttribute('data-ad-layout-key');
+           if(value = '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
+           {
+              element.style.display = "none";
+           }
+        }
+     });
+    }
+
+    // Call the function to update all elements at once
+    getAttributes();
+
+    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
+    // Function to update the style and add data-ad-status attribute for multiple elements
+    function getMoreAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
+           var value = element.getAttribute('style');
+           if(value = 'display:block;width:100%;min-height:240px;height:250px;max-height:260px' && window.matchMedia("(max-width: 615px)").matches)
+           {
+              element.style.display = "none";
+           }
+        }
+     });
+    }
+
+    // Call the function to update all elements at once
+    getMoreAttributes();
+
+/*
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
     // Function to update the style and add data-ad-status attribute for multiple elements
@@ -4928,7 +5012,7 @@ function updateLogo()
 
     if (window.matchMedia("(max-width: 615px)").matches) {
     oldAttributes(); }
-
+*/
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
@@ -5065,6 +5149,11 @@ function updateLogo()
                     {
                         document.getElementById("ads-style-display-res-3").style.display = "none";
                     }   */
+
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
+                    {
+                        document.getElementById("ads-v1-in").style.background = "#F7F7F7";
+                    } 
                 }
             });
     });
@@ -5080,53 +5169,6 @@ function updateLogo()
 }
 
 </script>
-
-<script>
-    /*
-    // Function to refresh AdSense ad units
-    function refreshAdSenseAds() {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    }
-
-    // Listen for the 'resize' event and call the refresh function
-    window.addEventListener('resize', function() {
-        // Delay the refresh to prevent excessive reloads during rapid resizing
-        clearTimeout(this.resizeTimeout);
-        if(window.matchMedia("(min-width: 615px)").matches) {
-        this.resizeTimeout = setTimeout(refreshAdSenseAds, 200); } // Adjust the delay as needed
-        if(window.matchMedia("(max-width: 615px)").matches) {
-        this.resizeTimeout = setTimeout(refreshAdSenseAds, 200); }
-    });
-
-    // Initialize AdSense
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    */
-
-    var isResized = false;
-    var width = window.innerWidth;
-
-    // Function to refresh AdSense ad units
-    function refreshAdSenseAds() {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    }
-
-    // Listen for the 'resize' event and call the refresh function only once
-    window.addEventListener('resize', function() {
-        // Check if the function hasn't been executed after the resize
-        if (!isResized) {
-            isResized = true;
-            // Delay the refresh to prevent excessive reloads during rapid resizing
-            setTimeout(function() {
-                refreshAdSenseAds();
-                isResized = false; // Reset the flag after executing
-            }, 1200); // Adjust the delay as needed
-        }
-    });
-
-    // Initialize AdSense
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
 
