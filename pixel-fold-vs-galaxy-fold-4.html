@@ -4810,6 +4810,10 @@ function toppicksout()
            document.getElementById("ads-v1-in").style.minHeight = "612px";
            // document.getElementById("ads-v2-in").style.minHeight = "262px";
        }
+       if (window.matchMedia("(max-width: 615px)").matches) 
+       {
+           document.getElementById("ads-v1-in").style.display = "none";
+       }
 
    }, 500);
 
