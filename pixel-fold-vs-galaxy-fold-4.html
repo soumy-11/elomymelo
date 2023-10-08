@@ -4850,6 +4850,7 @@ function updateAdsAttributes()
            // Add the data-ad-status attribute
            element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
            element.setAttribute('data-ad-slot', '5190331789');
+           element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
@@ -4870,6 +4871,7 @@ function updateAdsAttributes()
            'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
            element.removeAttribute('data-ad-format', 'fluid');
            element.setAttribute('data-full-width-responsive', 'null');
+           element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
@@ -4877,6 +4879,25 @@ function updateAdsAttributes()
     // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
     updateAttributes(); }
+
+    // Find all elements with class "ads-style-one" and "ads-style-two"
+    var elementsWithClassOne = document.querySelectorAll('.display-ad');
+    var elementsWithClassTwo = document.querySelectorAll('.feed-ad');
+
+    // Function to add the script tag to an element
+    function addScriptTagToElement(element) {
+    var scriptElement = document.createElement('script');
+    scriptElement.type = 'text/javascript';
+    scriptElement.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
+    element.appendChild(scriptElement); }
+
+    // Add the script tag to each element with class "ads-style-one"
+    elementsWithClassOne.forEach(function(element) {
+    addScriptTagToElement(element); });
+
+    // Add the script tag to each element with class "ads-style-two"
+    elementsWithClassTwo.forEach(function(element) {
+    addScriptTagToElement(element); });
 }
 
 function updateLogo() 
@@ -5775,15 +5796,13 @@ function updateLogo()
 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                      id="ins-feed-one" 
+                 <ins id="ins-feed-one" 
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-5c+c0-2e-5v+wq"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="7222082881">                         
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-2">
@@ -5813,15 +5832,13 @@ function updateLogo()
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <!-- Display horizontal -->
-                 <ins class="adsbygoogle"
-                      id="ins-dis-one" 
+                 <ins id="ins-dis-one" 
                       style="display:block"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-4">
@@ -5855,15 +5872,13 @@ function updateLogo()
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <!-- Display horizontal -->
-                 <ins class="adsbygoogle"
-                      id="ins-dis-two" 
+                 <ins id="ins-dis-two" 
                       style="display:block"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-6">
@@ -5901,15 +5916,13 @@ function updateLogo()
 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                      id="ins-feed-two" 
+                 <ins id="ins-feed-two" 
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-5c+c0-2e-5v+wq"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="7222082881">                        
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-10">
@@ -5957,15 +5970,13 @@ function updateLogo()
 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                      id="ins-feed-three" 
+                 <ins id="ins-feed-three" 
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-5c+c0-2e-5v+wq"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="7222082881">                        
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-12">
@@ -6002,15 +6013,13 @@ function updateLogo()
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <!-- Display horizontal -->
-                 <ins class="adsbygoogle"
-                      id="ins-dis-three" 
+                 <ins id="ins-dis-three" 
                       style="display:block"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-14">
@@ -6052,15 +6061,13 @@ function updateLogo()
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                      id="ins-feed-four" 
+                 <ins id="ins-feed-four" 
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-5c+c0-2e-5v+wq"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="7222082881">                        
                  </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-8"> 
