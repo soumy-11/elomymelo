@@ -4973,6 +4973,7 @@ function updateLogo()
            // Add data-ad-status attribute
            var parentDiv = element.parentNode;
            var value1 = element.getAttribute('data-ad-layout-key');
+           var value3 = element.getAttribute('data-ad-status');
            // console.log("value 1 is = ", value1);
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
            {
@@ -4990,6 +4991,10 @@ function updateLogo()
            if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "block";
+           }
+           if(value1 == '-5c+c0-2e-5v+wq' && value3 == 'filled' && 
+              window.matchMedia("(max-width: 615px)").matches)
+           {
               parentDiv.style.display = "block";
            }
         }
@@ -5009,6 +5014,7 @@ function updateLogo()
            // Add data-ad-status attribute
            var parentDiv = element.parentNode;
            var value2 = element.getAttribute('data-full-width-responsive');
+           var value4 = element.getAttribute('data-ad-status');
            // console.log("value 2 is = ", value2);
            if(value2 == 'null' && window.matchMedia("(max-width: 615px)").matches)
            {
@@ -5026,6 +5032,9 @@ function updateLogo()
            if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "block";
+           }
+           if(value2 == 'true' && value4 == 'filled' && window.matchMedia("(max-width: 615px)").matches)
+           {
               parentDiv.style.display = "block";
            }
         }
