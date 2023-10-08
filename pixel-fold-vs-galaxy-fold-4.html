@@ -4972,8 +4972,7 @@ function updateLogo()
         {
            // Add the data-ad-status attribute
            var value1 = element.getAttribute('data-ad-layout-key');
-           var value3 = element.getAttribute('data-ad-status');
-           // console.log("value 3 is = ", value3);
+           // console.log("value 1 is = ", value1);
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
@@ -4982,14 +4981,11 @@ function updateLogo()
            {
               element.style.display = "block";
            }
-           if(value3 == 'filled' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              var parentDiv = element.parentNode;
-              parentDiv.style.background = "white";
-           }
            if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "none";
+              var parentDiv = element.parentNode;
+              parentDiv.style.display = "none";
            }
            if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
            {
@@ -5011,8 +5007,7 @@ function updateLogo()
         {
            // Add the data-ad-status attribute
            var value2 = element.getAttribute('data-full-width-responsive');
-           var value4 = element.getAttribute('data-ad-status');
-           // console.log("value 4 is = ", value4);
+           // console.log("value 2 is = ", value2);
            if(value2 == 'null' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
@@ -5021,14 +5016,11 @@ function updateLogo()
            {
               element.style.display = "block";
            }
-           if(value4 == 'filled' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              var parentDiv = element.parentNode;
-              parentDiv.style.background = "white";
-           }
            if(value2 == 'true' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "none";
+              var parentDiv = element.parentNode;
+              parentDiv.style.display = "none";
            }
            if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
            {
