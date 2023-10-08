@@ -476,7 +476,15 @@
     {
         display: none;
     }
-    
+    .ads-style-one
+    {
+        display: none;
+    }
+    .ads-style-two
+    {
+        display: none;
+    }
+
     #ads-br-2 {display: none;} #ads-br-4 {display: none;} #ads-br-6 {display: none;} 
     #ads-br-8 {display: none;} #ads-br-10 {display: none;} 
     #ads-br-12 {display: none;} #ads-br-14 {display: none;}
@@ -537,7 +545,7 @@
         text-align: center;
         line-height: 65px;
     }
-    .display-ad
+    .display-ad-phone
     {
         position: relative;
         left: 927px;
@@ -549,7 +557,7 @@
         margin-bottom: calc(var(--set-margin)*3.7);
         margin-top: calc(var(--set-margin)*3.7);
     }
-    .feed-ad
+    .feed-ad-phone
     {
         position: relative;
         left: 830px;
@@ -1612,7 +1620,7 @@
         color: rgba(238,99,122,1);
     }
 
-    .display-ad
+    .ads-style-one
     {
         position: relative;
         width: 982px;
@@ -1623,7 +1631,7 @@
         margin-bottom: 155px;
         margin-top: 240px;
     }
-    .feed-ad
+    .ads-style-two
     {
         position: relative;
         left: 660px;
@@ -1832,7 +1840,15 @@
         color: rgba(0,0,0,0.8);
         transition: 0.5s;
     }
-   
+    .display-ad-phone
+    {
+        display: none;
+    }
+    .feed-ad-phone
+    {
+        display: none;
+    }
+    
     #big-intro-char
     {
     	color: rgba(28,117,121,0.80); 
@@ -4783,37 +4799,59 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   setInterval(function() { 
+   setInterval(function()
+   {     
+       const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
+       const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
+       const adheightfour = document.getElementById("ads-style-feed-res-phone-2").clientHeight;
+       const adheightthree = document.getElementById("ads-style-display-res-phone-2").clientHeight;
+       const adheightfive = document.getElementById("ads-style-display-res-phone-3").clientHeight;
+       const adheightsix = document.getElementById("ads-style-display-res-phone-4").clientHeight;
+       const adheightseven = document.getElementById("ads-style-feed-res-phone-3").clientHeight;
 
-    const adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
-    const adheight2 = document.getElementById("ads-style-display-1").clientHeight;
-    const adheight3 = document.getElementById("ads-style-display-2").clientHeight;
-    const adheight4 = document.getElementById("ads-style-feed-2").clientHeight;
-    const adheight5 = document.getElementById("ads-style-feed-3").clientHeight;
-    const adheight6 = document.getElementById("ads-style-display-3").clientHeight;
-    const adheight7 = document.getElementById("ads-style-feed-4").clientHeight;
+       document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
+       document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
+       document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
+       document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
+       document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
+       document.getElementById("ads-style-display-res-phone-4").style.setProperty('--set-margin', adheightsix + "px");
+       document.getElementById("ads-style-feed-res-phone-3").style.setProperty('--set-margin', adheightseven + "px");
 
-    document.getElementById("ads-style-feed-1").style.setProperty('--set-margin', adheight1 + "px");
-    document.getElementById("ads-style-display-1").style.setProperty('--set-margin', adheight2 + "px");
-    document.getElementById("ads-style-display-2").style.setProperty('--set-margin', adheight3 + "px");
-    document.getElementById("ads-style-feed-2").style.setProperty('--set-margin', adheight4 + "px");
-    document.getElementById("ads-style-feed-3").style.setProperty('--set-margin', adheight5 + "px");
-    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight6 + "px");
-    document.getElementById("ads-style-feed-4").style.setProperty('--set-margin', adheight7 + "px");
-    
-   }, 1000);
-
-   timer2 = setInterval(function() 
-   {  
        if (window.matchMedia("(min-width: 615px)").matches) 
        {
            document.getElementById("ads-v1-in").style.minHeight = "612px";
            // document.getElementById("ads-v2-in").style.minHeight = "262px";
        }
-       if (window.matchMedia("(max-width: 615px)").matches) 
-       {
-           document.getElementById("ads-v1-in").style.display = "none";
-       }
+
+   }, 1000);
+
+   timer2 = setInterval(function() 
+   {  
+     if (window.matchMedia("(max-width: 615px)").matches) 
+     {
+       document.getElementById("ads-style-display-res-phone").style.transform = "scale(7.10, 7.10)";
+       document.getElementById("ads-style-feed-res-phone").style.transform = "scale(4.34, 4.34)";
+       document.getElementById("ads-style-feed-res-phone-2").style.transform = "scale(4.34, 4.34)";
+       document.getElementById("ads-style-feed-res-phone-3").style.transform = "scale(4.34, 4.34)";
+       document.getElementById("ads-style-display-res-phone-2").style.transform = "scale(7.10, 7.10)";
+       document.getElementById("ads-style-display-res-phone-3").style.transform = "scale(7.10, 7.10)";
+       document.getElementById("ads-style-display-res-phone-4").style.transform = "scale(7.10, 7.10)";
+     }
+     if (window.matchMedia("(min-width: 615px)").matches) 
+     {
+       document.getElementById("ads-style-feed-res").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-style-display-res").style.transform = "scale(2.25, 2.25)";
+       document.getElementById("ads-style-display-res").style.left = "617px";
+       document.getElementById("ads-style-display-res-2").style.transform = "scale(2.25, 2.25)";
+       document.getElementById("ads-style-display-res-2").style.left = "617px";
+       document.getElementById("ads-style-display-res-3").style.transform = "scale(2.25, 2.25)";
+       document.getElementById("ads-style-display-res-3").style.left = "617px";
+       document.getElementById("ads-style-feed-res-2").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-style-feed-res-3").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-style-feed-res-4").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)";
+       // document.getElementById("ads-v2-in").style.transform = "scale(2.72, 2.72)";
+     }
 
    }, 500);
 
@@ -4833,50 +4871,35 @@ function toppicksout()
 
 <script type="text/javascript">
 
-document.addEventListener('DOMContentLoaded', updateAdsAttributes);
+document.addEventListener('DOMContentLoaded', removeMe);
 document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
 
-function updateAdsAttributes() 
+function removeMe() 
 {
-    // Array of IDs
-    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateElementsAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
-           element.setAttribute('data-ad-slot', '5190331789');
-        }
-     });
-    }
+      if (window.matchMedia("(min-width: 615px)").matches) 
+       {
+           // Select and remove elements with class "ads-style-one"
+           var removeOne = document.querySelectorAll('.display-ad-phone');
+           removeOne.forEach(function(element) {
+           element.remove(); });
 
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateElementsAttributes(); }
+           var removeTwo = document.querySelectorAll('.feed-ad-phone');
+           removeTwo.forEach(function(element) {
+           element.remove(); });
+       }
 
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('style', 
-           'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
-           element.removeAttribute('data-ad-format', 'fluid');
-           element.setAttribute('data-full-width-responsive', 'null');
-        }
-     });
-    }
+      if (window.matchMedia("(max-width: 615px)").matches) 
+       {
+           // Select and remove elements with class "ads-style-one"
+           var removeOne = document.querySelectorAll('.ads-style-one');
+           removeOne.forEach(function(element) {
+           element.remove(); });
 
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateAttributes(); }
+           var removeTwo = document.querySelectorAll('.ads-style-two');
+           removeTwo.forEach(function(element) {
+           element.remove(); });
+       }
 }
 
 function updateLogo() 
@@ -4886,12 +4909,6 @@ function updateLogo()
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-
-           document.querySelectorAll(".display-ad").forEach(function(el) {
-           el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
-           document.querySelectorAll(".feed-ad").forEach(function(el) {
-           el.style.transform = "scale(2.45, 2.45)"; });
-           document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
        }
 
       if (window.matchMedia("(max-width: 615px)").matches) 
@@ -4901,149 +4918,8 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
-
-           document.querySelectorAll(".display-ad").forEach(function(el) {
-           el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
-           document.querySelectorAll(".feed-ad").forEach(function(el) {
-           el.style.transform = "scale(4.34, 4.34)"; });
        }
 
-    // Array of IDs
-    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function getAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           var value1 = element.getAttribute('data-ad-layout-key');
-           console.log("value 1 is = ", value1);
-           if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
-           {
-              element.style.display = "none";
-           }
-           if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              element.style.display = "block";
-           }
-           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              element.style.display = "none";
-           }
-           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
-           {
-              element.style.display = "block";
-           }
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    getAttributes();
-
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function getMoreAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           var value2 = element.getAttribute('data-full-width-responsive');
-           console.log("value 2 is = ", value2);
-           if(value2 == 'null' && window.matchMedia("(max-width: 615px)").matches)
-           {
-              element.style.display = "none";
-           }
-           if(value2 == 'null' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              element.style.display = "block";
-           }
-           if(value2 == 'true' && window.matchMedia("(min-width: 615px)").matches)
-           {
-              element.style.display = "none";
-           }
-           if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
-           {
-              element.style.display = "block";
-           }
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    getMoreAttributes();
-
-/*
-    // Array of IDs
-    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateElementsAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
-           element.setAttribute('data-ad-slot', '5190331789');
-        }
-     });
-    }
-
-    function updateOldAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('data-ad-layout-key', '-5c+c0-2e-5v+wq');
-           element.setAttribute('data-ad-slot', '7222082881');
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateElementsAttributes(); }
-
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    updateOldAttributes(); }
-
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('style', 
-           'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
-           element.removeAttribute('data-ad-format', 'fluid');
-        }
-     });
-    }
-
-    function oldAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('style', 'display:block');
-           element.setAttribute('data-ad-format', 'fluid');
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateAttributes(); }
-
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    oldAttributes(); }
-*/
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
@@ -5055,13 +4931,20 @@ function updateLogo()
 
     // mutation observer code
     const checkme1 = document.getElementById("ins-feed-one");
-    const checkme2 = document.getElementById("ins-dis-one");
-    const checkme3 = document.getElementById("ins-dis-two");
-    const checkme4 = document.getElementById("ins-feed-two");
-    const checkme5 = document.getElementById("ins-feed-three");
-    const checkme6 = document.getElementById("ins-dis-three");
-    const checkme7 = document.getElementById("ins-feed-four");
+    const checkme2 = document.getElementById("ins-feed-two");
+    const checkme3 = document.getElementById("ins-feed-three");
+    const checkme4 = document.getElementById("ins-feed-four");
+    const checkme5 = document.getElementById("ins-dis-one");
+    const checkme6 = document.getElementById("ins-dis-two");
+    const checkme7 = document.getElementById("ins-dis-three");
     const checkme8 = document.getElementById("ins-dis-v1");
+    const checkme9 = document.getElementById("ins-feed-phone-1");
+    const checkme10 = document.getElementById("ins-feed-phone-2");
+    const checkme11 = document.getElementById("ins-feed-phone-3");
+    const checkme12 = document.getElementById("ins-dis-phone-1");
+    const checkme13 = document.getElementById("ins-dis-phone-2");
+    const checkme14 = document.getElementById("ins-dis-phone-3");
+    const checkme15 = document.getElementById("ins-dis-phone-4");
     const observer = new MutationObserver( mutations => 
     { 
          // console.log(mutations); 
@@ -5074,7 +4957,7 @@ function updateLogo()
 
                     // console.log(attrname);
                     // console.log(attrvalue);
-/*
+
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-1')
                     {
                         document.getElementById("ad-dtls-fone").style.display = "none";
@@ -5179,24 +5062,32 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
                     {
                         document.getElementById("ads-style-display-res-3").style.display = "none";
-                    }   */
-
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
-                    {
-                        document.getElementById("ads-v1-in").style.background = "#F7F7F7";
-                    } 
+                    }   
                 }
             });
     });
 
-    observer.observe(checkme1, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme2, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme3, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme4, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme5, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme6, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme7, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme8, { attributes: true, attributeFilter: ['data-ad-status'] });
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    {
+      observer.observe(checkme1, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme2, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme3, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme4, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme5, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme6, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme7, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme8, { attributes: true, attributeFilter: ['data-ad-status'] });
+    }
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
+      observer.observe(checkme9, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme10, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme11, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme12, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme13, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme14, { attributes: true, attributeFilter: ['data-ad-status'] });
+      observer.observe(checkme15, { attributes: true, attributeFilter: ['data-ad-status'] });
+    }
 }
 
 </script>
@@ -5771,19 +5662,39 @@ function updateLogo()
             Sooo, a new kid on the block is the Pixel Fold, which is going to be the main focus today. Inside the box, you will get your foldable smartphone, some documents - instruction manuals or guides whatever you wanna call them, a SIM ejector tool, a USB type-c to type-c charging cable, and a USB type-c male to type-a fe&shy;male adapter for connecting <a href="https://en.wikipedia.org/wiki/Peripheral" target="_blank" rel="nofollow noopener noreferrer">peripherals</a>. I don’t like the fact that they moved away from including char&shy;gers. Most people use their phones for more than a couple of years and the chargers will probably be almost dead by then, yeah. But the C to A adapter is a really nice accessory here for the Pixel Fold. 
 
             <br>
-            <div class="feed-ad" id="ads-style-feed-1">
+            <div class="ads-style-two" id="ads-style-feed-res">
 
+                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+                 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
                       id="ins-feed-one" 
                       style="display:block"
                       data-ad-format="fluid"
-                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-layout-key="-co-n+45-2o+yn"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="7222082881">                         
+                      data-ad-slot="5190331789">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="display-ad-phone" id="ads-style-display-res-phone">
+
+                <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                crossorigin="anonymous"></script>
+                <!-- Display horizontal -->
+                <ins class="adsbygoogle"
+                     id="ins-dis-phone-1" 
+                     style="display:block"
+                     data-ad-client="ca-pub-3654432220074510"
+                     data-ad-slot="6958590511"
+                     data-ad-format="fluid"
+                     data-full-width-responsive="true">                         
+                </ins>
+                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-2">
@@ -5806,7 +5717,7 @@ function updateLogo()
             The whole frame is made of <a href="https://en.wikipedia.org/wiki/Aluminium" target="_blank" rel="nofollow noopener noreferrer">aluminum</a> and it feels premium. The dimensions are 155.1 x 130.1 x 6.3 mm when unfolded and 155.1 x 67.1 x 14.2 - 15.8 mm when folded. It has a weight of 263 grams. So the thickness of the hinge when folded is 15.8 mm, which is kinda thick and awkward because of the previously mentioned gap in between. The port cutouts are at expected places, corners are nicely curved, and the back triple-camera design looks pretty cool.    
 
             <br>
-            <div class="display-ad" id="ads-style-display-1">
+            <div class="ads-style-one" id="ads-style-display-res">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  
@@ -5815,11 +5726,27 @@ function updateLogo()
                  <!-- Display horizontal -->
                  <ins class="adsbygoogle"
                       id="ins-dis-one" 
-                      style="display:block"
+                      style="display:block;width:100%;min-height:240px;height:250px;max-height:260px"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
+                 </ins>
+                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="feed-ad-phone" id="ads-style-feed-res-phone">
+
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 
+                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                 crossorigin="anonymous"></script>
+                 <ins class="adsbygoogle"
+                      id="ins-feed-phone-1" 
+                      style="display:block"
+                      data-ad-format="fluid"
+                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-client="ca-pub-3654432220074510"
+                      data-ad-slot="7222082881">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
@@ -5848,7 +5775,7 @@ function updateLogo()
             Galaxy Fold 4 is pretty much bang on with the Pixel Fold in terms of the foldable display size. So a similar-sized display here for the Fold 4, which is 7.6 inches and 183.2 cm^2. But there are significant differences like the screen-to-body ratio is 90.9%, meaning the Galaxy Z Fold 4 has thinner <a href="https://www.lifewire.com/bezel-4155199" target="_blank" rel="nofollow noopener noreferrer">bezels</a> around the bigger display. I like the thinner bezel here, looks cool and futuristic. Samsung is among one of the best display makers in the world and I think they make the best foldable displays for smartphones. Other companies use their foldable displays. 
 
             <br>
-            <div class="display-ad" id="ads-style-display-2">
+            <div class="ads-style-one" id="ads-style-display-res-2">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  
@@ -5857,11 +5784,27 @@ function updateLogo()
                  <!-- Display horizontal -->
                  <ins class="adsbygoogle"
                       id="ins-dis-two" 
-                      style="display:block"
+                      style="display:block;width:100%;min-height:240px;height:250px;max-height:260px"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
+                 </ins>
+                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="feed-ad-phone" id="ads-style-feed-res-phone-2">
+
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 
+                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                 crossorigin="anonymous"></script>
+                 <ins class="adsbygoogle"
+                      id="ins-feed-phone-2" 
+                      style="display:block"
+                      data-ad-format="fluid"
+                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-client="ca-pub-3654432220074510"
+                      data-ad-slot="7222082881">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
@@ -5897,19 +5840,39 @@ function updateLogo()
             Galaxy Z Fold 4 on the other hand, has a <a href="https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform" target="_blank" rel="nofollow noopener noreferrer">Qualcomm chip</a>, which is the Snapdragon (SM8475) 8+ Gen 1 (4 nm fabrication). So it is Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510) and the GPU is <a href="https://www.notebookcheck.net/Qualcomm-Adreno-730-GPU-Benchmarks-and-Specs.583409.0.html" target="_blank" rel="nofollow noopener noreferrer">Adreno 730</a>. Internal storage starts with 256 GB up to 1 TB and comes with 12 GB RAM in both scenarios. 
 
             <br>
-            <div class="feed-ad" id="ads-style-feed-2">
+            <div class="ads-style-two" id="ads-style-feed-res-3">
 
+                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+                 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
-                      id="ins-feed-two" 
+                      id="ins-feed-three" 
                       style="display:block"
                       data-ad-format="fluid"
-                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-layout-key="-co-n+45-2o+yn"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="7222082881">                        
+                      data-ad-slot="5190331789">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="display-ad-phone" id="ads-style-display-res-phone-3">
+
+                <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                crossorigin="anonymous"></script>
+                <!-- Display horizontal -->
+                <ins class="adsbygoogle"
+                     id="ins-dis-phone-3" 
+                     style="display:block"
+                     data-ad-client="ca-pub-3654432220074510"
+                     data-ad-slot="6958590511"
+                     data-ad-format="fluid"
+                     data-full-width-responsive="true">                         
+                </ins>
+                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-10">
@@ -5953,19 +5916,39 @@ function updateLogo()
             The Galaxy Fold 4 also deals with similar kinds of problems like the photos are a step down from their flagships. But again props to Samsung for their great image processing. They are catching up with the Pixels nowadays. Z Fold 4’s photos are significantly different from the Pixels, yet they look amazing. It’s just a different approach to appeal to the people. Samsung has their vibrant - saturated - poppy look here, but the images are not too saturated or overexposed. The details are maintained well enough with great resolution. 
 
             <br>
-            <div class="feed-ad" id="ads-style-feed-3">
+            <div class="ads-style-two" id="ads-style-feed-res-4">
 
+                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+                 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
-                      id="ins-feed-three" 
+                      id="ins-feed-four" 
                       style="display:block"
                       data-ad-format="fluid"
-                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-layout-key="-co-n+45-2o+yn"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="7222082881">                        
+                      data-ad-slot="5190331789">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="display-ad-phone" id="ads-style-display-res-phone-4">
+
+                <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                crossorigin="anonymous"></script>
+                <!-- Display horizontal -->
+                <ins class="adsbygoogle"
+                     id="ins-dis-phone-4" 
+                     style="display:block"
+                     data-ad-client="ca-pub-3654432220074510"
+                     data-ad-slot="6958590511"
+                     data-ad-format="fluid"
+                     data-full-width-responsive="true">                         
+                </ins>
+                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-12">
@@ -5995,7 +5978,7 @@ function updateLogo()
             They both have flagship-level chipsets, but Samsung is a bit faster here. The Pixel is also very capable and can run apps like buttery smooth. The Pixel Fold seems to have better optimization than other Pixels. Both of them support multitasking in a more native way. The OS is beautiful and optimized for multitasking. There is a <a href="https://www.samsung.com/us/support/answer/ANS00091163/" target="_blank" rel="nofollow noopener noreferrer">taskbar</a> implementation on both at the bottom of the viewport to switch between apps pretty quickly. All the stock apps are optimized for the big foldable screens. But Samsung is upping the game by allowing third-party apps to scale up to fit the full-screen width. This feature is built into the OS for Samsung Fold 4, but not for the Pixel Fold. This is not a good look for the Pixel. 
 
             <br>
-            <div class="display-ad" id="ads-style-display-3">
+            <div class="ads-style-one" id="ads-style-display-res-3">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  
@@ -6004,11 +5987,27 @@ function updateLogo()
                  <!-- Display horizontal -->
                  <ins class="adsbygoogle"
                       id="ins-dis-three" 
-                      style="display:block"
+                      style="display:block;width:100%;min-height:240px;height:250px;max-height:260px"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-format="fluid"
                       data-ad-slot="6958590511"
                       data-full-width-responsive="true">                         
+                 </ins>
+                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="feed-ad-phone" id="ads-style-feed-res-phone-3">
+
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 
+                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                 crossorigin="anonymous"></script>
+                 <ins class="adsbygoogle"
+                      id="ins-feed-phone-3" 
+                      style="display:block"
+                      data-ad-format="fluid"
+                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-client="ca-pub-3654432220074510"
+                      data-ad-slot="7222082881">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
@@ -6048,19 +6047,39 @@ function updateLogo()
             Google and Samsung are two giant tech companies. The Samsung <a href="https://www.samsung.com/bd/smartphones/galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">Galaxy Z Fold 4</a> is the most popular foldable smartphone on the planet Earth. <a href="https://blog.google/products/pixel/google-pixel-fold/" target="_blank" rel="nofollow noopener noreferrer">Pixel Fold</a> is Google's first shot in the foldable market. Its geographical availability is also very limited. The Pixel Fold is targeted toward tech-enthusiast people who like a clean Android experience. But luckily Google's first foldable smartphone checks most boxes that people want in a foldable phone. I will say that those people who wanna do multitasking - artwork on a phone, also like the form factor, can utilize the big screen and have the money to spend, should buy the Pixel Fold. Though it is a first-generation product, yet a really good device this time.    
 
             <br>
-            <div class="feed-ad" id="ads-style-feed-4">
+            <div class="ads-style-two" id="ads-style-feed-res-2">
+
+                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
-                      id="ins-feed-four" 
+                      id="ins-feed-two" 
                       style="display:block"
                       data-ad-format="fluid"
-                      data-ad-layout-key="-5c+c0-2e-5v+wq"
+                      data-ad-layout-key="-co-n+45-2o+yn"
                       data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="7222082881">                        
+                      data-ad-slot="5190331789">                         
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+
+             </div>
+             <div class="display-ad-phone" id="ads-style-display-res-phone-2">
+
+                <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
+                crossorigin="anonymous"></script>
+                <!-- Display horizontal -->
+                <ins class="adsbygoogle"
+                     id="ins-dis-phone-2" 
+                     style="display:block"
+                     data-ad-client="ca-pub-3654432220074510"
+                     data-ad-slot="6958590511"
+                     data-ad-format="fluid"
+                     data-full-width-responsive="true">                         
+                </ins>
+                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
             </div>
             <br id="ads-br-8"> 
