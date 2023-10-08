@@ -4972,6 +4972,7 @@ function updateLogo()
         {
            // Add data-ad-status attribute
            var parentDiv = element.parentNode;
+           var childDivs = parentDiv.querySelectorAll('div'); var selectChild = childDivs[1];
            var value1 = element.getAttribute('data-ad-layout-key');
            var value3 = element.getAttribute('data-ad-status');
            // console.log("value 1 is = ", value1);
@@ -4983,6 +4984,8 @@ function updateLogo()
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "block";
+              var selectNewChild = childDivs[0];
+              selectNewChild.style.display = "none";
            }
            if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(min-width: 615px)").matches)
            {
@@ -4992,6 +4995,7 @@ function updateLogo()
            if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "block";
+              selectChild.style.display = "none";
            }
            if(value1 == '-5c+c0-2e-5v+wq' && value3 == 'filled' && 
               window.matchMedia("(max-width: 615px)").matches)
@@ -5019,6 +5023,7 @@ function updateLogo()
         {
            // Add data-ad-status attribute
            var parentDiv = element.parentNode;
+           var childDivs = parentDiv.querySelectorAll('div'); var selectChild = childDivs[0];
            var value2 = element.getAttribute('data-full-width-responsive');
            var value4 = element.getAttribute('data-ad-status');
            // console.log("value 2 is = ", value2);
@@ -5030,6 +5035,8 @@ function updateLogo()
            if(value2 == 'null' && window.matchMedia("(min-width: 615px)").matches)
            {
               element.style.display = "block";
+              var selectNewChild = childDivs[1];
+              selectNewChild.style.display = "none";
            }
            if(value2 == 'true' && window.matchMedia("(min-width: 615px)").matches)
            {
@@ -5039,6 +5046,7 @@ function updateLogo()
            if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "block";
+              selectChild.style.display = "none";
            }
            if(value2 == 'true' && value4 == 'filled' && window.matchMedia("(max-width: 615px)").matches)
            {
@@ -5085,7 +5093,7 @@ function updateLogo()
 
                   // console.log(attrname);
                   // console.log(attrvalue);
-
+/*
                   if(window.matchMedia("(max-width: 615px)").matches)
                   {
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-one')
@@ -5194,8 +5202,8 @@ function updateLogo()
                     {
                         document.getElementById("ads-v1-in").style.background = "#F7F7F7";
                     }   
-                  }   
-                }
+                  }     */  
+                } 
             });
     });
 
@@ -5783,6 +5791,9 @@ function updateLogo()
             <br>
             <div class="feed-ad" id="ads-style-feed-1">
 
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins id="ins-feed-one" 
@@ -5817,6 +5828,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-1">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
@@ -5857,6 +5869,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-2">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
@@ -5902,6 +5915,9 @@ function updateLogo()
 
             <br>
             <div class="feed-ad" id="ads-style-feed-2">
+
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
 
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
@@ -5957,6 +5973,9 @@ function updateLogo()
             <br>
             <div class="feed-ad" id="ads-style-feed-3">
 
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins id="ins-feed-three" 
@@ -5998,6 +6017,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-3">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
@@ -6048,6 +6068,9 @@ function updateLogo()
             <br>
             <div class="feed-ad" id="ads-style-feed-4">
                  
+                 <div class="ad-details-5"> <span> AD </span> </div>
+                 <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
+
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins id="ins-feed-four" 
