@@ -477,9 +477,9 @@
         display: none;
     }
     
-    #ads-br-2 {display: none;} #ads-br-4 {display: none;} #ads-br-6 {display: none;} 
-    #ads-br-8 {display: none;} #ads-br-10 {display: none;} 
-    #ads-br-12 {display: none;} #ads-br-14 {display: none;}
+    #ads-br-f1 {display: none;} #ads-br-f2 {display: none;} #ads-br-f3 {display: none;} 
+    #ads-br-f4 {display: none;} #ads-br-d1 {display: none;} 
+    #ads-br-d2 {display: none;} #ads-br-d3 {display: none;}
 
     .ad-details-4
     {
@@ -4785,21 +4785,32 @@ function toppicksout()
 
    setInterval(function() { 
 
-    const adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
-    const adheight2 = document.getElementById("ads-style-display-1").clientHeight;
-    const adheight3 = document.getElementById("ads-style-display-2").clientHeight;
-    const adheight4 = document.getElementById("ads-style-feed-2").clientHeight;
-    const adheight5 = document.getElementById("ads-style-feed-3").clientHeight;
-    const adheight6 = document.getElementById("ads-style-display-3").clientHeight;
-    const adheight7 = document.getElementById("ads-style-feed-4").clientHeight;
+    var adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
+    var adheight2 = document.getElementById("ads-style-feed-2").clientHeight;
+    var adheight3 = document.getElementById("ads-style-feed-3").clientHeight;
+    var adheight4 = document.getElementById("ads-style-feed-4").clientHeight;
+    var adheight5 = document.getElementById("ads-style-display-1").clientHeight;
+    var adheight6 = document.getElementById("ads-style-display-2").clientHeight;
+    var adheight7 = document.getElementById("ads-style-display-3").clientHeight;
 
     document.getElementById("ads-style-feed-1").style.setProperty('--set-margin', adheight1 + "px");
-    document.getElementById("ads-style-display-1").style.setProperty('--set-margin', adheight2 + "px");
-    document.getElementById("ads-style-display-2").style.setProperty('--set-margin', adheight3 + "px");
-    document.getElementById("ads-style-feed-2").style.setProperty('--set-margin', adheight4 + "px");
-    document.getElementById("ads-style-feed-3").style.setProperty('--set-margin', adheight5 + "px");
-    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight6 + "px");
-    document.getElementById("ads-style-feed-4").style.setProperty('--set-margin', adheight7 + "px");
+    document.getElementById("ads-style-feed-2").style.setProperty('--set-margin', adheight2 + "px");
+    document.getElementById("ads-style-feed-3").style.setProperty('--set-margin', adheight3 + "px");
+    document.getElementById("ads-style-feed-4").style.setProperty('--set-margin', adheight4 + "px");
+    document.getElementById("ads-style-display-1").style.setProperty('--set-margin', adheight5 + "px");
+    document.getElementById("ads-style-display-2").style.setProperty('--set-margin', adheight6 + "px");
+    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight7 + "px");
+
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
+       if(adheight1 == 0) { document.getElementById("ads-br-f1").style.display = "block"; }
+       if(adheight2 == 0) { document.getElementById("ads-br-f2").style.display = "block"; }
+       if(adheight3 == 0) { document.getElementById("ads-br-f3").style.display = "block"; }
+       if(adheight4 == 0) { document.getElementById("ads-br-f4").style.display = "block"; }
+       if(adheight5 == 0) { document.getElementById("ads-br-d1").style.display = "block"; }
+       if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
+       if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
+    }
     
    }, 1000);
 
@@ -4965,14 +4976,6 @@ function updateLogo()
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
-              
-              document.getElementById("ads-br-2").style.display = "block";
-              document.getElementById("ads-br-4").style.display = "block";
-              document.getElementById("ads-br-6").style.display = "block";
-              document.getElementById("ads-br-8").style.display = "block";
-              document.getElementById("ads-br-10").style.display = "block";
-              document.getElementById("ads-br-12").style.display = "block";
-              document.getElementById("ads-br-14").style.display = "block";  
            }
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(min-width: 615px)").matches)
            {
@@ -5068,7 +5071,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
                     {
                         document.getElementById("ads-style-display-1").style.display = "none";
-                        document.getElementById("ads-br-4").style.display = "block";
+                        document.getElementById("ads-br-d1").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-feed-one')
                     {
@@ -5077,7 +5080,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
                     {
                         document.getElementById("ads-style-feed-1").style.display = "none";
-                        document.getElementById("ads-br-2").style.display = "block";
+                        document.getElementById("ads-br-f1").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-feed-two')
                     {
@@ -5086,7 +5089,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
                     {
                         document.getElementById("ads-style-feed-2").style.display = "none";
-                        document.getElementById("ads-br-10").style.display = "block";
+                        document.getElementById("ads-br-f2").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-two')
                     {
@@ -5097,7 +5100,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
                     {
                         document.getElementById("ads-style-display-2").style.display = "none";
-                        document.getElementById("ads-br-6").style.display = "block";
+                        document.getElementById("ads-br-d2").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-three')
                     {
@@ -5108,7 +5111,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
                     {
                         document.getElementById("ads-style-display-3").style.display = "none";
-                        document.getElementById("ads-br-14").style.display = "block";
+                        document.getElementById("ads-br-d3").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-feed-three')
                     {
@@ -5117,7 +5120,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
                     {
                         document.getElementById("ads-style-feed-3").style.display = "none";
-                        document.getElementById("ads-br-12").style.display = "block";
+                        document.getElementById("ads-br-f3").style.display = "block";
                     }
                     if(attrvalue === 'filled' && record.target.id === 'ins-feed-four')
                     {
@@ -5126,7 +5129,7 @@ function updateLogo()
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
                     {
                         document.getElementById("ads-style-feed-4").style.display = "none";
-                        document.getElementById("ads-br-8").style.display = "block";
+                        document.getElementById("ads-br-f4").style.display = "block";
                     }
                   } 
 
@@ -5765,7 +5768,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-2">
+            <br id="ads-br-f1">
 
             No charger, no adapter for the Samsung Galaxy Fold 4. Only a type-c to type-c charging cable, a SIM ejection tool and quick start guide. So the basic accessories only, I wonder when they’re going to exclude the charging cable too. By the way, these new C to C cables can transfer data too, at a much higher speed, as they are USB 3.2 certified. 
 
@@ -5801,7 +5804,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-4">
+            <br id="ads-br-d1">
 
             For the Pixel Fold, Google had plenty of time to figure out what most people want and like. Their hinge design is what I like in a properly folded position. There's no noticeable gap when Pixel Fold is folded. It's one of the thinnest foldable smartphones, which is very user-friendly in many ways. But you can't unfold the device quite so easily using one hand. You can fold/unfold the device at almost any position between 0 - 180˚. When folded <a href="https://android.stackexchange.com/questions/246563/what-is-the-difference-between-corning-gorilla-glass-victus-and-corning-goril" target="_blank" rel="nofollow noopener noreferrer">Gorilla Glass Victus</a> front and back, but plastic front when unfolded. The whole frame is made of aluminum and it feels pre&shy;mium with <a href="https://en.wikipedia.org/wiki/Frosted_glass" target="_blank" rel="nofollow noopener noreferrer">frosted glass</a> back, weighs about 283 grams. The dimensions are 158.7 x 139.7 x 5.8 mm (unfolded) and 158.7 x 79.5 x 12.1 mm when folded. 
 
@@ -5841,7 +5844,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-6">
+            <br id="ads-br-d2">
 
             So here we have Foldable <a href="https://www.samsung.com/uk/mobile-phone-buying-guide/what-is-dynamic-amoled-screen/" target="_blank" rel="nofollow noopener noreferrer">Dynamic AMOLED</a> 2X for the Z Fold 4, the 2X after AMOLED probably means that the refresh rate is 2 times 60, which is 120 Hz. The display also supports HDR10+ and the peak brightness is 1200 nits. The resolution is 1812 x 2176 pixels at 373 ppi density. For the front cover display, it is also using a dynamic AMOLED 2X screen with a size of 6.2 inches and a resolution of 904 x 2316 pixels at 23.1 : 9 aspect ratio. 
 
@@ -5885,7 +5888,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-10">
+            <br id="ads-br-f2">
 
             The Fold 4 also has 5 cameras but with an under-display camera here. The main sensor is 50 MP, f/1.8, 23mm (wide), 1.0µm, Dual Pixel PDAF and OIS. Telephoto camera is 10 MP with f/2.4, 66mm (telephoto), 1.0µm, PDAF, OIS and 3x <a href="https://www.masterclass.com/articles/whats-the-difference-between-optical-zoom-and-digital-zoom" target="_blank" rel="nofollow noopener noreferrer">optical zoom</a>. Then the ultrawide cam is 12 MP, f/2.2, 123˚, 12mm (ultrawide) and 1.12µm. 
 
@@ -5939,7 +5942,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-12">
+            <br id="ads-br-f3">
 
             Both of these devices have pretty good <a href="https://www.samsung.com/uk/support/mobile-devices/what-is-telephoto-mode-and-how-do-i-use-it/" target="_blank" rel="nofollow noopener noreferrer">telephoto</a> cameras. But the Pixel Fold is ahead in the game quite a bit by having a 5x optical zoom. Ultrawide camera shots are a let-down in quality from the main cameras on both of them as expected. Overall, I like the Pixel shots more in daylight conditions. Both do a great job of capturing photos at night, but the white balance is pretty different on them. It’s a hard call but the Fold 4’s night shots may look a little bit more true to the scene. So Pixel is clearly better at daytime for its amazing zoom shots and Samsung is slightly better for night-time shots - better white balance. 
 
@@ -5982,7 +5985,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-14">
+            <br id="ads-br-d3">
 
             Even though the OS in the Samsung is much heavier, you can't notice any lagginess in a new flagship phone. But after 3-4 years you may see lags as the OS gets heavier and heavier over time through updates. But if the software optimization is really good you can get away with a heavy load caused by the large OS files. Pixel doesn’t have any additional skin on top of Android, which makes it less resource-heavy. 
 
@@ -6030,7 +6033,7 @@ function updateLogo()
                  </ins>
 
             </div>
-            <br id="ads-br-8"> 
+            <br id="ads-br-f4"> 
 
             And if you like those previously mentioned points, you have the money and on top of these most importantly you wanna play games on a bigger screen while you can also have a phone-like form factor, then buy the Galaxy Z Fold 4. This article is getting too big, in the end, I just wanna say that it is really hard to pick a winner here, both have their pros and cons. I hope my article helps you to make a thoughtful decision.   
 		      
