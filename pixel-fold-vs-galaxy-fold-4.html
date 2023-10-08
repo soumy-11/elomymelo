@@ -4864,7 +4864,7 @@ function updateAdsAttributes()
         }
      });
     }
-    updateClassOne()
+    updateClassOne();
 
     // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
@@ -4965,6 +4965,14 @@ function updateLogo()
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(max-width: 615px)").matches)
            {
               element.style.display = "none";
+              
+              document.getElementById("ads-br-2").style.display = "block";
+              document.getElementById("ads-br-4").style.display = "block";
+              document.getElementById("ads-br-6").style.display = "block";
+              document.getElementById("ads-br-8").style.display = "block";
+              document.getElementById("ads-br-10").style.display = "block";
+              document.getElementById("ads-br-12").style.display = "block";
+              document.getElementById("ads-br-14").style.display = "block";  
            }
            if(value1 == '-co-n+45-2o+yn' && window.matchMedia("(min-width: 615px)").matches)
            {
@@ -5018,75 +5026,6 @@ function updateLogo()
     // Call the function to update all elements at once
     getMoreAttributes();
 
-/*
-    // Array of IDs
-    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateElementsAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
-           element.setAttribute('data-ad-slot', '5190331789');
-        }
-     });
-    }
-
-    function updateOldAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('data-ad-layout-key', '-5c+c0-2e-5v+wq');
-           element.setAttribute('data-ad-slot', '7222082881');
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateElementsAttributes(); }
-
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    updateOldAttributes(); }
-
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
-    function updateAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('style', 
-           'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
-           element.removeAttribute('data-ad-format', 'fluid');
-        }
-     });
-    }
-
-    function oldAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
-           element.setAttribute('style', 'display:block');
-           element.setAttribute('data-ad-format', 'fluid');
-        }
-     });
-    }
-
-    // Call the function to update all elements at once
-    if (window.matchMedia("(min-width: 615px)").matches) {
-    updateAttributes(); }
-
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    oldAttributes(); }
-*/
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
@@ -5112,122 +5051,121 @@ function updateLogo()
             { 
                 if(record.type === 'attributes')
                 {
-                    const attrname = record.attributeName;
-                    const attrvalue = record.target.getAttribute(attrname);
+                  const attrname = record.attributeName;
+                  const attrvalue = record.target.getAttribute(attrname);
 
-                    // console.log(attrname);
-                    // console.log(attrvalue);
-/*
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-1')
-                    {
-                        document.getElementById("ad-dtls-fone").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-1')
-                    {
-                        document.getElementById("ads-style-display-res-phone").style.display = "none";
-                        document.getElementById("ads-br-2").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-1')
-                    {
-                        document.getElementById("ads-style-feed-res-phone").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-1')
-                    {
-                        document.getElementById("ads-style-feed-res-phone").style.display = "none";
-                        document.getElementById("ads-br-4").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-2')
-                    {
-                        document.getElementById("ads-style-feed-res-phone-2").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-2')
-                    {
-                        document.getElementById("ads-style-feed-res-phone-2").style.display = "none";
-                        document.getElementById("ads-br-6").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-2')
-                    {
-                        document.getElementById("ad-dtls-ftwo").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone-2").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone-2").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-2')
-                    {
-                        document.getElementById("ads-style-display-res-phone-2").style.display = "none";
-                        document.getElementById("ads-br-8").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-3')
-                    {
-                        document.getElementById("ad-dtls-ftwo").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone-3").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone-3").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-3')
-                    {
-                        document.getElementById("ads-style-display-res-phone-3").style.display = "none";
-                        document.getElementById("ads-br-10").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-4')
-                    {
-                        document.getElementById("ad-dtls-ftwo").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone-4").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone-4").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-4')
-                    {
-                        document.getElementById("ads-style-display-res-phone-4").style.display = "none";
-                        document.getElementById("ads-br-12").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-3')
-                    {
-                        document.getElementById("ads-style-feed-res-phone-3").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-3')
-                    {
-                        document.getElementById("ads-style-feed-res-phone-3").style.display = "none";
-                        document.getElementById("ads-br-14").style.display = "block";
-                    }
+                  // console.log(attrname);
+                  // console.log(attrvalue);
 
-                    // desktop
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
+                  if(window.matchMedia("(max-width: 615px)").matches)
+                  {
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-one')
                     {
-                        document.getElementById("ads-style-feed-res").style.display = "none";
+                        // document.getElementById("ad-dtls-fone").style.display = "none";
+                        document.getElementById("ads-style-display-1").style.background = "#4D4D4D";
+                        document.getElementById("ads-style-display-1").style.border = "3px transparent solid";
                     }
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
                     {
-                        document.getElementById("ads-style-display-res").style.display = "none";
+                        document.getElementById("ads-style-display-1").style.display = "none";
+                        document.getElementById("ads-br-4").style.display = "block";
                     }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
+                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-one')
                     {
-                        document.getElementById("ads-style-display-res-2").style.display = "none";
+                        document.getElementById("ads-style-feed-1").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
+                    {
+                        document.getElementById("ads-style-feed-1").style.display = "none";
+                        document.getElementById("ads-br-2").style.display = "block";
+                    }
+                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-two')
+                    {
+                        document.getElementById("ads-style-feed-2").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
                     }
                     if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
                     {
-                        document.getElementById("ads-style-feed-res-2").style.display = "none";
+                        document.getElementById("ads-style-feed-2").style.display = "none";
+                        document.getElementById("ads-br-10").style.display = "block";
+                    }
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-two')
+                    {
+                        // document.getElementById("ad-dtls-ftwo").style.display = "none";
+                        document.getElementById("ads-style-display-2").style.background = "#4D4D4D";
+                        document.getElementById("ads-style-display-2").style.border = "3px transparent solid";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
+                    {
+                        document.getElementById("ads-style-display-2").style.display = "none";
+                        document.getElementById("ads-br-6").style.display = "block";
+                    }
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-three')
+                    {
+                        // document.getElementById("ad-dtls-ftwo").style.display = "none";
+                        document.getElementById("ads-style-display-3").style.background = "#4D4D4D";
+                        document.getElementById("ads-style-display-3").style.border = "3px transparent solid";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
+                    {
+                        document.getElementById("ads-style-display-3").style.display = "none";
+                        document.getElementById("ads-br-14").style.display = "block";
+                    }
+                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-three')
+                    {
+                        document.getElementById("ads-style-feed-3").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
+                    {
+                        document.getElementById("ads-style-feed-3").style.display = "none";
+                        document.getElementById("ads-br-12").style.display = "block";
+                    }
+                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-four')
+                    {
+                        document.getElementById("ads-style-feed-4").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
+                    {
+                        document.getElementById("ads-style-feed-4").style.display = "none";
+                        document.getElementById("ads-br-8").style.display = "block";
+                    }
+                  } 
+
+                  // desktop 
+                  if(window.matchMedia("(min-width: 615px)").matches)
+                  {
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
+                    {
+                        document.getElementById("ads-style-feed-1").style.display = "none";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
+                    {
+                        document.getElementById("ads-style-display-1").style.display = "none";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
+                    {
+                        document.getElementById("ads-style-display-2").style.display = "none";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
+                    {
+                        document.getElementById("ads-style-feed-2").style.display = "none";
+                    }   
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
+                    {
+                        document.getElementById("ads-style-feed-3").style.display = "none";
+                    }
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
+                    {
+                        document.getElementById("ads-style-feed-4").style.display = "none";
+                    }  
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
+                    {
+                        document.getElementById("ads-style-display-3").style.display = "none";
                     }   
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
                     {
                         document.getElementById("ads-v1-in").style.background = "#F7F7F7";
-                    } 
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
-                    {
-                        document.getElementById("ads-style-feed-res-3").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
-                    {
-                        document.getElementById("ads-style-feed-res-4").style.display = "none";
-                    }  
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
-                    {
-                        document.getElementById("ads-style-display-res-3").style.display = "none";
-                    }   */
-
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
-                    {
-                        document.getElementById("ads-v1-in").style.background = "#F7F7F7";
-                    } 
+                    }   
+                  }   
                 }
             });
     });
