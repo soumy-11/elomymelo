@@ -4850,10 +4850,21 @@ function updateAdsAttributes()
            // Add the data-ad-status attribute
            element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
            element.setAttribute('data-ad-slot', '5190331789');
+        }
+     });
+    }
+
+    function updateClassOne() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
            element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
+    updateClassOne()
 
     // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
@@ -4871,10 +4882,21 @@ function updateAdsAttributes()
            'display:block;width:100%;min-height:240px;height:250px;max-height:260px');
            element.removeAttribute('data-ad-format', 'fluid');
            element.setAttribute('data-full-width-responsive', 'null');
+        }
+     });
+    }
+
+    function updateClass() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the data-ad-status attribute
            element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
+    updateClass();
 
     // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
