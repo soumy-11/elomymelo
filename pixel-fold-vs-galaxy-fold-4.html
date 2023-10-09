@@ -64,6 +64,24 @@
 		z-index: -999;
 	}
 
+    @media only screen and (min-width: 615px) and (max-width: 1140px)
+    {
+    .custom-display
+    {
+        width: 100%;
+        height: 250px;
+    }
+    }
+
+    @media only screen and (min-width: 1140px) 
+    {
+    .custom-display
+    {
+        width: 970px;
+        height: 250px;
+    }
+    }
+
     @media only screen and (max-width: 615px)
     {   
     body 
@@ -4890,7 +4908,6 @@ function updateAdsAttributes()
         {
            // Add the data-ad-status attribute
            element.removeAttribute('data-ad-format', 'fluid');
-           element.setAttribute('style', 'display:block;width:100%;height:250px');
            element.setAttribute('data-full-width-responsive', 'null');
         }
      });
@@ -4902,7 +4919,7 @@ function updateAdsAttributes()
     if (element) 
         {
            // Add the data-ad-status attribute
-           element.setAttribute('class', 'adsbygoogle');
+           element.setAttribute('class', 'adsbygoogle custom-display');
         }
      });
     }
