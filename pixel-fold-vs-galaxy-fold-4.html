@@ -4852,82 +4852,55 @@ function updateAdsAttributes()
 {
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
+    // Function to update the attributes for multiple elements 
     function updateElementsAttributes() {
     ids.forEach(function(id) {
     var element = document.getElementById(id);
     if (element) 
         {
-           // Add the data-ad-status attribute
+           // Add the attributes now -----------
            element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
            element.setAttribute('data-ad-slot', '5190331789');
-        }
-     });
-    }
-
-    function updateClassOne() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
            element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
-    updateClassOne();
 
-    // Call the function to update all elements at once
+    // Call function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
     updateElementsAttributes(); }
 
     var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
     function updateAttributes() {
     ids.forEach(function(id) {
     var element = document.getElementById(id);
     if (element) 
         {
-           // Add the data-ad-status attribute
            element.removeAttribute('data-ad-format', 'fluid');
            element.setAttribute('style', 'display:block;width:100%;height:250px');
            element.setAttribute('data-full-width-responsive', 'null');
-        }
-     });
-    }
-
-    function updateClass() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           // Add the data-ad-status attribute
            element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
-    updateClass();
 
-    // Call the function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
     updateAttributes(); }
 
-    // Find all elements with class "ads-style-one" and "ads-style-two"
+    // Find all elements with class ------- 
     var elementsWithClassOne = document.querySelectorAll('.display-ad');
     var elementsWithClassTwo = document.querySelectorAll('.feed-ad');
 
-    // Function to add the script tag to an element
+    // Add the script tag to each ele ---
     function addScriptTagToElement(element) {
     var scriptElement = document.createElement('script');
     scriptElement.type = 'text/javascript';
     scriptElement.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
     element.appendChild(scriptElement); }
 
-    // Add the script tag to each element with class "ads-style-one"
     elementsWithClassOne.forEach(function(element) {
     addScriptTagToElement(element); });
 
-    // Add the script tag to each element with class "ads-style-two"
     elementsWithClassTwo.forEach(function(element) {
     addScriptTagToElement(element); });
 }
