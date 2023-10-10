@@ -5257,7 +5257,6 @@ function updateLogo()
   {       
       // Check if the body element has overflow set to "hidden"
       var bodyOverflow = window.getComputedStyle(document.body).overflow;
-      console.log("overflow value = ", bodyOverflow); 
       if (bodyOverflow === "hidden") { document.body.style.transform = "none"; } 
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
