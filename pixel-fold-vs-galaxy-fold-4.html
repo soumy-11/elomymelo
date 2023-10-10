@@ -4861,14 +4861,20 @@ function updateAdsAttributes()
            // Add the attributes now -----------
            element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
            element.setAttribute('data-ad-slot', '5190331789');
-           element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
 
+    function updateClassOne() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
+
     // Call function to update all elements at once
     if (window.matchMedia("(min-width: 615px)").matches) {
     updateElementsAttributes(); }
+
+    updateClassOne();
 
     var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
     function updateAttributes() {
@@ -4879,13 +4885,19 @@ function updateAdsAttributes()
            element.removeAttribute('data-ad-format', 'fluid');
            element.setAttribute('style', 'display:block;width:100%;height:250px');
            element.setAttribute('data-full-width-responsive', 'null');
-           element.setAttribute('class', 'adsbygoogle');
         }
      });
     }
 
+    function updateClassTwo() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
+
     if (window.matchMedia("(min-width: 615px)").matches) {
     updateAttributes(); }
+
+    updateClassTwo();
 
     // Find all elements with class ------- 
     var elementsWithClassOne = document.querySelectorAll('.display-ad');
