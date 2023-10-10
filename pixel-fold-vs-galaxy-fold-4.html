@@ -5044,11 +5044,8 @@ function updateLogo()
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
-    document.querySelectorAll(".display-ad-phone").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".feed-ad-phone").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".ads-style-one").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".ads-style-two").forEach(function(el) { el.style.display = "none"; });
-    document.getElementById("ads-br-2").style.display = "block"; document.getElementById("ads-br-4").style.display = "block"; document.getElementById("ads-br-6").style.display = "block"; document.getElementById("ads-br-8").style.display = "block"; document.getElementById("ads-br-10").style.display = "block"; }
+    document.querySelectorAll(".display-ad").forEach(function(el) { el.style.display = "none"; });
+    document.querySelectorAll(".feed-ad").forEach(function(el) { el.style.display = "none"; }); }
 
     // mutation observer code
     const checkme1 = document.getElementById("ins-feed-one");
