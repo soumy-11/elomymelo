@@ -4811,7 +4811,11 @@ function toppicksout()
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
-    
+
+    // Check if the body element has overflow set to "hidden"
+    var bodyOverflow = window.getComputedStyle(document.body).overflow;
+    if (bodyOverflow === "hidden") { document.body.style.transform = "none"; } 
+
    }, 1000);
 
    timer2 = setInterval(function() 
