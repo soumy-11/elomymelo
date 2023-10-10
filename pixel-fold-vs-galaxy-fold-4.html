@@ -4948,13 +4948,13 @@ function updateLogo()
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-    // Function to update the style and add data-ad-status attribute for multiple elements
+    // Function to update the style for multiple elements 
     function getAttributes() {
     ids.forEach(function(id) {
     var element = document.getElementById(id);
     if (element) 
         {
-           // Add data-ad-status attribute
+           // Get some attribute values 
            var parentDiv = element.parentNode;
            var childDivs = parentDiv.querySelectorAll('div'); var selectChild = childDivs[1];
            var value1 = element.getAttribute('data-ad-layout-key');
@@ -5001,13 +5001,11 @@ function updateLogo()
     getAttributes();
 
     var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-    // Function to update the style and add data-ad-status attribute for multiple elements
     function getMoreAttributes() {
     ids.forEach(function(id) {
     var element = document.getElementById(id);
     if (element) 
         {
-           // Add data-ad-status attribute
            var parentDiv = element.parentNode;
            var childDivs = parentDiv.querySelectorAll('div'); var selectChild = childDivs[0];
            var value2 = element.getAttribute('data-full-width-responsive');
@@ -5050,8 +5048,8 @@ function updateLogo()
      });
     }
 
-    // Call the function to update all elements at once
-    getMoreAttributes();
+    // Call to update all elements at once
+    getMoreAttributes();  
 /*
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
@@ -5781,8 +5779,6 @@ function updateLogo()
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
                  <ins id="ins-feed-one" 
                       style="display:block"
                       data-ad-format="fluid"
@@ -5817,8 +5813,6 @@ function updateLogo()
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
                  
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
                  <!-- Display horizontal -->
                  <ins id="ins-dis-one" 
                       style="display:block"
@@ -5857,9 +5851,7 @@ function updateLogo()
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
-                 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
+
                  <!-- Display horizontal -->
                  <ins id="ins-dis-two" 
                       style="display:block"
@@ -5906,8 +5898,6 @@ function updateLogo()
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
                  <ins id="ins-feed-two" 
                       style="display:block"
                       data-ad-format="fluid"
@@ -5963,8 +5953,6 @@ function updateLogo()
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
                  <ins id="ins-feed-three" 
                       style="display:block"
                       data-ad-format="fluid"
@@ -6005,9 +5993,7 @@ function updateLogo()
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4" id="ad-dtls-fthree"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
-                 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
+
                  <!-- Display horizontal -->
                  <ins id="ins-dis-three" 
                       style="display:block"
@@ -6058,8 +6044,6 @@ function updateLogo()
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
                  <ins id="ins-feed-four" 
                       style="display:block"
                       data-ad-format="fluid"
