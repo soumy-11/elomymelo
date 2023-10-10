@@ -4812,9 +4812,9 @@ function toppicksout()
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
 
-    // Check if the body element has overflow set to "hidden"
+    /*  // Check if the body element has overflow set to "hidden"
     var bodyOverflow = window.getComputedStyle(document.body).overflow;
-    if (bodyOverflow === "hidden") { document.body.style.transform = "none"; } 
+    if (bodyOverflow === "hidden") { document.body.style.transform = "none"; }  */
 
    }, 1000);
 
@@ -5253,10 +5253,12 @@ function updateLogo()
 
 <script type="text/javascript">
 
-  window.addEventListener('resize', scaleMe);
   function scaleMe()
-  { 
-      // console.log('hello-here'); 
+  {       
+      // Check if the body element has overflow set to "hidden"
+      var bodyOverflow = window.getComputedStyle(document.body).overflow;
+      console.log("overflow value = ", bodyOverflow); 
+      if (bodyOverflow === "hidden") { document.body.style.transform = "none"; } 
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
@@ -5271,24 +5273,24 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
       }
-      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(1.0)";
       }
-      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.920)";
       }
-      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.860)";
       }
-      if (window.matchMedia("(min-width: 1501px)").matches) 
+      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.80)";
       }
   }
-  scaleMe();
+  scaleMe(); setInterval(scaleMe, 1000); 
 
 </script>
 
