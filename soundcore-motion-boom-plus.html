@@ -40,12 +40,11 @@
     {
 		position: absolute;
 		width: 3554px;
-		height: auto;
+		height: 2216px;
 		border: 0px grey solid;
-		background-color: rgba(112,112,112,0);
+		background-color: rgba(255,255,255,0);
 		overflow: visible;
 		visibility: visible;
-        padding-bottom: 918px;
 	}
 	#top-check
 	{
@@ -58,6 +57,16 @@
 		visibility: visible;
 		z-index: -999;
 	}
+
+    @media only screen and (max-width: 940px) and (orientation: portrait)
+    {
+    body 
+    {
+        background-size: 85% 2%;
+        animation: mooveme 0.55s;
+        animation-fill-mode: forwards;
+    }
+    }
 
     @media only screen and (max-width: 615px)
     {   
@@ -468,13 +477,11 @@
         left: 10px;
         height: 274px;
         width: 2140px;
-        border: 8px rgba(255,255,255,0.20) solid;
+        border: 8px rgba(157,30,30,0.67) solid;
         background: black;
         border-radius: 15px;
         margin-bottom: 100px;
-        /*
         box-shadow: 0px 0px 90px rgba(255,119,119,0.6);
-        */
     }
     .img-border
     {
@@ -505,8 +512,6 @@
         height: 152px;
         width: 271px;
         border-radius: 7px;
-        object-fit: cover;
-        object-position: center;
         z-index: 2;
         opacity: 0.84;
     }
@@ -594,91 +599,6 @@
     .ads-style-two
     {
         display: none;
-    }
-
-    #ads-br-2 {display: none;} #ads-br-4 {display: none;} #ads-br-6 {display: none;} 
-    #ads-br-8 {display: none;} #ads-br-10 {display: none;}
-
-    .ad-details-4
-    {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 266px;
-        height: 154px;
-        color: rgba(255,255,255,0.5);
-        font-family: cus-roboto-medium, roboto, sans-serif;
-        border: 4px rgba(112,112,112,0) solid;
-    }
-    .ad-details-4-main
-    {
-        position: absolute;
-        top: 54px;
-        left: 8px;
-        font-size: 10px;
-        line-height: 19px;
-    }
-    .ad-details-4-style-1
-    {
-        position: absolute;
-        left: 45px;
-        top: -19px;
-        font-size: 30px;
-        color: rgba(162,122,122,0.78);
-    }
-    .ad-details-4-style-2
-    {
-        position: absolute;
-        left: 77px;
-        color: rgba(234,148,6,0.7);
-    }
-    .ad-details-5
-    {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 130px;
-        height: 70px;
-        font-size: 30px;
-        background: black;
-        padding-bottom: 65px;
-        color: rgba(255,255,255,0.4);
-        font-family: cus-arial-round, cus-roboto-medium, roboto, sans-serif;
-        border: 4px rgba(112,112,112,0) solid;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 65px;
-    }
-    .display-ad-phone
-    {
-        position: relative;
-        left: 927px;
-        width: 306px;
-        height: auto;
-        min-height: 200px;
-        border: 3px rgba(112,112,112,0.45) solid;
-        border-radius: 5px;
-        margin-bottom: calc(var(--set-margin)*3.7);
-        margin-top: calc(var(--set-margin)*3.7);
-    }
-    .feed-ad-phone
-    {
-        position: relative;
-        left: 830px;
-        width: 500px;
-        height: auto;
-        min-height: 256px;
-        padding: 4px;
-        background: #4D4D4D;
-        border-radius: 5px;
-        margin-bottom: calc(var(--set-margin)*2.05);
-        margin-top: calc(var(--set-margin)*2.05);
     }
     #section-one
     {
@@ -914,10 +834,6 @@
 	#ID6863782_instagram_media_soci {
 		display: none;
 	}
-    #ads-vertical-two
-    {
-        display: none;
-    }
     #ads-vertical-one
     {
         display: none;
@@ -1232,12 +1148,6 @@
     	color: rgba(238,99,122,0.80);
 		transition: 0.5s;   	
     }
-    #after-ft-phone
-    {
-        position: relative;
-        width: 2058px;
-        border: 1px white solid;
-    }
     #footer-phone
     {
     	position: relative;
@@ -1427,7 +1337,42 @@
 		transition: 0.5s;
     }
     }
+/*
+    @media only screen and (max-width: 940px) and (orientation: landscape)
+    {
+    body 
+    {
+        transform: scale(1.0); 
+        background-size: 85% 5%;
+        animation: moove 0.55s;
+        animation-fill-mode: forwards;
+    }
+    }
 
+    @media only screen and (max-width: 940px)
+                       and (max-height: 496px)
+                       and (orientation: landscape)
+    {
+    body 
+    {
+        transform: scale(1.0); 
+        background-size: 85% 8%;
+        animation: moovemee 0.55s;
+        animation-fill-mode: forwards;
+    }
+    }
+
+    @media only screen and (min-width: 940px) and (orientation: landscape)
+    {
+    body 
+    {
+        transform: scale(0.80);
+        background-size: 85% 5%;
+        animation: moove 0.55s;
+        animation-fill-mode: forwards;
+    }
+    }
+*/
     @media only screen and (min-width: 615px)
     {
     body 
@@ -1485,37 +1430,26 @@
 	}
     .articles-container
 	{
-		position: relative;
+		position: absolute;
 		left: 116px;
 		top: 770px;
 		width: 2358px;
-		height: auto;
-        min-height: 700px;
-        padding-bottom: 400px;
+		height: 6712px;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		border: 1px rgba(112,112,112,0.450) solid;
 		background: transparent;
 		border-radius: 50px;
 		z-index: -1;
 	}
-
 	.articles-container::-webkit-scrollbar-track 
 	{
         margin-top: 900px;
         margin-bottom: 900px;
     }
-    .articles-container::-webkit-scrollbar-track:hover
-    {
-        border-top: 10px rgba(255,119,119,0.5) solid;
-        border-bottom: 10px rgba(255,119,119,0.5) solid;
-        background: rgba(112,112,112,0.08);
-    }
     .articles-container::-webkit-scrollbar 
     {
         width: 20px;        
-    }
-    .articles-container::-webkit-scrollbar:vertical:hover 
-    {
-        width: 30px;       
     }
     .articles-container::-webkit-scrollbar-thumb 
     {
@@ -1525,9 +1459,7 @@
     .articles-container::-webkit-scrollbar-thumb:vertical:hover
     {
     	background-color: rgba(112,112,112,0.5);
-        width: 30px;
     }
-
     #main-art-header
     {
     	position: relative;
@@ -1687,16 +1619,15 @@
     }
     .footer
 	{
-		position: relative;
+		position: absolute;
 		left: 116px;
-		top: 854px;
+		top: 7562px;
 		width: 2358px;
 		height: 364px;
 		overflow: visible;
 		border: 1px rgba(112,112,112,0.450) solid;
 		background: transparent;
 		border-radius: 46px;
-        display: none;
 	}
     .footer a
     {
@@ -1787,7 +1718,7 @@
         left: 10px;
         height: 160px;
         width: 280px;
-        border: 10px rgba(112,112,112,0) solid;
+        border: 10px rgba(112,112,112,0.250) solid;
         border-radius: 10px;
         z-index: 4;
     }
@@ -1799,8 +1730,6 @@
         height: 152px;
         width: 271px;
         border-radius: 7px;
-        object-fit: cover;
-        object-position: center;
         z-index: 2;
     }
     .mid-text
@@ -1873,184 +1802,6 @@
         padding: 40px;
     }
     .aff-link-text-phone
-    {
-        display: none;
-    }
-
-    .ads-style-one
-    {
-        position: relative;
-        left: 560px;
-        width: 1100px;
-        height: auto;
-        border: 6px rgba(112,112,112,0) solid;
-        background: #EAEAEA;
-        border-radius: 10px;
-        margin-bottom: 140px;
-        margin-top: 220px;
-    }
-    .ads-style-two
-    {
-        position: relative;
-        left: 660px;
-        width: 900px;
-        height: auto;
-        min-height: 220px;
-        border: 4px rgba(112,112,112,0.06) solid;
-        border-radius: 6px;
-        margin-bottom: 212px;
-        margin-top: 294px;
-    }
-    .ads-vertical
-    {
-        position: absolute;
-        overflow: visible;
-        width: 898px;
-        height: 1796px !important;
-        left: 2547px;
-        top: 3350px;
-        border: 1px rgba(112,112,112,0.5) solid;
-        background: transparent;
-        border-radius: 50px;
-        user-select: none;
-    }
-    .ads-vrtl-in
-    {
-        position: absolute;
-        left: 293px;
-        top: 593px;
-        width: 312px;
-        height: auto;
-        border: 6px rgba(112,112,112,0.06) solid;
-        border-radius: 10px;
-    }
-    #ads-details-1
-    {
-        position: absolute;
-        left: 120px;
-        top: 740px;
-        width: 658px;
-        color: rgba(112,112,112,0.7);
-        font-family: cus-roboto-medium, roboto, sans-serif;
-        font-size: 45px;
-        padding-left: 24px;
-        padding-right: 24px;
-        border: 0px rgba(112,112,112,0.2) solid;
-        text-align: center;
-        line-height: 77px;
-    }
-    #ads-details-style-1
-    {
-        position: absolute;
-        left: 125px;
-        top: -40px;
-        font-size: 80px;
-        color: rgba(162,122,122,0.78);
-    }
-    #ads-details-style-2
-    {
-        color: rgba(33,97,140,0.74);
-    }
-    #ads-details-2
-    {
-        position: absolute;
-        left: 120px;
-        top: 1150px;
-        width: 658px;
-        color: rgba(112,112,112,0.75);
-        font-family: cus-roboto, roboto, sans-serif;
-        font-size: 50px;
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        border: 6px rgba(236,96,202,0.2) solid;
-        border-radius: 20px;
-        text-align: center;
-        line-height: 77px;
-    }
-    #ads-details-3
-    {
-        position: absolute;
-        left: 120px;
-        top: 330px;
-        width: 658px;
-        color: rgba(112,112,112,0.75);
-        font-family: cus-roboto, roboto, sans-serif;
-        font-size: 50px;
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 32px;
-        padding-bottom: 28px;
-        border: 6px rgba(236,96,202,0.2) solid;
-        border-radius: 20px;
-        text-align: center;
-        line-height: 77px;
-    }
-    .ad-details-4
-    {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 710px;
-        height: 200px;
-        border: 4px rgba(112,112,112,0) solid;
-    }
-    .ad-details-4-style-1
-    {
-        position: absolute;
-        left: 250px;
-        top: -25px;
-        font-size: 40px;
-        font-family: cus-roboto-medium, roboto, sans-serif;
-        color: rgba(162,122,122,0.72);
-    }
-    .ad-details-4-main
-    {
-        position: absolute;
-        top: 44px;
-        left: 0px;
-        color: #9c9b9b;
-        font-size: 22px;
-        line-height: 30px;
-        text-align: center;
-    }
-    .ad-details-4-style-2
-    {
-        position: absolute;
-        top: 92px;
-        left: 221px;
-        font-family: cus-roboto-medium, roboto, sans-serif;
-        color: rgba(33,97,140,0.67);
-    }
-    .ad-details-5
-    {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 130px;
-        height: 70px;
-        font-size: 30px;
-        background: white;
-        padding-bottom: 65px;
-        color: rgba(0,0,0,0.34);
-        font-family: cus-arial-round, cus-roboto-medium, roboto, sans-serif;
-        border: 4px rgba(112,112,112,0) solid;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 67px;
-    }
-    .display-ad-phone
-    {
-        display: none;
-    }
-    .feed-ad-phone
     {
         display: none;
     }
@@ -2258,51 +2009,13 @@
 		overflow: visible;
 		width: 898px;
 		height: 852px;
-		left: 0px;
-		top: 0px;
+		left: 2547px;
+		top: 7074px;
 		border: 1px rgba(112,112,112,0.5) solid;
 		background: transparent;
 		border-radius: 50px;
     }
-    #top-pos
-    {
-        position: absolute;
-        overflow: visible;
-        width: 938px;
-        height: 600px;
-        left: 2527px;
-        top: 8934px;
-        visibility: hidden;
-        border-left: 20px rgba(33,97,140,0.2) solid;
-        border-right: 20px rgba(33,97,140,0.2) solid;
-        background: linear-gradient(to bottom, rgba(255,255,255,0), white, white, white, white, white, white, white, rgba(255,255,255,0.5), rgba(255,255,255,0));
-        border-radius: 0px 0px 20px 20px;
-    }
-    #out-cmnt
-    {
-        position: absolute;
-        overflow: visible;
-        width: 898px;
-        height: 970px;
-        left: 2547px;
-        top: 7954px;
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 50px;
-    }
-    #last-dab
-    {
-        position: absolute;
-        overflow: visible;
-        width: 938px;
-        height: 200px;
-        left: -20px;
-        bottom: 0px;
-        visibility: hidden;
-        background: linear-gradient(to top, white, white, rgba(255,255,255,0.5), transparent);
-        border-left: 20px rgba(33,97,140,0.2) solid;
-        border-right: 20px rgba(33,97,140,0.2) solid;
-        border-radius: 20px 20px 0px 0px;
-    }
+
     #Rectangle_12 {
         fill: rgba(255,255,255,1);
         stroke: rgba(112,112,112,1);
@@ -2770,10 +2483,10 @@
 	}
 	.after-hot-blank
     {
-    	position: relative;
+    	position: absolute;
     	overflow: visible;
-    	left: 821px;
-    	top: 917px;
+    	left: 2547px;
+    	top: 7980px;
     	width: 898px;
 		height: 54px;
 		border: 0px #A9A9A9 solid;
@@ -2856,10 +2569,6 @@
     	top: 55px;
     	font-size: 46px;
     }
-    #after-ft-phone
-    {
-        display: none;
-    }
     #footer-phone
     {
     	display: none;
@@ -2900,6 +2609,69 @@
     {
     	display: none;
     }
+    }
+/*
+    @media only screen and (min-width: 940px) and (orientation: portrait)
+    {
+    body 
+    {
+        transform: scale(0.80);
+        background-size: 85% 2%;
+        animation: mooveme 0.55s;
+        animation-fill-mode: forwards;
+    }
+    }
+
+    @media only screen and (min-width: 1140px) and (max-width: 1340px)
+    {
+    body 
+    {
+        transform: scale(0.860); 
+    }
+    }
+
+    @media only screen and (min-width: 940px) and (max-width: 1140px)
+    {
+    body 
+    {
+        transform: scale(0.920); 
+    }
+    }
+*/
+    @keyframes moove
+    {
+    	from
+    	{
+    		background-size: 85% 5%;
+    	}
+    	to
+    	{
+    		background-size: 45% 5%;
+    	}
+    }
+
+    @keyframes mooveme
+    {
+    	from
+    	{
+    		background-size: 85% 2%;
+    	}
+    	to
+    	{
+    		background-size: 45% 2%;
+    	}
+    }
+
+    @keyframes moovemee
+    {
+    	from
+    	{
+    		background-size: 85% 8%;
+    	}
+    	to
+    	{
+    		background-size: 45% 8%;
+    	}
     }
 
 	#Rectangle_2 {
@@ -4037,6 +3809,7 @@
         position: absolute;
         width: 500px;
         height: 400px;
+        overflow: visible;
         left: 0px;
         top: 0px;
         background: rgba(112,112,112,0.3);
@@ -4158,7 +3931,7 @@
 
     .main-article-div
     {
-    	position: relative;
+    	position: absolute;
     	left: 56px;
     	top: 280px;
     	width: 2235px;
@@ -4213,6 +3986,117 @@
         border-radius: 35px;
         line-height: 80px;
         user-select: none;
+    }
+
+    .ads-style-one
+    {
+        position: relative;
+        left: 560px;
+        width: 1100px;
+        height: auto;
+        border: 6px rgba(112,112,112,0.06) solid;
+        border-radius: 10px;
+        margin-bottom: 140px;
+        margin-top: 220px;
+    }
+    .ads-style-two
+    {
+        position: relative;
+        left: 660px;
+        width: 900px;
+        height: auto;
+        min-height: 220px;
+        border: 4px rgba(112,112,112,0.06) solid;
+        border-radius: 6px;
+        margin-bottom: 212px;
+        margin-top: 294px;
+    }
+
+    #ads-vertical-one
+    {
+        position: absolute;
+        overflow: visible;
+        width: 898px;
+        height: 1796px !important;
+        left: 2547px;
+        top: 3350px;
+        border: 1px rgba(112,112,112,0.5) solid;
+        background: transparent;
+        border-radius: 50px;
+        user-select: none;
+    }
+    #ads-v1-in
+    {
+        position: absolute;
+        left: 293px;
+        top: 593px;
+        width: 312px;
+        height: auto;
+        border: 6px rgba(112,112,112,0.06) solid;
+        border-radius: 10px;
+    }
+    #ads-details-1
+    {
+        position: absolute;
+        left: 120px;
+        top: 730px;
+        width: 658px;
+        color: rgba(112,112,112,0.7);
+        font-family: cus-roboto-medium, roboto, sans-serif;
+        font-size: 45px;
+        padding-left: 24px;
+        padding-right: 24px;
+        border: 0px rgba(112,112,112,0.2) solid;
+        text-align: center;
+        line-height: 77px;
+    }
+    #ads-details-style-1
+    {
+        position: absolute;
+        left: 125px;
+        top: -40px;
+        font-size: 80px;
+        color: rgba(162,122,122,0.78);
+    }
+    #ads-details-style-2
+    {
+        color: rgba(33,97,140,0.74);
+    }
+    #ads-details-2
+    {
+        position: absolute;
+        left: 120px;
+        top: 1150px;
+        width: 658px;
+        color: rgba(112,112,112,0.65);
+        font-family: cus-roboto-medium, roboto, sans-serif;
+        font-size: 50px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 6px rgba(112,112,112,0.1) solid;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 77px;
+    }
+    #ads-details-3
+    {
+        position: absolute;
+        left: 120px;
+        top: 330px;
+        width: 658px;
+        color: rgba(112,112,112,0.65);
+        font-family: cus-roboto-medium, roboto, sans-serif;
+        font-size: 50px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 32px;
+        padding-bottom: 28px;
+        border: 6px rgba(112,112,112,0.1) solid;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 77px;
     }
 
     .inside-article-div
@@ -4327,7 +4211,6 @@
         color: rgba(0,0,0,0.575);
         background: transparent;
         cursor: pointer;
-        z-index: 1;
     }
     #btn-post:hover
     {
@@ -4453,29 +4336,10 @@ function changesecond()
   
 }
 
-
-// for calling doso after resize ends
-window.addEventListener('resize', relod, false);
-function relod() 
-{
-  var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-  if(isdesk) 
-  {
-    document.getElementById("top-pos").style.display = "none";
-    clearTimeout(window.resizedFinished);
-    window.resizedFinished = setTimeout(function() 
-    {  
-        document.getElementById("top-pos").style.display = "block";
-        doso(); // console.log("after-resize");
-
-    }, 100);
-  }
-}
-
 function scrollmethod() 
 {
 	mybutton = document.getElementById("scroll-top-button");
-    
+
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) 
     {
         mybutton.style.display = "block";
@@ -4487,164 +4351,21 @@ function scrollmethod()
 }
 
 
-  // for other than windows and mac
-  window.addEventListener('resize', upme);
-  document.addEventListener('DOMContentLoaded', upme);
-  function upme()
-  {
-    // checks if user is on a desktop device 
-    var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-
-    if(window.matchMedia("(min-width: 615px)").matches && !isdesk)
-    {
-        document.getElementById("Web_1920__1").style.height = "2216px";
-        document.getElementById("Web_1920__1").style.paddingBottom = "0px";
-        document.getElementById("arts-con-id").style.position = "absolute";
-        setInterval(function(){ document.getElementById("arts-con-id").style.height = "6712px"; }, 0);
-        document.getElementById("arts-con-id").style.overflowX = "hidden";
-        document.getElementById("arts-con-id").style.overflowY = "scroll";
-        document.getElementById("arts-con-id").style.paddingBottom = "0px";
-        document.getElementById("footer-id").style.display = "block";
-        document.getElementById("main-art-id").style.position = "absolute";
-        document.getElementById("footer-id").style.position = "absolute";
-        document.getElementById("footer-id").style.top = "7562px";
-        document.getElementById("out-cmnt").style.top = "7074px";
-        document.getElementById("ads-vertical-two").style.display = "none";
-        document.getElementById("hoty-blnk").style.display = "none";
-        document.getElementById("top-pos").style.display = "none";
-    } 
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-        document.getElementById("arts-con-id").style.overflow = "visible";
-        document.getElementById("footer-id").style.display = "none";
-    }
-  }
-  // setTimeout(upme, 0);
-
-  var timer = null;
-  window.addEventListener('scroll', function() 
-  { doso(); if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso(); }, 2000); }, false);
-  setTimeout(doso, 3000); // setTimeout(doso, 0);
-
-  document.addEventListener('DOMContentLoaded', doso);
-  window.addEventListener('resize', doso, false);
-  function doso()
-  {
-    lopp = document.getElementById("Web_1920__1");
-    hope = lopp.clientHeight; const meme = document.body.scrollHeight;
-    const keke = hope/meme; const scsc = window.scrollY;
-    var scmx = (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    // console.log("meme scroll-height = ", meme); console.log("scsc scroll-y = ", scsc); 
-    // console.log("scmx max-scroll-y = ", scmx);   
-
-    var innr = window.innerHeight; // console.log("innr inner-height = ", innr);
-    var scbb = scmx - scsc; var finn = scsc * keke; 
-    var nunn = scbb * keke; var cscs = innr * keke; 
-    var alttrigr = 8924/keke - innr; // console.log(keke);
-    var topo = nunn + cscs - 250;
-    
-    if (window.matchMedia("(min-width: 615px)").matches) 
-    {
-        document.getElementById("footer-id").style.display = "block";
-    }
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-        document.body.style.transform = "none";
-        document.getElementById("footer-id").style.display = "none";
-    }
-    if (window.matchMedia("(max-width: 615px)").matches && window.matchMedia("(max-height: 496px)").matches) 
-    {
-        document.body.style.transform = "scale(1.0)";
-    }
-    if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-    {
-        document.body.style.transform = "scale(1.0)";
-    }
-    if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-    {
-        document.body.style.transform = "scale(0.920)";
-        var finn = scsc * keke * 1.087;
-        var nunn = scbb * keke * 1.087;
-        var cscs = innr * keke * 1.087; 
-        var alttrigr = (8924/keke) * 0.920 - innr;
-        var topo = nunn + cscs - 200;
-    }
-    if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-    {
-        document.body.style.transform = "scale(0.860)";
-        var finn = scsc * keke * 1.1625;
-        var nunn = scbb * keke * 1.1625;
-        var cscs = innr * keke * 1.1625;
-        var alttrigr = (8924/keke) * 0.860 - innr;
-        var topo = nunn + cscs - 200;
-    }
-    if (window.matchMedia("(min-width: 1501px)").matches) 
-    {
-        document.body.style.transform = "scale(0.80)";
-        var finn = scsc * keke * 1.250;
-        var nunn = scbb * keke * 1.250;
-        var cscs = innr * keke * 1.250;
-        var alttrigr = (8924/keke) * 0.80 - innr;
-        var topo = nunn + cscs - 200;
-    }
-
-    // console.log("from-resize-doso");
-    // console.log("alttrigr trigger-point-cmnts = ", alttrigr);
-    // console.log("nunn bottom-fix = ", nunn); 
-    // console.log("finn top-fix = ", finn);
-
-    var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-  
-    if(scsc > alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
-    {
-        var xoxo = nunn;
-        var voso = nunn + 932 + 114;
-        var momo = nunn + 932 + 880 + 110;
-        var koko = nunn + 932 + 1850 + 880 + 102; 
-        document.getElementById("out-cmnt").style.top = "auto";
-        document.getElementById("out-cmnt").style.bottom = xoxo + "px";
-        document.getElementById("ads-vertical-two").style.top = "auto";
-        document.getElementById("ads-vertical-two").style.bottom = voso + "px";
-        document.getElementById("hot-dvs-sctn").style.top = "auto";
-        document.getElementById("hot-dvs-sctn").style.bottom = momo + "px";
-        document.getElementById("ads-vertical-one").style.top = "auto";
-        document.getElementById("ads-vertical-one").style.bottom = koko + "px";
-        document.getElementById("top-pos").style.top = "auto";
-        document.getElementById("top-pos").style.bottom = topo + "px";
-        document.getElementById("top-pos").style.visibility = "visible";
-    }
-    if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
-    {
-        document.getElementById("out-cmnt").style.top = "7954px";
-        document.getElementById("hot-dvs-sctn").style.top = "5226px";
-        document.getElementById("ads-vertical-one").style.top = "3350px";
-        document.getElementById("ads-vertical-two").style.top = "7077px"; 
-        document.getElementById("top-pos").style.top = "8934px"; 
-    } 
-    if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
-    {
-        document.getElementById("last-dab").style.visibility = "hidden";
-    }
-    if(nunn > 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
-    {
-        document.getElementById("last-dab").style.visibility = "visible";
-    }
-  } 
-
-
 function scrolltotop() 
 {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 
-   function buttonfxd()
+   setInterval(function()
+   
    { 	   
    	   document.getElementById("Web_1920__1").style.visibility = "visible";
    	   document.getElementById("top-check").style.visibility = "hidden";
+   	   document.body.style.background = "rgba(255,255,255,1)";
    	   if (window.matchMedia("(max-width: 615px)").matches) 
    	   {
+           document.body.style.background = "rgba(0,0,0,1)";
            const mypage = window.innerWidth * 0.12;
            const pagebot = window.innerWidth * 0.167;
            const pageright = window.innerWidth * 0.04;
@@ -4670,12 +4391,25 @@ function scrolltotop()
            document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
            document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
        }
-   }
 
-   timer1 = setInterval(buttonfxd, 500);
-   setTimeout(() => { clearInterval(timer1); }, 4000);
-   window.addEventListener('resize', buttonfxd, false);
+   }, 0);
 
+   setTimeout(function()
+   {
+       if (window.matchMedia("(min-width: 940px)").matches) 
+       {
+           document.body.style.transform = "scale(0.8)";
+       }
+       if (window.matchMedia("(min-width: 1140px)").matches && window.matchMedia("(max-width: 1340px)").matches) 
+       {
+           document.body.style.transform = "scale(0.860)";
+       }
+       if (window.matchMedia("(min-width: 940px)").matches && window.matchMedia("(max-width: 1140px)").matches) 
+       {
+           document.body.style.transform = "scale(0.920)";
+       }
+
+   }, 9550);
 
   function outsideclick()
   { 
@@ -4968,57 +4702,20 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   setInterval(function()
-   {     
-       const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
-       const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
-       const adheightthree = document.getElementById("ads-style-display-res-phone-2").clientHeight;
-
-       document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
-       document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
-       document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
-
-       if (window.matchMedia("(min-width: 615px)").matches) 
-       {
-           document.getElementById("ads-v1-in").style.minHeight = "612px";
-           document.getElementById("ads-v2-in").style.minHeight = "262px";
-       }
+   setTimeout(function()
+   
+   {   
+       document.getElementById("ads-style-feed-res").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-style-feed-res").style.transition = "transform 1s";
+       document.getElementById("ads-style-display-res").style.transform = "scale(2.0, 2.0)";
+       document.getElementById("ads-style-display-res").style.transition = "transform 1s";
+       document.getElementById("ads-style-feed-res-2").style.transform = "scale(2.45, 2.45)";
+       document.getElementById("ads-style-feed-res-2").style.transition = "transform 1s";
+       document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)";
+       document.getElementById("ads-v1-in").style.transition = "transform 1s";
 
    }, 1000);
 
-   timer2 = setInterval(function()
-   {   
-       document.getElementById("ads-style-feed-res").style.transform = "scale(2.45, 2.45)";
-       document.getElementById("ads-style-display-res-phone").style.transform = "scale(7.10, 7.10)";
-       document.getElementById("ads-style-display-res").style.transform = "scale(2.0, 2.0)";
-       document.getElementById("ads-style-feed-res-phone").style.transform = "scale(4.34, 4.34)";
-       document.getElementById("ads-style-feed-res-2").style.transform = "scale(2.45, 2.45)";
-       document.getElementById("ads-style-display-res-phone-2").style.transform = "scale(7.10, 7.10)";
-       document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)";
-       document.getElementById("ads-v2-in").style.transform = "scale(2.72, 2.72)";
-
-       if (window.matchMedia("(max-width: 615px)").matches) 
-       {
-           document.getElementById("ins-feed-one").style.display = "none";
-           document.getElementById("ins-dis-one").style.display = "none";
-           document.getElementById("ins-feed-two").style.display = "none";
-           document.getElementById("ins-dis-v1").style.display = "none";
-           document.getElementById("ins-dis-v2").style.display = "none";
-       }
-
-   }, 500);
-
-   setTimeout(() => { clearInterval(timer2); }, 4000);
-
-   var js,
-   fjs = document.getElementsByTagName("head")[0];
-   var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
-
-   if(isios) {
-   js = document.createElement("meta");
-   js.httpEquiv = "Content-Security-Policy";
-   js.content = "script-src 'unsafe-inline'"; 
-   fjs.appendChild(js, fjs); }
 
 </script>
 
@@ -5044,96 +4741,6 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
        }
-
-    var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
-    if(isios) {
-    document.querySelectorAll(".display-ad-phone").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".feed-ad-phone").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".ads-style-one").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".ads-style-two").forEach(function(el) { el.style.display = "none"; });
-    document.getElementById("ads-br-2").style.display = "block"; document.getElementById("ads-br-4").style.display = "block"; document.getElementById("ads-br-6").style.display = "block"; document.getElementById("ads-br-8").style.display = "block"; document.getElementById("ads-br-10").style.display = "block"; }
-
-    // mutation observer code
-    const checkme = document.getElementById("ins-dis-phone-1");
-    const checkme2 = document.getElementById("ins-feed-phone-1");
-    const checkme3 = document.getElementById("ins-dis-phone-2");
-    const checkme4 = document.getElementById("ins-dis-one");
-    const checkme5 = document.getElementById("ins-feed-one");
-    const checkme6 = document.getElementById("ins-feed-two");
-    const checkme7 = document.getElementById("ins-dis-v1");
-    const observer = new MutationObserver( mutations => 
-    { 
-         // console.log(mutations); 
-         mutations.forEach( record => 
-            { 
-                if(record.type === 'attributes')
-                {
-                    const attrname = record.attributeName;
-                    const attrvalue = record.target.getAttribute(attrname);
-
-                    // console.log(attrname);
-                    // console.log(attrvalue);
-
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-1')
-                    {
-                        document.getElementById("ad-dtls-fone").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-1')
-                    {
-                        document.getElementById("ads-style-display-res-phone").style.display = "none";
-                        document.getElementById("ads-br-2").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-1')
-                    {
-                        document.getElementById("ads-style-feed-res-phone").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-1')
-                    {
-                        document.getElementById("ads-style-feed-res-phone").style.display = "none";
-                        document.getElementById("ads-br-4").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-2')
-                    {
-                        document.getElementById("ad-dtls-ftwo").style.display = "none";
-                        document.getElementById("ads-style-display-res-phone-2").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-res-phone-2").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-2')
-                    {
-                        document.getElementById("ads-style-display-res-phone-2").style.display = "none";
-                        document.getElementById("ads-br-6").style.display = "block";
-                    }
-
-                    // desktop
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
-                    {
-                        document.getElementById("ads-style-feed-res").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
-                    {
-                        document.getElementById("ads-style-display-res").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
-                    {
-                        document.getElementById("ads-style-feed-res-2").style.display = "none";
-                    }   
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
-                    {
-                        document.getElementById("ads-v1-in").style.background = "#F7F7F7";
-                    }   
-                }
-            });
-    });
-
-    observer.observe(checkme, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme2, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme3, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme4, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme5, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme6, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme7, { attributes: true, attributeFilter: ['data-ad-status'] });
 }
 
 </script>
@@ -5144,7 +4751,7 @@ var isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform 
 
 if (isIOS && window.matchMedia("(max-width: 615px)").matches) 
 {
-   // console.log('This is an IOS device');
+   console.log('This is an IOS device');
    setInterval(function()  
    { 
        document.body.style.background = "rgba(0,0,0,1)";
@@ -5153,7 +4760,7 @@ if (isIOS && window.matchMedia("(max-width: 615px)").matches)
 } 
 if (isIOS && window.matchMedia("(orientation: landscape)").matches) 
 {
-   // console.log('This is an IOS device');
+   console.log('This is an IOS device');
    setInterval(function()  
    { 
        document.body.style.background = "rgba(255,255,255,1)";
@@ -5162,12 +4769,40 @@ if (isIOS && window.matchMedia("(orientation: landscape)").matches)
 }
 else 
 {
-   // console.log('This is Not an IOS device');
+   console.log('This is Not an IOS device');
 } 
 
 </script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
+
+<script async src="https://fundingchoicesmessages.google.com/i/pub-3654432220074510?ers=1" nonce="Ur6gjSq8nZmAML3GL1C1JQ"></script>
+
+<script nonce="Ur6gjSq8nZmAML3GL1C1JQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();
+</script>
+
+<script>
+
+(function(){ 
+
+/*    Copyright The Closure Library Authors.
+      SPDX-License-Identifier: Apache-2.0     */
+
+'use strict';var aa=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}},ba="function"==typeof Object.create?Object.create:function(a){var b=function(){};b.prototype=a;return new b},k;if("function"==typeof Object.setPrototypeOf)k=Object.setPrototypeOf;else{var m;a:{var ca={a:!0},n={};try{n.__proto__=ca;m=n.a;break a}catch(a){}m=!1}k=m?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}
+var p=k,q=function(a,b){a.prototype=ba(b.prototype);a.prototype.constructor=a;if(p)p(a,b);else for(var c in b)if("prototype"!=c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.v=b.prototype},r=this||self,da=function(){},t=function(a){return a};var u;var w=function(a,b){this.g=b===v?a:""};w.prototype.toString=function(){return this.g+""};var v={},x=function(a){if(void 0===u){var b=null;var c=r.trustedTypes;if(c&&c.createPolicy){try{b=c.createPolicy("goog#html",{createHTML:t,createScript:t,createScriptURL:t})}catch(d){r.console&&r.console.error(d.message)}u=b}else u=b}a=(b=u)?b.createScriptURL(a):a;return new w(a,v)};var A=function(){return Math.floor(2147483648*Math.random()).toString(36)+Math.abs(Math.floor(2147483648*Math.random())^Date.now()).toString(36)};var B={},C=null;var D="function"===typeof Uint8Array;function E(a,b,c){return"object"===typeof a?D&&!Array.isArray(a)&&a instanceof Uint8Array?c(a):F(a,b,c):b(a)}function F(a,b,c){if(Array.isArray(a)){for(var d=Array(a.length),e=0;e<a.length;e++){var f=a[e];null!=f&&(d[e]=E(f,b,c))}Array.isArray(a)&&a.s&&G(d);return d}d={};for(e in a)Object.prototype.hasOwnProperty.call(a,e)&&(f=a[e],null!=f&&(d[e]=E(f,b,c)));return d}
+function ea(a){return F(a,function(b){return"number"===typeof b?isFinite(b)?b:String(b):b},function(b){var c;void 0===c&&(c=0);if(!C){C={};for(var d="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split(""),e=["+/=","+/","-_=","-_.","-_"],f=0;5>f;f++){var h=d.concat(e[f].split(""));B[f]=h;for(var g=0;g<h.length;g++){var l=h[g];void 0===C[l]&&(C[l]=g)}}}c=B[c];d=Array(Math.floor(b.length/3));e=c[64]||"";for(f=h=0;h<b.length-2;h+=3){var y=b[h],z=b[h+1];l=b[h+2];g=c[y>>2];y=c[(y&3)<<
+4|z>>4];z=c[(z&15)<<2|l>>6];l=c[l&63];d[f++]=""+g+y+z+l}g=0;l=e;switch(b.length-h){case 2:g=b[h+1],l=c[(g&15)<<2]||e;case 1:b=b[h],d[f]=""+c[b>>2]+c[(b&3)<<4|g>>4]+l+e}return d.join("")})}var fa={s:{value:!0,configurable:!0}},G=function(a){Array.isArray(a)&&!Object.isFrozen(a)&&Object.defineProperties(a,fa);return a};var H;var J=function(a,b,c){var d=H;H=null;a||(a=d);d=this.constructor.u;a||(a=d?[d]:[]);this.j=d?0:-1;this.h=null;this.g=a;a:{d=this.g.length;a=d-1;if(d&&(d=this.g[a],!(null===d||"object"!=typeof d||Array.isArray(d)||D&&d instanceof Uint8Array))){this.l=a-this.j;this.i=d;break a}void 0!==b&&-1<b?(this.l=Math.max(b,a+1-this.j),this.i=null):this.l=Number.MAX_VALUE}if(c)for(b=0;b<c.length;b++)a=c[b],a<this.l?(a+=this.j,(d=this.g[a])?G(d):this.g[a]=I):(d=this.l+this.j,this.g[d]||(this.i=this.g[d]={}),(d=this.i[a])?
+G(d):this.i[a]=I)},I=Object.freeze(G([])),K=function(a,b){if(-1===b)return null;if(b<a.l){b+=a.j;var c=a.g[b];return c!==I?c:a.g[b]=G([])}if(a.i)return c=a.i[b],c!==I?c:a.i[b]=G([])},M=function(a,b){var c=L;if(-1===b)return null;a.h||(a.h={});if(!a.h[b]){var d=K(a,b);d&&(a.h[b]=new c(d))}return a.h[b]};J.prototype.toJSON=function(){var a=N(this,!1);return ea(a)};
+var N=function(a,b){if(a.h)for(var c in a.h)if(Object.prototype.hasOwnProperty.call(a.h,c)){var d=a.h[c];if(Array.isArray(d))for(var e=0;e<d.length;e++)d[e]&&N(d[e],b);else d&&N(d,b)}return a.g},O=function(a,b){H=b=b?JSON.parse(b):null;a=new a(b);H=null;return a};J.prototype.toString=function(){return N(this,!1).toString()};var P=function(a){J.call(this,a)};q(P,J);function ha(a){var b,c=(a.ownerDocument&&a.ownerDocument.defaultView||window).document,d=null===(b=c.querySelector)||void 0===b?void 0:b.call(c,"script[nonce]");(b=d?d.nonce||d.getAttribute("nonce")||"":"")&&a.setAttribute("nonce",b)};var Q=function(a,b){b=String(b);"application/xhtml+xml"===a.contentType&&(b=b.toLowerCase());return a.createElement(b)},R=function(a){this.g=a||r.document||document};R.prototype.appendChild=function(a,b){a.appendChild(b)};var S=function(a,b,c,d,e,f){try{var h=a.g,g=Q(a.g,"SCRIPT");g.async=!0;g.src=b instanceof w&&b.constructor===w?b.g:"type_error:TrustedResourceUrl";ha(g);h.head.appendChild(g);g.addEventListener("load",function(){e();d&&h.head.removeChild(g)});g.addEventListener("error",function(){0<c?S(a,b,c-1,d,e,f):(d&&h.head.removeChild(g),f())})}catch(l){f()}};var ia=r.atob("aHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vaW1hZ2VzL2ljb25zL21hdGVyaWFsL3N5c3RlbS8xeC93YXJuaW5nX2FtYmVyXzI0ZHAucG5n"),ja=r.atob("WW91IGFyZSBzZWVpbmcgdGhpcyBtZXNzYWdlIGJlY2F1c2UgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlIGlzIGludGVyZmVyaW5nIHdpdGggdGhpcyBwYWdlLg=="),ka=r.atob("RGlzYWJsZSBhbnkgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlLCB0aGVuIHJlbG9hZCB0aGlzIHBhZ2Uu"),la=function(a,b,c){this.h=a;this.j=new R(this.h);this.g=null;this.i=[];this.l=!1;this.o=b;this.m=c},V=function(a){if(a.h.body&&!a.l){var b=
+function(){T(a);r.setTimeout(function(){return U(a,3)},50)};S(a.j,a.o,2,!0,function(){r[a.m]||b()},b);a.l=!0}},T=function(a){for(var b=W(1,5),c=0;c<b;c++){var d=X(a);a.h.body.appendChild(d);a.i.push(d)}b=X(a);b.style.bottom="0";b.style.left="0";b.style.position="fixed";b.style.width=W(100,110).toString()+"%";b.style.zIndex=W(2147483544,2147483644).toString();b.style["background-color"]=ma(249,259,242,252,219,229);b.style["box-shadow"]="0 0 12px #888";b.style.color=ma(0,10,0,10,0,10);b.style.display=
+"flex";b.style["justify-content"]="center";b.style["font-family"]="Roboto, Arial";c=X(a);c.style.width=W(80,85).toString()+"%";c.style.maxWidth=W(750,775).toString()+"px";c.style.margin="24px";c.style.display="flex";c.style["align-items"]="flex-start";c.style["justify-content"]="center";d=Q(a.j.g,"IMG");d.className=A();d.src=ia;d.style.height="24px";d.style.width="24px";d.style["padding-right"]="16px";var e=X(a),f=X(a);f.style["font-weight"]="bold";f.textContent=ja;var h=X(a);h.textContent=ka;Y(a,
+e,f);Y(a,e,h);Y(a,c,d);Y(a,c,e);Y(a,b,c);a.g=b;a.h.body.appendChild(a.g);b=W(1,5);for(c=0;c<b;c++)d=X(a),a.h.body.appendChild(d),a.i.push(d)},Y=function(a,b,c){for(var d=W(1,5),e=0;e<d;e++){var f=X(a);b.appendChild(f)}b.appendChild(c);c=W(1,5);for(d=0;d<c;d++)e=X(a),b.appendChild(e)},W=function(a,b){return Math.floor(a+Math.random()*(b-a))},ma=function(a,b,c,d,e,f){return"rgb("+W(Math.max(a,0),Math.min(b,255)).toString()+","+W(Math.max(c,0),Math.min(d,255)).toString()+","+W(Math.max(e,0),Math.min(f,
+255)).toString()+")"},X=function(a){a=Q(a.j.g,"DIV");a.className=A();return a},U=function(a,b){0>=b||null!=a.g&&0!=a.g.offsetHeight&&0!=a.g.offsetWidth||(na(a),T(a),r.setTimeout(function(){return U(a,b-1)},50))},na=function(a){var b=a.i;var c="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];b=c?c.call(b):{next:aa(b)};for(c=b.next();!c.done;c=b.next())(c=c.value)&&c.parentNode&&c.parentNode.removeChild(c);a.i=[];(b=a.g)&&b.parentNode&&b.parentNode.removeChild(b);a.g=null};var pa=function(a,b,c,d,e){var f=oa(c),h=function(l){l.appendChild(f);r.setTimeout(function(){f?(0!==f.offsetHeight&&0!==f.offsetWidth?b():a(),f.parentNode&&f.parentNode.removeChild(f)):a()},d)},g=function(l){document.body?h(document.body):0<l?r.setTimeout(function(){g(l-1)},e):b()};g(3)},oa=function(a){var b=document.createElement("div");b.className=a;b.style.width="1px";b.style.height="1px";b.style.position="absolute";b.style.left="-10000px";b.style.top="-10000px";b.style.zIndex="-10000";return b};var L=function(a){J.call(this,a)};q(L,J);var qa=function(a){J.call(this,a)};q(qa,J);var ra=function(a,b){this.l=a;this.m=new R(a.document);this.g=b;this.i=K(this.g,1);b=M(this.g,2);this.o=x(K(b,4)||"");this.h=!1;b=M(this.g,13);b=x(K(b,4)||"");this.j=new la(a.document,b,K(this.g,12))};ra.prototype.start=function(){sa(this)};
+var sa=function(a){ta(a);S(a.m,a.o,3,!1,function(){a:{var b=a.i;var c=r.btoa(b);if(c=r[c]){try{var d=O(P,r.atob(c))}catch(e){b=!1;break a}b=b===K(d,1)}else b=!1}b?Z(a,K(a.g,14)):(Z(a,K(a.g,8)),V(a.j))},function(){pa(function(){Z(a,K(a.g,7));V(a.j)},function(){return Z(a,K(a.g,6))},K(a.g,9),K(a.g,10),K(a.g,11))})},Z=function(a,b){a.h||(a.h=!0,a=new a.l.XMLHttpRequest,a.open("GET",b,!0),a.send())},ta=function(a){var b=r.btoa(a.i);a.l[b]&&Z(a,K(a.g,5))};(function(a,b){r[a]=function(c){for(var d=[],e=0;e<arguments.length;++e)d[e-0]=arguments[e];r[a]=da;b.apply(null,d)}})("__h82AlnkH6D91__",function(a){"function"===typeof window.atob&&(new ra(window,O(qa,window.atob(a)))).start()});}).call(this);
+
+window.__h82AlnkH6D91__("WyJwdWItMzY1NDQzMjIyMDA3NDUxMCIsW251bGwsbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9iL3B1Yi0zNjU0NDMyMjIwMDc0NTEwIl0sbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9lbC9BR1NLV3hWY2liNDh5RWJ5eFJjLXYwRElQazJrSnVxMFJ0TjRZTVNnMHpITHNOekpKYV9HakNNLW41eVZDN0F3SWhTMUlLMHFFdm9tWll4Ny1ZT05wSkRvTnI1MGtRXHUwMDNkXHUwMDNkP3RlXHUwMDNkVE9LRU5fRVhQT1NFRCIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFgwdGxURVVrQmRIbmI0d3RNdDJ0bzZCSk1QQ3NaSFhYbmJ4X3E1TzdpVTBWVktXNTYzaFczbVlKWnpQa1RDX0VNSUVyMzNEM0xRWTRlY1JFRmE3Qmg4NXdcdTAwM2RcdTAwM2Q/YWJcdTAwM2QxXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFhtQjN0a2FHN3ZRSzN0ekJqWXp5MWhTWWNiUmVuY2E0WmZpSzBOTjhTT19BVWRuSWpRMExxS09felpTWWhJTHhOMGRodXpTMUtHZXNuejl4THlOM3I1R0FcdTAwM2RcdTAwM2Q/YWJcdTAwM2QyXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFh3cHpodmlDcERSdTNwNjlwRVFBTzJNV0U0TkFGcnMyaGpyZm1ieENReWhrV294eFZ0eGdiaEJsVks1enBhVnNvcElGbUx1eWlVekZOVHBJM3lxbHRiTFFcdTAwM2RcdTAwM2Q/c2JmXHUwMDNkMiIsImRpdi1ncHQtYWQiLDIwLDEwMCwiY0hWaUxUTTJOVFEwTXpJeU1qQXdOelExTVRBXHUwMDNkIixbbnVsbCxudWxsLG51bGwsImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tLzBlbW4vZi9wL3B1Yi0zNjU0NDMyMjIwMDc0NTEwLmpzP3VzcXBcdTAwM2RDQTAiXSwiaHR0cHM6Ly9mdW5kaW5nY2hvaWNlc21lc3NhZ2VzLmdvb2dsZS5jb20vZWwvQUdTS1d4VnRXT0k2bU5peHlfV3lEMHFoWW02OU5MSnBWQlpvalFaVlFWYjhlRUlKWUk5WnRwaTB3X01WN2xHRHRhMTRENm1iMDJsYTBJWjE4VG1UVlpKakU4bXJSd1x1MDAzZFx1MDAzZCJd");
+
+</script>
 
 <script type="application/ld+json">
 {
@@ -5214,7 +4849,7 @@ else
 
   function scaleMe()
   { 
-      // console.log('hello-here'); 
+      console.log('hello-here'); 
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
@@ -5228,22 +4863,6 @@ else
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
-      }
-      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-      {
-           document.body.style.transform = "scale(1.0)";
-      }
-      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-      {
-           document.body.style.transform = "scale(0.920)";
-      }
-      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-      {
-           document.body.style.transform = "scale(0.860)";
-      }
-      if (window.matchMedia("(min-width: 1501px)").matches) 
-      {
-           document.body.style.transform = "scale(0.80)";
       }
   }
   scaleMe();
@@ -5691,7 +5310,7 @@ else
     </div>
     </a>
 	
-  <div class="articles-container" id="arts-con-id">
+  <div class="articles-container">
 	
 	<svg class="Rectangle_12">
 		<rect id="Rectangle_12" rx="57.5" ry="57.5" x="0" y="0" width="813" height="115">
@@ -5709,7 +5328,7 @@ else
 	<div id="category-top-phone">
         <span> SPEAKER </span>
     </div>
-	<div class="main-article-div" id="main-art-id">
+	<div class="main-article-div">
 
 		<div id="main-art-header"> Soundcore Motion Boom Plus is insane <span id="nillkin-glass-extra"> - louder than boombox 2 </span>
 		<span id="short-verdict"> Soundcore boost sounds too punchy kinda uncontrolled </span>
@@ -5775,7 +5394,7 @@ else
                 <a href="https://amzn.to/3xdgzPl">
                 <div class="img-border">
                     <div class="img-border-2"></div>
-                    <img class="boost-amazon-img" src="https://m.media-amazon.com/images/I/71KvqnF5EVL._AC_SX679_.jpg" style="object-position: top -68px left 0px">
+                    <img class="boost-amazon-img" src="images/boom-plus-main.jpg">
                 </div></a>
                 <div class="mid-text"> Buy Soundcore Motion Boom Plus From <img class="amazon-icon" src="old-images/amazon_icon.png"> </div>
                 <div class="mid-text-phone"> Buy Motion Boom+ On <a href="https://amzn.to/3xdgzPl" style="text-decoration: none; color: rgba(234,148,6,0.7)">Amazon</a> </div>
@@ -5810,13 +5429,11 @@ else
 
             <br>
             <div class="ads-style-two" id="ads-style-feed-res">
-
-                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
-                      id="ins-feed-one" 
+                      id="ins-feed-one"
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-co-n+45-2o+yn"
@@ -5825,26 +5442,8 @@ else
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
-             </div>
-             <div class="display-ad-phone" id="ads-style-display-res-phone">
-
-                <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
-                 
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                crossorigin="anonymous"></script>
-                <!-- Display horizontal -->
-                <ins class="adsbygoogle"
-                     id="ins-dis-phone-1" 
-                     style="display:block"
-                     data-ad-client="ca-pub-3654432220074510"
-                     data-ad-slot="6958590511"
-                     data-ad-format="fluid"
-                     data-full-width-responsive="true">                         
-                </ins>
-                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-
             </div>
-            <br id="ads-br-2">
+            <br>
 
             The battery capacity is 13,400 mAh which is kinda huge. On the back side there is the type-c charging port, usb <a href="https://en.wikipedia.org/wiki/USB" target="_blank" rel="noopener noreferrer">type-a</a> power out port for external device charging and an <a href="https://en.wikipedia.org/wiki/Phone_connector_(audio)" target="_blank" rel="noopener noreferrer">AUX-in</a> port. For the software side of things motion boom+ supports <a href="https://play.google.com/store/apps/details?id=com.oceanwing.soundcore&hl=en&gl=US" target="_blank" rel="noopener noreferrer">soundcore app</a> which is a huge deal because you can use custom eq from the app. Software updates as well as other useful features are available there. More about advanced features in the features section.     
             		     
@@ -5862,14 +5461,11 @@ else
 
             <br>
             <div class="ads-style-one" id="ads-style-display-res">
-
-                 <div class="ad-details-5"> <span> AD </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <!-- Display horizontal -->
                  <ins class="adsbygoogle"
-                      id="ins-dis-one" 
                       style="display:block;width:100%;min-height:260px;height:280px;max-height:300px"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="6958590511"
@@ -5877,25 +5473,8 @@ else
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
-             </div>
-             <div class="feed-ad-phone" id="ads-style-feed-res-phone">
-
-                 <div class="ad-details-5"> <span> AD </span> </div>
-                 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                      id="ins-feed-phone-1" 
-                      style="display:block"
-                      data-ad-format="fluid"
-                      data-ad-layout-key="-5c+c0-2e-5v+wq"
-                      data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="7222082881">                         
-                 </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-
             </div>
-            <br id="ads-br-4">
+            <br>
 
             There is no competition between boom plus and JBL xtreme 3 because boom plus is way more loud and powerful which makes the xtreme 3 look stupid and embarrassed. Now between the boom plus and JBL boombox 2 the boombox is way heavier but you're going to be blown away like me after knowing the results. Motion boom plus is louder by 1 db than the boombox 2 when both at 100% volume on battery. Boombox has way more <a href="https://www.teachmeaudio.com/mixing/techniques/audio-spectrum#sub" target="_blank" rel="noopener noreferrer">deep bass</a> but boom plus was noticeably louder. So another badass speaker from soundcore which is killing similar sized speakers and hanging there with the big boys.             
                          
@@ -5907,43 +5486,6 @@ else
             Motion boom plus has the latest <a href="https://www.bluetooth.com/blog/new-core-specification-v5-3-feature-enhancements/" target="_blank" rel="noopener noreferrer">Bluetooth Version 5.3</a> which will give you a better performance with im&shy;proved <a href="https://pocketnow.com/bluetooth-latency-explained-how-to-minimize-it" target="_blank" rel="noopener noreferrer">latency</a> in transmission. You don't need to worry about water and dust because it has an <a href="https://en.wikipedia.org/wiki/IP_Code" target="_blank" rel="noopener noreferrer">IP67</a> rating. So it can be submerged under water and also you can take it to the beach. It has the <a href="https://www.soundcore.com/bassup" target="_blank" rel="noopener noreferrer">BassUp</a> tech&shy;nology that increases the deep bass significantly. Dome tweeters are there to produce better highs. Boom plus has a huge battery of 13,400 <a href="https://en.wikipedia.org/wiki/Ampere_hour" target="_blank" rel="noopener noreferrer">mAh</a> total capacity. You can charge it using the type-c cable at 5 volt 3 amp. Charging external compatible devices is also supported here. On top of these high-end features you also get an AUX-in port. Boom plus supports <a href="https://www.audioreputation.com/true-wireless-stereo-technology/" target="_blank" rel="noopener noreferrer">TWS</a> pairing as well as <a href="https://www.soundcore.com/partycast" target="_blank" rel="noopener noreferrer">PartyCast</a> 2.0.  
 
             <br><br>
-            <div class="amazon-link" style="margin-bottom: 45px">
-                <a href="https://amzn.to/3xdgzPl">
-                <div class="img-border">
-                    <div class="img-border-2"></div>
-                    <img class="boost-amazon-img" src="https://m.media-amazon.com/images/I/71KvqnF5EVL._AC_SX679_.jpg" style="object-position: top -68px left 0px">
-                </div></a>
-                <div class="mid-text"> Buy Soundcore Motion Boom Plus From <img class="amazon-icon" src="old-images/amazon_icon.png"> </div>
-                <div class="mid-text-phone"> Buy Motion Boom+ On <a href="https://amzn.to/3xdgzPl" style="text-decoration: none; color: rgba(234,148,6,0.7)">Amazon</a> </div>
-                <a href="https://amzn.to/3xdgzPl">
-                    <div class="button-border"></div>
-                    <div class="link-button"> Buy Now </div></a>
-            </div>
-            <div class="amazon-link" style="margin-bottom: 45px">
-                <a href="https://amzn.to/3VmVcow">
-                <div class="img-border">
-                    <div class="img-border-2"></div>
-                    <img class="boost-amazon-img" src="https://m.media-amazon.com/images/I/81XouX-4crL._AC_SX466_.jpg">
-                </div></a>
-                <div class="mid-text"> Buy The Powerful JBL Boombox 2 From <img class="amazon-icon" src="old-images/amazon_icon.png"> </div>
-                <div class="mid-text-phone" style="padding-left: 70px; padding-right: 70px"> Buy JBL Boombox 2 On <a href="https://amzn.to/3VmVcow" style="text-decoration: none; color: rgba(234,148,6,0.7)">Amazon</a> </div>
-                <a href="https://amzn.to/3VmVcow">
-                    <div class="button-border"></div>
-                    <div class="link-button"> Buy Now </div></a>
-            </div>
-            <div class="amazon-link" style="margin-bottom: 0px">
-                <a href="https://amzn.to/3gu0gsA">
-                <div class="img-border">
-                    <div class="img-border-2"></div>
-                    <img class="boost-amazon-img" src="https://m.media-amazon.com/images/I/71H-CPzgkhL._AC_SX679_.jpg">
-                </div></a>
-                <div class="mid-text"> Buy The Powerful JBL Boombox 3 From <img class="amazon-icon" src="old-images/amazon_icon.png"> </div>
-                <div class="mid-text-phone" style="padding-left: 70px; padding-right: 70px"> Buy JBL Boombox 3 On <a href="https://amzn.to/3gu0gsA" style="text-decoration: none; color: rgba(234,148,6,0.7)">Amazon</a> </div>
-                <a href="https://amzn.to/3gu0gsA">
-                    <div class="button-border"></div>
-                    <div class="link-button"> Buy Now </div></a>
-            </div>
-            <br>
 
             They are using <a href="https://en.wikipedia.org/wiki/Titanium" target="_blank" rel="noopener noreferrer">titanium</a> cone drivers like in the older motion boom. So you don't really miss out on anything other than a high-end codec. The battery life is rated for 20 hours which is incredible. But this claim is for average type listening like at 60% volume. If you push it more like close to full volume, then you will get a lot less battery backup time. However, all-day battery life is really on the top level of portable bluetooth speakers. It should take about 4 hours to fully charge the device as it has a big battery. Overall soundcore motion boom plus is here to really deliver something special and extraordinary.   
 
@@ -5955,13 +5497,11 @@ else
 
             <br>
             <div class="ads-style-two" id="ads-style-feed-res-2">
-
-                <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
                  <ins class="adsbygoogle"
-                      id="ins-feed-two" 
+                      id="ins-feed-two"
                       style="display:block"
                       data-ad-format="fluid"
                       data-ad-layout-key="-co-n+45-2o+yn"
@@ -5970,28 +5510,10 @@ else
                  </ins>
                  <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 
-             </div>
-             <div class="display-ad-phone" id="ads-style-display-res-phone-2">
-
-                <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
-                 
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                crossorigin="anonymous"></script>
-                <!-- Display horizontal -->
-                <ins class="adsbygoogle"
-                     id="ins-dis-phone-2" 
-                     style="display:block"
-                     data-ad-client="ca-pub-3654432220074510"
-                     data-ad-slot="6958590511"
-                     data-ad-format="fluid"
-                     data-full-width-responsive="true">                         
-                </ins>
-                <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-
             </div>
-            <br id="ads-br-6"> 
+            <br>  
 
-            I hope you've got enough information from this article to decide if you want to buy the motion boom plus or not. I cannot recommend this speaker more and absolutely love the fact that it has a very powerful and extremely loud sound. This speaker is waiting for you to amaze you. Check the <a href="https://us.soundcore.com/products/motion-boom-plus" target="_blank" rel="noopener noreferrer">official webpage</a> to explore their presentation.  
+             I hope you've got enough information from this article to decide if you want to buy the motion boom plus or not. I cannot recommend this speaker more and absolutely love the fact that it has a very powerful and extremely loud sound. This speaker is waiting for you to amaze you. Check the <a href="https://us.soundcore.com/products/motion-boom-plus" target="_blank" rel="noopener noreferrer">official webpage</a> to explore their presentation.  
 		      
             <br>
             <br>
@@ -6062,8 +5584,6 @@ else
         
         </div>
 
-        <div id="after-ft-phone"></div>
-
    <div class="inside-article-div">
     
     <div class="latest_articles">
@@ -6075,7 +5595,7 @@ else
    <div class="articles-common-lt-style">
 
     <a href="bloody-j90s-mouse-review.html">
-    <img class="latest-art-pic-common" src="images/bloody-j90s-crop.jpg" srcset="images/bloody-j90s-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/bloody-j90s-crop.jpg" srcset="images/bloody-j90s-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6091,7 +5611,7 @@ else
    <div class="articles-common-lt-style">
 
     <a href="soundbuds-slim-plus-review.html">
-    <img class="latest-art-pic-common" src="images/slim-plus-crop.jpg" srcset="images/slim-plus-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/slim-plus-crop.jpg" srcset="images/slim-plus-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6107,7 +5627,7 @@ else
    <div class="articles-common-lt-style">
 
     <a href="soundcore-boost-review.html">
-    <img class="latest-art-pic-common" src="images/boost-crop.jpg" srcset="images/boost-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/boost-crop.jpg" srcset="images/boost-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6123,7 +5643,7 @@ else
    <div class="articles-common-lt-style">
     
     <a href="nillkin cp+ pro tempered glass review.html">
-    <img class="latest-art-pic-common" src="old-images/nillkin-tempered-glass.jpg" srcset="old-images/nillkin-tempered-glass.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="old-images/nillkin-tempered-glass.jpg" srcset="old-images/nillkin-tempered-glass.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6139,7 +5659,7 @@ else
    <div class="articles-common-lt-style">
 
     <a href="nillkin frosted case review for nord.html">
-    <img class="latest-art-pic-common" src="images/nillkin-case-crop.jpg" srcset="images/nillkin-case-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/nillkin-case-crop.jpg" srcset="images/nillkin-case-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6155,7 +5675,7 @@ else
    <div class="articles-common-lt-style">
 
     <a href="soundcore motion plus review.html">
-    <img class="latest-art-pic-common" src="old-images/soundcoremotionplus.jpg" srcset="old-images/soundcoremotionplus.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="old-images/soundcoremotionplus.jpg" srcset="old-images/soundcoremotionplus.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6175,7 +5695,7 @@ else
    <div class="articles-common-lt-style">
     
     <a href="pixel-buds-A-series.html">
-    <img class="latest-art-pic-common" src="images/pixel-buds-a-crop.jpg" srcset="images/pixel-buds-a-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/pixel-buds-a-crop.jpg" srcset="images/pixel-buds-a-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6191,7 +5711,7 @@ else
    <div class="articles-common-lt-style">
     
     <a href="mpow-m30-earbuds.html">
-    <img class="latest-art-pic-common" src="images/mpow-m30-crop.jpg" srcset="images/mpow-m30-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/mpow-m30-crop.jpg" srcset="images/mpow-m30-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6207,7 +5727,7 @@ else
    <div class="articles-common-lt-style">
     
     <a href="google-pixel-6a.html">
-    <img class="latest-art-pic-common" src="images/pixel-6a-crop.jpg" srcset="images/pixel-6a-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/pixel-6a-crop.jpg" srcset="images/pixel-6a-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6223,7 +5743,7 @@ else
    <div class="articles-common-lt-style">
     
     <a href="soundcore-motion-boom-plus.html">
-    <img class="latest-art-pic-common" src="images/boom-plus-crop.jpg" srcset="images/boom-plus-crop.jpg 1x" loading="lazy">
+    <img class="latest-art-pic-common" src="images/boom-plus-crop.jpg" srcset="images/boom-plus-crop.jpg 1x">
     </a>
 
     <div class="art-head-common">
@@ -6246,7 +5766,7 @@ else
 
   </div>
 
-      <div class="footer" id="footer-id">
+      <div class="footer">
 
   	<div class="ft-01" style="position: absolute; overflow: visible; top: 45px; left: 385px; height: 140px; width: 1600px; border: 0px grey solid; border-radius: 25px;">
 
@@ -6295,19 +5815,18 @@ else
   	
   </div>
 
-  <div class="ads-vertical" id="ads-vertical-one">
+  <div id="ads-vertical-one">
 
-    <div id="ads-details-1"> <span> <span id="ads-details-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <span id="ads-details-style-2">Disable Ad BlockeR</span> </span> </div>
-    <div id="ads-details-2"> Ads generate revenue ➜ which is to keep the website alive </div>
+    <div id="ads-details-1"> <span> <span id="ads-details-style-1">Google Ads</span> <br> THESE ADS ARE SAFE AND INFORMATIVE PLEASE <span id="ads-details-style-2">Disable Ad BlockeR</span> </span> </div>
+    <div id="ads-details-2"> Ads generate revenue which is to keep the website alive </div>
     <div id="ads-details-3"> Support the website and let's grow together </div>
        
-            <div class="ads-vrtl-in" id="ads-v1-in">
+            <div id="ads-v1-in">
                  
                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
                  crossorigin="anonymous"></script>
-                 <!-- Display Vertical -->
+                 <!-- Display vertical -->
                  <ins class="adsbygoogle"
-                      id="ins-dis-v1" 
                       style="display:block;min-width:290px;width:100%;height:600px"
                       data-ad-client="ca-pub-3654432220074510"
                       data-ad-slot="2885298349"
@@ -6318,7 +5837,7 @@ else
             </div>
   </div>
 
-       <div class="hot-devices-sec" id="hot-dvs-sctn">
+       <div class="hot-devices-sec">
         	
         	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 70px; padding-right: 65px; color: rgba(0,0,0,0.58); border: 1px rgba(112,112,112,0.6) solid; border-radius: 80px; top: 95px; left: 240px; padding-top: 28px; padding-bottom: 26px;"> HOT DEVICES </span>
         	<br>
@@ -6399,30 +5918,8 @@ else
         	<br>
         	       	
         </div>
-
-    <div class="ads-vertical" id="ads-vertical-two" style="height: 798px !important; top: 7077px">
-       
-            <div class="ads-vrtl-in" id="ads-v2-in" style="top: 266px">
-
-                 <div class="ad-details-5"> <span> AD </span> </div>
-                 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
-                 <!-- Display Vertical -->
-                 <ins class="adsbygoogle"
-                      id="ins-dis-v2" 
-                      style="display:block;min-width:290px;width:100%;height:250px"
-                      data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="2885298349"
-                      data-full-width-responsive="true">
-                 </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-
-            </div>
-    </div>
     
-    <div id="out-cmnt">
-    <div class="comment-sec" id="comnt-sctn">
+    <div class="comment-sec">
     	<span class="header-comment">COMMENT SECTION</span>
 
     	<form id="comments" class="gform" action="https://script.google.com/macros/s/AKfycbzhtASnOTedp0KgYnzZrrb0ekHbgC7yDTilSUdrkyVswTjmXAbvz-hB5s_7N0hM81Nq/exec" method="post" target="iframe-com">
@@ -6441,11 +5938,10 @@ else
         <div id="thank-you"> Thank You </div>
         <div id="blank-fields"> blank fields allowed </div>
 
-    </div> 
-    <div id="last-dab"></div>
     </div>
-    <div class="after-hot-blank" id="hoty-blnk"></div>
-    <div id="top-pos"></div>
+    <div class="after-hot-blank">
+    	
+    </div>
 
 </div>
 </body>
