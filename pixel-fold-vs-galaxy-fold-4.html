@@ -4811,11 +4811,7 @@ function toppicksout()
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
-
-    /*  // Check if the body element has overflow set to "hidden"
-    var bodyOverflow = window.getComputedStyle(document.body).overflow;
-    if (bodyOverflow === "hidden") { document.body.style.transform = "none"; }  */
-
+    
    }, 1000);
 
    timer2 = setInterval(function() 
@@ -5187,7 +5183,7 @@ function updateLogo()
                     {
                         document.getElementById("ads-style-display-3").style.display = "none";
                     }   
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
                     {
                         document.getElementById("ads-v1-in").style.background = "#F7F7F7";
                     }   
@@ -5254,10 +5250,18 @@ function updateLogo()
 <script type="text/javascript">
 
   function scaleMe()
-  {       
-      // Check if the body element has overflow set to "hidden"
-      var bodyOverflow = window.getComputedStyle(document.body).overflow;
-      if (bodyOverflow === "hidden") { document.body.style.transform = "none"; } 
+  {  
+      var parentElement = document.querySelector('.google-revocation-link-placeholder');
+      var parentElementNew = document.querySelector('.fc-consent-root'); console.log(parentElementNew);
+      if (parentElement) { var childElements = parentElement.querySelectorAll('*');
+      // Loop through the child elements and set display to "none"
+      for (var i = 0; i < childElements.length; i++) 
+      {
+           childElements[i].parentNode.removeChild(childElements[i]);
+      }
+           parentElement.parentNode.removeChild(parentElement);
+      }
+      if (parentElementNew) { document.body.style.transform = "none"; }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
@@ -5272,19 +5276,19 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
       }
-      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && !parentElementNew) 
       {
            document.body.style.transform = "scale(1.0)";
       }
-      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && !parentElementNew) 
       {
            document.body.style.transform = "scale(0.920)";
       }
-      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && !parentElementNew) 
       {
            document.body.style.transform = "scale(0.860)";
       }
-      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
+      if (window.matchMedia("(min-width: 1501px)").matches && !parentElementNew) 
       {
            document.body.style.transform = "scale(0.80)";
       }
