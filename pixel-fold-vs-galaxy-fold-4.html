@@ -5269,6 +5269,8 @@ function updateLogo()
   {  
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
       var parentElementNew = document.querySelector('.fc-consent-root'); console.log(parentElementNew);
+      parentElementNew.style.backgroundColor = "black";
+      document.querySelector('.fc-consent-root').style.backgroundColor = "black";
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5278,13 +5280,12 @@ function updateLogo()
            parentElement.parentNode.removeChild(parentElement);
       }
       if (parentElementNew) { document.body.style.transform = "none"; 
-           var s2 = parentElementNew.querySelector('.fc-dialog-container');
-           var s1 = s2.querySelector('.fc-stacks.fc-dialog-restricted-content');
-           if(s1) { s1.style.border = "1px #dadce0 solid";
-                    s1.style.padding = "10px";
-                    s1.style.marginBottom = "10px";
-                    s1.style.borderRadius = "5px"; 
-                  }
+           parentElementNew.style.opacity = "0.5";
+           var s1 = document.querySelector('.fc-stacks.fc-dialog-restricted-content');
+           s1.style.border = "1px #dadce0 solid";
+           s1.style.padding = "10px";
+           s1.style.marginBottom = "10px";
+           s1.style.borderRadius = "5px"; 
       }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
