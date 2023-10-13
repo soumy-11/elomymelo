@@ -70,12 +70,24 @@
         border-radius: 5px !important;
         margin-bottom: 10px !important;
     }
-    .fc-footer .fc-dialog-restricted-content
+    .fc-footer.fc-dialog-restricted-content
     {
         border: 1px #dadce0 solid !important;
         padding: 10px !important;
         border-radius: 5px !important;
         margin-top: 10px !important;
+    }
+    .fc-footer-buttons-divider
+    {
+        opacity: 0 !important; 
+    }
+    .fc-footer-buttons
+    {
+        width: 75% !important;
+    }
+    .fc-slider-el
+    {
+        background-color: #ff7777 !important;
     }
 
     @media only screen and (max-width: 615px)
@@ -5269,8 +5281,6 @@ function updateLogo()
   {  
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
       var parentElementNew = document.querySelector('.fc-consent-root'); console.log(parentElementNew);
-      var parentElementCheck = document.querySelector('.fc-stacks.fc-dialog-restricted-content');
-      console.log(parentElementCheck);
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5282,14 +5292,6 @@ function updateLogo()
       if (parentElementNew) 
       { 
            document.body.style.transform = "none"; 
-           parentElementNew.style.opacity = "0.5";
-      }
-      if (parentElementCheck) 
-      { 
-           parentElementCheck.style.border = "1px #dadce0 solid";
-           parentElementCheck.style.padding = "10px";
-           parentElementCheck.style.marginBottom = "10px";
-           parentElementCheck.style.borderRadius = "5px"; 
       }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
