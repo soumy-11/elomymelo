@@ -5277,8 +5277,9 @@ function updateLogo()
       }
            parentElement.parentNode.removeChild(parentElement);
       }
-      if (parentElementNew) { document.body.style.transform = "none";
-           var s1 = parentElementNew.querySelector('.fc-stacks .fc-dialog-restricted-content');
+      if (parentElementNew) { document.body.style.transform = "none"; 
+           var s2 = parentElementNew.querySelector('.fc-dialog-container');
+           var s1 = s2.querySelector('.fc-stacks.fc-dialog-restricted-content');
            if(s1) { s1.style.border = "1px #dadce0 solid !important";
                     s1.style.padding = "10px !important";
                     s1.style.marginBottom = "10px !important";
