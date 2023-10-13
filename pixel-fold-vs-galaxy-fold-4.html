@@ -5281,7 +5281,8 @@ function updateLogo()
   function scaleMe()
   {  
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
-      var parentElementNew = document.querySelector('.fc-consent-root'); console.log(parentElementNew);
+      var parentElementNew = document.querySelector('.fc-consent-root'); console.log(footerDiv);
+      var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5293,6 +5294,11 @@ function updateLogo()
       if (parentElementNew) 
       { 
            document.body.style.transform = "none"; 
+      }
+      if (footerDiv) { // Select the second <p> tag inside the div
+           var secondPTag = footerDiv.querySelector('p:nth-child(2)');
+      if (secondPTag) { // Change the inner text of the second <p> tag
+           secondPTag.innerText = 'New Text Here'; }
       }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
