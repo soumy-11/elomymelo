@@ -82,15 +82,7 @@
         opacity: 0 !important; 
         visibility: hidden !important; 
     }
-    .fc-consent-root .fc-footer-buttons
-    {
-        width: 75% !important;
-    }
-    .fc-consent-root .fc-preference-container .fc-preference-slider input:checked + .fc-slider-el
-    {
-        background-color: #ff7777 !important;
-    }
-
+    
     @media only screen and (max-width: 615px)
     {   
     body 
@@ -5281,9 +5273,8 @@ function updateLogo()
   function scaleMe()
   {  
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
-      var parentElementNew = document.querySelector('.fc-consent-root'); // console.log(footerDiv); 
+      var parentElementNew = document.querySelector('.fc-consent-root'); console.log(footerDiv);
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
-      var sliderEl = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input:checked + .fc-slider-el'); console.log(sliderEl); 
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5296,7 +5287,6 @@ function updateLogo()
       { 
            document.body.style.transform = "none"; 
       }
-      if (sliderEl) { sliderEl.style.setProperty('background-color', '#ff7777', 'important'); }
       if (footerDiv) { // Select the second <p> tag inside the div
            var secondPTag = footerDiv.querySelector('p:nth-child(2)');
       if (secondPTag) { // Change the inner text of the second <p> tag
