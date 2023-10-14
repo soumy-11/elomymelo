@@ -4355,11 +4355,15 @@ function scrollmethod()
     }
   }
 
-  var timer = null;
-  window.addEventListener('scroll', function() 
+  var timer = null; function handlers() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso(); }, 2000); }, false);
+  timer = setTimeout(function() { doso(); }, 2000); }
+
+  window.addEventListener('scroll', handlers, false); 
   setTimeout(doso, 3000); // setTimeout(doso, 0);
+
+  // Remove the scroll event listener after 3 seconds (3000 milliseconds)
+  // setTimeout(function() { window.removeEventListener('scroll', handlers, false); }, 5000);
 
   document.addEventListener('DOMContentLoaded', doso);
   window.addEventListener('resize', doso, false);
@@ -4384,20 +4388,20 @@ function scrollmethod()
     }
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
-        document.body.style.transform = "none";
+        // document.body.style.transform = "none";
         document.getElementById("footer-id").style.display = "none";
     }
     if (window.matchMedia("(max-width: 615px)").matches && window.matchMedia("(max-height: 496px)").matches) 
     {
-        document.body.style.transform = "scale(1.0)";
+        // document.body.style.transform = "scale(1.0)";
     }
     if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
-        document.body.style.transform = "scale(1.0)";
+        // document.body.style.transform = "scale(1.0)";
     }
     if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
-        document.body.style.transform = "scale(0.920)";
+        // document.body.style.transform = "scale(0.920)";
         var finn = scsc * keke * 1.087;
         var nunn = scbb * keke * 1.087;
         var cscs = innr * keke * 1.087; 
@@ -4406,7 +4410,7 @@ function scrollmethod()
     }
     if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
-        document.body.style.transform = "scale(0.860)";
+        // document.body.style.transform = "scale(0.860)";
         var finn = scsc * keke * 1.1625;
         var nunn = scbb * keke * 1.1625;
         var cscs = innr * keke * 1.1625;
@@ -4415,7 +4419,7 @@ function scrollmethod()
     }
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
-        document.body.style.transform = "scale(0.80)";
+        // document.body.style.transform = "scale(0.80)";
         var finn = scsc * keke * 1.250;
         var nunn = scbb * keke * 1.250;
         var cscs = innr * keke * 1.250;
@@ -5273,7 +5277,7 @@ function updateLogo()
   function scaleMe()
   {  
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
-      var parentElementNew = document.querySelector('.fc-consent-root'); console.log(footerDiv);
+      var parentElementNew = document.querySelector('.fc-consent-root'); // console.log(footerDiv);
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
@@ -5286,6 +5290,7 @@ function updateLogo()
       if (parentElementNew) 
       { 
            document.body.style.transform = "none"; 
+           // setTimeout(function() { window.removeEventListener('scroll', handlers, false); }, 5000);
       }
       if (footerDiv) { // Select the second <p> tag inside the div
            var secondPTag = footerDiv.querySelector('p:nth-child(2)');
@@ -5323,7 +5328,7 @@ function updateLogo()
            document.body.style.transform = "scale(0.80)";
       }
   }
-  scaleMe(); setInterval(scaleMe, 1000); 
+  scaleMe(); setInterval(scaleMe, 1000); window.addEventListener('resize', scaleMe, false);
 
 </script>
 
