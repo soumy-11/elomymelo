@@ -4851,8 +4851,6 @@ if (inputElement && sliderEl) {
 }
 else { sliderEl.style.setProperty('background-color', '#80868b', 'important'); }
 */
-    
-   }, 1000);
 
 // Select the input element with the :checked state
 var inputElement = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input');
@@ -4864,10 +4862,10 @@ var sliderEl = document.querySelector('.fc-slider-el');
 function handleStyleChange() {
     if (inputElement.checked) {
         // Apply background color when the input is checked
-        sliderEl.style.setProperty('background-color', '#checked-color', 'important');
+        sliderEl.style.setProperty('background-color', '#ff7777', 'important');
     } else {
         // Apply background color when the input is unchecked
-        sliderEl.style.setProperty('background-color', '#unchecked-color', 'important');
+        sliderEl.style.setProperty('background-color', '#80868b', 'important');
     }
 }
 
@@ -4876,6 +4874,8 @@ inputElement.addEventListener('change', handleStyleChange);
 
 // Initially set the style based on the input state
 handleStyleChange();
+    
+   }, 1000);
 
 
    timer2 = setInterval(function() 
