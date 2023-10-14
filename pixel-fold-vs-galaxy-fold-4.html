@@ -5290,9 +5290,10 @@ function updateLogo()
       if (parentElementNew) 
       { 
            document.body.style.transform = "none"; 
-           document.body.style.overflow = "visible"; 
+           document.body.style.overflow = "hidden"; 
            setTimeout(function() { window.scrollTo(0, 0) }, 1000); 
       }
+      if (!parentElementNew) { document.body.style.overflow = "visible"; }
       if (footerDiv) { // Select the second <p> tag inside the div
            var secondPTag = footerDiv.querySelector('p:nth-child(2)');
       if (secondPTag) { // Change the inner text of the second <p> tag
