@@ -4838,45 +4838,8 @@ function toppicksout()
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
-/*
-    // Select the input element with the :checked state
-var inputElement = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input:checked');
-
-// Select the adjacent sibling with the class .fc-slider-el
-var sliderEl = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input:checked + .fc-slider-el');
-
-if (inputElement && sliderEl) {
-    // Apply the background color to the adjacent sibling when the input is checked
-    sliderEl.style.setProperty('background-color', '#ff7777', 'important'); 
-}
-else { sliderEl.style.setProperty('background-color', '#80868b', 'important'); }
-*/
-
-// Select the input element with the :checked state
-var inputElement = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input');
-
-// Select the .fc-slider-el element
-var sliderEl = document.querySelector('.fc-slider-el');
-
-// Function to handle the style change based on the input state
-function handleStyleChange() {
-    if (inputElement.checked) {
-        // Apply background color when the input is checked
-        sliderEl.style.setProperty('background-color', '#ff7777', 'important');
-    } else {
-        // Apply background color when the input is unchecked
-        sliderEl.style.setProperty('background-color', '#80868b', 'important');
-    }
-}
-
-// Add an event listener to the input element to handle the style change
-inputElement.addEventListener('change', handleStyleChange);
-
-// Initially set the style based on the input state
-handleStyleChange();
     
    }, 1000);
-
 
    timer2 = setInterval(function() 
    {  
@@ -5320,6 +5283,7 @@ function updateLogo()
       var parentElement = document.querySelector('.google-revocation-link-placeholder');
       var parentElementNew = document.querySelector('.fc-consent-root'); // console.log(footerDiv); 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+      var sliderEl = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input:checked + .fc-slider-el'); console.log(sliderEl); 
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5332,6 +5296,7 @@ function updateLogo()
       { 
            document.body.style.transform = "none"; 
       }
+      if (sliderEl) { sliderEl.style.setProperty('background-color', '#ff7777', 'important'); }
       if (footerDiv) { // Select the second <p> tag inside the div
            var secondPTag = footerDiv.querySelector('p:nth-child(2)');
       if (secondPTag) { // Change the inner text of the second <p> tag
