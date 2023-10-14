@@ -4838,7 +4838,7 @@ function toppicksout()
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
-
+/*
     // Select the input element with the :checked state
 var inputElement = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input:checked');
 
@@ -4850,8 +4850,33 @@ if (inputElement && sliderEl) {
     sliderEl.style.setProperty('background-color', '#ff7777', 'important'); 
 }
 else { sliderEl.style.setProperty('background-color', '#80868b', 'important'); }
+*/
     
    }, 1000);
+
+// Select the input element with the :checked state
+var inputElement = document.querySelector('.fc-consent-root .fc-preference-container .fc-preference-slider input');
+
+// Select the .fc-slider-el element
+var sliderEl = document.querySelector('.fc-slider-el');
+
+// Function to handle the style change based on the input state
+function handleStyleChange() {
+    if (inputElement.checked) {
+        // Apply background color when the input is checked
+        sliderEl.style.setProperty('background-color', '#checked-color', 'important');
+    } else {
+        // Apply background color when the input is unchecked
+        sliderEl.style.setProperty('background-color', '#unchecked-color', 'important');
+    }
+}
+
+// Add an event listener to the input element to handle the style change
+inputElement.addEventListener('change', handleStyleChange);
+
+// Initially set the style based on the input state
+handleStyleChange();
+
 
    timer2 = setInterval(function() 
    {  
