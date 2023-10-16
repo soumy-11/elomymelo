@@ -63,6 +63,7 @@
 		visibility: visible;
 		z-index: -999;
 	}
+
     .fc-stacks.fc-dialog-restricted-content
     {
         border: 2px #dadce0 solid !important;
@@ -82,7 +83,7 @@
         opacity: 0 !important; 
         visibility: hidden !important; 
     }
-    
+
     @media only screen and (max-width: 615px)
     {   
     body 
@@ -1391,6 +1392,7 @@
         left: 1530px;
         font-family: cus-arial-round, cus-arial, sans-serif;
         font-size: 85px;
+        white-space: nowrap;
     }
     #elo
     {
@@ -4355,15 +4357,11 @@ function scrollmethod()
     }
   }
 
-  var timer = null; function handlers() 
+  var timer = null;
+  window.addEventListener('scroll', function() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso(); }, 2000); }
-
-  window.addEventListener('scroll', handlers, false); 
+  timer = setTimeout(function() { doso(); }, 2000); }, false);
   setTimeout(doso, 3000); // setTimeout(doso, 0);
-
-  // Remove the scroll event listener after 3 seconds (3000 milliseconds)
-  // setTimeout(function() { window.removeEventListener('scroll', handlers, false); }, 5000);
 
   document.addEventListener('DOMContentLoaded', doso);
   window.addEventListener('resize', doso, false);
@@ -4388,7 +4386,7 @@ function scrollmethod()
     }
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
-        // document.body.style.transform = "none";
+        document.body.style.transform = "none";
         document.getElementById("footer-id").style.display = "none";
     }
     if (window.matchMedia("(max-width: 615px)").matches && window.matchMedia("(max-height: 496px)").matches) 
@@ -4947,13 +4945,13 @@ function updateLogo()
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+           document.getElementById("Web_1920__1").style.width = "3554px";
 
            document.querySelectorAll(".display-ad").forEach(function(el) {
            el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
            document.querySelectorAll(".feed-ad").forEach(function(el) {
            el.style.transform = "scale(2.45, 2.45)"; });
            document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
-           document.getElementById("elomymelo").style.whiteSpace = "nowrap"; 
        }
 
       if (window.matchMedia("(max-width: 615px)").matches) 
@@ -4964,7 +4962,6 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
 
-           document.getElementById("elomymelo").style.whiteSpace = "nowrap"; 
            document.querySelectorAll(".display-ad").forEach(function(el) {
            el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
            document.querySelectorAll(".feed-ad").forEach(function(el) {
@@ -5275,10 +5272,12 @@ function updateLogo()
 <script type="text/javascript">
 
   function scaleMe()
-  {  
-      var parentElement = document.querySelector('.google-revocation-link-placeholder');
-      var parentElementNew = document.querySelector('.fc-consent-root'); // console.log(footerDiv);
+  {       
+      // Check if the body element has overflow set to "hidden"
+      var parentElementNew = document.querySelector('.fc-consent-root');
+      var bodyOverflow = window.getComputedStyle(document.body).overflow; 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+      var parentElement = document.querySelector('.google-revocation-link-placeholder');
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -5287,23 +5286,21 @@ function updateLogo()
       }
            parentElement.parentNode.removeChild(parentElement);
       }
-      if (parentElementNew) 
+      if (parentElementNew || bodyOverflow === "hidden") 
       { 
+           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
            document.body.style.transform = "none"; 
-           document.body.style.overflow = "hidden"; 
-           setTimeout(function() { window.scrollTo(0, 0) }, 1000); 
       }
-      if (!parentElementNew) { document.body.style.overflow = "visible"; }
-      if (footerDiv) { // Select the second <p> tag inside the div
-           var secondPTag = footerDiv.querySelector('p:nth-child(2)');
-      if (secondPTag) { // Change the inner text of the second <p> tag
-           secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } 
+      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
+      if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
+      if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
       }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+           document.getElementById("Web_1920__1").style.width = "3554px";
       }
       if (window.matchMedia("(max-width: 615px)").matches) 
       {
@@ -5313,24 +5310,25 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
       }
-      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && !parentElementNew) 
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(1.0)";
       }
-      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && !parentElementNew) 
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.920)";
       }
-      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && !parentElementNew) 
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.860)";
       }
-      if (window.matchMedia("(min-width: 1501px)").matches && !parentElementNew) 
+      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.80)";
       }
   }
-  scaleMe(); setInterval(scaleMe, 1000); window.addEventListener('resize', scaleMe, false);
+  scaleMe(); setInterval(scaleMe, 1000); 
+  window.addEventListener('resize', scaleMe, false); 
 
 </script>
 
