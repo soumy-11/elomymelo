@@ -577,7 +577,7 @@
         height: auto;
         min-height: 256px;
         padding: 4px;
-        background: #4D4D4D;
+        background: #2A2A2A;
         border-radius: 5px;
         margin-bottom: calc(var(--set-margin)*2.05);
         margin-top: calc(var(--set-margin)*2.05);
@@ -5286,7 +5286,7 @@ function updateLogo()
       }
            parentElement.parentNode.removeChild(parentElement);
       }
-      if (bodyOverflow === "hidden") 
+      if (parentElementNew || bodyOverflow === "hidden") 
       { 
            window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
            document.body.style.transform = "none"; 
