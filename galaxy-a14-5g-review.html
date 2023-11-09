@@ -4666,6 +4666,14 @@ function scrolltotop()
    setTimeout(() => { clearInterval(timer1); }, 4000);
    window.addEventListener('resize', buttonfxd, false);
 
+   function buttonfxddd()
+   { 	  
+      if (window.matchMedia("(max-width: 615px)").matches) 
+       {
+           document.getElementById("Web_1920__1").style.background = "grey";
+       }     
+   }
+   window.addEventListener('resize', buttonfxddd, false);
 
   function outsideclick()
   { 
