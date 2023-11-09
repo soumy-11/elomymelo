@@ -4804,7 +4804,7 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   setInterval(function() { 
+   function adsheights() { 
 
     var adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
     var adheight2 = document.getElementById("ads-style-feed-2").clientHeight;
@@ -4832,8 +4832,13 @@ function toppicksout()
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
     }
+    console.log("here here");
     
-   }, 1000);
+   }
+
+   timer3 = setInterval(adsheights, 0);
+   setTimeout(() => { clearInterval(timer3); }, 5000);
+   window.addEventListener('scroll', adsheights, false);
 
    timer2 = setInterval(function() 
    {  
@@ -5100,7 +5105,7 @@ function updateLogo()
 
                   // console.log(attrname);
                   // console.log(attrvalue);
-
+/*
                   if(window.matchMedia("(max-width: 615px)").matches)
                   {
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-one')
@@ -5173,7 +5178,7 @@ function updateLogo()
                         document.getElementById("ads-br-f4").style.display = "block";
                     }
                   } 
-
+*/
                   // desktop 
                   if(window.matchMedia("(min-width: 615px)").matches)
                   {
