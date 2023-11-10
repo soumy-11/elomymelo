@@ -4805,69 +4805,25 @@ function toppicksout()
 }
 
    function adsheights() { 
-/*
-    var adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
-    var adheight2 = document.getElementById("ads-style-feed-2").clientHeight;
-    var adheight3 = document.getElementById("ads-style-feed-3").clientHeight;
-    var adheight4 = document.getElementById("ads-style-feed-4").clientHeight;
-    var adheight5 = document.getElementById("ads-style-display-1").clientHeight;
-    var adheight6 = document.getElementById("ads-style-display-2").clientHeight;
-    var adheight7 = document.getElementById("ads-style-display-3").clientHeight;
-
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    document.getElementById("ads-style-feed-1").style.setProperty('--set-margin', adheight1 + "px");
-    document.getElementById("ads-style-feed-2").style.setProperty('--set-margin', adheight2 + "px");
-    document.getElementById("ads-style-feed-3").style.setProperty('--set-margin', adheight3 + "px");
-    document.getElementById("ads-style-feed-4").style.setProperty('--set-margin', adheight4 + "px");
-    document.getElementById("ads-style-display-1").style.setProperty('--set-margin', adheight5 + "px");
-    document.getElementById("ads-style-display-2").style.setProperty('--set-margin', adheight6 + "px");
-    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight7 + "px"); }
-
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-       if(adheight1 == 0) { document.getElementById("ads-br-f1").style.display = "block"; }
-       if(adheight2 == 0) { document.getElementById("ads-br-f2").style.display = "block"; }
-       if(adheight3 == 0) { document.getElementById("ads-br-f3").style.display = "block"; }
-       if(adheight4 == 0) { document.getElementById("ads-br-f4").style.display = "block"; }
-       if(adheight5 == 0) { document.getElementById("ads-br-d1").style.display = "block"; }
-       if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
-       if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
-    } 
-    */
    
+    var checkh = window.innerWidth;
     const feedAds = document.querySelectorAll('.feed-ad');
     const displayAds = document.querySelectorAll('.display-ad'); 
 
-    // Set margin for each element in "feed-ad"
     feedAds.forEach((feedAd, index) => {
     const feedAdHeight = feedAd.clientHeight;
-    if (window.matchMedia("(max-width: 615px)").matches) {  
-    feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
-    if (window.matchMedia("(min-width: 615px)").matches) {  
-    feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
+    if (checkh <= 615) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
+    if (checkh >= 615) { feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
+    if (feedAdHeight === 0) { feedAd.nextElementSibling.style.display = 'block'; } });
 
-    if (feedAdHeight === 0) {
-    // If displayAdHeight is 0, show the next br element
-    const nextBr = feedAd.nextElementSibling;
-    if (nextBr && nextBr.tagName === 'BR') {
-    nextBr.style.display = 'block'; } } });
-
-    // Set margin for each element in "display-ad" and show/hide the next br element
     displayAds.forEach((displayAd, index) => {
     const displayAdHeight = displayAd.clientHeight;
-    if (window.matchMedia("(max-width: 615px)").matches) {  
-    displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
-    if (window.matchMedia("(min-width: 615px)").matches) {  
-    displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
-
-    if (displayAdHeight === 0) {
-    // If displayAdHeight is 0, show the next br element
-    const nextBr = displayAd.nextElementSibling;
-    if (nextBr && nextBr.tagName === 'BR') {
-    nextBr.style.display = 'block'; } } });
+    if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
+    if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
+    if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; } });
 
     // console.log("here here"); 
-    
+
    }
 
    timer3 = setInterval(adsheights, 0);
@@ -5155,111 +5111,19 @@ function updateLogo()
                   // console.log(attrvalue);
 
                   if(window.matchMedia("(max-width: 615px)").matches)
-                  { /*
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-one')
-                    {
-                        document.getElementById("ad-dtls-fone").style.display = "none";
-                        document.getElementById("ads-style-display-1").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-1").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
-                    {
-                        document.getElementById("ads-style-display-1").style.display = "none";
-                        document.getElementById("ads-br-d1").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-one')
-                    {
-                        document.getElementById("ads-style-feed-1").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
-                    {
-                        document.getElementById("ads-style-feed-1").style.display = "none";
-                        document.getElementById("ads-br-f1").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-two')
-                    {
-                        document.getElementById("ads-style-feed-2").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
-                    {
-                        document.getElementById("ads-style-feed-2").style.display = "none";
-                        document.getElementById("ads-br-f2").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-two')
-                    {
-                        document.getElementById("ad-dtls-ftwo").style.display = "none";
-                        document.getElementById("ads-style-display-2").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-2").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
-                    {
-                        document.getElementById("ads-style-display-2").style.display = "none";
-                        document.getElementById("ads-br-d2").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-three')
-                    {
-                        document.getElementById("ad-dtls-fthree").style.display = "none";
-                        document.getElementById("ads-style-display-3").style.background = "#4D4D4D";
-                        document.getElementById("ads-style-display-3").style.border = "3px transparent solid";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
-                    {
-                        document.getElementById("ads-style-display-3").style.display = "none";
-                        document.getElementById("ads-br-d3").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-three')
-                    {
-                        document.getElementById("ads-style-feed-3").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
-                    {
-                        document.getElementById("ads-style-feed-3").style.display = "none";
-                        document.getElementById("ads-br-f3").style.display = "block";
-                    }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-four')
-                    {
-                        document.getElementById("ads-style-feed-4").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
-                    {
-                        document.getElementById("ads-style-feed-4").style.display = "none";
-                        document.getElementById("ads-br-f4").style.display = "block";
-                    }   */
-
+                  { 
                     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-                    // Function to update the attributes for multiple elements 
                     ids.forEach(function(id) {
-                    var element = document.getElementById(id);
-                    var parentDiv = element.parentNode;
-                    if (idname === id && attrvalue === "filled") 
-                    {
-                           // var parentDiv = element.parentNode;
-                           parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
-                    } 
-                    if (idname === id && attrvalue === "unfilled") 
-                    {
-                           // var parentDiv = element.parentNode;
-                           parentDiv.style.display = "none";
-                           parentDiv.nextElementSibling.style.display = "block";
-                    } });
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
+                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
 
                     var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
                     ids.forEach(function(id) {
-                    var element = document.getElementById(id);
-                    var parentDiv = element.parentNode;
-                    if (idname === id && attrvalue === "filled") 
-                    {
-                           // var parentDiv = element.parentNode;
-                           parentDiv.style.background = "#4D4D4D";
-                           parentDiv.style.border = "3px transparent solid";
-                    } 
-                    if (idname === id && attrvalue === "unfilled") 
-                    {
-                           // var parentDiv = element.parentNode;
-                           parentDiv.style.display = "none";
-                           parentDiv.nextElementSibling.style.display = "block";
-                    } });
-
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    var childDivs = parentDiv.querySelectorAll('div');
+                    if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
+                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
                   } 
 
                   // desktop 
@@ -5944,7 +5808,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-1">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
-                 <div class="ad-details-4" id="ad-dtls-fone"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
                  
                  <!-- Display horizontal -->
                  <ins id="ins-dis-one" 
@@ -5983,7 +5847,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-2">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
-                 <div class="ad-details-4" id="ad-dtls-ftwo"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
 
                  <!-- Display horizontal -->
                  <ins id="ins-dis-two" 
@@ -6125,7 +5989,7 @@ function updateLogo()
             <div class="display-ad" id="ads-style-display-3">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
-                 <div class="ad-details-4" id="ad-dtls-fthree"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
+                 <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
 
                  <!-- Display horizontal -->
                  <ins id="ins-dis-three" 
