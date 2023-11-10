@@ -327,6 +327,28 @@
 		border-radius: 50px;
 		z-index: -1;
 	}
+    #left-edge
+    {
+        position: absolute;
+        left: 96px;
+        top: 82px;
+        width: 130px;
+        height: 130px;
+        border-top: 10px #ee637aad solid;
+        border-left: 10px #ee637aad solid;
+        border-radius: 60px 0px 0px 0px; 
+    }
+    #right-edge
+    {
+        position: absolute;
+        right: 102px;
+        top: 82px;
+        width: 130px;
+        height: 130px;
+        border-top: 10px #ee637aad solid;
+        border-right: 10px #ee637aad solid;
+        border-radius: 0px 60px 0px 0px; 
+    }
 	#left-ring-one
     {
         position: absolute;
@@ -424,10 +446,10 @@
     	color: rgba(146,155,212,1); 
     	font-family: cus-roboto-medium, cus-roboto-round, 'Roboto', cus-roboto; 
     	font-weight: normal;
-    	font-size: 128px; 
+    	font-size: 122px; 
     	border: 0px grey solid;
         width: 2235px; 
-        padding-left: 15px; 
+        padding-left: 34px; 
         text-align: left;
         line-height: 170px;
     }
@@ -467,6 +489,29 @@
     	padding-right: 30px;
     	z-index: 4;
     }
+    .header-line-phone
+    {
+        position: absolute;
+        right: 22px;
+        top: 33px;
+        width: 32px;
+        height: 292px;
+        border: 6px black solid;
+        border-radius: 40px;
+        background: #585858; 
+    }
+    .header-line-phone-2
+    {
+        position: absolute;
+        right: 35px;
+        top: 160px;
+        width: 40px;
+        height: 40px;
+        background: #ee637a; 
+        border-radius: 6px;
+        transform: rotate(45deg);
+        z-index: -9999;
+    }
     .art-text-div
     {    	
     	position: relative;
@@ -486,6 +531,20 @@
     {
         text-decoration: none;
         color: rgba(238,99,122,1);
+    }
+    .art-text-div p
+    {
+        display: inline-block;
+    }
+    .last-extend
+    {
+        position: relative;
+        height: 50px;
+        border: 0px transparent solid;
+        background: linear-gradient(to right, rgba(112,112,112,1), rgba(112,112,112,0.4));
+        border-radius: 40px;
+        margin-left: 30px;
+        display: none;
     }
 
     .aff-link-text
@@ -568,6 +627,7 @@
         border-radius: 5px;
         margin-bottom: calc(var(--set-margin)*3.7);
         margin-top: calc(var(--set-margin)*3.7);
+        --set-margin: 306px;
     }
     .feed-ad
     {
@@ -581,6 +641,7 @@
         border-radius: 5px;
         margin-bottom: calc(var(--set-margin)*2.05);
         margin-top: calc(var(--set-margin)*2.05);
+        --set-margin: 452px;
     }
     #section-one
     {
@@ -1631,6 +1692,10 @@
     {
         text-decoration: none;
         color: rgba(238,99,122,1);
+    }
+    .art-text-div p
+    {
+        display: inline-block;
     }
 
     .display-ad
@@ -4804,8 +4869,7 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   function adsheights() { 
-   
+   function adsheights() {  
     var checkh = window.innerWidth;
     const feedAds = document.querySelectorAll('.feed-ad');
     const displayAds = document.querySelectorAll('.display-ad'); 
@@ -4820,28 +4884,14 @@ function toppicksout()
     const displayAdHeight = displayAd.clientHeight;
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
     if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
-    if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; } });
-
+    if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; } }); 
     // console.log("here here"); 
-
    }
 
-   timer3 = setInterval(adsheights, 0);
+   timer3 = setInterval(adsheights, 5000);
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
    // window.addEventListener('scroll', adsheights, false); 
-
-   new PerformanceObserver(entryList => {
-   var entries = entryList.getEntries() || [];
-   var cls = 0;
-   entries.forEach(e => {
-        if (!e.hadRecentInput) { // omit entries likely caused by user input
-            cls += e.value;
-        }
-    });
-    console.log("Cumulative Layout Shift = ", cls); 
-   }).observe({ type: "layout-shift", buffered: true });
-
 
    timer2 = setInterval(function() 
    {  
@@ -5088,14 +5138,14 @@ function updateLogo()
     document.querySelectorAll(".feed-ad").forEach(function(el) { el.style.display = "none"; }); }
 */
     // mutation observer code
-    const checkme1 = document.getElementById("ins-feed-one");
-    const checkme2 = document.getElementById("ins-dis-one");
-    const checkme3 = document.getElementById("ins-dis-two");
-    const checkme4 = document.getElementById("ins-feed-two");
-    const checkme5 = document.getElementById("ins-feed-three");
-    const checkme6 = document.getElementById("ins-dis-three");
-    const checkme7 = document.getElementById("ins-feed-four");
-    const checkme8 = document.getElementById("ins-dis-v1");
+    const checkf1 = document.getElementById("ins-feed-one");
+    const checkf2 = document.getElementById("ins-feed-two");
+    const checkf3 = document.getElementById("ins-feed-three");
+    const checkf4 = document.getElementById("ins-feed-four");
+    const checkd1 = document.getElementById("ins-dis-one");
+    const checkd2 = document.getElementById("ins-dis-two");
+    const checkd3 = document.getElementById("ins-dis-three");
+    const checkv1 = document.getElementById("ins-dis-v1");
     const observer = new MutationObserver( mutations => 
     { 
          // console.log(mutations); 
@@ -5103,78 +5153,109 @@ function updateLogo()
             { 
                 if(record.type === 'attributes')
                 {
-                  const idname = record.target.id;
+                  const idname = record.target.id; 
                   const attrname = record.attributeName;
                   const attrvalue = record.target.getAttribute(attrname);
+                  var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+                  var dids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three']; 
 
                   // console.log(attrname);
                   // console.log(attrvalue);
 
                   if(window.matchMedia("(max-width: 615px)").matches)
-                  { 
-                    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
-                    ids.forEach(function(id) {
+                  {
+                    fids.forEach(function(id) {
                     var element = document.getElementById(id); var parentDiv = element.parentNode; 
                     if (idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
                     if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
 
-                    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
-                    ids.forEach(function(id) {
+                    dids.forEach(function(id) {
                     var element = document.getElementById(id); var parentDiv = element.parentNode; 
                     var childDivs = parentDiv.querySelectorAll('div');
                     if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
-                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
+                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
                   } 
 
                   // desktop 
                   if(window.matchMedia("(min-width: 615px)").matches)
-                  {
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
-                    {
-                        document.getElementById("ads-style-feed-1").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
-                    {
-                        document.getElementById("ads-style-display-1").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-two')
-                    {
-                        document.getElementById("ads-style-display-2").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-two')
-                    {
-                        document.getElementById("ads-style-feed-2").style.display = "none";
-                    }   
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-three')
-                    {
-                        document.getElementById("ads-style-feed-3").style.display = "none";
-                    }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-four')
-                    {
-                        document.getElementById("ads-style-feed-4").style.display = "none";
-                    }  
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-three')
-                    {
-                        document.getElementById("ads-style-display-3").style.display = "none";
-                    }   
+                  { 
+                    fids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "unfilled") 
+                    { parentDiv.style.display = "none"; } }); 
+
+                    dids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "unfilled") 
+                    { parentDiv.style.display = "none"; } }); 
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
-                    {
-                        document.getElementById("ads-v1-in").style.background = "#F7F7F7";
-                    }   
-                  }      
+                    { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
+                  }
+
                 } 
             });
     });
 
-    observer.observe(checkme1, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme2, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme3, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme4, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme5, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme6, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme7, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkme8, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf2, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf3, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf4, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkd1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkd2, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkd3, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkv1, { attributes: true, attributeFilter: ['data-ad-status'] });
 }
+
+function detectCharacter() 
+{
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
+        const divElement = document.getElementById("article-text-div");
+        const pTags = divElement.querySelectorAll("p");
+        
+        // Loop through all the p tags and change span element's style using forEach method
+        pTags.forEach((paraTag) => {
+
+        var lastCharacter = paraTag.textContent.trim().slice(-1);
+        var spanElement = document.createElement('span');
+        paraTag.appendChild(spanElement);
+
+        var spanRect = spanElement.getBoundingClientRect();
+        var leftCoordinate = spanRect.left + window.pageXOffset;
+        paraTag.removeChild(spanElement);
+
+        widthinner = window.innerWidth;
+        multiplier = 2358/widthinner;
+        comparewidth = widthinner/2;
+        comparewidthtwo = widthinner - (widthinner * 0.278); 
+
+        if(leftCoordinate < comparewidth)
+        {
+            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
+            var spanElement = document.createElement('span');
+            spanElement.setAttribute("class", "last-extend");
+            paraTag.appendChild(spanElement);
+
+            // change some properties of each span element in loop
+            spanElement.style.width = calwidth + "px";
+            spanElement.style.display = "inline-block";
+            
+        }
+        if(leftCoordinate > comparewidthtwo)
+        {
+            var calwidth = comparewidth * multiplier; 
+            var spanElement = document.createElement('span');
+            spanElement.setAttribute("class", "last-extend");
+            paraTag.appendChild(spanElement);
+
+            spanElement.style.width = calwidth + "px";
+            spanElement.style.display = "inline-block";
+            spanElement.style.marginLeft = "0px";
+            
+        } });
+    }
+}
+// setTimeout(detectCharacter, 2000); 
 
 </script>
 
@@ -5734,6 +5815,8 @@ function updateLogo()
 	<div id="category-top">
 		<span>SMARTPHONE COMPARISON</span>
 	</div>
+    <div id="left-edge"></div>
+    <div id="right-edge"></div>
 	<div id="left-ring-one"></div>
 	<div id="left-ring-two"></div>
 	<div id="left-ring-three"></div>
@@ -5752,23 +5835,24 @@ function updateLogo()
             <span id="watch-on-youtube"> watch on youtube </span>
         </a>		
 		</div>
-		<div id="main-art-header-phone"> <h1 id="h1-size-phone" style="font-size: 128px; display: inline-block; font-weight: normal"> Google Pixel Fold is a better deal than Galaxy Fold 4 - honest comparison </h1> 
+		<div id="main-art-header-phone"> <h1 id="h1-size-phone" style="font-size: 122px; display: inline-block; font-weight: normal"> Google Pixel Fold is a better deal than Galaxy Fold 4 - honest comparison </h1> 
 		  <span id="short-verdict-phone"> Both have pros and cons, hard to explain in a couple of lines </span>
 		  <span id="publication-detail-phone"> Monday, July 03, 2023 - by <a style="text-decoration: none; color: rgba(238,99,122,1);" href="https://www.facebook.com/profile.php?id=100022991028680">Soumya Roy</a> </span>
+          <span class="header-line-phone"></span><span class="header-line-phone-2"></span> 
 		</div>
 		<br>
-		<div class="art-text-div">
+		<div class="art-text-div" id="article-text-div">
 
 			<img id="art-image-one" src="https://docs.elomymelo.com/images/pixel-fold-main.png" alt="photo of google pixel fold vs samsung galaxy z fold 4"> <br>
              
-		    <span id="big-intro-char">F</span>old is probably something that nobody would’ve guessed could possibly be related to display decades ago. But here we’re now dealing with paper-thin foldable <a href="https://www.oled-info.com/oled-introduction" target="_blank" rel="nofollow noopener noreferrer">OLED</a> displays. If you are curious like me, check the first foldable phone that could fold and act like a big-screen tablet but without a one-piece foldable display. The Japanese phone, <a href="https://www.youtube.com/watch?v=PfvfejwBp18" target="_blank" rel="nofollow noopener noreferrer">Kyocera Echo</a> was the first to own the title back in 2011, a crazy Japanese company. The Galaxy Fold is in its 4th generation now, which is considered to be the best overall foldable smartphone available. Google learned a lot of things and released their <a href="https://www.gsmarena.com/google_pixel_fold-12265.php" target="_blank" rel="nofollow noopener noreferrer">first gen foldable</a> this year. Let’s find out who is beating who in terms of software and hardware.  
+		    <p><span id="big-intro-char">F</span>old is probably something that nobody would’ve guessed could possibly be related to display decades ago. But here we’re now dealing with paper-thin foldable <a href="https://www.oled-info.com/oled-introduction" target="_blank" rel="nofollow noopener noreferrer">OLED</a> displays. If you are curious like me, check the first foldable phone that could fold and act like a big-screen tablet but without a one-piece foldable display. The Japanese phone, <a href="https://www.youtube.com/watch?v=PfvfejwBp18" target="_blank" rel="nofollow noopener noreferrer">Kyocera Echo</a> was the first to own the title back in 2011, a crazy Japanese company. The Galaxy Fold is in its 4th generation now, which is considered to be the best overall foldable smartphone available. Google learned a lot of things and released their <a href="https://www.gsmarena.com/google_pixel_fold-12265.php" target="_blank" rel="nofollow noopener noreferrer">first gen foldable</a> this year. Let’s find out who is beating who in terms of software and hardware.</p>  
 
 		    <br><br><br>
 
 		    <span class="sections" id="section-one"> Inside-the-box Comparison </span>
             <br>
             
-            Sooo, a new kid on the block is the Pixel Fold, which is going to be the main focus today. Inside the box, you will get your foldable smartphone, some documents - instruction manuals or guides whatever you wanna call them, a SIM ejector tool, a USB type-c to type-c charging cable, and a USB type-c male to type-a fe&shy;male adapter for connecting <a href="https://en.wikipedia.org/wiki/Peripheral" target="_blank" rel="nofollow noopener noreferrer">peripherals</a>. I don’t like the fact that they moved away from including char&shy;gers. Most people use their phones for more than a couple of years and the chargers will probably be almost dead by then, yeah. But the C to A adapter is a really nice accessory here for the Pixel Fold. 
+            <p>Sooo, a new kid on the block is the Pixel Fold, which is going to be the main focus today. Inside the box, you will get your foldable smartphone, some documents - instruction manuals or guides whatever you wanna call them, a SIM ejector tool, a USB type-c to type-c charging cable, and a USB type-c male to type-a fe&shy;male adapter for connecting <a href="https://en.wikipedia.org/wiki/Peripheral" target="_blank" rel="nofollow noopener noreferrer">peripherals</a>. I don’t like the fact that they moved away from including char&shy;gers. Most people use their phones for more than a couple of years and the chargers will probably be almost dead by then, yeah. But the C to A adapter is a really nice accessory here for the Pixel Fold.</p> 
 
             <br>
             <div class="feed-ad" id="ads-style-feed-1">
@@ -5787,7 +5871,7 @@ function updateLogo()
             </div>
             <br id="ads-br-f1">
 
-            No charger, no adapter for the Samsung Galaxy Fold 4. Only a type-c to type-c charging cable, a SIM ejection tool and quick start guide. So the basic accessories only, I wonder when they’re going to exclude the charging cable too. By the way, these new C to C cables can transfer data too, at a much higher speed, as they are USB 3.2 certified. 
+            <p>No charger, no adapter for the Samsung Galaxy Fold 4. Only a type-c to type-c charging cable, a SIM ejection tool and quick start guide. So the basic accessories only, I wonder when they’re going to exclude the charging cable too. By the way, these new C to C cables can transfer data too, at a much higher speed, as they are USB 3.2 certified.</p> 
 
             <br>
             <img id="art-image-two" src="https://docs.elomymelo.com/images/pixel-fold-inside.png" alt="photo of accessories included inside pixel fold and galaxy fold 4 boxes">
@@ -5796,13 +5880,13 @@ function updateLogo()
 		    <span class="sections" id="section-two"> Design & Build Analogy </span>
             <br>
 
-		    Personally, I am not a fan of the Galaxy Z Fold 4 because of the gap close to the hinge area when the Fold is in the closed position. The two halves don’t rest flat on top of each other, there is like a triangular gap. The gap reminds me that the device’s <a href="https://en.wikipedia.org/wiki/Hinge" target="_blank" rel="nofollow noopener noreferrer">hinge engineering</a> may not be ready to belong where it should be. It is making the device look a bit thicker, which is not that attractive, to be honest. When folded the front small display has <a href="https://android.stackexchange.com/questions/246563/what-is-the-difference-between-corning-gorilla-glass-victus-and-corning-goril" target="_blank" rel="nofollow noopener noreferrer">Gorilla Glass Victus+</a>, also the same glass back design. If you unfold the bigger display then you will have a plastic front panel. Currently, this is a drawback for foldable phones. The foldable display cannot have a flexible <a href="https://en.wikipedia.org/wiki/Screen_protector" target="_blank" rel="nofollow noopener noreferrer">tempered glass</a> front, limitation of glass. 
+		    <p>Personally, I am not a fan of the Galaxy Z Fold 4 because of the gap close to the hinge area when the Fold is in the closed position. The two halves don’t rest flat on top of each other, there is like a triangular gap. The gap reminds me that the device’s <a href="https://en.wikipedia.org/wiki/Hinge" target="_blank" rel="nofollow noopener noreferrer">hinge engineering</a> may not be ready to belong where it should be. It is making the device look a bit thicker, which is not that attractive, to be honest. When folded the front small display has <a href="https://android.stackexchange.com/questions/246563/what-is-the-difference-between-corning-gorilla-glass-victus-and-corning-goril" target="_blank" rel="nofollow noopener noreferrer">Gorilla Glass Victus+</a>, also the same glass back design. If you unfold the bigger display then you will have a plastic front panel. Currently, this is a drawback for foldable phones. The foldable display cannot have a flexible <a href="https://en.wikipedia.org/wiki/Screen_protector" target="_blank" rel="nofollow noopener noreferrer">tempered glass</a> front, limitation of glass.</p> 
 
             <br>
             <img id="art-image-three" src="https://docs.elomymelo.com/images/galaxy-fold-4-design.png" alt="design and build of the galaxy z fold 4 smartphone">
             <br>
 
-            The whole frame is made of <a href="https://en.wikipedia.org/wiki/Aluminium" target="_blank" rel="nofollow noopener noreferrer">aluminum</a> and it feels premium. The dimensions are 155.1 x 130.1 x 6.3 mm when unfolded and 155.1 x 67.1 x 14.2 - 15.8 mm when folded. It has a weight of 263 grams. So the thickness of the hinge when folded is 15.8 mm, which is kinda thick and awkward because of the previously mentioned gap in between. The port cutouts are at expected places, corners are nicely curved, and the back triple-camera design looks pretty cool.    
+            <p>The whole frame is made of <a href="https://en.wikipedia.org/wiki/Aluminium" target="_blank" rel="nofollow noopener noreferrer">aluminum</a> and it feels premium. The dimensions are 155.1 x 130.1 x 6.3 mm when unfolded and 155.1 x 67.1 x 14.2 - 15.8 mm when folded. It has a weight of 263 grams. So the thickness of the hinge when folded is 15.8 mm, which is kinda thick and awkward because of the previously mentioned gap in between. The port cutouts are at expected places, corners are nicely curved, and the back triple-camera design looks pretty cool.</p>    
 
             <br>
             <div class="display-ad" id="ads-style-display-1">
@@ -5822,11 +5906,11 @@ function updateLogo()
             </div>
             <br id="ads-br-d1">
 
-            For the Pixel Fold, Google had plenty of time to figure out what most people want and like. Their hinge design is what I like in a properly folded position. There's no noticeable gap when Pixel Fold is folded. It's one of the thinnest foldable smartphones, which is very user-friendly in many ways. But you can't unfold the device quite so easily using one hand. You can fold/unfold the device at almost any position between 0 - 180˚. When folded <a href="https://android.stackexchange.com/questions/246563/what-is-the-difference-between-corning-gorilla-glass-victus-and-corning-goril" target="_blank" rel="nofollow noopener noreferrer">Gorilla Glass Victus</a> front and back, but plastic front when unfolded. The whole frame is made of aluminum and it feels pre&shy;mium with <a href="https://en.wikipedia.org/wiki/Frosted_glass" target="_blank" rel="nofollow noopener noreferrer">frosted glass</a> back, weighs about 283 grams. The dimensions are 158.7 x 139.7 x 5.8 mm (unfolded) and 158.7 x 79.5 x 12.1 mm when folded. 
+            <p>For the Pixel Fold, Google had plenty of time to figure out what most people want and like. Their hinge design is what I like in a properly folded position. There's no noticeable gap when Pixel Fold is folded. It's one of the thinnest foldable smartphones, which is very user-friendly in many ways. But you can't unfold the device quite so easily using one hand. You can fold/unfold the device at almost any position between 0 - 180˚. When folded <a href="https://android.stackexchange.com/questions/246563/what-is-the-difference-between-corning-gorilla-glass-victus-and-corning-goril" target="_blank" rel="nofollow noopener noreferrer">Gorilla Glass Victus</a> front and back, but plastic front when unfolded. The whole frame is made of aluminum and it feels pre&shy;mium with <a href="https://en.wikipedia.org/wiki/Frosted_glass" target="_blank" rel="nofollow noopener noreferrer">frosted glass</a> back, weighs about 283 grams. The dimensions are 158.7 x 139.7 x 5.8 mm (unfolded) and 158.7 x 79.5 x 12.1 mm when folded.</p> 
 
             <br><br>
 
-            So both of these devices are very premium quality smartphones that can fold or unfold like wings and turn into a bigger display to enjoy media. The Pixel’s back camera visor-style design looks fine, not too bulky. But I like the Samsung’s camera design more. On the other hand, Pixel Fold does not have a hinge gap, a big plus point there with the design. Please continue reading for more insightful comparisons - take much better decisions.   
+            <p>So both of these devices are very premium quality smartphones that can fold or unfold like wings and turn into a bigger display to enjoy media. The Pixel’s back camera visor-style design looks fine, not too bulky. But I like the Samsung’s camera design more. On the other hand, Pixel Fold does not have a hinge gap, a big plus point there with the design. Please continue reading for more insightful comparisons - take much better decisions.</p>   
 
             <br>
             <img id="art-image-four" src="https://docs.elomymelo.com/images/pixel-fold-design.png" alt="design and build of the google pixel fold">
@@ -5835,13 +5919,13 @@ function updateLogo()
 		    <span class="sections" id="section-three"> The Display Comparison </span>
             <br>
 
-		    The Google Pixel Fold comes with a <a href="https://oledera.samsungdisplay.com/eng/foldable-oled/" target="_blank" rel="nofollow noopener noreferrer">foldable OLED</a> with 120 Hz refresh rate. You will get 1000 nits on High Brightness Mode and the peak brightness is 1450 nits. The foldable display is 7.6 inches, 183.3 cm^2 and 82.7% screen-to-body ratio. The resolution is 1840 x 2208 px at 378 ppi density. It also has <a href="https://www.rtings.com/tv/learn/hdr10-vs-dolby-vision" target="_blank" rel="nofollow noopener noreferrer">HDR10+</a> certification. The smaller front display is also OLED 120 Hz but not foldable like the inner bigger display. This one is 5.8 inches with 408 ppi. It has an aspect ratio of 17.4 : 9 and the resolution is 1080 x 2092 px. In HBM it can reach 1200 nits, but 1550 nits for peak brightness and HDR is supported. 
+		    <p>The Google Pixel Fold comes with a <a href="https://oledera.samsungdisplay.com/eng/foldable-oled/" target="_blank" rel="nofollow noopener noreferrer">foldable OLED</a> with 120 Hz refresh rate. You will get 1000 nits on High Brightness Mode and the peak brightness is 1450 nits. The foldable display is 7.6 inches, 183.3 cm^2 and 82.7% screen-to-body ratio. The resolution is 1840 x 2208 px at 378 ppi density. It also has <a href="https://www.rtings.com/tv/learn/hdr10-vs-dolby-vision" target="_blank" rel="nofollow noopener noreferrer">HDR10+</a> certification. The smaller front display is also OLED 120 Hz but not foldable like the inner bigger display. This one is 5.8 inches with 408 ppi. It has an aspect ratio of 17.4 : 9 and the resolution is 1080 x 2092 px. In HBM it can reach 1200 nits, but 1550 nits for peak brightness and HDR is supported.</p> 
 
             <br>
             <img id="art-image-five" src="https://docs.elomymelo.com/images/pixel-fold-display.png" alt="outside flat and inside foldable display of the pixel fold">
             <br>
 
-            Galaxy Fold 4 is pretty much bang on with the Pixel Fold in terms of the foldable display size. So a similar-sized display here for the Fold 4, which is 7.6 inches and 183.2 cm^2. But there are significant differences like the screen-to-body ratio is 90.9%, meaning the Galaxy Z Fold 4 has thinner <a href="https://www.lifewire.com/bezel-4155199" target="_blank" rel="nofollow noopener noreferrer">bezels</a> around the bigger display. I like the thinner bezel here, looks cool and futuristic. Samsung is among one of the best display makers in the world and I think they make the best foldable displays for smartphones. Other companies use their foldable displays. 
+            <p>Galaxy Fold 4 is pretty much bang on with the Pixel Fold in terms of the foldable display size. So a similar-sized display here for the Fold 4, which is 7.6 inches and 183.2 cm^2. But there are significant differences like the screen-to-body ratio is 90.9%, meaning the Galaxy Z Fold 4 has thinner <a href="https://www.lifewire.com/bezel-4155199" target="_blank" rel="nofollow noopener noreferrer">bezels</a> around the bigger display. I like the thinner bezel here, looks cool and futuristic. Samsung is among one of the best display makers in the world and I think they make the best foldable displays for smartphones. Other companies use their foldable displays.</p> 
 
             <br>
             <div class="display-ad" id="ads-style-display-2">
@@ -5861,33 +5945,32 @@ function updateLogo()
             </div>
             <br id="ads-br-d2">
 
-            So here we have Foldable <a href="https://www.samsung.com/uk/mobile-phone-buying-guide/what-is-dynamic-amoled-screen/" target="_blank" rel="nofollow noopener noreferrer">Dynamic AMOLED</a> 2X for the Z Fold 4, the 2X after AMOLED probably means that the refresh rate is 2 times 60, which is 120 Hz. The display also supports HDR10+ and the peak brightness is 1200 nits. The resolution is 1812 x 2176 pixels at 373 ppi density. For the front cover display, it is also using a dynamic AMOLED 2X screen with a size of 6.2 inches and a resolution of 904 x 2316 pixels at 23.1 : 9 aspect ratio. 
+            <p>So here we have Foldable <a href="https://www.samsung.com/uk/mobile-phone-buying-guide/what-is-dynamic-amoled-screen/" target="_blank" rel="nofollow noopener noreferrer">Dynamic AMOLED</a> 2X for the Z Fold 4, the 2X after AMOLED probably means that the refresh rate is 2 times 60, which is 120 Hz. The display also supports HDR10+ and the peak brightness is 1200 nits. The resolution is 1812 x 2176 pixels at 373 ppi density. For the front cover display, it is also using a dynamic AMOLED 2X screen with a size of 6.2 inches and a resolution of 904 x 2316 pixels at 23.1 : 9 aspect ratio.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/galaxy-fold-4-display.png" alt="outside flat and inside foldable display of the galaxy fold 4">
             <br>
 
-            I think Samsung will have a slight edge in terms of better-quality displays with better (AMOLED) display tech. But on the other hand, the Pixel Fold is nailing it with a bigger wider display in the front panel when folded. This way the Pixel is more useful when you’ll use the front single-piece display. So the Pixel is doing things a lot differently here.    
-            		     
+            <p>I think Samsung will have a slight edge in terms of better-quality displays with better (AMOLED) display tech. But on the other hand, the Pixel Fold is nailing it with a bigger wider display in the front panel when folded. This way the Pixel is more useful when you’ll use the front single-piece display. So the Pixel is doing things a lot differently here.</p>  		     
             <br><br><br>
             <span class="sections" id="section-four"> Hardware Analogy </span> 
             <br>
 
-            Let’s talk about the chipset first, then I will discuss camera stuff. Google launched their custom <a href="https://www.androidauthority.com/google-tensor-3060818/" target="_blank" rel="nofollow noopener noreferrer">Tensor chip</a> (5 nm fabrication) with the <a href="https://www.gsmarena.com/google_pixel_6-11037.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 6</a> and continued using their custom silicon for the Pixel phone lineup. The Pixel Fold is also using Google’s Tensor chip, which is in its 2nd generation and based on 5 nm <a href="https://en.wikipedia.org/wiki/5_nm_process" target="_blank" rel="nofollow noopener noreferrer">fabrication process</a>. The Tensor G2 has 2 x 2.85 GHz, 2 x 2.35 GHz and 4 x 1.80 GHz cores, which in total making it an octa-core CPU. The GPU is <a href="https://www.notebookcheck.net/ARM-Mali-G710-MP7-GPU-Benchmarks-and-Specs.664931.0.html" target="_blank" rel="nofollow noopener noreferrer">Mali-G710 MP7</a>, which is among the capable ones. Internal storage starts with 256 GB up to 512 GB and pairs with 12 GB RAM in both cases. 
+            <p>Let’s talk about the chipset first, then I will discuss camera stuff. Google launched their custom <a href="https://www.androidauthority.com/google-tensor-3060818/" target="_blank" rel="nofollow noopener noreferrer">Tensor chip</a> (5 nm fabrication) with the <a href="https://www.gsmarena.com/google_pixel_6-11037.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 6</a> and continued using their custom silicon for the Pixel phone lineup. The Pixel Fold is also using Google’s Tensor chip, which is in its 2nd generation and based on 5 nm <a href="https://en.wikipedia.org/wiki/5_nm_process" target="_blank" rel="nofollow noopener noreferrer">fabrication process</a>. The Tensor G2 has 2 x 2.85 GHz, 2 x 2.35 GHz and 4 x 1.80 GHz cores, which in total making it an octa-core CPU. The GPU is <a href="https://www.notebookcheck.net/ARM-Mali-G710-MP7-GPU-Benchmarks-and-Specs.664931.0.html" target="_blank" rel="nofollow noopener noreferrer">Mali-G710 MP7</a>, which is among the capable ones. Internal storage starts with 256 GB up to 512 GB and pairs with 12 GB RAM in both cases.</p> 
 
             <br><br>
 
-            It is pretty crazy that the Pixel Fold has 5 camera sensors in total. So triple camera back, one selfie cam for the cover display, and another selfie cam for the foldable display. The Pixel Fold doesn’t have an <a href="https://www.samsung.com/latin_en/support/mobile-devices/what-is-the-udc-under-display-camera-of-the-galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">under-display</a> selfie camera like the Z Fold 4, as they were able to fit the camera on the bigger bezel of the foldable display. The main sensor is 48 MP with f/1.7, 25mm (wide), 1/2", 0.8µm, Dual Pixel <a href="https://www.androidauthority.com/dual-pixel-autofocus-explained-1102293/" target="_blank" rel="nofollow noopener noreferrer">PDAF</a>, Laser AF and <a href="https://www.androidauthority.com/image-stabilization-1087083/" target="_blank" rel="nofollow noopener noreferrer">OIS</a>. Telephoto camera is 10.8 MP, f/3.1, 112mm (telephoto), 1/3.1", 1.22µm, Dual Pixel PDAF, OIS and 5x optical zoom. Then the ultrawide sensor is also 10.8 MP but has f/2.2, 121˚ (ultrawide), 1/3" and 1.25µm pixel size<span id="design-span-1"> for light capture</span>. 
+            <p>It is pretty crazy that the Pixel Fold has 5 camera sensors in total. So triple camera back, one selfie cam for the cover display, and another selfie cam for the foldable display. The Pixel Fold doesn’t have an <a href="https://www.samsung.com/latin_en/support/mobile-devices/what-is-the-udc-under-display-camera-of-the-galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">under-display</a> selfie camera like the Z Fold 4, as they were able to fit the camera on the bigger bezel of the foldable display. The main sensor is 48 MP with f/1.7, 25mm (wide), 1/2", 0.8µm, Dual Pixel <a href="https://www.androidauthority.com/dual-pixel-autofocus-explained-1102293/" target="_blank" rel="nofollow noopener noreferrer">PDAF</a>, Laser AF and <a href="https://www.androidauthority.com/image-stabilization-1087083/" target="_blank" rel="nofollow noopener noreferrer">OIS</a>. Telephoto camera is 10.8 MP, f/3.1, 112mm (telephoto), 1/3.1", 1.22µm, Dual Pixel PDAF, OIS and 5x optical zoom. Then the ultrawide sensor is also 10.8 MP but has f/2.2, 121˚ (ultrawide), 1/3" and 1.25µm pixel size<span id="design-span-1"> for light capture</span>.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/pixel-fold-tensor.png" alt="photo of pixel fold back cameras with google tensor logo">
             <br>
 
-            The in-display punch-hole selfie camera is 9.5 MP, f/2.2, 24mm (wide), 1.22µm and Dual Pixel PDAF. And the foldable display also has a selfie camera on its top bezel area, which is 8 MP, f/2.0, 24mm (wide), 1/4" and 1.12µm. A shame that no 3.5 mm port here but it does have stereo loudspeakers, and those sound pretty good to me. 
+            <p>The in-display punch-hole selfie camera is 9.5 MP, f/2.2, 24mm (wide), 1.22µm and Dual Pixel PDAF. And the foldable display also has a selfie camera on its top bezel area, which is 8 MP, f/2.0, 24mm (wide), 1/4" and 1.12µm. A shame that no 3.5 mm port here but it does have stereo loudspeakers, and those sound pretty good to me.</p> 
             
             <br><br>
 
-            Galaxy Z Fold 4 on the other hand, has a <a href="https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform" target="_blank" rel="nofollow noopener noreferrer">Qualcomm chip</a>, which is the Snapdragon (SM8475) 8+ Gen 1 (4 nm fabrication). So it is Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510) and the GPU is <a href="https://www.notebookcheck.net/Qualcomm-Adreno-730-GPU-Benchmarks-and-Specs.583409.0.html" target="_blank" rel="nofollow noopener noreferrer">Adreno 730</a>. Internal storage starts with 256 GB up to 1 TB and comes with 12 GB RAM in both scenarios. 
+            <p>Galaxy Z Fold 4 on the other hand, has a <a href="https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform" target="_blank" rel="nofollow noopener noreferrer">Qualcomm chip</a>, which is the Snapdragon (SM8475) 8+ Gen 1 (4 nm fabrication). So it is Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510) and the GPU is <a href="https://www.notebookcheck.net/Qualcomm-Adreno-730-GPU-Benchmarks-and-Specs.583409.0.html" target="_blank" rel="nofollow noopener noreferrer">Adreno 730</a>. Internal storage starts with 256 GB up to 1 TB and comes with 12 GB RAM in both scenarios.</p> 
 
             <br>
             <div class="feed-ad" id="ads-style-feed-2">
@@ -5906,43 +5989,43 @@ function updateLogo()
             </div>
             <br id="ads-br-f2">
 
-            The Fold 4 also has 5 cameras but with an under-display camera here. The main sensor is 50 MP, f/1.8, 23mm (wide), 1.0µm, Dual Pixel PDAF and OIS. Telephoto camera is 10 MP with f/2.4, 66mm (telephoto), 1.0µm, PDAF, OIS and 3x <a href="https://www.masterclass.com/articles/whats-the-difference-between-optical-zoom-and-digital-zoom" target="_blank" rel="nofollow noopener noreferrer">optical zoom</a>. Then the ultrawide cam is 12 MP, f/2.2, 123˚, 12mm (ultrawide) and 1.12µm. 
+            <p>The Fold 4 also has 5 cameras but with an under-display camera here. The main sensor is 50 MP, f/1.8, 23mm (wide), 1.0µm, Dual Pixel PDAF and OIS. Telephoto camera is 10 MP with f/2.4, 66mm (telephoto), 1.0µm, PDAF, OIS and 3x <a href="https://www.masterclass.com/articles/whats-the-difference-between-optical-zoom-and-digital-zoom" target="_blank" rel="nofollow noopener noreferrer">optical zoom</a>. Then the ultrawide cam is 12 MP, f/2.2, 123˚, 12mm (ultrawide) and 1.12µm.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/galaxy-fold-4-snapdragon.png" alt="photo of galaxy fold 4 back cameras with snapdragon 8+ gen 1 logo">
             <br>
 
-            The tech-fascinating under-display camera is 4 MP, f/1.8, 26mm (wide) and 2.0µm. The under-display camera is located under the top of the foldable display. And the cover camera is 10 MP with f/2.2, 24mm (wide), 1/3" and 1.22µm pixel size. It has stereo loudspeakers too but no 3.5 mm port for wired audio. It's a plus point that Samsung supports 32 bit - 384 kHz audio in this device. It is tough to send that much information wirelessly. Maybe this feature is only for <a href="https://www.whathifi.com/advice/high-resolution-audio-everything-you-need-to-know" target="_blank" rel="nofollow noopener noreferrer">Hi-Res</a> playback through the Type-C port, aptX HD can do base level hi-res over BT. 
+            <p>The tech-fascinating under-display camera is 4 MP, f/1.8, 26mm (wide) and 2.0µm. The under-display camera is located under the top of the foldable display. And the cover camera is 10 MP with f/2.2, 24mm (wide), 1/3" and 1.22µm pixel size. It has stereo loudspeakers too but no 3.5 mm port for wired audio. It's a plus point that Samsung supports 32 bit - 384 kHz audio in this device. It is tough to send that much information wirelessly. Maybe this feature is only for <a href="https://www.whathifi.com/advice/high-resolution-audio-everything-you-need-to-know" target="_blank" rel="nofollow noopener noreferrer">Hi-Res</a> playback through the Type-C port, aptX HD can do base level hi-res over BT.</p> 
 
             <br><br><br>
             <span class="sections" id="section-five"> Software Analogy </span> 
             <br>
 
-            The Pixel software experience is gonna be the stan&shy;dard here for the smartphone industry in general. Because it has a middle ground of being fast and snappy while also providing a lot of useful features. So Pixel Fold comes with the latest <a href="https://developer.android.com/about/versions/13" target="_blank" rel="nofollow noopener noreferrer">Android 13</a>, which is a beautiful OS in my opinion with fluid eye-catching subtle animations. You get all the bells-whistles of the stock Android experience including stock apps. 
+            <p>The Pixel software experience is gonna be the stan&shy;dard here for the smartphone industry in general. Because it has a middle ground of being fast and snappy while also providing a lot of useful features. So Pixel Fold comes with the latest <a href="https://developer.android.com/about/versions/13" target="_blank" rel="nofollow noopener noreferrer">Android 13</a>, which is a beautiful OS in my opinion with fluid eye-catching subtle animations. You get all the bells-whistles of the stock Android experience including stock apps.</p> 
 
             <br><br>
 
-            Galaxy Fold 4 was released last year, so you will get Android 12 on a brand new one. But the <a href="https://www.androidauthority.com/android-skins-945375/" target="_blank" rel="nofollow noopener noreferrer">Android skin</a> is pretty heavy, which is the <a href="https://www.androidpolice.com/samsung-one-ui-5/" target="_blank" rel="nofollow noopener noreferrer">One UI 5.1</a> and this is because of the availability of doing a lot of heavy customization. Overall, in my opinion, though on top of <a href="https://www.android.com/android-12/" target="_blank" rel="nofollow noopener noreferrer">Android 12</a> com&shy;bined with the One UI 5.1, the OS will be heavy, but the optimization is really good. You are not gonna notice slow behavior on these flagship grade smartphones. 
+            <p>Galaxy Fold 4 was released last year, so you will get Android 12 on a brand new one. But the <a href="https://www.androidauthority.com/android-skins-945375/" target="_blank" rel="nofollow noopener noreferrer">Android skin</a> is pretty heavy, which is the <a href="https://www.androidpolice.com/samsung-one-ui-5/" target="_blank" rel="nofollow noopener noreferrer">One UI 5.1</a> and this is because of the availability of doing a lot of heavy customization. Overall, in my opinion, though on top of <a href="https://www.android.com/android-12/" target="_blank" rel="nofollow noopener noreferrer">Android 12</a> com&shy;bined with the One UI 5.1, the OS will be heavy, but the optimization is really good. You are not gonna notice slow behavior on these flagship grade smartphones.</p> 
 
             <br><br>
 
-            The Pixel Fold will receive three years of major software updates and five years of security updates. On the other hand, our Z Fold 4 is ahead in the game as it will receive four years of major software updates and five years of security updates. This makes them both reaching on Android 16 in the future, which is crazy future-proof to have. 
+            <p>The Pixel Fold will receive three years of major software updates and five years of security updates. On the other hand, our Z Fold 4 is ahead in the game as it will receive four years of major software updates and five years of security updates. This makes them both reaching on Android 16 in the future, which is crazy future-proof to have.</p> 
 
             <br><br><br>
             <span class="sections" id="section-six"> The Camera Comparison </span> 
             <br>
 
-            They both have great cameras. A lot of this is related to <a href="https://www.geeksforgeeks.org/digital-image-processing-basics/" target="_blank" rel="nofollow noopener noreferrer">image processing</a>. I can happily say that both of them offer top-tier image processing, which is neither flat nor overdone. But the output image is pretty attractive and ready to post on social media. 
+            <p>They both have great cameras. A lot of this is related to <a href="https://www.geeksforgeeks.org/digital-image-processing-basics/" target="_blank" rel="nofollow noopener noreferrer">image processing</a>. I can happily say that both of them offer top-tier image processing, which is neither flat nor overdone. But the output image is pretty attractive and ready to post on social media.</p> 
 
             <br><br>
 
-            Pixel Fold tends to be a bit noisier than their flagship, like the <a href="https://www.gsmarena.com/google_pixel_7_pro-11908.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 7 Pro</a>. The photos are comparable to the photos of <a href="https://www.gsmarena.com/google_pixel_7a-12170.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 7a</a>, which is not a bad thing, though. It's just you're paying a lot of money for the Fold to have a flagship experience. But the frame is only 5.8 mm thin, which is why probably they were having a hard time fitting a bigger 50 MP sensor, like in the Pixel 7 Pro. Even though the images are not as sharp and detailed, they have the legendary Pixel-like look. The photos are <a href="https://en.wikipedia.org/wiki/Contrast_(vision)" target="_blank" rel="nofollow noopener noreferrer">contrasty</a> with HDR processing, which neither makes the shadows darker nor overexposes the highlighted areas. The <a href="https://en.wikipedia.org/wiki/Computational_photography" target="_blank" rel="nofollow noopener noreferrer">computational photography</a> algorithms are class-leading in Pixel devices, Google is doing an amazing job. 
+            <p>Pixel Fold tends to be a bit noisier than their flagship, like the <a href="https://www.gsmarena.com/google_pixel_7_pro-11908.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 7 Pro</a>. The photos are comparable to the photos of <a href="https://www.gsmarena.com/google_pixel_7a-12170.php" target="_blank" rel="nofollow noopener noreferrer">Pixel 7a</a>, which is not a bad thing, though. It's just you're paying a lot of money for the Fold to have a flagship experience. But the frame is only 5.8 mm thin, which is why probably they were having a hard time fitting a bigger 50 MP sensor, like in the Pixel 7 Pro. Even though the images are not as sharp and detailed, they have the legendary Pixel-like look. The photos are <a href="https://en.wikipedia.org/wiki/Contrast_(vision)" target="_blank" rel="nofollow noopener noreferrer">contrasty</a> with HDR processing, which neither makes the shadows darker nor overexposes the highlighted areas. The <a href="https://en.wikipedia.org/wiki/Computational_photography" target="_blank" rel="nofollow noopener noreferrer">computational photography</a> algorithms are class-leading in Pixel devices, Google is doing an amazing job.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/pixel-vs-sam-camera-1.png" alt="daytime camera samples of pixel fold and galaxy fold 4">
             <br>
 
-            The Galaxy Fold 4 also deals with similar kinds of problems like the photos are a step down from their flagships. But again props to Samsung for their great image processing. They are catching up with the Pixels nowadays. Z Fold 4’s photos are significantly different from the Pixels, yet they look amazing. It’s just a different approach to appeal to the people. Samsung has their vibrant - saturated - poppy look here, but the images are not too saturated or overexposed. The details are maintained well enough with great resolution. 
+            <p>The Galaxy Fold 4 also deals with similar kinds of problems like the photos are a step down from their flagships. But again props to Samsung for their great image processing. They are catching up with the Pixels nowadays. Z Fold 4’s photos are significantly different from the Pixels, yet they look amazing. It’s just a different approach to appeal to the people. Samsung has their vibrant - saturated - poppy look here, but the images are not too saturated or overexposed. The details are maintained well enough with great resolution.</p> 
 
             <br>
             <div class="feed-ad" id="ads-style-feed-3">
@@ -5961,29 +6044,29 @@ function updateLogo()
             </div>
             <br id="ads-br-f3">
 
-            Both of these devices have pretty good <a href="https://www.samsung.com/uk/support/mobile-devices/what-is-telephoto-mode-and-how-do-i-use-it/" target="_blank" rel="nofollow noopener noreferrer">telephoto</a> cameras. But the Pixel Fold is ahead in the game quite a bit by having a 5x optical zoom. Ultrawide camera shots are a let-down in quality from the main cameras on both of them as expected. Overall, I like the Pixel shots more in daylight conditions. Both do a great job of capturing photos at night, but the white balance is pretty different on them. It’s a hard call but the Fold 4’s night shots may look a little bit more true to the scene. So Pixel is clearly better at daytime for its amazing zoom shots and Samsung is slightly better for night-time shots - better white balance. 
+            <p>Both of these devices have pretty good <a href="https://www.samsung.com/uk/support/mobile-devices/what-is-telephoto-mode-and-how-do-i-use-it/" target="_blank" rel="nofollow noopener noreferrer">telephoto</a> cameras. But the Pixel Fold is ahead in the game quite a bit by having a 5x optical zoom. Ultrawide camera shots are a let-down in quality from the main cameras on both of them as expected. Overall, I like the Pixel shots more in daylight conditions. Both do a great job of capturing photos at night, but the white balance is pretty different on them. It’s a hard call but the Fold 4’s night shots may look a little bit more true to the scene. So Pixel is clearly better at daytime for its amazing zoom shots and Samsung is slightly better for night-time shots - better white balance.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/pixel-vs-sam-camera-2.png" alt="night-time camera samples of pixel fold and galaxy fold 4">
             <br>
 
-            For the selfie cameras, I think the Galaxy Fold 4 is slightly better at capturing more details when comparing the cover camera shots. But the under-display camera is very soft on the Fold 4. So not having an under-display camera is kind of a good thing here for the Pixel Fold as it captures significantly more details from the camera placed up in the top bezel of the foldable display. Both can take selfies using the rear cameras. 
+            <p>For the selfie cameras, I think the Galaxy Fold 4 is slightly better at capturing more details when comparing the cover camera shots. But the under-display camera is very soft on the Fold 4. So not having an under-display camera is kind of a good thing here for the Pixel Fold as it captures significantly more details from the camera placed up in the top bezel of the foldable display. Both can take selfies using the rear cameras.</p> 
 
             <br><br>
 
-            When we talk about <a href="https://en.wikipedia.org/wiki/Video_processing" target="_blank" rel="nofollow noopener noreferrer">video processing</a>, none of these phones are great neither at night nor in the day. Pixel’s video processing is closer to being natural, but Samsung makes it more saturated and sometimes even overexposed. The stabilization is pretty good on both as they have OIS built-in. So overall, in the end, I will say that the Pixel wins the camera game because of its amazing software processing even though Samsung may have better hardware and <a href="https://www.samsung.com/us/support/answer/ANS00086582/" target="_blank" rel="nofollow noopener noreferrer">8K video</a> recording capability, which is not for everyone. 
+            <p>When we talk about <a href="https://en.wikipedia.org/wiki/Video_processing" target="_blank" rel="nofollow noopener noreferrer">video processing</a>, none of these phones are great neither at night nor in the day. Pixel’s video processing is closer to being natural, but Samsung makes it more saturated and sometimes even overexposed. The stabilization is pretty good on both as they have OIS built-in. So overall, in the end, I will say that the Pixel wins the camera game because of its amazing software processing even though Samsung may have better hardware and <a href="https://www.samsung.com/us/support/answer/ANS00086582/" target="_blank" rel="nofollow noopener noreferrer">8K video</a> recording capability, which is not for everyone.</p> 
 
             <br><br><br>
             <span class="sections" id="section-seven"> Performance Analysis </span> 
             <br>
 
-            For performance, the Galaxy Fold 4 is a clear winner but only when pushed to the limits. This is the case because there is a lot more clock speed available to the Qualcomm chip. The Pixel Fold tops out at 2.85 GHz while the Z Fold 4 has a peak clock speed of 3.19 GHz, which is crazy fast. But for normal day-to-day tasks like doing anything other than playing heavy <a href="https://www.androidauthority.com/best-3d-games-for-android-280840/" target="_blank" rel="nofollow noopener noreferrer">3D games</a>, even multitasking will not let you notice any significant difference. 
+            <p>For performance, the Galaxy Fold 4 is a clear winner but only when pushed to the limits. This is the case because there is a lot more clock speed available to the Qualcomm chip. The Pixel Fold tops out at 2.85 GHz while the Z Fold 4 has a peak clock speed of 3.19 GHz, which is crazy fast. But for normal day-to-day tasks like doing anything other than playing heavy <a href="https://www.androidauthority.com/best-3d-games-for-android-280840/" target="_blank" rel="nofollow noopener noreferrer">3D games</a>, even multitasking will not let you notice any significant difference.</p> 
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/pixel-vs-sam-performance.png" alt="photo of pixel fold and galaxy fold 4 bottom taskbar or dock"> 
             <br>
 
-            They both have flagship-level chipsets, but Samsung is a bit faster here. The Pixel is also very capable and can run apps like buttery smooth. The Pixel Fold seems to have better optimization than other Pixels. Both of them support multitasking in a more native way. The OS is beautiful and optimized for multitasking. There is a <a href="https://www.samsung.com/us/support/answer/ANS00091163/" target="_blank" rel="nofollow noopener noreferrer">taskbar</a> implementation on both at the bottom of the viewport to switch between apps pretty quickly. All the stock apps are optimized for the big foldable screens. But Samsung is upping the game by allowing third-party apps to scale up to fit the full-screen width. This feature is built into the OS for Samsung Fold 4, but not for the Pixel Fold. This is not a good look for the Pixel. 
+            <p>They both have flagship-level chipsets, but Samsung is a bit faster here. The Pixel is also very capable and can run apps like buttery smooth. The Pixel Fold seems to have better optimization than other Pixels. Both of them support multitasking in a more native way. The OS is beautiful and optimized for multitasking. There is a <a href="https://www.samsung.com/us/support/answer/ANS00091163/" target="_blank" rel="nofollow noopener noreferrer">taskbar</a> implementation on both at the bottom of the viewport to switch between apps pretty quickly. All the stock apps are optimized for the big foldable screens. But Samsung is upping the game by allowing third-party apps to scale up to fit the full-screen width. This feature is built into the OS for Samsung Fold 4, but not for the Pixel Fold. This is not a good look for the Pixel.</p> 
 
             <br>
             <div class="display-ad" id="ads-style-display-3">
@@ -6003,37 +6086,37 @@ function updateLogo()
             </div>
             <br id="ads-br-d3">
 
-            Even though the OS in the Samsung is much heavier, you can't notice any lagginess in a new flagship phone. But after 3-4 years you may see lags as the OS gets heavier and heavier over time through updates. But if the software optimization is really good you can get away with a heavy load caused by the large OS files. Pixel doesn’t have any additional skin on top of Android, which makes it less resource-heavy. 
+            <p>Even though the OS in the Samsung is much heavier, you can't notice any lagginess in a new flagship phone. But after 3-4 years you may see lags as the OS gets heavier and heavier over time through updates. But if the software optimization is really good you can get away with a heavy load caused by the large OS files. Pixel doesn’t have any additional skin on top of Android, which makes it less resource-heavy.</p> 
 
             <br><br><br>
             <span class="sections" id="section-seven"> Features & Battery Comparison </span> 
             <br>
 
-            These foldable phones are packed with features, they cost around 1800 USD, damn. When the folding option will become a feature then this new form factor will reach its peak. <a href="https://www.youtube.com/@mkbhd" target="_blank" rel="nofollow noopener noreferrer">MKBHD</a> said something like that, which I think makes sense. So for the Pixel Fold, we have OIS, optical zoom and HDR video recording at 4K 60fps. The front cover camera can also do video recording at 4K 60fps without HDR. It supports Wi-Fi 6e, Bluetooth 5.2 with <a href="https://www.aptx.com/aptx-hd" target="_blank" rel="nofollow noopener noreferrer">aptX HD</a>, GPS, NFC, USB Type-C 3.2 and OTG. On top of these, the Pixel also has a side-mounted fingerprint sensor, UFS 3.1, accele&shy;rometer, gyro, proximity, compass, barometer, IPX8, support for 5G and an eSIM. 
+            <p>These foldable phones are packed with features, they cost around 1800 USD, damn. When the folding option will become a feature then this new form factor will reach its peak. <a href="https://www.youtube.com/@mkbhd" target="_blank" rel="nofollow noopener noreferrer">MKBHD</a> said something like that, which I think makes sense. So for the Pixel Fold, we have OIS, optical zoom and HDR video recording at 4K 60fps. The front cover camera can also do video recording at 4K 60fps without HDR. It supports Wi-Fi 6e, Bluetooth 5.2 with <a href="https://www.aptx.com/aptx-hd" target="_blank" rel="nofollow noopener noreferrer">aptX HD</a>, GPS, NFC, USB Type-C 3.2 and OTG. On top of these, the Pixel also has a side-mounted fingerprint sensor, UFS 3.1, accele&shy;rometer, gyro, proximity, compass, barometer, IPX8, support for 5G and an eSIM.</p> 
 
             <br><br>
 
-            The Galaxy Fold 4 supports pretty much the same features but there are some additional features. It can record video at a whooping 8K 24fps, which is madness. The Pixel probably can’t do it because of not having a much faster processor. Fold 4 can do slow-motion video at 720p 960fps but Pixel is limited to 240fps at 1080p. Samsung also has <a href="https://en.wikipedia.org/wiki/Stylus_(computing)" target="_blank" rel="nofollow noopener noreferrer">stylus</a>. 
+            <p>The Galaxy Fold 4 supports pretty much the same features but there are some additional features. It can record video at a whooping 8K 24fps, which is madness. The Pixel probably can’t do it because of not having a much faster processor. Fold 4 can do slow-motion video at 720p 960fps but Pixel is limited to 240fps at 1080p. Samsung also has <a href="https://en.wikipedia.org/wiki/Stylus_(computing)" target="_blank" rel="nofollow noopener noreferrer">stylus</a>.</p> 
 
             <br><br>
 
-            Now let’s talk about who wins the battery game. Both don’t have great battery life. The Fold 4 has 4400 mAh vs the 4821 mAh <a href="https://en.wikipedia.org/wiki/Lithium_polymer_battery" target="_blank" rel="nofollow noopener noreferrer">Li-Po</a> pack in the Pixel Fold. Each of them has two screens and one is like a tablet-sized screen. So even a 4821 mAh cell seems pretty small. The Pixel has a much wider display on the outside, which consumes more juice from the battery. But the Pixel also has a larger battery pack, 421 mAh more than the Galaxy Fold 4.  
+            <p>Now let’s talk about who wins the battery game. Both don’t have great battery life. The Fold 4 has 4400 mAh vs the 4821 mAh <a href="https://en.wikipedia.org/wiki/Lithium_polymer_battery" target="_blank" rel="nofollow noopener noreferrer">Li-Po</a> pack in the Pixel Fold. Each of them has two screens and one is like a tablet-sized screen. So even a 4821 mAh cell seems pretty small. The Pixel has a much wider display on the outside, which consumes more juice from the battery. But the Pixel also has a larger battery pack, 421 mAh more than the Galaxy Fold 4.</p>  
 
             <br>
             <img id="art-image-six" src="https://docs.elomymelo.com/images/pixel-vs-sam-features.jpg" alt="cool photos of pixel fold and galaxy fold 4">
             <br>
 
-            Having a larger cover display for the Pixel kinda makes them both comparable in terms of screen-on time or battery life. But after doing a lot of research, it seems like the Pixel Fold has poor battery life. If you are using it on high brightness combining usage on both displays, you’ll probably get only 4 hours of screen-on time. For Fold 4, it is around 4.5 hours, which is probably because of better battery optimi&shy;zation. So room for improvement next year. 
+            <p>Having a larger cover display for the Pixel kinda makes them both comparable in terms of screen-on time or battery life. But after doing a lot of research, it seems like the Pixel Fold has poor battery life. If you are using it on high brightness combining usage on both displays, you’ll probably get only 4 hours of screen-on time. For Fold 4, it is around 4.5 hours, which is probably because of better battery optimi&shy;zation. So room for improvement next year.</p> 
 
             <br><br>
 
-            Both have <a href="https://www.computerworld.com/article/3235176/wireless-charging-explained-what-is-it-and-how-does-it-work.html" target="_blank" rel="nofollow noopener noreferrer">wireless charging</a> support with <a href="https://nerdtechy.com/pd-3-qc-3-difference" target="_blank" rel="nofollow noopener noreferrer">PD 3.0</a> for the Pixel. Here Pixel Fold has a maximum charging speed of 30 watts via a wired connection. But the wireless charging speed is only 7.5 watts. Galaxy Fold 4 is only 25 watts via wired and 15 watts via wireless. In addition to that the Fold 4 can also do 4.5 watts of <a href="https://www.guidingtech.com/how-to-use-reverse-wireless-charging-on-phones/" target="_blank" rel="nofollow noopener noreferrer">reverse wireless charging</a>, amazing. 
+            <p>Both have <a href="https://www.computerworld.com/article/3235176/wireless-charging-explained-what-is-it-and-how-does-it-work.html" target="_blank" rel="nofollow noopener noreferrer">wireless charging</a> support with <a href="https://nerdtechy.com/pd-3-qc-3-difference" target="_blank" rel="nofollow noopener noreferrer">PD 3.0</a> for the Pixel. Here Pixel Fold has a maximum charging speed of 30 watts via a wired connection. But the wireless charging speed is only 7.5 watts. Galaxy Fold 4 is only 25 watts via wired and 15 watts via wireless. In addition to that the Fold 4 can also do 4.5 watts of <a href="https://www.guidingtech.com/how-to-use-reverse-wireless-charging-on-phones/" target="_blank" rel="nofollow noopener noreferrer">reverse wireless charging</a>, amazing.</p> 
 
             <br><br><br>
 		    <span class="sections" id="section-seven"> Conclusion </span> 
 		    <br>
 
-            Google and Samsung are two giant tech companies. The Samsung <a href="https://www.samsung.com/bd/smartphones/galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">Galaxy Z Fold 4</a> is the most popular foldable smartphone on the planet Earth. <a href="https://blog.google/products/pixel/google-pixel-fold/" target="_blank" rel="nofollow noopener noreferrer">Pixel Fold</a> is Google's first shot in the foldable market. Its geographical availability is also very limited. The Pixel Fold is targeted toward tech-enthusiast people who like a clean Android experience. But luckily Google's first foldable smartphone checks most boxes that people want in a foldable phone. I will say that those people who wanna do multitasking - artwork on a phone, also like the form factor, can utilize the big screen and have the money to spend, should buy the Pixel Fold. Though it is a first-generation product, yet a really good device this time.    
+            <p>Google and Samsung are two giant tech companies. The Samsung <a href="https://www.samsung.com/bd/smartphones/galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">Galaxy Z Fold 4</a> is the most popular foldable smartphone on the planet Earth. <a href="https://blog.google/products/pixel/google-pixel-fold/" target="_blank" rel="nofollow noopener noreferrer">Pixel Fold</a> is Google's first shot in the foldable market. Its geographical availability is also very limited. The Pixel Fold is targeted toward tech-enthusiast people who like a clean Android experience. But luckily Google's first foldable smartphone checks most boxes that people want in a foldable phone. I will say that those people who wanna do multitasking - artwork on a phone, also like the form factor, can utilize the big screen and have the money to spend, should buy the Pixel Fold. Though it is a first-generation product, yet a really good device this time.</p>    
 
             <br>
             <div class="feed-ad" id="ads-style-feed-4">
@@ -6052,7 +6135,7 @@ function updateLogo()
             </div>
             <br id="ads-br-f4"> 
 
-            And if you like those previously mentioned points, you have the money and on top of these most importantly you wanna play games on a bigger screen while you can also have a phone-like form factor, then buy the Galaxy Z Fold 4. This article is getting too big, in the end, I just wanna say that it is really hard to pick a winner here, both have their pros and cons. I hope my article helps you to make a thoughtful decision.   
+            <p>And if you like those previously mentioned points, you have the money and on top of these most importantly you wanna play games on a bigger screen while you can also have a phone-like form factor, then buy the Galaxy Z Fold 4. This article is getting too big, in the end, I just wanna say that it is really hard to pick a winner here, both have their pros and cons. I hope my article helps you to make a thoughtful decision.</p>   
 		      
             <br>
             <br>
