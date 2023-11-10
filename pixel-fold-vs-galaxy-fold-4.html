@@ -616,7 +616,7 @@
         text-align: center;
         line-height: 65px;
     }
-    .display-common
+    .dis-com
     {
         position: relative;
         left: 927px;
@@ -629,7 +629,7 @@
         margin-top: calc(var(--set-margin)*3.7);
         --set-margin: 306px;
     }
-    .feed-common
+    .feed-com
     {
         position: relative;
         left: 830px;
@@ -1698,7 +1698,7 @@
         display: inline-block;
     }
 
-    .display-common
+    .dis-com
     {
         position: relative;
         width: 982px;
@@ -1709,7 +1709,7 @@
         margin-bottom: 155px;
         margin-top: 240px;
     }
-    .feed-common
+    .feed-com
     {
         position: relative;
         left: 660px;
@@ -4866,8 +4866,8 @@ function toppicksout()
 
     function adsheights() {  
     var checkh = window.innerWidth;
-    const feedAds = document.querySelectorAll('.feed-common');
-    const displayAds = document.querySelectorAll('.display-common'); 
+    const feedAds = document.querySelectorAll('.feed-com');
+    const displayAds = document.querySelectorAll('.dis-com'); 
 
     feedAds.forEach((feedAd, index) => {
     const feedAdHeight = feedAd.clientHeight;
@@ -4977,8 +4977,8 @@ function updateAdsAttributes()
     updateClassTwo();
 
     // Find all elements with class ------- 
-    var elementsWithClassOne = document.querySelectorAll('.display-common');
-    var elementsWithClassTwo = document.querySelectorAll('.feed-common');
+    var elementsWithClassOne = document.querySelectorAll('.dis-com');
+    var elementsWithClassTwo = document.querySelectorAll('.feed-com');
 
     // Add the script tag to each ele ---
     function addScriptTagToElement(element) {
@@ -5003,9 +5003,9 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "3554px";
 
-           document.querySelectorAll(".display-common").forEach(function(el) {
+           document.querySelectorAll(".dis-com").forEach(function(el) {
            el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
-           document.querySelectorAll(".feed-common").forEach(function(el) {
+           document.querySelectorAll(".feed-com").forEach(function(el) {
            el.style.transform = "scale(2.45, 2.45)"; });
            document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
        }
@@ -5018,9 +5018,9 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
 
-           document.querySelectorAll(".display-common").forEach(function(el) {
+           document.querySelectorAll(".dis-com").forEach(function(el) {
            el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
-           document.querySelectorAll(".feed-common").forEach(function(el) {
+           document.querySelectorAll(".feed-com").forEach(function(el) {
            el.style.transform = "scale(4.34, 4.34)"; });
        }
 
@@ -5132,8 +5132,8 @@ function updateLogo()
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
-    document.querySelectorAll(".display-common").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".feed-common").forEach(function(el) { el.style.display = "none"; }); }
+    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
+    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
 */
     // mutation observer code
     const checkf1 = document.getElementById("ins-feed-one");
@@ -5853,7 +5853,7 @@ function detectCharacter()
             <p>Sooo, a new kid on the block is the Pixel Fold, which is going to be the main focus today. Inside the box, you will get your foldable smartphone, some documents - instruction manuals or guides whatever you wanna call them, a SIM ejector tool, a USB type-c to type-c charging cable, and a USB type-c male to type-a fe&shy;male adapter for connecting <a href="https://en.wikipedia.org/wiki/Peripheral" target="_blank" rel="nofollow noopener noreferrer">peripherals</a>. I don’t like the fact that they moved away from including char&shy;gers. Most people use their phones for more than a couple of years and the chargers will probably be almost dead by then, yeah. But the C to A adapter is a really nice accessory here for the Pixel Fold.</p> 
 
             <br>
-            <div class="feed-common" id="ads-style-feed-1">
+            <div class="feed-com" id="ads-style-feed-1">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
@@ -5887,7 +5887,7 @@ function detectCharacter()
             <p>The whole frame is made of <a href="https://en.wikipedia.org/wiki/Aluminium" target="_blank" rel="nofollow noopener noreferrer">aluminum</a> and it feels premium. The dimensions are 155.1 x 130.1 x 6.3 mm when unfolded and 155.1 x 67.1 x 14.2 - 15.8 mm when folded. It has a weight of 263 grams. So the thickness of the hinge when folded is 15.8 mm, which is kinda thick and awkward because of the previously mentioned gap in between. The port cutouts are at expected places, corners are nicely curved, and the back triple-camera design looks pretty cool.</p>    
 
             <br>
-            <div class="display-common" id="ads-style-display-1">
+            <div class="dis-com" id="ads-style-display-1">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
@@ -5926,7 +5926,7 @@ function detectCharacter()
             <p>Galaxy Fold 4 is pretty much bang on with the Pixel Fold in terms of the foldable display size. So a similar-sized display here for the Fold 4, which is 7.6 inches and 183.2 cm^2. But there are significant differences like the screen-to-body ratio is 90.9%, meaning the Galaxy Z Fold 4 has thinner <a href="https://www.lifewire.com/bezel-4155199" target="_blank" rel="nofollow noopener noreferrer">bezels</a> around the bigger display. I like the thinner bezel here, looks cool and futuristic. Samsung is among one of the best display makers in the world and I think they make the best foldable displays for smartphones. Other companies use their foldable displays.</p> 
 
             <br>
-            <div class="display-common" id="ads-style-display-2">
+            <div class="dis-com" id="ads-style-display-2">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
@@ -5971,7 +5971,7 @@ function detectCharacter()
             <p>Galaxy Z Fold 4 on the other hand, has a <a href="https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform" target="_blank" rel="nofollow noopener noreferrer">Qualcomm chip</a>, which is the Snapdragon (SM8475) 8+ Gen 1 (4 nm fabrication). So it is Octa-core (1x3.19 GHz Cortex-X2 & 3x2.75 GHz Cortex-A710 & 4x1.80 GHz Cortex-A510) and the GPU is <a href="https://www.notebookcheck.net/Qualcomm-Adreno-730-GPU-Benchmarks-and-Specs.583409.0.html" target="_blank" rel="nofollow noopener noreferrer">Adreno 730</a>. Internal storage starts with 256 GB up to 1 TB and comes with 12 GB RAM in both scenarios.</p> 
 
             <br>
-            <div class="feed-common" id="ads-style-feed-2">
+            <div class="feed-com" id="ads-style-feed-2">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
@@ -6026,7 +6026,7 @@ function detectCharacter()
             <p>The Galaxy Fold 4 also deals with similar kinds of problems like the photos are a step down from their flagships. But again props to Samsung for their great image processing. They are catching up with the Pixels nowadays. Z Fold 4’s photos are significantly different from the Pixels, yet they look amazing. It’s just a different approach to appeal to the people. Samsung has their vibrant - saturated - poppy look here, but the images are not too saturated or overexposed. The details are maintained well enough with great resolution.</p> 
 
             <br>
-            <div class="feed-common" id="ads-style-feed-3">
+            <div class="feed-com" id="ads-style-feed-3">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
@@ -6067,7 +6067,7 @@ function detectCharacter()
             <p>They both have flagship-level chipsets, but Samsung is a bit faster here. The Pixel is also very capable and can run apps like buttery smooth. The Pixel Fold seems to have better optimization than other Pixels. Both of them support multitasking in a more native way. The OS is beautiful and optimized for multitasking. There is a <a href="https://www.samsung.com/us/support/answer/ANS00091163/" target="_blank" rel="nofollow noopener noreferrer">taskbar</a> implementation on both at the bottom of the viewport to switch between apps pretty quickly. All the stock apps are optimized for the big foldable screens. But Samsung is upping the game by allowing third-party apps to scale up to fit the full-screen width. This feature is built into the OS for Samsung Fold 4, but not for the Pixel Fold. This is not a good look for the Pixel.</p> 
 
             <br>
-            <div class="display-common" id="ads-style-display-3">
+            <div class="dis-com" id="ads-style-display-3">
 
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> THESE G-ADS ARE SAFE AND INFORMATIVE - PLEASE <br> <span class="ad-details-4-style-2">Disable Ad BlockeR</span> </span> </div>
@@ -6117,7 +6117,7 @@ function detectCharacter()
             <p>Google and Samsung are two giant tech companies. The Samsung <a href="https://www.samsung.com/bd/smartphones/galaxy-z-fold4/" target="_blank" rel="nofollow noopener noreferrer">Galaxy Z Fold 4</a> is the most popular foldable smartphone on the planet Earth. <a href="https://blog.google/products/pixel/google-pixel-fold/" target="_blank" rel="nofollow noopener noreferrer">Pixel Fold</a> is Google's first shot in the foldable market. Its geographical availability is also very limited. The Pixel Fold is targeted toward tech-enthusiast people who like a clean Android experience. But luckily Google's first foldable smartphone checks most boxes that people want in a foldable phone. I will say that those people who wanna do multitasking - artwork on a phone, also like the form factor, can utilize the big screen and have the money to spend, should buy the Pixel Fold. Though it is a first-generation product, yet a really good device this time.</p>    
 
             <br>
-            <div class="feed-common" id="ads-style-feed-4">
+            <div class="feed-com" id="ads-style-feed-4">
                  
                  <div class="ad-details-5"> <span> AD </span> </div>
                  <div class="ad-details-4"> <span class="ad-details-4-main"> <span class="ad-details-4-style-1">Google Ads</span> <br> These ads are safe, informative and interesting. Turn off ad-blocker for this website. Ad revenue helps to keep the site alive. <br> <span class="ad-details-4-style-2">Please Disable Ad BlockeR</span> </span> </div>
