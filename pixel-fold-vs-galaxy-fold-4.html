@@ -4870,9 +4870,9 @@ function toppicksout()
     
    }
 
-   timer3 = setInterval(adsheights, 1000);
-   // setTimeout(() => { clearInterval(timer3); }, 5000);
-   // setTimeout(() => { setInterval(adsheights, 1000); }, 5500);
+   timer3 = setInterval(adsheights, 0);
+   setTimeout(() => { clearInterval(timer3); }, 5000);
+   setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
    // window.addEventListener('scroll', adsheights, false); 
 
    new PerformanceObserver(entryList => {
@@ -5240,6 +5240,7 @@ function updateLogo()
                     {
                            // var parentDiv = element.parentNode;
                            parentDiv.style.display = "none";
+                           parentDiv.nextElementSibling.style.display = "block";
                     } });
 
                     var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
@@ -5256,6 +5257,7 @@ function updateLogo()
                     {
                            // var parentDiv = element.parentNode;
                            parentDiv.style.display = "none";
+                           parentDiv.nextElementSibling.style.display = "block";
                     } });
 
                   } 
