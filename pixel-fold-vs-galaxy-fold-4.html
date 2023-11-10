@@ -4880,7 +4880,7 @@ function toppicksout()
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
     if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
     if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; } }); 
-    /* console.log("here here"); */ }
+    console.log(displayAdHeight); }
 
    timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
