@@ -4869,7 +4869,7 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   function adsheights() {  
+    function adsheights() {  
     var checkh = window.innerWidth;
     const feedAds = document.querySelectorAll('.feed-ad');
     const displayAds = document.querySelectorAll('.display-ad'); 
@@ -4885,10 +4885,9 @@ function toppicksout()
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
     if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
     if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; } }); 
-    // console.log("here here"); 
-   }
+    /* console.log("here here"); */ }
 
-   timer3 = setInterval(adsheights, 5000);
+   timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
    // window.addEventListener('scroll', adsheights, false); 
