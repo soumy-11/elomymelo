@@ -4377,9 +4377,15 @@ function relod()
 function scrollmethod() 
 {
 	mybutton = document.getElementById("scroll-top-button");
-    if (document.documentElement.scrollTop > 200) { mybutton.style.display = "block"; } 
-    if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; }
-    if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
+    
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) 
+    {
+        mybutton.style.display = "block";
+    } 
+    else 
+    {
+        mybutton.style.display = "none";
+    }
 }
 
 
@@ -4451,7 +4457,6 @@ function scrollmethod()
     if (window.matchMedia("(max-width: 615px)").matches && window.matchMedia("(max-height: 496px)").matches) 
     {
         // document.body.style.transform = "scale(1.0)";
-        document.getElementById("scroll-top-button").style.display = "none"; 
     }
     if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
@@ -4537,35 +4542,35 @@ function scrolltotop()
 
    function buttonfxd()
    { 	   
-   	  document.getElementById("Web_1920__1").style.visibility = "visible";
-   	  document.getElementById("top-check").style.visibility = "hidden";
-   	  if (window.matchMedia("(max-width: 615px)").matches) 
-   	  {
-        const mypage = window.innerWidth * 0.12;
-        const pagebot = window.innerWidth * 0.167;
-        const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
-      }
-      if (window.matchMedia("(max-width: 415px)").matches)
-   	  {
-        const mypage = window.innerWidth * 0.14;
-        const pagebot = window.innerWidth * 0.190;
-        const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
-      }
-      if (window.matchMedia("(max-width: 415px)").matches && window.matchMedia("(max-height: 745px)").matches) 
-   	  {
-        const mypage = window.innerWidth * 0.13;
-        const pagebot = window.innerWidth * 0.16;
-        const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
-        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
-      }
+   	   document.getElementById("Web_1920__1").style.visibility = "visible";
+   	   document.getElementById("top-check").style.visibility = "hidden";
+   	   if (window.matchMedia("(max-width: 615px)").matches) 
+   	   {
+           const mypage = window.innerWidth * 0.12;
+           const pagebot = window.innerWidth * 0.167;
+           const pageright = window.innerWidth * 0.04;
+           document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
+       }
+       if (window.matchMedia("(max-width: 415px)").matches)
+   	   {
+           const mypage = window.innerWidth * 0.14;
+           const pagebot = window.innerWidth * 0.190;
+           const pageright = window.innerWidth * 0.04;
+           document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
+       }
+       if (window.matchMedia("(max-width: 415px)").matches && window.matchMedia("(max-height: 745px)").matches) 
+   	   {
+           const mypage = window.innerWidth * 0.13;
+           const pagebot = window.innerWidth * 0.16;
+           const pageright = window.innerWidth * 0.04;
+           document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+           document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
+       }
    }
 
    timer1 = setInterval(buttonfxd, 500);
@@ -4873,19 +4878,32 @@ function toppicksout()
     const feedAdHeight = feedAd.clientHeight;
     if (checkh <= 615) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
     if (checkh >= 615) { feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
-    if (feedAdHeight === 0) { feedAd.nextElementSibling.style.display = 'block'; } });
+    if (feedAdHeight === 0) { feedAd.nextElementSibling.style.display = 'block'; }
+    if (feedAdHeight !== 0) { feedAd.nextElementSibling.style.display = 'none'; } });
 
     displayAds.forEach((displayAd, index) => {
     const displayAdHeight = displayAd.clientHeight;
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
     if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
     if (displayAdHeight === 0) { displayAd.nextElementSibling.style.display = 'block'; }
+    if (displayAdHeight !== 0) { displayAd.nextElementSibling.style.display = 'none'; }
     console.log(displayAdHeight); }); }
 
    timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
    // window.addEventListener('scroll', adsheights, false); 
+
+   new PerformanceObserver(entryList => {
+   var entries = entryList.getEntries() || [];
+   var cls = 0;
+   entries.forEach(e => {
+        if (!e.hadRecentInput) { // omit entries likely caused by user input
+            cls += e.value;
+        }
+    });
+    console.log("Cumulative Layout Shift = ", cls); 
+   }).observe({ type: "layout-shift", buffered: true }); 
 
    timer2 = setInterval(function() 
    {  
