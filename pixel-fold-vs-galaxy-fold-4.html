@@ -4805,7 +4805,7 @@ function toppicksout()
 }
 
    function adsheights() { 
-
+/*
     var adheight1 = document.getElementById("ads-style-feed-1").clientHeight;
     var adheight2 = document.getElementById("ads-style-feed-2").clientHeight;
     var adheight3 = document.getElementById("ads-style-feed-3").clientHeight;
@@ -4814,13 +4814,14 @@ function toppicksout()
     var adheight6 = document.getElementById("ads-style-display-2").clientHeight;
     var adheight7 = document.getElementById("ads-style-display-3").clientHeight;
 
+    if (window.matchMedia("(max-width: 615px)").matches) {
     document.getElementById("ads-style-feed-1").style.setProperty('--set-margin', adheight1 + "px");
     document.getElementById("ads-style-feed-2").style.setProperty('--set-margin', adheight2 + "px");
     document.getElementById("ads-style-feed-3").style.setProperty('--set-margin', adheight3 + "px");
     document.getElementById("ads-style-feed-4").style.setProperty('--set-margin', adheight4 + "px");
     document.getElementById("ads-style-display-1").style.setProperty('--set-margin', adheight5 + "px");
     document.getElementById("ads-style-display-2").style.setProperty('--set-margin', adheight6 + "px");
-    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight7 + "px");
+    document.getElementById("ads-style-display-3").style.setProperty('--set-margin', adheight7 + "px"); }
 
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
@@ -4831,14 +4832,60 @@ function toppicksout()
        if(adheight5 == 0) { document.getElementById("ads-br-d1").style.display = "block"; }
        if(adheight6 == 0) { document.getElementById("ads-br-d2").style.display = "block"; }
        if(adheight7 == 0) { document.getElementById("ads-br-d3").style.display = "block"; }
-    }
-    console.log("here here");
+    } 
+    */
+   
+    const feedAds = document.querySelectorAll('.feed-ad');
+    const displayAds = document.querySelectorAll('.display-ad'); 
+
+    // Set margin for each element in "feed-ad"
+    feedAds.forEach((feedAd, index) => {
+    const feedAdHeight = feedAd.clientHeight;
+    if (window.matchMedia("(max-width: 615px)").matches) {  
+    feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
+    if (window.matchMedia("(min-width: 615px)").matches) {  
+    feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
+
+    if (feedAdHeight === 0) {
+    // If displayAdHeight is 0, show the next br element
+    const nextBr = feedAd.nextElementSibling;
+    if (nextBr && nextBr.tagName === 'BR') {
+    nextBr.style.display = 'block'; } } });
+
+    // Set margin for each element in "display-ad" and show/hide the next br element
+    displayAds.forEach((displayAd, index) => {
+    const displayAdHeight = displayAd.clientHeight;
+    if (window.matchMedia("(max-width: 615px)").matches) {  
+    displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
+    if (window.matchMedia("(min-width: 615px)").matches) {  
+    displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
+
+    if (displayAdHeight === 0) {
+    // If displayAdHeight is 0, show the next br element
+    const nextBr = displayAd.nextElementSibling;
+    if (nextBr && nextBr.tagName === 'BR') {
+    nextBr.style.display = 'block'; } } });
+
+    // console.log("here here"); 
     
    }
 
-   timer3 = setInterval(adsheights, 0);
-   setTimeout(() => { clearInterval(timer3); }, 5000);
-   window.addEventListener('scroll', adsheights, false);
+   timer3 = setInterval(adsheights, 1000);
+   // setTimeout(() => { clearInterval(timer3); }, 5000);
+   // setTimeout(() => { setInterval(adsheights, 1000); }, 5500);
+   // window.addEventListener('scroll', adsheights, false); 
+
+   new PerformanceObserver(entryList => {
+   var entries = entryList.getEntries() || [];
+   var cls = 0;
+   entries.forEach(e => {
+        if (!e.hadRecentInput) { // omit entries likely caused by user input
+            cls += e.value;
+        }
+    });
+    console.log("Cumulative Layout Shift = ", cls); 
+   }).observe({ type: "layout-shift", buffered: true });
+
 
    timer2 = setInterval(function() 
    {  
@@ -5100,14 +5147,15 @@ function updateLogo()
             { 
                 if(record.type === 'attributes')
                 {
+                  const idname = record.target.id;
                   const attrname = record.attributeName;
                   const attrvalue = record.target.getAttribute(attrname);
 
                   // console.log(attrname);
                   // console.log(attrvalue);
-/*
+
                   if(window.matchMedia("(max-width: 615px)").matches)
-                  {
+                  { /*
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-one')
                     {
                         document.getElementById("ad-dtls-fone").style.display = "none";
@@ -5176,9 +5224,42 @@ function updateLogo()
                     {
                         document.getElementById("ads-style-feed-4").style.display = "none";
                         document.getElementById("ads-br-f4").style.display = "block";
-                    }
+                    }   */
+
+                    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+                    // Function to update the attributes for multiple elements 
+                    ids.forEach(function(id) {
+                    var element = document.getElementById(id);
+                    var parentDiv = element.parentNode;
+                    if (idname === id && attrvalue === "filled") 
+                    {
+                           // var parentDiv = element.parentNode;
+                           parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
+                    } 
+                    if (idname === id && attrvalue === "unfilled") 
+                    {
+                           // var parentDiv = element.parentNode;
+                           parentDiv.style.display = "none";
+                    } });
+
+                    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
+                    ids.forEach(function(id) {
+                    var element = document.getElementById(id);
+                    var parentDiv = element.parentNode;
+                    if (idname === id && attrvalue === "filled") 
+                    {
+                           // var parentDiv = element.parentNode;
+                           parentDiv.style.background = "#4D4D4D";
+                           parentDiv.style.border = "3px transparent solid";
+                    } 
+                    if (idname === id && attrvalue === "unfilled") 
+                    {
+                           // var parentDiv = element.parentNode;
+                           parentDiv.style.display = "none";
+                    } });
+
                   } 
-*/
+
                   // desktop 
                   if(window.matchMedia("(min-width: 615px)").matches)
                   {
