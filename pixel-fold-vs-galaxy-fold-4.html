@@ -4874,16 +4874,16 @@ function toppicksout()
     const nextbrele = feedAd.nextElementSibling;
     if (checkh <= 615) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
     if (checkh >= 615) { feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
-    if (feedAdHeight < 10) { nextbrele.style.display = 'block'; }
-    if (feedAdHeight > 10) { nextbrele.style.display = 'none'; } }); 
+    if (feedAdHeight > 10 && checkh <= 615) { nextbrele.style.display = 'none'; }
+    if (feedAdHeight < 10) { nextbrele.style.display = 'block'; } }); 
 
     displayAds.forEach((displayAd, index) => {
     const displayAdHeight = displayAd.clientHeight; 
     const nextelement = displayAd.nextElementSibling; 
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
     if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
-    if (displayAdHeight < 10) { nextelement.style.display = 'block'; }
-    if (displayAdHeight > 10) { nextelement.style.display = 'none'; } }); 
+    if (displayAdHeight > 10 && checkh <= 615) { nextelement.style.display = 'none'; }
+    if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
     /* console.log("here here"); */ }
 
    timer3 = setInterval(adsheights, 0);
@@ -4906,17 +4906,15 @@ function toppicksout()
    }, 500);
 
    setTimeout(() => { clearInterval(timer2); }, 4000);
-/*
+
    var js,
    fjs = document.getElementsByTagName("head")[0];
-   var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
-
-   if(isios) {
-   js = document.createElement("meta");
+   var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i)); 
+   if(isios) { js = document.createElement("meta");
    js.httpEquiv = "Content-Security-Policy";
    js.content = "script-src 'unsafe-inline'"; 
    fjs.appendChild(js, fjs); }
-*/
+
 </script>
 
 <script type="text/javascript">
@@ -5128,13 +5126,13 @@ function updateLogo()
 
     // Call to update all elements at once
     getMoreAttributes();  
-/*
+
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
     document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
     document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
-*/
+
     // mutation observer code
     const checkf1 = document.getElementById("ins-feed-one");
     const checkf2 = document.getElementById("ins-feed-two");
