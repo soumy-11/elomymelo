@@ -4300,11 +4300,7 @@ function changeover()
   document.getElementById("menu-pointer-review").style.visibility = "hidden";
   document.getElementById("menu-pointer-about").style.visibility = "hidden";
 }
-function changeout()
-{
-  
-}
-
+function changeout() {  }
 
 function catclickmainappear()
 {
@@ -4318,7 +4314,6 @@ function aboutclickmainappear()
 {
   document.getElementById("about-me-main").style.visibility = "visible";
 }
-
 
 function changefirst()
 {
@@ -4350,29 +4345,7 @@ function changefirst()
   document.getElementById("menu-pointer-about").style.visibility = "visible";
 
 }
-function changesecond()
-{
-  
-}
-
-
-// for calling doso after resize ends
-window.addEventListener('resize', relod, false);
-function relod() 
-{
-  var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-  if(isdesk) 
-  {
-    document.getElementById("top-pos").style.display = "none";
-    clearTimeout(window.resizedFinished);
-    window.resizedFinished = setTimeout(function() 
-    {  
-        document.getElementById("top-pos").style.display = "block";
-        doso(); // console.log("after-resize");
-
-    }, 100);
-  }
-}
+function changesecond() {  }
 
 function scrollmethod() 
 {
@@ -4382,21 +4355,21 @@ function scrollmethod()
     if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
 }
 
-
   // for other than windows and mac
-  window.addEventListener('resize', upme);
-  document.addEventListener('DOMContentLoaded', upme);
+  var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
+  document.addEventListener('DOMContentLoaded', upme); 
+  window.addEventListener('resize', upme); 
   function upme()
   {
     // checks if user is on a desktop device 
-    var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-
     if(window.matchMedia("(min-width: 615px)").matches && !isdesk)
     {
         document.getElementById("Web_1920__1").style.height = "2216px";
         document.getElementById("Web_1920__1").style.paddingBottom = "0px";
         document.getElementById("arts-con-id").style.position = "absolute";
-        setInterval(function(){ document.getElementById("arts-con-id").style.height = "6712px"; }, 0);
+        timer4 = setInterval(function() { // console.log("meme here"); 
+        document.getElementById("arts-con-id").style.height = "6712px"; }, 0);
+        setTimeout(() => { clearInterval(timer4); }, 4500); 
         document.getElementById("arts-con-id").style.overflowX = "hidden";
         document.getElementById("arts-con-id").style.overflowY = "scroll";
         document.getElementById("arts-con-id").style.paddingBottom = "0px";
@@ -4414,16 +4387,30 @@ function scrollmethod()
         document.getElementById("arts-con-id").style.overflow = "visible";
         document.getElementById("footer-id").style.display = "none";
     }
+    if(isdesk) 
+    {
+        document.getElementById("top-pos").style.display = "none";
+        clearTimeout(window.resizedFinished);
+        window.resizedFinished = setTimeout(function() {  
+        document.getElementById("top-pos").style.display = "block";
+        doso(); /* console.log("after-resize"); */ }, 100); 
+    }
   }
 
-  var timer = null;
-  window.addEventListener('scroll', function() 
+  var timer = null; 
+  function scrolltrick() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso(); }, 2000); }, false);
+  timer = setTimeout(function() { doso(); }, 2000); }
   setTimeout(doso, 3000); // setTimeout(doso, 0);
 
   document.addEventListener('DOMContentLoaded', doso);
-  window.addEventListener('resize', doso, false);
+  window.addEventListener('scroll', scrolltrick, false); 
+  window.addEventListener('resize', doso, false); 
+
+  if(!isdesk) { document.removeEventListener('DOMContentLoaded', doso);
+  window.removeEventListener('scroll', scrolltrick, false);
+  window.removeEventListener('resize', doso, false); }
+
   function doso()
   {
     lopp = document.getElementById("Web_1920__1");
@@ -4528,12 +4515,10 @@ function scrollmethod()
     }
   } 
 
-
 function scrolltotop() 
 {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 
    function buttonfxd()
    { 	   
@@ -4570,8 +4555,7 @@ function scrolltotop()
 
    timer1 = setInterval(buttonfxd, 500);
    setTimeout(() => { clearInterval(timer1); }, 4000);
-   window.addEventListener('resize', buttonfxd, false);
-
+   // window.addEventListener('resize', buttonfxd, false);
 
   function outsideclick()
   { 
@@ -4621,9 +4605,7 @@ function scrolltotop()
   };
 };
 
-
 var outcheck = outsideclick();
-
 
 function changeabouton()
 {
