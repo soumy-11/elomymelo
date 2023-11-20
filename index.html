@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="preload" href="fonts/arial-round.ttf" as="font" crossorigin="anonymous" />
-<link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous" />
+<link rel="preload" href="fonts/arial-round.ttf" as="font" crossorigin="anonymous"/>
+<link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -13,11 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="old-images/circle-trans.png">
+<meta property="og:image" content="https://elomymelo.com/old-images/casenillkin.jpg"/>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width">
-<title> Home Page </title>
+<title> Elo My Melo | Technology and Education </title>
 <meta name="description" content="From my passion and love for technology, I built this website to share my opinion with the world. My website is unique and special in its own way. You will get a clean, refined and modern user experience while visiting this website. Articles and reviews represent my research data and honest thoughts about the topics, which hold high standards in my opinion. Don't forget to comment using the comment section ...">
+
 <meta name="keywords" content="unique design, clean website, user-friendly, smooth user experience, modern user interface design, great UX, clean UI, UX design, UI design">
 <meta name="author" content="Soumya Roy">
 
@@ -56,6 +58,26 @@
 		visibility: visible;
 		z-index: -999;
 	}
+
+	.fc-stacks.fc-dialog-restricted-content
+    {
+        border: 2px #dadce0 solid !important;
+        padding: 10px 10px 0px 20px !important;
+        border-radius: 7px !important;
+        margin-bottom: 10px !important;
+    }
+    .fc-footer.fc-dialog-restricted-content
+    {
+        border: 2px #dadce0 solid !important;
+        padding: 10px 10px 10px 20px !important;
+        border-radius: 7px !important;
+        margin-top: 10px !important;
+    }
+    .fc-consent-root .fc-choice-dialog .fc-footer-buttons-divider
+    {
+        opacity: 0 !important; 
+        visibility: hidden !important; 
+    }
 
 	body 
 	{
@@ -2363,7 +2385,7 @@
         position: absolute;
 		left: 503px;
 		top: 12px;
-		width: 1500px;
+		width: 1520px;
 		height: 120px;
 		text-align: left;
 		font-family: cus-roboto-medium, 'Roboto', cus-roboto, sans-serif;
@@ -2663,26 +2685,57 @@
         text-align: center;
         line-height: 77px;
     }
-    .ad-details-5
+    #fiverr-gig-image
     {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 130px;
-        height: 70px;
-        font-size: 30px;
-        background: white;
-        padding-bottom: 65px;
-        color: rgba(0,0,0,0.34);
-        font-family: cus-arial-round, cus-roboto-medium, roboto, sans-serif;
-        border: 4px rgba(112,112,112,0) solid;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 67px;
-        display: none;
+        width: 834px; 
+        position: absolute; 
+        object-fit: contain; 
+        border: 5px rgba(210,139,74,0.8) solid;
+        border-radius: 40px 40px 40px 40px; 
+        background: rgba(210,139,74,0.8);
+        left: -2px; 
+        top: -2px;
+    }
+    #fiverr-gig-image:hover
+    {
+        transition: 0.1s;
+        border: 10px rgba(210,139,74,0.8) solid;
+    }
+    #fiverr-logo
+    {
+        width: 650px; 
+        height: 130px; 
+        position: absolute; 
+        top: 397px; 
+        left: 90px; 
+        border: 6px transparent solid; 
+        background: rgba(0,0,0,0.5);
+        border-radius: 20px;
+    }
+    #fiverr-logo:hover
+    {
+        border: 6px rgba(210,139,74,0.8) solid; 
+        background: rgba(210,139,74,0.8);
+    }
+    .check-my-gigs
+    {
+        width: 450px; 
+        height: 105px; 
+        position: absolute; 
+        top: 524px; 
+        left: 190px; 
+        border-radius: 5px 5px 32px 32px; 
+        background: rgba(0,0,0,0.72); 
+        font-size: 40px; 
+        color: rgba(236,165,84,1); 
+        font-family: cus-arial-round, roboto, sans-serif; 
+        padding: 27px 0px 0px 74px;
+    }
+    .check-my-gigs:hover
+    {
+        background: rgba(210,139,74,0.8);
+        color: rgba(0,0,0,0.8);
+        transition: 0.5s;
     }
  
     .hot-dvcs-hdr
@@ -2725,6 +2778,7 @@
     	background: linear-gradient(to right, white, #EAEAEA);
     	border-radius: 8px;
     	top: 87px; 
+    	display: none;
     }
     .hot-devices-sec a
     {
@@ -3248,9 +3302,9 @@ function scrolldown()
 }
 setTimeout(() => { document.querySelector(".articles-container").scrollTo(0, 0); }, 200);
 
-
-   var imageslidecounter = 1;
-   setInterval(function()
+   var imageslidecounter = 1; var autocontrol; 
+   function autoslider() {
+   autocontrol = setInterval(function()
    {
    	   document.getElementById('radio' + imageslidecounter).checked = true;
    	   imageslidecounter++;
@@ -3259,29 +3313,33 @@ setTimeout(() => { document.querySelector(".articles-container").scrollTo(0, 0);
    	   	   imageslidecounter = 1;
    	   }
 
-   }, 5000);
-
+   }, 5000); } autoslider(); 
 
 function prevbtn()
 {
-	document.getElementById('radio' + imageslidecounter).checked = true;
+	clearInterval(autocontrol);
+	// document.getElementById('radio' + imageslidecounter).checked = true;
    	   imageslidecounter--;
    	   if (imageslidecounter < 1) 
    	   {
    	   	   imageslidecounter = 4;
    	   }
+   	document.getElementById('radio' + imageslidecounter).checked = true;
+   	autoslider();
 }
 
 function nextbtn()
 {
+	clearInterval(autocontrol);
 	document.getElementById('radio' + imageslidecounter).checked = true;
    	   imageslidecounter++;
    	   if (imageslidecounter > 4) 
    	   {
    	   	   imageslidecounter = 1;
    	   }
+   	// document.getElementById('radio' + imageslidecounter).checked = true;
+   	autoslider();
 }
-
 
 </script>
 
@@ -3295,19 +3353,15 @@ function updateAds()
 {
 	document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)";
     document.getElementById("ads-v2-in").style.transform = "scale(2.72, 2.72)";
-    document.getElementById("ads-v3-in").style.transform = "scale(2.72, 2.72)";
+    // document.getElementById("ads-v3-in").style.transform = "scale(2.72, 2.72)";
   
     var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-    setInterval(() => { 
-    document.getElementById("ads-v3-in").style.minHeight = "262px";
-    document.getElementById("ads-v3-in").style.border = "6px rgba(112,112,112,0.06) solid";
-    document.querySelector(".ad-details-5").style.display = "block"; }, 1200);
-
+  
        if (window.matchMedia("(max-width: 615px)").matches) 
        {
            document.getElementById("ins-dis-v1").style.display = "none";
            document.getElementById("sc-clk-char").style.display = "none";
-           document.getElementById("ins-dis-v3").style.display = "none";
+           // document.getElementById("ins-dis-v3").style.display = "none";
        }
        if (window.matchMedia("(min-width: 615px)").matches) 
        {
@@ -3390,13 +3444,58 @@ function updateLogo()
 
 <script type="text/javascript">
 
-function scaleMe()
-{ 
-    const mypage = window.innerWidth;
-    document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
-    document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-}
-scaleMe();
+  function scaleMe()
+  {       
+      // calculate the scale ----- 
+      const mypage = window.innerWidth;
+      document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
+      document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+      document.getElementById("Web_1920__1").style.width = "3554px";
+
+      var parentElementNew = document.querySelector('.fc-consent-root');
+      var bodyOverflow = window.getComputedStyle(document.body).overflow; 
+      var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+      var parentElement = document.querySelector('.google-revocation-link-placeholder');
+      if (parentElement) { var childElements = parentElement.querySelectorAll('*');
+      // Loop through the child elements and set display to "none"
+      for (var i = 0; i < childElements.length; i++) 
+      {
+           childElements[i].parentNode.removeChild(childElements[i]);
+      }
+           parentElement.parentNode.removeChild(parentElement);
+      }
+      if (parentElementNew || bodyOverflow === "hidden") 
+      { 
+           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
+           document.body.style.transform = "none"; 
+      }
+      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
+      if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
+      if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
+      }
+      if (window.matchMedia("(max-width: 615px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "none";
+      }
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(1.0)";
+      }
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.920)";
+      }
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.860)";
+      }
+      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.80)";
+      }
+  }
+  scaleMe(); setInterval(scaleMe, 1000); 
+  window.addEventListener('resize', scaleMe, false); 
 
 </script>
 
@@ -3900,17 +3999,17 @@ scaleMe();
 	
 	<a href="soundcore motion plus review.html" style="text-decoration: none;">
 	<div id="Anker_soundcore_motion_Bluetoo">
-		<span> Anker soundcore motion+ bluetooth speaker review </span>
+		<span> Anker soundcore motion+ bluetooth speaker detailed review </span>
 	</div>
 	</a>
-	<a href="jbl flip 6 meaningful upgrade.html" style="text-decoration: none;">
+	<a href="how-to-link-payoneer-with-paypal.html" style="text-decoration: none;">
 	<div id="jbl-flip-6-meaningful-up">
-		<span> JBL Flip 6 offers tweeter upgrade </span>
+		<span> How to link Payoneer with PayPal </span>
 	</div>
     </a>
-    <a href="oneplus nord review.html" style="text-decoration: none;">
+    <a href="soundcore-space-one-vs-sony-wh-ch720n.html" style="text-decoration: none;">
 	<div id="OnePlus_Nord_review_and_overal">
-		<span>OnePlus Nord review and experience as I use it everyday</span>
+		<span>Soundcore Space One vs Sony WH-CH720N - mature Sony</span>
 	</div>
     </a>
     <a href="soundcore-boost-review.html" style="text-decoration: none;">
@@ -3918,9 +4017,9 @@ scaleMe();
 		<span>Soundcore Boost speaker detailed review - so punchy</span>
 	</div>
     </a>
-    <a href="pixel-buds-A-series.html" style="text-decoration: none;">
+    <a href="mutation-observer-to-customize-ads.html" style="text-decoration: none;">
 	<div id="Anker_Soundcore_Motion_with__e">
-		<span>The Google Pixel Buds A-series look really attractive</span>
+		<span>How to use Mutation Observer - hide unfilled AdSense ads</span>
 	</div>
     </a>
 	<a href="nillkin frosted case review for nord.html" style="text-decoration: none;">
@@ -3966,6 +4065,70 @@ scaleMe();
    </div><br>
 
    <div id="before-article-01"></div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="galaxy-a14-5g-review.html">
+	<img class="latest-art-pic-common" src="https://docs.elomymelo.com/images/a14-latest.jpg">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="galaxy-a14-5g-review.html"> Samsung Galaxy A14 5G long-term review </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		In my long-term review, the main camera on the Galaxy A14 is pretty good. Battery life is also very good. But the performance is mediocre. Apps opening and closing animations <a href="galaxy-a14-5g-review.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="motion-300-vs-bose-flex.html">
+	<img class="latest-art-pic-common" src="https://docs.elomymelo.com/scaled-down/m-300-low.jpg" style="object-position: center; object-fit: cover">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="motion-300-vs-bose-flex.html"> Soundcore Motion 300 vs Bose SoundLink Flex </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		Motion 300 has decent bass but becomes bass-light and way louder than Flex at higher volumes. Bose holds onto its bass by the cost of loudness. This makes the Bose more pleasant to listen to at higher <a href="motion-300-vs-bose-flex.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="soundcore-space-one-vs-sony-wh-ch720n.html">
+	<img class="latest-art-pic-common" src="https://docs.elomymelo.com/images/space-one-main.png" style="object-position: center; object-fit: cover">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="soundcore-space-one-vs-sony-wh-ch720n.html"> Soundcore Space One vs Sony wh-ch720n </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		In this detailed comparison, Sony wh-ch720n has a more mature sound. But the Space One has better Noise Cancellation. The ambient mode is more natural on the Sony. Soundcore looks <a href="soundcore-space-one-vs-sony-wh-ch720n.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="pixel-fold-vs-galaxy-fold-4.html">
+	<img class="latest-art-pic-common" src="https://docs.elomymelo.com/images/pixel-fold-latest.jpg">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="pixel-fold-vs-galaxy-fold-4.html"> Google Pixel Fold vs Samsung Galaxy Fold 4 </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		In my detailed comparison the Google Pixel Fold can shoot better photos, but the Samsung Galaxy Z Fold 4 has a faster Snapdragon processor. So Z Fold 4 is superior for gaming. Even though <a href="pixel-fold-vs-galaxy-fold-4.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
 
    <div class="articles-common-lt-style">
 
@@ -4031,6 +4194,10 @@ scaleMe();
 
    </div><br>
 
+   <div id="more-info-after">
+   	   <span> To explore more articles and reviews, please use the navigation menus. The navigation I created on my website is easy, simple and clean to offer you a better user experience. </span>
+   </div><br>
+
    <div class="articles-common-lt-style">
 
 	<a href="nillkin frosted case review for nord.html">
@@ -4061,10 +4228,6 @@ scaleMe();
 		Motion+ has an excellent design and build that can really help with the sound dispersion and nice stereo separation. I have played with the eq bands quite a lot and they are real eq <a href="soundcore motion plus review.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
 	</div>
 
-   </div><br>
-            
-   <div id="more-info-after">
-   	   <span> To explore more articles and reviews, please use the navigation menus. The navigation I created on my website is easy, simple and clean to offer you a better user experience. </span>
    </div><br>
 
    <div class="articles-common-lt-style">
@@ -4265,57 +4428,52 @@ scaleMe();
 
   <div class="ads-vertical" id="ads-vertical-two" style="height: 798px !important; top: 5226px">
        
-            <div class="ads-vrtl-in" id="ads-v3-in" style="top: 266px; min-height: 260px">
+            <div class="ads-vrtl-in" id="ads-v3-in" style="top: 66px; left: 24px; width: 850px; height: 665px; background-image: url('https://docs.elomymelo.com/old-images/gig-back.PNG'); background-position: -6px 440px; background-repeat: no-repeat; filter: blur(10px); border-radius: 40px; background-size: 850px"> </div>
 
-                 <div class="ad-details-5"> <span> AD </span> </div>
-                 
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510"
-                 crossorigin="anonymous"></script>
-                 <!-- Display Vertical -->
-                 <ins class="adsbygoogle"
-                      id="ins-dis-v3" 
-                      style="display:block;min-width:290px;width:100%;height:250px"
-                      data-ad-client="ca-pub-3654432220074510"
-                      data-ad-slot="2885298349"
-                      data-full-width-responsive="true">
-                 </ins>
-                 <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+                <!-- new code -->
+                <div style="position: absolute; top: 55px; left: 24px; border: 10px rgba(184,130,53,0.5) solid; width: 850px; height: 685px; border-radius: 45px"> 
 
-            </div>
+                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
+                <img id="fiverr-gig-image" src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/324874782/original/ceaf034e52930aa11fe088faa9410b2d970ddfb6/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories.jpg" onerror="this.src='images/boost-main.jpg'"> </a>
+                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
+                <img id="fiverr-logo" src="https://docs.elomymelo.com/old-images/fiverr-logo.jpg"> </a>
+                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
+                <div class="check-my-gigs"> CHECK MY GIG </div> </a>
+
+            </div> 
   </div>
 
         <div class="hot-devices-sec">
 
             <div class="top-dsgn" style="left: 27px; transform: rotate(33deg)"></div><div class="top-dsgn" style="right: 27px; transform: rotate(147deg)"></div>
 
-            <div class="hot-dvcs-hdr" style="left: 20%; width: 60%; top: 124px; height: 20px; background: #EAEAEA; border-left: 6px rgba(112,112,112,0.7) solid; border-right: 6px rgba(112,112,112,0.7) solid">
+            <div class="hot-dvcs-hdr" style="left: 20%; width: 60%; top: 124px; height: 20px; background: #EAEAEA; border-left: 15px rgba(113,208,245,1) solid; border-right: 15px rgba(113,208,245,1) solid"> 
             <span class="hot-dvcs-hdr-span" style="top: -53px; padding: 31px 65px 29px 70px"> HOT DEVICES </span>
             </div>
 
-            <div class="hot-dvcs-hdr" style="top: 309px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(112,112,112,0.5), white)">
+            <div class="hot-dvcs-hdr" style="top: 309px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(255,119,119,1), white)">
             <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(255,119,119,0.35) solid; top: -46px"> Smartphones </span>
             </div>
 
             <div class="hot-dvcs-hdr" style="top: 393px; width: 100%; height: auto; border: 0px grey solid; height: 358px">
 
         	<div class="hot-dvcs-hdr expmore">
-        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/google_pixel_6-11037.php" target="_blank" rel="noopener noreferrer"> Pixel 6 
-        	</a></span> 
-        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/oneplus_nord_2_5g-10960.php" target="_blank" rel="noopener noreferrer"> OnePlus Nord 2 </a></span>
+        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/google_pixel_8-12546.php" target="_blank" rel="noopener noreferrer"> Pixel 8 </a></span> 
+        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/oneplus_nord_3-12135.php" target="_blank" rel="noopener noreferrer"> OnePlus Nord 3 </a></span>
             </div>
 
             <div class="hot-dvcs-hdr expmore" style="top: 130px">
-            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/samsung_galaxy_a52s_5g-11039.php" target="_blank" rel="noopener noreferrer"> Galaxy A52s </a></span>         	
-        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/apple_iphone_13_pro-11102.php" target="_blank" rel="noopener noreferrer"> iPhone 13 Pro </a></span>
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/samsung_galaxy_a54-12070.php" target="_blank" rel="noopener noreferrer"> Galaxy A54 </a></span>         	
+        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/apple_iphone_15_pro-12557.php" target="_blank" rel="noopener noreferrer"> iPhone 15 Pro </a></span>
             </div>
 
             <div class="hot-dvcs-hdr expmore" style="top: 250px">
-            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/xiaomi_redmi_note_11-11181.php" target="_blank" rel="noopener noreferrer"> Redmi Note 11 </a></span>
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/nothing_phone_(2)-12386.php" target="_blank" rel="noopener noreferrer"> Nothing Phone 2 </a></span>
             </div>
 
             </div>
 
-            <div class="hot-dvcs-hdr" style="top: 855px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(112,112,112,0.8), white)">
+            <div class="hot-dvcs-hdr" style="top: 855px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(236,96,202,1), white)">
             <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(236,96,202,0.36) solid; top: -46px"> Portable Speakers </span>
             </div>
 
@@ -4332,32 +4490,30 @@ scaleMe();
             </div>
 
         	<div class="hot-dvcs-hdr expmore" style="top: 250px">
-        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://www.sony-asia.com/electronics/wireless-speakers/srs-xb33" target="_blank" rel="noopener noreferrer"> Sony srs-XB33 </a></span>
+        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://www.sony.com/et/electronics/portable-speakers/srs-xb33" target="_blank" rel="noopener noreferrer"> Sony srs-XB33 </a></span>
             </div>
 
             </div>
 
-            <div class="hot-dvcs-hdr" style="top: 1401px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(112,112,112,0.5), white)">
+            <div class="hot-dvcs-hdr" style="top: 1401px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(235,152,78,1), white)">
             <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(235,152,78,0.36) solid; top: -46px"> TWS Earbuds </span>
             </div>
 
             <div class="hot-dvcs-hdr" style="top: 1486px; width: 100%; height: auto; border: 0px grey solid; height: 358px">
 
             <div class="hot-dvcs-hdr expmore">
-            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.apple.com/airpods-pro/" target="_blank" rel="noopener noreferrer"> Airpods Pro </a>
-        	</span> 
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.apple.com/airpods-pro/" target="_blank" rel="noopener noreferrer"> Airpods Pro </a></span> 
         	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://store.google.com/product/pixel_buds_a_series?hl=en-US" target="_blank" rel="noopener noreferrer"> Pixel Buds </a></span>
             </div>
         	
         	<div class="hot-dvcs-hdr expmore" style="top: 130px">
-        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://us.soundcore.com/products/a3952011" target="_blank" rel="noopener noreferrer"> Liberty 3 Pro 
-        	</a></span> 
-        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.apac.jabra.com/bluetooth-headsets/jabra-elite-3##100-91410000-40" target="_blank" rel="noopener noreferrer"> Jabra Elite 3 </a></span>
+        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://us.soundcore.com/products/liberty-4-nc-a3947z61" target="_blank" rel="noopener noreferrer"> Liberty 4 NC </a></span> 
+        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.apac.jabra.com/bluetooth-headsets/jabra-elite-10" target="_blank" rel="noopener noreferrer"> Jabra Elite 10 </a></span>
             </div>
         	
         	<div class="hot-dvcs-hdr expmore" style="top: 250px">
-        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/lypertek_tevi_review-news-47000.php" target="_blank" rel="noopener noreferrer"> Tevi </a></span>
-        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.soundguys.com/sennheiser-momentum-true-wireless-2-review-40848/" target="_blank" rel="noopener noreferrer"> Momentum </a></span>
+        	<span class="hot-dvcs-hdr-span spnmore"><a href="https://intl.nothing.tech/products/ear-2" target="_blank" rel="noopener noreferrer"> Ear 2 </a></span> 
+        	<span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.sennheiser-hearing.com/en-US/p/momentum-true-wireless-3/" target="_blank" rel="noopener noreferrer"> Momentum </a></span>
             </div>
 
             </div>
