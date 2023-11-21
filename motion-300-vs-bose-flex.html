@@ -29,6 +29,28 @@
 <link rel="preload" href="styles/style-phone.css" as="style">
 <link rel="preload" href="styles/style-desk.css" as="style">
 
+<script type="text/javascript">
+
+function dynacss()
+{
+    const link = document.createElement("link");
+    link.rel = "stylesheet"; link.type = "text/css";
+    link.href = "styles/style-phone.css";
+    document.head.appendChild(link);
+}
+if(window.matchMedia("(max-width: 615px)").matches) { dynacss(); }
+
+function dynacssdesk()
+{
+    const link = document.createElement("link");
+    link.rel = "stylesheet"; link.type = "text/css";
+    link.href = "styles/style-desk.css";
+    document.head.appendChild(link);
+}
+if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
+
+</script>
+
 <style id="applicationStylesheet" type="text/css">
 	
 	:root 
@@ -1560,7 +1582,7 @@
 </style>
 
 <script>
-
+/*
 function dynacss()
 {
     const link = document.createElement("link");
@@ -1578,7 +1600,7 @@ function dynacssdesk()
     document.head.appendChild(link);
 }
 if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
-
+*/
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";
@@ -2273,7 +2295,7 @@ function updateLogo()
 {
       if (window.matchMedia("(min-width: 615px)").matches) 
        {
-           const mypage = window.innerWidth; dynacssdesk();
+           const mypage = window.innerWidth; // dynacssdesk();
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "3554px";
@@ -2287,7 +2309,7 @@ function updateLogo()
 
       if (window.matchMedia("(max-width: 615px)").matches) 
        {
-           const mypagephone = window.innerWidth; dynacss();
+           const mypagephone = window.innerWidth; // dynacss();
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
