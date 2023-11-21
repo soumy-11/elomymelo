@@ -27,6 +27,8 @@
 <meta name="keywords" content="Google Pixel Fold, Samsung Galaxy Z Fold 4, foldable display, OLED, AMOLED, Android 12, Android 13, One UI 5.1, Qualcomm Snapdragon, SM8475, OIS, optical zoom, telephoto camera, under-display camera, Google Tensor G2, taskbar, multitasking, pixel fold vs galaxy Z fold 4"> 
 <meta name="author" content="Soumya Roy">
 
+<link rel="stylesheet" href="styles/css-phone.css" media="print" onload="this.media='all'">
+
 <style id="applicationStylesheet" type="text/css">
 	
 	:root 
@@ -83,7 +85,7 @@
         opacity: 0 !important; 
         visibility: hidden !important; 
     }
-
+/*
     @media only screen and (max-width: 615px)
     {   
     body 
@@ -1435,7 +1437,7 @@
 		transition: 0.5s;
     }
     }
-
+*/
     @media only screen and (min-width: 615px)
     {
     body 
@@ -4343,7 +4345,6 @@ function changefirst()
   document.getElementById("menu-pointer").style.visibility = "hidden";
   document.getElementById("menu-pointer-review").style.visibility = "hidden";
   document.getElementById("menu-pointer-about").style.visibility = "visible";
-
 }
 function changesecond() {  }
 
@@ -4599,8 +4600,7 @@ function scrolltotop()
       document.getElementById("search-tip-text").style.visibility = "";
       document.getElementById("menu-pointer").style.visibility = "hidden";
       document.getElementById("menu-pointer-review").style.visibility = "hidden";
-      document.getElementById("menu-pointer-about").style.visibility = "hidden";
-
+      document.getElementById("menu-pointer-about").style.visibility = "hidden"; 
     }
   };
 };
@@ -4742,10 +4742,7 @@ function changereviewon()
     document.getElementById("menu-pointer-review").style.visibility = "visible";
     document.getElementById("menu-pointer-about").style.visibility = "hidden";     
 }
-function changereviewout()
-{
-	
-}
+function changereviewout() {  }
 
 function reviewoneon()
 {
@@ -5113,8 +5110,13 @@ function updateLogo()
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
     document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
-
+    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); } 
+/*
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    { document.querySelectorAll(".last-extend").forEach(function(el) 
+    { el.style.display = "none"; el.remove(); }); } 
+    if (window.matchMedia("(max-width: 615px)").matches) { detectCharacter(); } 
+*/
     // mutation observer code
     const checkf1 = document.getElementById("ins-feed-one");
     const checkf2 = document.getElementById("ins-feed-two");
@@ -5234,6 +5236,7 @@ function detectCharacter()
     }
 }
 // setTimeout(detectCharacter, 2000); 
+// check el.remove() before mutation observer code, added later 
 
 </script>
 
