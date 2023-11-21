@@ -26,27 +26,8 @@
 <meta name="keywords" content="Soundcore Motion 300, Bose SoundLink Flex, PositionIQ, SmartTune, custom 9 band EQ, Bluetooth 5.3, Orientation, smart speakers, Xtra Bass, Bass Up technology, standing mode, lying mode, hanging mode, stereo vs mono, true wireless stereo pairing"> 
 <meta name="author" content="Soumya Roy">
 
-<script type="text/javascript">
-
-function dynacss()
-{
-    const link = document.createElement("link");
-    link.rel = "stylesheet"; link.type = "text/css";
-    link.href = "styles/style-phone.css";
-    document.head.appendChild(link);
-}
-if(window.matchMedia("(max-width: 615px)").matches) { dynacss(); }
-
-function dynacssdesk()
-{
-    const link = document.createElement("link");
-    link.rel = "stylesheet"; link.type = "text/css";
-    link.href = "styles/style-desk.css";
-    document.head.appendChild(link);
-}
-if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
-
-</script>
+<link rel="preload" href="styles/style-phone.css" as="style">
+<link rel="preload" href="styles/style-desk.css" as="style">
 
 <style id="applicationStylesheet" type="text/css">
 	
@@ -1579,7 +1560,7 @@ if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
 </style>
 
 <script>
-/*
+
 function dynacss()
 {
     const link = document.createElement("link");
@@ -1597,7 +1578,7 @@ function dynacssdesk()
     document.head.appendChild(link);
 }
 if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
-*/
+
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";
