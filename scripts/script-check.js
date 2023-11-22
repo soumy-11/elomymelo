@@ -1,7 +1,7 @@
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
-setTimeout(updateLogo, 50);
+setTimeout(updateLogo, 0);
 function updateLogo() 
 {
       if (window.matchMedia("(min-width: 615px)").matches) 
