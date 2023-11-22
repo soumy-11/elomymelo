@@ -1562,7 +1562,7 @@
 <script async type="text/javascript" src="scripts/script-com.js"></script>
 <script async type="text/javascript" src="scripts/script-check.js"></script>
 
-<script>
+<script type="text/javascript">
 
    var js,
    fjs = document.getElementsByTagName("head")[0];
@@ -1572,13 +1572,27 @@
    js.content = "script-src 'unsafe-inline'"; 
    fjs.appendChild(js, fjs); }
 
-</script>
-
-<script type="text/javascript">
-
 document.addEventListener('DOMContentLoaded', updateAdsAttributes); 
 function updateAdsAttributes() 
 {
+
+      if (window.matchMedia("(min-width: 615px)").matches) 
+      {
+           document.querySelectorAll(".dis-com").forEach(function(el) {
+           el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
+           document.querySelectorAll(".feed-com").forEach(function(el) {
+           el.style.transform = "scale(2.45, 2.45)"; });
+           document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
+      }
+
+      if (window.matchMedia("(max-width: 615px)").matches) 
+      {
+           document.querySelectorAll(".dis-com").forEach(function(el) {
+           el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
+           document.querySelectorAll(".feed-com").forEach(function(el) {
+           el.style.transform = "scale(4.34, 4.34)"; });
+      }
+
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
     // Function to update the attributes for multiple elements 
@@ -1644,11 +1658,6 @@ function updateAdsAttributes()
 
     elementsWithClassTwo.forEach(function(element) {
     addScriptTagToElement(element); }); 
-
-    if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "none"; el.remove(); }); } 
-    if (window.matchMedia("(max-width: 615px)").matches) { detectCharacter(); } 
 
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
@@ -1720,57 +1729,6 @@ function updateAdsAttributes()
     observer.observe(checkd2, { attributes: true, attributeFilter: ['data-ad-status'] });
     observer.observe(checkv1, { attributes: true, attributeFilter: ['data-ad-status'] });
 }
-
-function detectCharacter() 
-{
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-        const divElement = document.getElementById("article-text-div");
-        const pTags = divElement.querySelectorAll("p");
-        
-        // Loop through all the p tags and change span element's style using forEach method
-        pTags.forEach((paraTag) => {
-
-        // var lastCharacter = paraTag.textContent.trim().slice(-1);
-        var spanElement = document.createElement('span');
-        paraTag.appendChild(spanElement);
-
-        var spanRect = spanElement.getBoundingClientRect();
-        var leftCoordinate = spanRect.left + window.pageXOffset;
-        paraTag.removeChild(spanElement);
-
-        widthinner = window.innerWidth;
-        multiplier = 2358/widthinner;
-        comparewidth = widthinner/2;
-        comparewidthtwo = widthinner - (widthinner * 0.278); 
-
-        if(leftCoordinate < comparewidth)
-        {
-            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            // change some properties of each span element in loop
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            
-        }
-        if(leftCoordinate > comparewidthtwo)
-        {
-            var calwidth = comparewidth * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            spanElement.style.marginLeft = "0px";
-            
-        } });
-    }
-}
-// setTimeout(detectCharacter, 2000); 
 
 </script>
 
