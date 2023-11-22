@@ -4,15 +4,13 @@
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<!--
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-	-->
 <link rel="icon" type="image/png" sizes="32x32" href="old-images/circle-trans.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Soundcore Motion 300 vs Bose SoundLink Flex - overpriced Flex">
@@ -28,7 +26,7 @@
 <meta name="keywords" content="Soundcore Motion 300, Bose SoundLink Flex, PositionIQ, SmartTune, custom 9 band EQ, Bluetooth 5.3, Orientation, smart speakers, Xtra Bass, Bass Up technology, standing mode, lying mode, hanging mode, stereo vs mono, true wireless stereo pairing"> 
 <meta name="author" content="Soumya Roy">
 
-<link rel="stylesheet" href="styles/style-phone.css" type="text/css"> 
+<link rel="stylesheet" href="styles/style-phone.css" media="screen and (max-width: 615px)">
 <link rel="stylesheet" href="styles/style-desk.css" media="screen and (min-width: 615px)">
 
 <style id="applicationStylesheet" type="text/css">
@@ -88,6 +86,37 @@
         visibility: hidden !important; 
     }
 
+    @media only screen and (max-width: 615px)
+    { 
+    .dis-com
+    {
+        position: relative;
+        left: 927px;
+        width: 306px;
+        height: auto;
+        min-height: 200px;
+        border: 3px rgba(112,112,112,0.45) solid;
+        border-radius: 5px;
+        margin-bottom: calc(var(--set-margin)*3.7);
+        margin-top: calc(var(--set-margin)*3.7);
+        --set-margin: 306px;
+    }
+    .feed-com
+    {
+        position: relative;
+        left: 830px;
+        width: 500px;
+        height: auto;
+        min-height: 256px;
+        padding: 4px;
+        background: #2A2A2A;
+        border-radius: 5px;
+        margin-bottom: calc(var(--set-margin)*2.05);
+        margin-top: calc(var(--set-margin)*2.05);
+        --set-margin: 452px;
+    }
+    }
+  
 	#Rectangle_2 {
 		fill: rgba(255,255,255,0);
 		stroke: rgba(112,112,112,0.40);
@@ -2152,7 +2181,7 @@ function toppicksout()
     const feedAdHeight = feedAd.clientHeight;
     const nextbrele = feedAd.nextElementSibling;
     if (checkh <= 615) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
-    if (checkh >= 615) { feedAd.style.removeProperty('--set-margin', feedAdHeight + "px"); }
+    if (checkh >= 615) { feedAd.style.removeProperty('--set-margin'); }
     if (feedAdHeight > 10 && checkh <= 615) { nextbrele.style.display = 'none'; }
     if (feedAdHeight < 10) { nextbrele.style.display = 'block'; } }); 
 
@@ -2160,7 +2189,7 @@ function toppicksout()
     const displayAdHeight = displayAd.clientHeight; 
     const nextelement = displayAd.nextElementSibling; 
     if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
-    if (checkh >= 615) { displayAd.style.removeProperty('--set-margin', displayAdHeight + "px"); }
+    if (checkh >= 615) { displayAd.style.removeProperty('--set-margin'); }
     if (displayAdHeight > 10 && checkh <= 615) { nextelement.style.display = 'none'; }
     if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
     /* console.log("here here"); */ }
@@ -2535,7 +2564,7 @@ function detectCharacter()
 
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> 
 
 <script type="application/ld+json">
 {
