@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', updateLogo);
+// document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
 setTimeout(updateLogo, 1000);
 function updateLogo() 
