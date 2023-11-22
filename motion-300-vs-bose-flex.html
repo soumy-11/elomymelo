@@ -26,8 +26,8 @@
 <meta name="keywords" content="Soundcore Motion 300, Bose SoundLink Flex, PositionIQ, SmartTune, custom 9 band EQ, Bluetooth 5.3, Orientation, smart speakers, Xtra Bass, Bass Up technology, standing mode, lying mode, hanging mode, stereo vs mono, true wireless stereo pairing"> 
 <meta name="author" content="Soumya Roy">
 
-<link rel="preload" href="styles/style-phone.css" as="style">
-<link rel="preload" href="styles/style-desk.css" as="style">
+<link rel="stylesheet" href="styles/style-phone.css" media="screen and (max-width: 615px)">
+<link rel="stylesheet" href="styles/style-desk.css" media="screen and (min-width: 615px)">
 
 <style id="applicationStylesheet" type="text/css">
 	
@@ -1560,7 +1560,7 @@
 </style>
 
 <script>
-
+/*
 function dynacss()
 {
     const link = document.createElement("link");
@@ -1578,7 +1578,7 @@ function dynacssdesk()
     document.head.appendChild(link);
 }
 if(window.matchMedia("(min-width: 615px)").matches) { dynacssdesk(); }
-
+*/
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";
@@ -2273,7 +2273,7 @@ function updateLogo()
 {
       if (window.matchMedia("(min-width: 615px)").matches) 
        {
-           const mypage = window.innerWidth; dynacssdesk();
+           const mypage = window.innerWidth; // dynacssdesk();
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "3554px";
@@ -2287,7 +2287,7 @@ function updateLogo()
 
       if (window.matchMedia("(max-width: 615px)").matches) 
        {
-           const mypagephone = window.innerWidth; dynacss();
+           const mypagephone = window.innerWidth; // dynacss();
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
