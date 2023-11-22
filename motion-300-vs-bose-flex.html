@@ -86,37 +86,6 @@
         visibility: hidden !important; 
     }
 
-    @media only screen and (max-width: 615px)
-    { 
-    .dis-com
-    {
-        position: relative;
-        left: 927px;
-        width: 306px;
-        height: auto;
-        min-height: 200px;
-        border: 3px rgba(112,112,112,0.45) solid;
-        border-radius: 5px;
-        margin-bottom: calc(var(--set-margin)*3.7);
-        margin-top: calc(var(--set-margin)*3.7);
-        --set-margin: 306px;
-    }
-    .feed-com
-    {
-        position: relative;
-        left: 830px;
-        width: 500px;
-        height: auto;
-        min-height: 256px;
-        padding: 4px;
-        background: #2A2A2A;
-        border-radius: 5px;
-        margin-bottom: calc(var(--set-margin)*2.05);
-        margin-top: calc(var(--set-margin)*2.05);
-        --set-margin: 452px;
-    }
-    }
-  
 	#Rectangle_2 {
 		fill: rgba(255,255,255,0);
 		stroke: rgba(112,112,112,0.40);
@@ -2180,16 +2149,20 @@ function toppicksout()
     feedAds.forEach((feedAd, index) => {
     const feedAdHeight = feedAd.clientHeight;
     const nextbrele = feedAd.nextElementSibling;
-    if (checkh <= 615) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
-    if (checkh >= 615) { feedAd.style.removeProperty('--set-margin'); }
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    { feedAd.style.removeProperty('--set-margin'); }
     if (feedAdHeight > 10 && checkh <= 615) { nextbrele.style.display = 'none'; }
     if (feedAdHeight < 10) { nextbrele.style.display = 'block'; } }); 
 
     displayAds.forEach((displayAd, index) => {
     const displayAdHeight = displayAd.clientHeight; 
     const nextelement = displayAd.nextElementSibling; 
-    if (checkh <= 615) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
-    if (checkh >= 615) { displayAd.style.removeProperty('--set-margin'); }
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    { displayAd.style.removeProperty('--set-margin'); }
     if (displayAdHeight > 10 && checkh <= 615) { nextelement.style.display = 'none'; }
     if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
     /* console.log("here here"); */ }
@@ -2197,7 +2170,7 @@ function toppicksout()
    timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
-   // window.addEventListener('scroll', adsheights, false); 
+   window.addEventListener('scroll', adsheights, false); 
 
    timer2 = setInterval(function() 
    {  
@@ -2564,7 +2537,7 @@ function detectCharacter()
 
 </script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> 
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> -->
 
 <script type="application/ld+json">
 {
