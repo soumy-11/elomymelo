@@ -135,11 +135,11 @@ function updateAdsAttributes()
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
-setTimeout(updateLogo, 300);
+setTimeout(updateLogo, 500);
 function updateLogo() 
 {
-      if (window.matchMedia("(min-width: 615px)").matches) 
-      {
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    {
            const mypage = window.innerWidth; // console.log(document.readyState); 
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
@@ -150,10 +150,10 @@ function updateLogo()
            document.querySelectorAll(".feed-com").forEach(function(el) {
            el.style.transform = "scale(2.45, 2.45)"; });
            document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
-      }
+    }
 
-      if (window.matchMedia("(max-width: 615px)").matches) 
-      {
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
            const mypagephone = window.innerWidth; // console.log(document.readyState); 
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
@@ -164,7 +164,7 @@ function updateLogo()
            el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
            document.querySelectorAll(".feed-com").forEach(function(el) {
            el.style.transform = "scale(4.34, 4.34)"; });
-      }
+    }
 
     if (window.matchMedia("(min-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) 
