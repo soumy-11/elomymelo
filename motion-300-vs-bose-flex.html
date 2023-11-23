@@ -1581,6 +1581,9 @@ function iosnone()
     document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
 }
 
+    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
+    setTimeout(() => { clearInterval(timerch); }, 10000); 
+
 </script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> 

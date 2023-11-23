@@ -1,4 +1,5 @@
 
+console.log("defer-check"); 
 setTimeout(updateAdsAttributes, 100);
 function updateAdsAttributes() 
 {
@@ -131,6 +132,7 @@ function updateAdsAttributes()
     observer.observe(checkd1, { attributes: true, attributeFilter: ['data-ad-status'] });
     observer.observe(checkd2, { attributes: true, attributeFilter: ['data-ad-status'] });
     observer.observe(checkv1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    console.log("attribute-check"); 
 }
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
@@ -151,7 +153,7 @@ function updateLogo()
            el.style.transform = "scale(2.45, 2.45)"; });
            document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
     }
-
+    console.log("last-check"); 
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
            const mypagephone = window.innerWidth; // console.log(document.readyState); 

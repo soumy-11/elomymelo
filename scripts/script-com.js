@@ -595,7 +595,7 @@ function toppicksout()
        if (window.matchMedia("(min-width: 615px)").matches) 
        {
            document.getElementById("ads-v1-in").style.minHeight = "612px";
-           // document.getElementById("ads-v2-in").style.minHeight = "262px";
+           console.log("min-height-check"); // document.getElementById("ads-v2-in").style.minHeight = "262px";
        }
        if (window.matchMedia("(max-width: 615px)").matches) 
        {
