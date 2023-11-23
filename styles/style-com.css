@@ -1,4 +1,210 @@
 
+    #submenu-phones
+    {
+        position: absolute;
+        height: 600px;
+        width: 700px;
+        left: 1050px;
+        top: 760px;
+        border: 0px grey solid;
+        border-radius: 40px;
+        background-color: rgba(255,255,255,1);
+        padding-left: 65px;
+        font-family: roboto, cus-roboto, sans-serif;
+        font-size: 45px;
+        visibility: hidden;
+        color: rgba(0,0,0,0.60);
+        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
+        z-index: 2;
+    }
+    #article-links
+    {
+        position: absolute;
+        width: 590px;
+        height: 85px;
+        font-size: 40px;
+        font-family: roboto, cus-roboto, sans-serif;
+        top: 820px;
+        left: 1630px;
+        visibility: hidden;
+        background-color: rgba(0,0,0,0.68);
+        color: rgba(255,255,255,0.80);
+        border: 0px rgba(112,112,112,0.5) solid;
+        border-radius: 15px;
+        padding-left: 26px;
+        padding-right: 20px;
+        padding-top: 18px;
+        padding-bottom: 15px;
+        z-index: 4;
+    }
+    
+    #submenu-speakers
+    {
+        position: absolute;
+        height: 600px;
+        width: 760px;
+        left: 1050px;
+        top: 885px;
+        border: 0px grey solid;
+        border-radius: 40px;
+        background-color: rgba(255,255,255,1);
+        padding-left: 65px;
+        font-family: roboto, cus-roboto, sans-serif;
+        font-size: 45px;
+        visibility: hidden;
+        color: rgba(0,0,0,0.60);
+        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
+        z-index: 2;
+    }
+    #submenu-earbuds
+    {
+        position: absolute;
+        height: 600px;
+        width: 760px;
+        left: 1050px;
+        top: 1010px;
+        border: 0px grey solid;
+        border-radius: 40px;
+        background-color: rgba(255,255,255,1);
+        padding-left: 65px;
+        font-family: roboto, cus-roboto, sans-serif;
+        font-size: 45px;
+        visibility: hidden;
+        color: rgba(0,0,0,0.60);
+        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
+        z-index: 2;
+    }
+    #submenu-accessories
+    {
+        position: absolute;
+        height: 600px;
+        width: 760px;
+        left: 1050px;
+        top: 1140px;
+        border: 0px grey solid;
+        border-radius: 40px;
+        background-color: rgba(255,255,255,1);
+        padding-left: 65px;
+        font-family: roboto, cus-roboto, sans-serif;
+        font-size: 45px;
+        visibility: hidden;
+        color: rgba(0,0,0,0.60);
+        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
+        z-index: 2;
+    }
+
+    #review-one
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.35) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 30px;
+        left: 0px;
+    } 
+    #review-two
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.35) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 50px;
+        left: 0px;
+    }
+    #review-three
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.35) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 68px;
+        left: 0px;
+    }
+    #review-four
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.35) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 86px;
+        left: 0px;
+    }
+    #reviews-all
+    {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 4px rgba(112,112,112,0.05) solid;
+        color: rgba(0,0,0,0.5);
+        border-radius: 60px;
+        position: absolute;
+        top: 440px;
+        left: 495px;
+        font-size: 40px;
+    }
+
+    #about-me
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.5) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 30px;
+        left: 0px;
+    }
+    #about-site
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.5) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 50px;
+        left: 0px;
+    }
+    #privacy-policy
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.5) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 68px;
+        left: 0px;
+    }
+    #contact
+    {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px rgba(112,112,112,0.5) solid;
+        border-radius: 60px;
+        position: relative;
+        top: 86px;
+        left: 0px;
+    }
+
     .latest_articles
     {
         position: absolute;
