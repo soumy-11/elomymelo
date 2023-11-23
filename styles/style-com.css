@@ -1,1135 +1,28 @@
 
-	#Rectangle_2 {
-		fill: rgba(255,255,255,0);
-		stroke: rgba(112,112,112,0.40);
-		stroke-width: 1px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_2 {
-		position: absolute;
-		overflow: visible;
-		width: 789px;
-		height: 223px;
-		left: 116px;
-		top: 97px;
-	}
-	#Rectangle_3 {
-		fill: rgba(255,255,255,0);
-		stroke: rgba(112,112,112,0.080);
-		stroke-width: 0px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-	}
-	.Rectangle_3 {
-		
-		position: absolute;
-		overflow: visible;
-		width: 1701px;
-		height: 288px;
-		left: 116px;
-		top: 401px;
-	}
-	
-	#circle-trans {
-		position: absolute;
-		width: 168px;
-		height: 168px;
-		left: 182px;
-		top: 124px;
-		overflow: visible;
-	}
-	.profilepic-border
-	{
-		position: absolute;
-		width: 176px;
-		height: 176px;
-		left: 178px;
-		top: 120px;
-		overflow: visible;
-		border: 10px rgba(112,112,112,0.6) solid;
-		border-radius: 50%;
-		animation: fadein 4.0s;
-	}
-
-	@font-face
-	{
-        src: url("fonts/segoeui.ttf");
-        font-family: cus-segoe;
-	}
-
-	@font-face
-	{
-        src: url("fonts/arial.ttf");
-        font-family: cus-arial;
-	}
-
-	@font-face
-	{
-        src: url("fonts/arial-round.ttf");
-        font-family: cus-arial-round;
-	}
-
-	@font-face
-	{
-        src: url("fonts/Roboto-Regular.ttf");
-        font-family: cus-roboto;
-	}
-
-	@font-face
-	{
-        src: url("fonts/Roboto-Medium.ttf");
-        font-family: cus-roboto-medium;
-	}
-
-	@font-face
-	{
-        src: url("fonts/Roboto-Light.ttf");
-        font-family: cus-roboto-light;
-	}
-
-	@font-face
-	{
-        src: url("fonts/Roboto-Regular-Round.ttf");
-        font-family: cus-roboto-round;
-	}
-
-	@font-face
-	{
-        src: url("fonts/Lato-Regular.ttf");
-        font-family: cus-lato;
-	}
-
-	#Soumya_Roy {
-		opacity: 0.75;
-		left: 393px;
-		top: 142px;
-		position: absolute;
-		overflow: visible;
-		width: 464px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: cus-segoe, Segoe UI, open sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 85px;
-		color: rgba(112,112,112,1);
-	}
-	
-	#Rectangle_6 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(0,0,0,1);
-		stroke-width: 0px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-		animation: fadein 2.5s;
-	}
-	.Rectangle_6 {
-		filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.161));
-		position: absolute;
-		overflow: visible;
-		width: 258px;
-		height: 215px;
-		left: 173px;
-		top: 467px;
-		animation: fadein 2.5s;
-	}
-	#Rectangle_7 {
-		fill: rgba(0,0,0,0.65);
-		animation: fadein 2.5s;
-	}
-	.Rectangle_7 {
-		filter: drop-shadow(0px 15px 40px rgba(0, 0, 0, 0.8));
-		position: absolute;
-		overflow: visible;
-		width: 458px;
-		height: 275px;
-		left: 1172px;
-		top: 468px;
-		animation: fadein 2.5s;
-	}
-	#about-me-hover
-	{
-		border: 0px grey solid;
-    	position: absolute;
-		overflow: visible;
-		width: 365px;
-		height: 182px;
-		left: 1158px;
-		top: 452px;
-		background: transparent;
-	    z-index: 1;
-		border-radius: 100px;
-	}
-
-	#Rectangle_8 {
-		fill: rgba(0,0,0,0.65);
-	    animation: fadein 2.5s;
-	}
-	
-	.Rectangle_8 {
-		filter: drop-shadow(0px 15px 40px rgba(0, 0, 0, 0.8));
-		position: absolute;
-		overflow: visible;
-		width: 458px;
-		height: 275px;
-		left: 793px;
-		top: 468px;
-		animation: fadein 2.5s;
-	}
-
-	#reviews-hover
-	{
-		border: 0px grey solid;
-    	position: absolute;
-		overflow: visible;
-		width: 365px;
-		height: 182px;
-		left: 779px;
-		top: 452px;
-		background: transparent;
-	    z-index: 1;
-		border-radius: 100px;
-	}
-
-	#Rectangle_9 {
-		fill: rgba(0,0,0,0.65);
-		animation: fadein 2.5s;
-	}
-	.Rectangle_9 {
-		filter: drop-shadow(0px 15px 40px rgba(0, 0, 0, 0.8));
-		position: absolute;
-		overflow: visible;
-		width: 458px;
-		height: 275px;
-		left: 415px;
-		top: 468px;
-		animation: fadein 2.5s;
-	}
-	 
-    #cat-hover
-    {
-    	border: 0px grey solid;
-    	position: absolute;
-		overflow: visible;
-		width: 365px;
-		height: 182px;
-		left: 401px;
-		top: 452px;
-		background: transparent;
-	    z-index: 1;
-		border-radius: 100px;
-    }
-    #cat-menu
-    {
-    	position: absolute;
-        height: 600px;
-        width: 800px;
-        left: 401px;
-        top: 700px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 1;   	
-    }
-    #phones-style
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    	cursor: default;
-    }
-    #speakers-style
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    	cursor: default;
-    }
-    #earbuds-style
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    	cursor: default;
-    }
-    #accessories-style
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    	cursor: default;
-    }
-    #phone-one
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    }
-    #phone-two
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    }
-    #phone-three
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    }
-    #phone-four
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    }
-
-    #phone-one:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #phone-two:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #phone-three:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #phone-four:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-
-    #speaker-one:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #speaker-two:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #speaker-three:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #speaker-four:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-
-    #earbud-one:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #earbud-two:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #earbud-three:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #earbud-four:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-
-    #accessory-one:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #accessory-two:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #accessory-three:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    #accessory-four:hover
-    {
-    	border: 6px rgba(113,208,245,0.9) solid;
-    }
-    
-    #speaker-one
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    }
-    #speaker-two
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    }
-    #speaker-three
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    }
-    #speaker-four
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    }
-    #earbud-one
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    }
-    #earbud-two
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    }
-    #earbud-three
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    }
-    #earbud-four
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    }
-    #accessory-one
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    }
-    #accessory-two
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    }
-    #accessory-three
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    }
-    #accessory-four
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    }
-    
-    #submenu-phones
+    .latest_articles
     {
         position: absolute;
-        height: 600px;
-        width: 700px;
-        left: 1050px;
-        top: 760px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 2;
-    }
-    #article-links
-    {
-    	position: absolute;
-    	width: 590px;
-    	height: 85px;
-    	font-size: 40px;
-    	font-family: roboto, cus-roboto, sans-serif;
-    	top: 820px;
-    	left: 1630px;
-    	visibility: hidden;
-    	background-color: rgba(0,0,0,0.68);
-    	color: rgba(255,255,255,0.80);
-    	border: 0px rgba(112,112,112,0.5) solid;
-    	border-radius: 15px;
-    	padding-left: 26px;
-    	padding-right: 20px;
-    	padding-top: 18px;
-    	padding-bottom: 15px;
-    	z-index: 4;
-    }
-    
-    #submenu-speakers
-    {
-    	position: absolute;
-        height: 600px;
-        width: 760px;
-        left: 1050px;
-        top: 885px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 2;
-    }
-    #submenu-earbuds
-    {
-    	position: absolute;
-        height: 600px;
-        width: 760px;
-        left: 1050px;
-        top: 1010px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 2;
-    }
-    #submenu-accessories
-    {
-    	position: absolute;
-        height: 600px;
-        width: 760px;
-        left: 1050px;
-        top: 1140px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 2;
-    }
-	#Rectangle_10 {
-		fill: rgba(255,255,255,1);
-		stroke: rgba(0,0,0,1);
-		stroke-width: 0px;
-		stroke-linejoin: miter;
-		stroke-linecap: butt;
-		stroke-miterlimit: 4;
-		shape-rendering: auto;
-		animation: fadein 2.5s;
-	}
-	.Rectangle_10 {
-		filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.161));
-		position: absolute;
-		overflow: visible;
-		width: 257px;
-		height: 215px;
-		left: 1554px;
-		top: 468px;
-		animation: fadein 2.5s;
-	}
-     
-    @keyframes fadein
-    {
-    	from
-    	{
-    		opacity: 0;
-    	}
-    	to
-    	{
-    		opacity: 1;
-    	}
-    }
-
-	#ID2191535_back_home_homepage_h {
-		position: absolute;
-		width: 95px;
-		height: 95px;
-		left: 225px;
-		top: 495px;
-		overflow: visible;
-	}
-	#ID3522159_business_finance_per {
-		position: absolute;
-		width: 98px;
-		height: 98px;
-		left: 1605px;
-		top: 495px;
-		overflow: visible;
-	}
-	#top-picks-text
-    {
-        position: absolute;
-    	width: 232px;
-    	height: 72px;
-    	font-size: 40px;
-    	font-family: roboto, cus-roboto, sans-serif;
-    	left: 1824px;
-		top: 507px;
-    	visibility: hidden;
-    	background-color: rgba(255,255,255,1);
-    	color: rgba(0,0,0,0.60);
-    	border-left: 10px rgba(255,119,119,0.6) solid;
-    	border-right: 10px rgba(255,119,119,0.6) solid;
-    	border-radius: 14px;
-    	padding-left: 19px;
-    	padding-right: 12px;
-    	padding-top: 11px;
-    	padding-bottom: 10px;
-    }
-	#cross-icon
-    {
-        position: relative;
-        top: 14px;
-        left: 15px;
-    }
-
-    #cat-cross
-    {
-        position: absolute;
-        height: 80px;
-        width: 80px;
-        top: 357px;
-        left: 545px;
-        border: 1px rgba(112,112,112,0.5) solid;
-        border-radius: 50%;
-        visibility: hidden;
-    }
-    #reviews-cross
-    {
-    	position: absolute;
-        height: 80px;
-        width: 80px;
-        top: 357px;
-        left: 923px;
-        border: 1px rgba(112,112,112,0.5) solid;
-        border-radius: 50%;
-        visibility: hidden;
-    }
-    #cross-tip-text
-    {
-        position: absolute;
-    	width: 428px;
-    	height: 72px;
-    	font-size: 40px;
-    	font-family: roboto, cus-roboto, sans-serif;
-    	left: 1854px;
-		top: 504px;
-    	visibility: hidden;
-    	background-color: rgba(255,255,255,1);
-    	color: rgba(0,0,0,0.60);
-    	border-left: 8px rgba(255,119,119,0.6) solid;
-    	border-right: 8px rgba(255,119,119,0.6) solid;
-    	border-radius: 15px;
-    	padding-left: 20px;
-    	padding-right: 10px;
-    	padding-top: 11px;
-    	padding-bottom: 10px;
-    }
-    #about-cross
-    {
-    	position: absolute;
-        height: 80px;
-        width: 80px;
-        top: 357px;
-        left: 1302px;
-        border: 1px rgba(112,112,112,0.5) solid;
-        border-radius: 50%;
-        visibility: hidden;
-    }
-
-    #menu-pointer
-    {
-        position: absolute; 
-        height: 30px; 
-        width: 30px; 
-        top: 687px; 
-        left: 572px; 
-        border: 0px rgba(28,117,121,0.55) solid; 
-        transform: rotate(45deg); 
-        background-color: rgba(28,117,121,0.55);
-        visibility: hidden;
-    }
-    #menu-pointer-review
-    {
-        position: absolute; 
-        height: 30px; 
-        width: 30px; 
-        top: 687px; 
-        left: 950px; 
-        border: 0px rgba(28,117,121,0.55) solid; 
-        transform: rotate(45deg); 
-        background-color: rgba(28,117,121,0.55);
-        visibility: hidden;
-    }
-    #menu-pointer-about
-    {
-        position: absolute; 
-        height: 30px; 
-        width: 30px; 
-        top: 687px; 
-        left: 1329px; 
-        border: 0px rgba(28,117,121,0.55) solid; 
-        transform: rotate(45deg); 
-        background-color: rgba(28,117,121,0.55);
-        visibility: hidden;
-    }
-
-	#CATEGORIES {
-		left: 472px;
-		top: 515px;
-		position: absolute;
-		overflow: visible;
-		width: 218px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: cus-segoe, Segoe UI, open sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 39px;
-		color: rgba(255,255,255,0.749);
-	}
-	#REVIEWS {
-		left: 887px;
-		top: 515px;
-		position: absolute;
-		overflow: visible;
-		width: 156px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: cus-segoe, Segoe UI, open sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 39px;
-		color: rgba(255,255,255,0.749);
-	}
-
-	#reviews-main
-	{
-		position: absolute;
-        height: 600px;
-        width: 740px;
-        left: 779px;
-        top: 700px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 1;
-	}
-
-	#review-one
-    {
-        padding-left: 60px;
-        padding-right: 60px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: 1px rgba(112,112,112,0.35) solid;
-        border-radius: 60px;
-        position: relative;
-        top: 30px;
-        left: 0px;
-    } 
-    #review-two
-    {
-        padding-left: 60px;
-        padding-right: 60px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: 1px rgba(112,112,112,0.35) solid;
-        border-radius: 60px;
-        position: relative;
-        top: 50px;
-        left: 0px;
-    }
-    #review-three
-    {
-        padding-left: 60px;
-        padding-right: 60px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: 1px rgba(112,112,112,0.35) solid;
-        border-radius: 60px;
-        position: relative;
-        top: 68px;
-        left: 0px;
-    }
-    #review-four
-    {
-        padding-left: 60px;
-        padding-right: 60px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: 1px rgba(112,112,112,0.35) solid;
-        border-radius: 60px;
-        position: relative;
-        top: 86px;
-        left: 0px;
-    }
-    #reviews-all
-    {
-        padding-left: 25px;
-        padding-right: 25px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: 4px rgba(112,112,112,0.05) solid;
-        color: rgba(0,0,0,0.5);
-        border-radius: 60px;
-        position: absolute;
-        top: 440px;
-        left: 495px;
-        font-size: 40px;
-    }
-
-    #review-one-tip-text
-    {
-        position: absolute;
-        height: 85px;
-        font-size: 40px;
-        font-family: roboto, cus-roboto, sans-serif;
-        top: 760px;
-        left: 1399px;
-        visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 18px;
-        padding-bottom: 15px;
-        z-index: 2;
-    }
-    #review-two-tip-text
-    {
-        position: absolute;
-        height: 85px;
-        font-size: 40px;
-        font-family: roboto, cus-roboto, sans-serif;
-        top: 760px;
-        left: 1399px;
-        visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 18px;
-        padding-bottom: 15px;
-        z-index: 2;
-    }
-    #review-three-tip-text
-    {
-        position: absolute;
-        height: 85px;
-        font-size: 40px;
-        font-family: roboto, cus-roboto, sans-serif;
-        top: 760px;
-        left: 1399px;
-        visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 18px;
-        padding-bottom: 15px;
-        z-index: 2;
-    }
-    #review-four-tip-text
-    {
-        position: absolute;
-        height: 85px;
-        font-size: 40px;
-        font-family: roboto, cus-roboto, sans-serif;
-        top: 760px;
-        left: 1399px;
-        visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 18px;
-        padding-bottom: 15px;
-        z-index: 2;
-    }
-    #reviews-all-tip-text
-    {
-        position: absolute;
-        height: 85px;
-        font-size: 40px;
-        font-family: roboto, cus-roboto, sans-serif;
-        top: 1145px;
-        left: 1415px;
-        visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
-        border: 0px rgba(112,112,112,0.5) solid;
-        border-radius: 15px;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 18px;
-        padding-bottom: 15px;
-        z-index: 2;
-    }
-
-	#ABOUT_ME {
-		left: 1245px;
-		top: 515px;
-		position: absolute;
-		overflow: visible;
-		width: 191px;
-		white-space: nowrap;
-		text-align: left;
-		font-family: cus-segoe, Segoe UI, open sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 39px;
-		color: rgba(255,255,255,0.749);
-	}
-	#about-me-main
-	{
-        position: absolute;
-        height: 599px;
-        width: 708px;
-        left: 1158px;
-        top: 700px;
-        border: 0px grey solid;
-        border-radius: 40px;
-        background-color: rgba(255,255,255,1);
-        padding-left: 65px;
-        font-family: roboto, cus-roboto, sans-serif;
-        font-size: 45px;
-        visibility: hidden;
-        color: rgba(0,0,0,0.60);
-        filter: drop-shadow(0px 15px 40px rgba(0,0,0,0.2));
-        z-index: 1;
-	}
-
-	#about-me
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 30px;
-    	left: 0px;
-    }
-    #about-site
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 50px;
-    	left: 0px;
-    }
-    #privacy-policy
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 68px;
-    	left: 0px;
-    }
-    #contact
-    {
-    	padding-left: 60px;
-    	padding-right: 60px;
-    	padding-top: 20px;
-    	padding-bottom: 20px;
-    	border: 1px rgba(112,112,112,0.5) solid;
-    	border-radius: 60px;
-    	position: relative;
-    	top: 86px;
-    	left: 0px;
-    }
-	.latest_articles
-	{
-		position: absolute;
-		left: 860px;
-		top: 105px;		
-		overflow: visible;
-		border-radius: 72px;
-		border: 0px rgba(235,152,78,0.9) solid;
-		white-space: nowrap;
-		text-align: left;
-		font-family: Lato, cus-lato;
-		font-style: normal;
-		font-weight: normal;
-		padding-left: 94px;
-		padding-right: 80px;
-		padding-top: 36px;
-		padding-bottom: 36px;
+        left: 860px;
+        top: 105px;     
+        overflow: visible;
+        border-radius: 72px;
+        border: 0px rgba(235,152,78,0.9) solid;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Lato, cus-lato;
+        font-style: normal;
+        font-weight: normal;
+        padding-left: 94px;
+        padding-right: 80px;
+        padding-top: 36px;
+        padding-bottom: 36px;
         font-size: 35px;
-		color: rgba(0,0,0,0.651);
-		letter-spacing: 14px;
-		filter: drop-shadow(0px 15px 35px rgba(0,0,0,0.35));
-		background: rgba(255,255,255,1);
-	}
-	.latest-art-pic-common
+        color: rgba(0,0,0,0.651);
+        letter-spacing: 14px;
+        filter: drop-shadow(0px 15px 35px rgba(0,0,0,0.35));
+        background: rgba(255,255,255,1);
+    }
+    .latest-art-pic-common
     {
         position: absolute;
         width: 500px;
@@ -1255,11 +148,11 @@
 
     .main-article-div
     {
-    	position: relative;
-    	left: 56px;
-    	top: 280px;
-    	width: 2235px;
-    	border: 0px grey solid;
+        position: relative;
+        left: 56px;
+        top: 280px;
+        width: 2235px;
+        border: 0px grey solid;
     }
 
     #pros-cons
@@ -1314,113 +207,113 @@
 
     .inside-article-div
     {
-    	position: relative;
-		left: -56px;
-		top: 96px;
-		width: 2358px;
-		height: auto;
-		overflow-y: hidden;
-		overflow-x: hidden;
-		border: 0px rgba(112,112,112,0.502) solid;
-		background: transparent;
-		border-radius: 50px;
-		z-index: 1;
+        position: relative;
+        left: -56px;
+        top: 96px;
+        width: 2358px;
+        height: auto;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        border: 0px rgba(112,112,112,0.502) solid;
+        background: transparent;
+        border-radius: 50px;
+        z-index: 1;
     }
 
     .hot-devices-sec a
     {
-    	text-decoration: none; 
-    	color: rgba(0,0,0,0.57);
+        text-decoration: none; 
+        color: rgba(0,0,0,0.57);
     }
     .hot-devices-sec a:hover
     {
-    	color: rgba(0,170,222,1);
+        color: rgba(0,170,222,1);
     }
 
     .header-comment
     {
-    	position: absolute;
-		left: 162px;
-		top: 60px;
-		width: 560px;
-		height: 100px;
-		overflow: visible;
-		border-radius: 72px;
-		border: 1px rgba(235,152,78,0.9) solid;
-		white-space: nowrap;
-		text-align: left;
-		font-family: Roboto, cus-roboto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 44px;
-		padding-left: 76px;
-		padding-top: 24px;
+        position: absolute;
+        left: 162px;
+        top: 60px;
+        width: 560px;
+        height: 100px;
+        overflow: visible;
+        border-radius: 72px;
+        border: 1px rgba(235,152,78,0.9) solid;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Roboto, cus-roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 44px;
+        padding-left: 76px;
+        padding-top: 24px;
         color: rgba(0,0,0,0.575);
     }
     #comments
     {
-    	position: absolute;
-		left: 16px;
-		top: 175px;
-		width: 860px;
-		height: 500px;
-		overflow: visible;
-		border-radius: 22px;
-		border: 0px rgba(255,0,0,0.50) solid;
+        position: absolute;
+        left: 16px;
+        top: 175px;
+        width: 860px;
+        height: 500px;
+        overflow: visible;
+        border-radius: 22px;
+        border: 0px rgba(255,0,0,0.50) solid;
     }
     .com-name
     {
         position: absolute;
-		left: 27px;
-		top: 20px;
-		width: 810px;
-		height: 120px;
-		overflow: visible;
-		border-radius: 20px;
-		border: 1px rgba(112,112,112,0.8) solid;
-		color: rgba(112,112,112,0.5);
-		font-size: 45px;
+        left: 27px;
+        top: 20px;
+        width: 810px;
+        height: 120px;
+        overflow: visible;
+        border-radius: 20px;
+        border: 1px rgba(112,112,112,0.8) solid;
+        color: rgba(112,112,112,0.5);
+        font-size: 45px;
     }
     .com-comment
     {
         position: absolute;
-		left: 27px;
-		top: 170px;
-		width: 810px;
-		height: 310px;
-		overflow: visible;
-		border-radius: 20px;
-		border: 1px rgba(112,112,112,0.8) solid;
+        left: 27px;
+        top: 170px;
+        width: 810px;
+        height: 310px;
+        overflow: visible;
+        border-radius: 20px;
+        border: 1px rgba(112,112,112,0.8) solid;
     }
     
     #name::placeholder
     {
-    	color: rgba(112,112,112,0.6);
-    	text-align: center;
+        color: rgba(112,112,112,0.6);
+        text-align: center;
     }
     #comment::placeholder
     {
-    	color: rgba(112,112,112,0.6);
-    	text-align: center;
+        color: rgba(112,112,112,0.6);
+        text-align: center;
     }
     #btn-post
     {
-    	position: absolute;
-		left: 148px;
-		top: 515px;
-		width: 560px;
-		height: 100px;
-		overflow: visible;
-		border-radius: 72px;
-		border: 1px rgba(235,152,78,0.9) solid;
-		white-space: nowrap;
-		text-align: left;
-		font-family: Roboto, cus-roboto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 44px;
-		padding-left: 86px;
-		padding-top: 2px;
+        position: absolute;
+        left: 148px;
+        top: 515px;
+        width: 560px;
+        height: 100px;
+        overflow: visible;
+        border-radius: 72px;
+        border: 1px rgba(235,152,78,0.9) solid;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Roboto, cus-roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 44px;
+        padding-left: 86px;
+        padding-top: 2px;
         color: rgba(0,0,0,0.575);
         background: transparent;
         cursor: pointer;
@@ -1428,31 +321,31 @@
     }
     #btn-post:hover
     {
-    	border: 6px rgba(113,208,245,0.80) solid;
+        border: 6px rgba(113,208,245,0.80) solid;
     }
 
     #thank-you
     {
-    	position: absolute;
-		left: 258px;
-		top: 522px;
-		width: 360px;
-		height: 100px;
-		font-family: Roboto, cus-roboto;
-		font-size: 45px;
-		overflow: visible;
-		border-radius: 72px;
-		border: 6px rgba(255,119,119,0.50) solid;
-		color: rgba(112,112,112,0.85);
-		text-align: center;
-		padding-top: 17px;
-		background-color: rgba(255,255,255,1);
-		z-index: 1;
-		visibility: hidden;
+        position: absolute;
+        left: 258px;
+        top: 522px;
+        width: 360px;
+        height: 100px;
+        font-family: Roboto, cus-roboto;
+        font-size: 45px;
+        overflow: visible;
+        border-radius: 72px;
+        border: 6px rgba(255,119,119,0.50) solid;
+        color: rgba(112,112,112,0.85);
+        text-align: center;
+        padding-top: 17px;
+        background-color: rgba(255,255,255,1);
+        z-index: 1;
+        visibility: hidden;
     }
     #blank-fields
     {
-    	position: absolute;
+        position: absolute;
         left: 214px;
         top: 808px;
         width: 460px;
