@@ -1,4 +1,6 @@
 
+console.log("async-check"); 
+
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";
@@ -595,7 +597,7 @@ function toppicksout()
        if (window.matchMedia("(min-width: 615px)").matches) 
        {
            document.getElementById("ads-v1-in").style.minHeight = "612px";
-           console.log("min-height-check"); // document.getElementById("ads-v2-in").style.minHeight = "262px";
+           // document.getElementById("ads-v2-in").style.minHeight = "262px";
        }
        if (window.matchMedia("(max-width: 615px)").matches) 
        {
