@@ -1,7 +1,7 @@
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
-setTimeout(updateLogo, 3000);
+setTimeout(updateLogo, 300);
 function updateLogo() 
 {
       if (window.matchMedia("(min-width: 615px)").matches) 
@@ -193,5 +193,138 @@ function detectCharacter()
         } });
     }
 }
-// setTimeout(detectCharacter, 2000); 
+
+setTimeout(updateAdsAttributes, 300);
+function updateAdsAttributes() 
+{
+    // Array of IDs
+    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+    // Function to update the attributes for multiple elements 
+    function updateElementsAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           // Add the attributes now -----------
+           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
+           element.setAttribute('data-ad-slot', '5190331789');
+        }
+     });
+    }
+
+    function updateClassOne() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
+
+    // Call function to update all elements at once
+    if (window.matchMedia("(min-width: 615px)").matches) {
+    updateElementsAttributes(); }
+
+    updateClassOne();
+
+    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
+    function updateAttributes() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+        {
+           element.removeAttribute('data-ad-format', 'fluid');
+           element.setAttribute('style', 'display:block;width:100%;height:250px');
+           element.setAttribute('data-full-width-responsive', 'null');
+        }
+     });
+    }
+
+    function updateClassTwo() {
+    ids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
+
+    if (window.matchMedia("(min-width: 615px)").matches) {
+    updateAttributes(); }
+
+    updateClassTwo();
+
+    // Find all elements with class ------- 
+    var elementsWithClassOne = document.querySelectorAll('.dis-com');
+    var elementsWithClassTwo = document.querySelectorAll('.feed-com');
+
+    // Add the script tag to each ele ---
+    function addScriptTagToElement(element) {
+    var scriptElement = document.createElement('script');
+    scriptElement.type = 'text/javascript';
+    scriptElement.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
+    element.appendChild(scriptElement); }
+
+    elementsWithClassOne.forEach(function(element) {
+    addScriptTagToElement(element); });
+
+    elementsWithClassTwo.forEach(function(element) {
+    addScriptTagToElement(element); }); 
+
+    // mutation observer code
+    const checkf1 = document.getElementById("ins-feed-one");
+    const checkf2 = document.getElementById("ins-feed-two");
+    const checkf3 = document.getElementById("ins-feed-three");
+    const checkd1 = document.getElementById("ins-dis-one");
+    const checkd2 = document.getElementById("ins-dis-two");
+    const checkv1 = document.getElementById("ins-dis-v1");
+    const observer = new MutationObserver( mutations => 
+    { 
+         // console.log(mutations); 
+         mutations.forEach( record => 
+            { 
+                if(record.type === 'attributes')
+                {
+                  const idname = record.target.id; 
+                  const attrname = record.attributeName;
+                  const attrvalue = record.target.getAttribute(attrname);
+                  var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three']; 
+                  var dids = ['ins-dis-one', 'ins-dis-two']; 
+
+                  // console.log(attrname);
+                  // console.log(attrvalue);
+
+                  if(window.matchMedia("(max-width: 615px)").matches)
+                  {
+                    fids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
+                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
+
+                    dids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    var childDivs = parentDiv.querySelectorAll('div');
+                    if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
+                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
+                  } 
+
+                  // desktop 
+                  if(window.matchMedia("(min-width: 615px)").matches)
+                  { 
+                    fids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "unfilled") 
+                    { parentDiv.style.display = "none"; } }); 
+
+                    dids.forEach(function(id) {
+                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    if (idname === id && attrvalue === "unfilled") 
+                    { parentDiv.style.display = "none"; } }); 
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
+                    { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
+                  }   
+
+                } 
+            });
+    });
+
+    observer.observe(checkf1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf2, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkf3, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkd1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkd2, { attributes: true, attributeFilter: ['data-ad-status'] });
+    observer.observe(checkv1, { attributes: true, attributeFilter: ['data-ad-status'] });
+}
 
