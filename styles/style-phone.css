@@ -404,6 +404,12 @@
     	padding-right: 30px;
     	z-index: 4;
     }
+    #intro-para
+    {
+    	padding-right: 30px;
+        border-right: 10px #3E3E3E dashed;
+        border-radius: 30px;
+    }
     .header-line-phone
     {
         position: absolute;
