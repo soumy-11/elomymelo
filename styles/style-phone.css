@@ -407,8 +407,8 @@
     #intro-para
     {
     	padding-right: 30px;
-        border-right: 10px #3E3E3E dashed;
-        border-radius: 30px;
+        border-right: 10px solid;
+        border-image: linear-gradient(transparent, #929bd4, transparent) 30 / 1 / 0 stretch; 
     }
     .header-line-phone
     {
