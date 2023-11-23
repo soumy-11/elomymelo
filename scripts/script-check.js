@@ -1,12 +1,12 @@
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
-setTimeout(updateLogo, 1000);
+setTimeout(updateLogo, 3000);
 function updateLogo() 
 {
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
-           const mypage = window.innerWidth; console.log(document.readyState); 
+           const mypage = window.innerWidth; // console.log(document.readyState); 
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "3554px";
@@ -20,7 +20,7 @@ function updateLogo()
 
       if (window.matchMedia("(max-width: 615px)").matches) 
       {
-           const mypagephone = window.innerWidth; console.log(document.readyState); 
+           const mypagephone = window.innerWidth; // console.log(document.readyState); 
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
@@ -39,6 +39,7 @@ function updateLogo()
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+    var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     // Function to update the style for multiple elements 
     function getAttributes() {
     ids.forEach(function(id) {
@@ -68,7 +69,7 @@ function updateLogo()
               element.style.display = "none";
               parentDiv.style.display = "none";
            }
-           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches)
+           if(value1 == '-5c+c0-2e-5v+wq' && window.matchMedia("(max-width: 615px)").matches && !isios)
            {
               element.style.display = "block";
               parentDiv.style.display = "block";
@@ -119,7 +120,7 @@ function updateLogo()
               element.style.display = "none";
               parentDiv.style.display = "none";
            }
-           if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches)
+           if(value2 == 'true' && window.matchMedia("(max-width: 615px)").matches && !isios)
            {
               element.style.display = "block";
               parentDiv.style.display = "block";

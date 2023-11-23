@@ -562,35 +562,33 @@ function toppicksout()
 }
 
     function adsheights() {  
-    var checkh = window.innerWidth;
+    // var checkh = window.innerWidth; 
     const feedAds = document.querySelectorAll('.feed-com');
     const displayAds = document.querySelectorAll('.dis-com'); 
+    const media1 = window.matchMedia("(max-width: 615px)").matches; 
+    const media2 = window.matchMedia("(min-width: 615px)").matches; 
 
     feedAds.forEach((feedAd, index) => {
     const feedAdHeight = feedAd.clientHeight;
     const nextbrele = feedAd.nextElementSibling;
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
-    if (window.matchMedia("(min-width: 615px)").matches) 
-    { feedAd.style.removeProperty('--set-margin'); }
-    if (feedAdHeight > 10 && checkh <= 615) { nextbrele.style.display = 'none'; }
+    if (media1) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
+    if (media2) { feedAd.style.removeProperty('--set-margin'); }
+    if (feedAdHeight > 10 && media1) { nextbrele.style.display = 'none'; }
     if (feedAdHeight < 10) { nextbrele.style.display = 'block'; } }); 
 
     displayAds.forEach((displayAd, index) => {
     const displayAdHeight = displayAd.clientHeight; 
     const nextelement = displayAd.nextElementSibling; 
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
-    if (window.matchMedia("(min-width: 615px)").matches) 
-    { displayAd.style.removeProperty('--set-margin'); }
-    if (displayAdHeight > 10 && checkh <= 615) { nextelement.style.display = 'none'; }
+    if (media1) { displayAd.style.setProperty('--set-margin', displayAdHeight + "px"); }
+    if (media2) { displayAd.style.removeProperty('--set-margin'); }
+    if (displayAdHeight > 10 && media1) { nextelement.style.display = 'none'; }
     if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
-    console.log("here here"); }
+    /* console.log("here here"); */ }
 
    timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
-   window.addEventListener('scroll', adsheights, false); 
+   // window.addEventListener('scroll', adsheights, false); 
 
    timer2 = setInterval(function() 
    {  
@@ -606,5 +604,5 @@ function toppicksout()
 
    }, 500); 
 
-   setTimeout(() => { clearInterval(timer2); }, 4000); 
+   setTimeout(() => { clearInterval(timer2); }, 5000); 
 

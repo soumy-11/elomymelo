@@ -1643,7 +1643,7 @@ function updateAdsAttributes()
 
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
-    if(!isios) {
+    if(isios) { // console.log("hello there"); 
     document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
     document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
 
@@ -1669,7 +1669,7 @@ function updateAdsAttributes()
 
                   // console.log(attrname);
                   // console.log(attrvalue);
-/*
+
                   if(window.matchMedia("(max-width: 615px)").matches)
                   {
                     fids.forEach(function(id) {
@@ -1698,7 +1698,7 @@ function updateAdsAttributes()
                     { parentDiv.style.display = "none"; } }); 
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
                     { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
-                  }   */
+                  }   
 
                 } 
             });
