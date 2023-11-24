@@ -274,7 +274,7 @@ function scrolltotop()
    }
 
    timer1 = setInterval(buttonfxd, 500);
-   setTimeout(() => { clearInterval(timer1); }, 4000);
+   setTimeout(() => { clearInterval(timer1); }, 5000);
    // window.addEventListener('resize', buttonfxd, false);
 
   function outsideclick()
@@ -588,7 +588,7 @@ function toppicksout()
 
    timer3 = setInterval(adsheights, 0);
    setTimeout(() => { clearInterval(timer3); }, 5000);
-   setTimeout(() => { setInterval(adsheights, 1000); }, 5000);
+   setTimeout(() => { setInterval(() => { adsheights(); buttonfxd(); }, 1000); }, 5000); 
    // window.addEventListener('scroll', adsheights, false); 
 
    timer2 = setInterval(function() 
@@ -606,4 +606,5 @@ function toppicksout()
    }, 500); 
 
    setTimeout(() => { clearInterval(timer2); }, 5000); 
+   // document ends here ---------
 
