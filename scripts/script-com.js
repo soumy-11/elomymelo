@@ -370,8 +370,8 @@ function changephoneon()
     document.getElementById("submenu-speakers").style.visibility = "hidden";
     document.getElementById("phones-style").style.border = "6px rgba(255,119,119,0.5) solid";
     document.getElementById("speakers-style").style.border = "";
-	document.getElementById("earbuds-style").style.border = "";
-	document.getElementById("accessories-style").style.border = "";
+	  document.getElementById("earbuds-style").style.border = "";
+	  document.getElementById("accessories-style").style.border = "";
     document.getElementById("article-links").style.visibility = "visible";
 }
 function changephoneout()
@@ -392,8 +392,8 @@ function changespeakeron()
     document.getElementById("submenu-accessories").style.visibility = "hidden";
     document.getElementById("speakers-style").style.border = "6px rgba(255,119,119,0.5) solid";
     document.getElementById("phones-style").style.border = "";
-	document.getElementById("earbuds-style").style.border = "";
-	document.getElementById("accessories-style").style.border = "";
+	  document.getElementById("earbuds-style").style.border = "";
+	  document.getElementById("accessories-style").style.border = "";
 }
 function changespeakerout()
 {
@@ -408,8 +408,8 @@ function changeearbudon()
     document.getElementById("submenu-accessories").style.visibility = "hidden";
     document.getElementById("earbuds-style").style.border = "6px rgba(255,119,119,0.5) solid";
     document.getElementById("speakers-style").style.border = "";
-	document.getElementById("phones-style").style.border = "";
-	document.getElementById("accessories-style").style.border = "";
+	  document.getElementById("phones-style").style.border = "";
+	  document.getElementById("accessories-style").style.border = "";
 }
 function changeearbudout()
 {
@@ -424,8 +424,8 @@ function changeaccessoryon()
     document.getElementById("submenu-phones").style.visibility = "hidden";
     document.getElementById("accessories-style").style.border = "6px rgba(255,119,119,0.5) solid";
     document.getElementById("speakers-style").style.border = "";
-	document.getElementById("earbuds-style").style.border = "";
-	document.getElementById("phones-style").style.border = "";
+	  document.getElementById("earbuds-style").style.border = "";
+	  document.getElementById("phones-style").style.border = "";
 }
 function changeaccessoryout()
 {

@@ -91,15 +91,15 @@ function updateAdsAttributes()
                     fids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; } 
-                    if (idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
-                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
+                    if(idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
+                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
 
                     dids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; 
                     var childDivs = parentDiv.querySelectorAll('div'); } 
-                    if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
-                    if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
+                    if(idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
+                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
                   } 
 
                   // desktop 
@@ -109,14 +109,14 @@ function updateAdsAttributes()
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; 
                     var childDivs = parentDiv.querySelectorAll('div'); } 
-                    if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; } 
-                    if (idname === id && attrvalue === "unfilled") 
+                    if(idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; } 
+                    if(idname === id && attrvalue === "unfilled") 
                     { parentDiv.style.display = "none"; } }); 
 
                     dids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; } 
-                    if (idname === id && attrvalue === "unfilled") 
+                    if(idname === id && attrvalue === "unfilled") 
                     { parentDiv.style.display = "none"; } }); 
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
                     { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
@@ -228,7 +228,7 @@ function updateLogo()
     // Call the function to update all elements at once
     getAttributes();
 
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three'];
+    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four']; 
     function getMoreAttributes() {
     ids.forEach(function(id) {
     var element = document.getElementById(id);
