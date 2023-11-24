@@ -407,7 +407,7 @@
     #intro-para
     {
     	width: 99.5%;
-    	padding: 40px 65px 40px 0px; 
+    	padding: 35px 65px 40px 0px; 
         position: relative;
         z-index: 15;
     }
@@ -664,7 +664,7 @@
     	width: 2156px; 
     	height: 1218px; 
     	margin-top: 80px; 
-    	margin-bottom: 50px; 
+    	margin-bottom: 45px; 
     	margin-left: 0px; 
     	border-radius: 45px;
         opacity: 0.85;
