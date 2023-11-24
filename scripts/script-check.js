@@ -70,12 +70,6 @@ function updateAdsAttributes()
     addScriptTagToElement(element); }); 
 
     // mutation observer code
-    const checkf1 = document.getElementById("ins-feed-one");
-    const checkf2 = document.getElementById("ins-feed-two");
-    const checkf3 = document.getElementById("ins-feed-three");
-    const checkd1 = document.getElementById("ins-dis-one");
-    const checkd2 = document.getElementById("ins-dis-two");
-    const checkv1 = document.getElementById("ins-dis-v1");
     const observer = new MutationObserver( mutations => 
     { 
          // console.log(mutations); 
@@ -86,22 +80,24 @@ function updateAdsAttributes()
                   const idname = record.target.id; 
                   const attrname = record.attributeName;
                   const attrvalue = record.target.getAttribute(attrname);
-                  var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three']; 
-                  var dids = ['ins-dis-one', 'ins-dis-two']; 
+                  var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
+                  var dids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four']; 
 
                   // console.log(attrname);
                   // console.log(attrvalue);
 
                   if(window.matchMedia("(max-width: 615px)").matches)
                   {
-                    fids.forEach(function(id) {
-                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    fids.forEach(function(id) { 
+                    var element = document.getElementById(id); 
+                    if(element) { var parentDiv = element.parentNode; } 
                     if (idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
                     if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
 
-                    dids.forEach(function(id) {
-                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
-                    var childDivs = parentDiv.querySelectorAll('div');
+                    dids.forEach(function(id) { 
+                    var element = document.getElementById(id); 
+                    if(element) { var parentDiv = element.parentNode; 
+                    var childDivs = parentDiv.querySelectorAll('div'); } 
                     if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
                     if (idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
                   } 
@@ -109,29 +105,34 @@ function updateAdsAttributes()
                   // desktop 
                   if(window.matchMedia("(min-width: 615px)").matches)
                   { 
-                    fids.forEach(function(id) {
-                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    fids.forEach(function(id) {  
+                    var element = document.getElementById(id); 
+                    if(element) { var parentDiv = element.parentNode; 
+                    var childDivs = parentDiv.querySelectorAll('div'); } 
+                    if (idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; } 
                     if (idname === id && attrvalue === "unfilled") 
                     { parentDiv.style.display = "none"; } }); 
 
-                    dids.forEach(function(id) {
-                    var element = document.getElementById(id); var parentDiv = element.parentNode; 
+                    dids.forEach(function(id) { 
+                    var element = document.getElementById(id); 
+                    if(element) { var parentDiv = element.parentNode; } 
                     if (idname === id && attrvalue === "unfilled") 
                     { parentDiv.style.display = "none"; } }); 
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
                     { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
                   }   
-
                 } 
             });
     });
 
-    observer.observe(checkf1, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkf2, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkf3, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkd1, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkd2, { attributes: true, attributeFilter: ['data-ad-status'] });
-    observer.observe(checkv1, { attributes: true, attributeFilter: ['data-ad-status'] });
+    var aids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four', 'ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four', 'ins-dis-v1']; 
+    function updatemute() {
+    aids.forEach(function(id) {
+    var element = document.getElementById(id);
+    if (element) 
+    { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
+    updatemute(); 
+
 }
 
 // document.addEventListener('DOMContentLoaded', updateLogo);

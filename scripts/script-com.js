@@ -1,6 +1,5 @@
 
 console.log("async-check"); 
-
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";
@@ -70,7 +69,7 @@ function changesecond() {  }
 
 function scrollmethod() 
 {
-	mybutton = document.getElementById("scroll-top-button");
+	  mybutton = document.getElementById("scroll-top-button");
     if (document.documentElement.scrollTop > 200) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; }
     if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
