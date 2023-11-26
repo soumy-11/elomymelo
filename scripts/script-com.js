@@ -72,6 +72,7 @@ function scrollmethod()
 	  mybutton = document.getElementById("scroll-top-button");
     if (document.documentElement.scrollTop > 200) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; }
+    if (window.matchMedia("(min-height: 496px)").matches) { mybutton.style.display = "block"; }
     if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
 }
 
