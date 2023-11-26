@@ -740,14 +740,14 @@
 document.addEventListener('DOMContentLoaded', iosnone); 
 function iosnone() 
 {
-    // some IOS changes
-    if(isios) { // console.log("hello there"); 
-    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
-    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
+   // some IOS changes
+   if(isios) { // console.log("hello there"); 
+   document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
+   document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
 }
 
-    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
-    setTimeout(() => { clearInterval(timerch); }, 10000); 
+   timerch = setInterval(() => { console.log(document.readyState); }, 0); 
+   setTimeout(() => { clearInterval(timerch); }, 10000); 
 
 </script>
 
@@ -835,6 +835,10 @@ function iosnone()
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
+      }
+      if (window.matchMedia("(max-width: 615px)").matches) 
+      {
+           document.body.style.transform = "none";
       }
       if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
       {

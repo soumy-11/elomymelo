@@ -155,15 +155,6 @@ function scrollmethod()
         document.body.style.transform = "none";
         document.getElementById("footer-id").style.display = "none";
     }
-    if (window.matchMedia("(max-width: 615px)").matches && window.matchMedia("(max-height: 496px)").matches) 
-    {
-        // document.body.style.transform = "scale(1.0)";
-        document.getElementById("scroll-top-button").style.display = "none"; 
-    }
-    if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-    {
-        // document.body.style.transform = "scale(1.0)";
-    }
     if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
         // document.body.style.transform = "scale(0.920)";
