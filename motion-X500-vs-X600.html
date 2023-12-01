@@ -4959,11 +4959,11 @@ function updateLogo()
 
     if (window.matchMedia("(min-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "none"; el.remove(); }); } 
+    { el.style.display = "none"; /* el.remove(); */ }); } 
     if (window.matchMedia("(max-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "none"; el.remove(); }); 
-    setTimeout(detectCharacter, 2000); } 
+    { el.style.display = "block"; /* el.remove(); */ }); 
+    /* setTimeout(detectCharacter, 2000); */ } 
 
     // some IOS changes
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
@@ -5087,7 +5087,7 @@ function detectCharacter()
         } });
     }
 }
-// setTimeout(detectCharacter, 2000); 
+setTimeout(detectCharacter, 2000); 
 
 </script>
 
