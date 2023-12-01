@@ -4958,11 +4958,9 @@ function updateLogo()
     getMoreAttributes();  
 
     if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "none"; /* el.remove(); */ }); } 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
     if (window.matchMedia("(max-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "inline-block"; /* el.remove(); */ }); 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
     setTimeout(detectCharacter, 2000); } 
 
     // some IOS changes
@@ -5087,7 +5085,7 @@ function detectCharacter()
         } });
     }
 }
-setTimeout(detectCharacter, 2000); 
+// setTimeout(detectCharacter, 2000); 
 
 </script>
 
