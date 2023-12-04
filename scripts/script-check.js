@@ -169,9 +169,10 @@ function updateLogo()
     }
 
     if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) 
-    { el.style.display = "none"; el.remove(); }); } 
-    if (window.matchMedia("(max-width: 615px)").matches) { detectCharacter(); } 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
+    setTimeout(detectCharacter, 1500); } 
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
@@ -312,8 +313,7 @@ function detectCharacter()
 
             // change some properties of each span element in loop
             spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            
+            spanElement.style.display = "inline-block";  
         }
         if(leftCoordinate > comparewidthtwo)
         {
