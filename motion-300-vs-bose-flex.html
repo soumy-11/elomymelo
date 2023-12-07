@@ -747,7 +747,8 @@
 document.addEventListener('DOMContentLoaded', iosnone); 
 function iosnone() 
 {
-   // some IOS changes
+   console.log("hello there"); 
+   // some IOS changes ---------
    if(isios) { // console.log("hello there"); 
    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
@@ -755,7 +756,8 @@ function iosnone()
 
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); 
-
+   
+/*
    // performance observer begins 
    new PerformanceObserver(entryList => {
    var entries = entryList.getEntries() || [];
@@ -774,6 +776,7 @@ function iosnone()
    entry.sources.forEach((source) => { console.log(source); }); }); });
    observer.observe({ type: "layout-shift", buffered: true });
    // performance observer ends 
+*/
 
 </script>
 
