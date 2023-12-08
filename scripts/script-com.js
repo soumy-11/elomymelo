@@ -69,7 +69,8 @@ function changesecond() {  }
 
 function scrollmethod() 
 {
-	  mybutton = document.getElementById("scroll-top-button");
+	  if (window.matchMedia("(max-width: 615px)").matches) 
+    { mybutton = document.getElementById("scroll-top-button"); }
     if (document.documentElement.scrollTop > 200) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
@@ -82,7 +83,7 @@ function scrollmethod()
   function upme()
   {
     // checks if user is on a desktop device 
-    if(window.matchMedia("(min-width: 615px)").matches && !isdesk)
+    if(window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
         document.getElementById("Web_1920__1").style.height = "2216px";
         document.getElementById("Web_1920__1").style.paddingBottom = "0px";
@@ -101,22 +102,25 @@ function scrollmethod()
         document.getElementById("ads-vertical-two").style.display = "none";
         document.getElementById("hoty-blnk").style.display = "none";
         document.getElementById("top-pos").style.display = "none";
+        console.log("async-dom-loaded"); 
     } 
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
         document.getElementById("arts-con-id").style.overflow = "visible";
         document.getElementById("footer-id").style.display = "none";
-    }
+    }  
+    /*  
     if(isdesk) 
     {
         document.getElementById("top-pos").style.display = "none";
         clearTimeout(window.resizedFinished);
         window.resizedFinished = setTimeout(function() {  
         document.getElementById("top-pos").style.display = "block";
-        doso(); /* console.log("after-resize"); */ }, 100); 
-    }
+        doso(); console.log("after-resize"); }, 100); 
+    } 
+    */
   }
-
+/*
   var timer = null; 
   function scrolltrick() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
@@ -225,7 +229,7 @@ function scrollmethod()
         document.getElementById("last-dab").style.visibility = "visible";
     }
   } 
-
+*/
 function scrolltotop() 
 {
   window.scrollTo({ top: 0, behavior: 'smooth' });
