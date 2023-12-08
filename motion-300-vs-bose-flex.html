@@ -747,8 +747,8 @@
 document.addEventListener('DOMContentLoaded', iosnone); 
 function iosnone() 
 {
-   console.log("hello there"); 
-   // some IOS changes ---------
+   console.log("main-dom-loaded"); 
+   // some IOS changes --------------
    if(isios) { // console.log("hello there"); 
    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
