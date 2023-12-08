@@ -2,12 +2,11 @@
 console.log("defer-check"); 
 // for other than windows and mac
 var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-// document.addEventListener('DOMContentLoaded', upme); 
 window.addEventListener('resize', upme); 
 function upme()
 {
     // checks if user is on a desktop device 
-    if(window.matchMedia("(min-width: 615px)").matches && isdesk)
+    if(window.matchMedia("(min-width: 615px)").matches && !isdesk)
     {
         document.getElementById("Web_1920__1").style.height = "2216px";
         document.getElementById("Web_1920__1").style.paddingBottom = "0px";
@@ -33,7 +32,6 @@ function upme()
         document.getElementById("arts-con-id").style.overflow = "visible";
         document.getElementById("footer-id").style.display = "none";
     }
-    /*
     if(isdesk) 
     {
         document.getElementById("top-pos").style.display = "none";
@@ -41,9 +39,9 @@ function upme()
         window.resizedFinished = setTimeout(function() {  
         document.getElementById("top-pos").style.display = "block"; doso(); }, 100); 
     }
-    */
 }
-upme(); 
+upme(); // calling the upme function 
+if(!isdesk) { window.removeEventListener('resize', upme, false); }
 
 setTimeout(updateAdsAttributes, 100);
 function updateAdsAttributes() 

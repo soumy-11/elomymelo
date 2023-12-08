@@ -75,20 +75,19 @@ function scrollmethod()
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
 }
-/*
+
   var timer = null; 
   function scrolltrick() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
   timer = setTimeout(function() { doso(); }, 2000); }
-  setTimeout(doso, 3000); // setTimeout(doso, 0);
+  setTimeout(doso, 3000); // setTimeout(doso, 0); 
 
-  document.addEventListener('DOMContentLoaded', doso);
+  // adding the event listeners 
   window.addEventListener('scroll', scrolltrick, false); 
   window.addEventListener('resize', doso, false); 
 
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-  if(!isdesk) { document.removeEventListener('DOMContentLoaded', doso);
-  window.removeEventListener('scroll', scrolltrick, false);
+  if(!isdesk) { window.removeEventListener('scroll', scrolltrick, false);
   window.removeEventListener('resize', doso, false); }
 
   function doso()
@@ -183,7 +182,7 @@ function scrollmethod()
         document.getElementById("last-dab").style.visibility = "visible";
     }
   } 
-*/
+
 function scrolltotop() 
 {
   window.scrollTo({ top: 0, behavior: 'smooth' });
