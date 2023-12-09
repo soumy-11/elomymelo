@@ -168,12 +168,6 @@ function updateLogo()
            el.style.transform = "scale(4.34, 4.34)"; });
     }
 
-    if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    setTimeout(detectCharacter, 1500); } 
-
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
@@ -280,53 +274,4 @@ function updateLogo()
     // Call to update all elements at once
     getMoreAttributes(); 
 }   
-
-function detectCharacter() 
-{
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-        const divElement = document.getElementById("article-text-div");
-        const pTags = divElement.querySelectorAll("p");
-        
-        // Loop through all the p tags and change span element's style using forEach method
-        pTags.forEach((paraTag) => {
-
-        // var lastCharacter = paraTag.textContent.trim().slice(-1);
-        var spanElement = document.createElement('span');
-        paraTag.appendChild(spanElement);
-
-        var spanRect = spanElement.getBoundingClientRect();
-        var leftCoordinate = spanRect.left + window.pageXOffset;
-        paraTag.removeChild(spanElement);
-
-        widthinner = window.innerWidth;
-        multiplier = 2358/widthinner;
-        comparewidth = widthinner/2;
-        comparewidthtwo = widthinner - (widthinner * 0.278); 
-
-        if(leftCoordinate < comparewidth)
-        {
-            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            // change some properties of each span element in loop
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";  
-        }
-        if(leftCoordinate > comparewidthtwo)
-        {
-            var calwidth = comparewidth * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            spanElement.style.marginLeft = "0px";
-            
-        } });
-    }
-}
 

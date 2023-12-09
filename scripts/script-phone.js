@@ -1,7 +1,6 @@
 
 // for other than windows and mac
 var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-// window.addEventListener('resize', upme); 
 function upme()
 {
     // checks if user is on a desktop device 
@@ -26,8 +25,18 @@ function upme()
         document.getElementById("top-pos").style.display = "none";
         console.log("defer-dom-loaded"); 
     } 
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
+        document.getElementById("arts-con-id").style.overflow = "visible";
+        document.getElementById("footer-id").style.display = "none";
+        document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
+        setTimeout(detectCharacter, 2000); 
+    }
+    if (window.matchMedia("(min-width: 615px)").matches) 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
 }
 upme(); // calling the upme function 
+window.addEventListener('resize', upme); 
 
 function scrollmethod() 
 {
@@ -104,4 +113,53 @@ function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
    setTimeout(() => { clearInterval(timer3); }, 5000);
    setTimeout(() => { setInterval(() => { adsheights(); buttonfxd(); }, 1000); }, 5000); 
    // window.addEventListener('scroll', adsheights, false); 
+
+function detectCharacter() 
+{
+    if (window.matchMedia("(max-width: 615px)").matches) 
+    {
+        const divElement = document.getElementById("article-text-div");
+        const pTags = divElement.querySelectorAll("p");
+        
+        // Loop through all the p tags and change span element's style using forEach method
+        pTags.forEach((paraTag) => {
+
+        // var lastCharacter = paraTag.textContent.trim().slice(-1);
+        var spanElement = document.createElement('span');
+        paraTag.appendChild(spanElement);
+
+        var spanRect = spanElement.getBoundingClientRect();
+        var leftCoordinate = spanRect.left + window.pageXOffset;
+        paraTag.removeChild(spanElement);
+
+        widthinner = window.innerWidth;
+        multiplier = 2358/widthinner;
+        comparewidth = widthinner/2;
+        comparewidthtwo = widthinner - (widthinner * 0.278); 
+
+        if(leftCoordinate < comparewidth)
+        {
+            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
+            var spanElement = document.createElement('span');
+            spanElement.setAttribute("class", "last-extend");
+            paraTag.appendChild(spanElement);
+
+            // change some properties of each span element in loop
+            spanElement.style.width = calwidth + "px";
+            spanElement.style.display = "inline-block";  
+        }
+        if(leftCoordinate > comparewidthtwo)
+        {
+            var calwidth = comparewidth * multiplier; 
+            var spanElement = document.createElement('span');
+            spanElement.setAttribute("class", "last-extend");
+            paraTag.appendChild(spanElement);
+
+            spanElement.style.width = calwidth + "px";
+            spanElement.style.display = "inline-block";
+            spanElement.style.marginLeft = "0px";
+            
+        } });
+    }
+}
 
