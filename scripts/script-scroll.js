@@ -117,5 +117,5 @@
     }
   }
   window.addEventListener('resize', sizeme); 
-  if(!isdesk) { window.removeEventListener('resize', sizeme, false); }
+  if(!isdesk) { window.removeEventListener('resize', sizeme); } 
 

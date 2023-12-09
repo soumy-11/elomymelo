@@ -48,8 +48,8 @@ function scrollmethod()
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
-   function buttonfxd()
-   { 	   
+function buttonfxd()
+{ 	   
    	  document.getElementById("Web_1920__1").style.visibility = "visible";
    	  document.getElementById("top-check").style.visibility = "hidden";
    	  if (window.matchMedia("(max-width: 615px)").matches) 
@@ -79,7 +79,7 @@ function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
         document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
       }
-   }
+}
 
    timer1 = setInterval(buttonfxd, 500);
    setTimeout(() => { clearInterval(timer1); }, 5000);

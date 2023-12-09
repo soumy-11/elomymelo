@@ -1,6 +1,6 @@
 
 console.log("defer-check"); 
-setTimeout(updateAdsAttributes, 100);
+// setTimeout(updateAdsAttributes, 100);
 function updateAdsAttributes() 
 {
     // Array of IDs
@@ -132,12 +132,12 @@ function updateAdsAttributes()
     if (element) 
     { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
     updatemute(); 
-
 }
+updateAdsAttributes(); 
 
 // document.addEventListener('DOMContentLoaded', updateLogo);
 window.addEventListener('resize', updateLogo);
-setTimeout(updateLogo, 500);
+// setTimeout(updateLogo, 500);
 function updateLogo() 
 {
     if (window.matchMedia("(min-width: 615px)").matches) 
@@ -274,4 +274,5 @@ function updateLogo()
     // Call to update all elements at once
     getMoreAttributes(); 
 }   
+updateLogo(); 
 

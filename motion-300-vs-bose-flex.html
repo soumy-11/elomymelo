@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="styles/style-phone.css" media="screen and (max-width: 615px)">
 <link rel="stylesheet" href="styles/style-desk.css" media="screen and (min-width: 615px)"> 
 <link rel="preload" href="scripts/script-check.js" as="script"> 
-<link rel="preload" href="scripts/script-com.js" as="script"> 
+<link rel="preload" href="scripts/script-phone.js" as="script"> 
 <link rel="preload" href="styles/style-com.css" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" media="screen and (min-width: 615px)" crossorigin="anonymous">
 <link rel="preload" href="fonts/arial-round.ttf" as="font" crossorigin="anonymous">
@@ -731,10 +731,10 @@
 
 </style>
 
-<script async type="text/javascript" src="scripts/script-com.js"></script>
 <script defer type="text/javascript" src="scripts/script-check.js"></script>
 <script defer type="text/javascript" src="scripts/script-phone.js"></script>
-<script defer type="text/javascript" src="scripts/script-scroll.js"></script>
+<script async type="text/javascript" src="scripts/script-scroll.js"></script>
+<script async type="text/javascript" src="scripts/script-com.js"></script>
 
 <script type="text/javascript">
 
@@ -758,27 +758,6 @@ function iosnone()
 
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); 
-   
-/*
-   // performance observer begins 
-   new PerformanceObserver(entryList => {
-   var entries = entryList.getEntries() || [];
-   var cls = 0;
-   entries.forEach(e => {
-        if (!e.hadRecentInput) { // omit entries likely caused by user input
-            cls += e.value;
-        }
-    });
-    console.log("Cumulative Layout Shift = ", cls); 
-   }).observe({ type: "layout-shift", buffered: true }); 
-   // CLS check ends here -----
-
-   const observer = new PerformanceObserver((list) => {
-   list.getEntries().forEach((entry) => {
-   entry.sources.forEach((source) => { console.log(source); }); }); });
-   observer.observe({ type: "layout-shift", buffered: true });
-   // performance observer ends 
-*/
 
 </script>
 
