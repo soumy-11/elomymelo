@@ -1,5 +1,5 @@
 
-console.log("async-check"); 
+console.log("async-script-com"); 
 function changeover()
 {
   document.getElementById("CATEGORIES").style.color = "rgba(0,0,0,1)";

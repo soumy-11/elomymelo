@@ -1,5 +1,6 @@
 
-// for other than windows and mac
+console.log("defer-script-phone"); 
+// for other than windows and mac ----
 var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
 function upme()
 {

@@ -1,4 +1,5 @@
 
+  console.log("async-script-scroll"); 
   var timer = null; 
   function scrolltrick() 
   { doso(); if(timer !== null) { clearTimeout(timer); }

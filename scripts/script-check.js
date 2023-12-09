@@ -1,5 +1,5 @@
 
-console.log("defer-check"); 
+console.log("defer-script-check"); 
 // setTimeout(updateAdsAttributes, 100);
 function updateAdsAttributes() 
 {
