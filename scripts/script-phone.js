@@ -43,9 +43,9 @@ function buttonfxd()
       }
 }
 
-   timer1 = setInterval(buttonfxd, 500);
-   setTimeout(() => { clearInterval(timer1); }, 5000);
-   // window.addEventListener('resize', buttonfxd, false);
+    timer1 = setInterval(buttonfxd, 500);
+    setTimeout(() => { clearInterval(timer1); }, 5000);
+    // window.addEventListener('resize', buttonfxd, false);
 
     function adsheights() {  
     // var checkh = window.innerWidth; 
@@ -54,7 +54,7 @@ function buttonfxd()
     const media1 = window.matchMedia("(max-width: 615px)").matches; 
     const media2 = window.matchMedia("(min-width: 615px)").matches; 
 
-    feedAds.forEach((feedAd, index) => {
+    feedAds.forEach((feedAd, index) => { 
     const feedAdHeight = feedAd.clientHeight;
     const nextbrele = feedAd.nextElementSibling;
     if (media1) { feedAd.style.setProperty('--set-margin', feedAdHeight + "px"); }
@@ -69,59 +69,10 @@ function buttonfxd()
     if (media2) { displayAd.style.removeProperty('--set-margin'); }
     if (displayAdHeight > 10 && media1) { nextelement.style.display = 'none'; }
     if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
-    /* console.log("here here"); */ }
+    /* console.log("here here"); */ } 
 
-   timer3 = setInterval(adsheights, 0);
-   setTimeout(() => { clearInterval(timer3); }, 5000);
-   setTimeout(() => { setInterval(() => { adsheights(); buttonfxd(); }, 1000); }, 5000); 
-   // window.addEventListener('scroll', adsheights, false); 
-
-function detectCharacter() 
-{
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
-        const divElement = document.getElementById("article-text-div");
-        const pTags = divElement.querySelectorAll("p");
-        
-        // Loop through all the p tags and change span element's style using forEach method
-        pTags.forEach((paraTag) => {
-
-        // var lastCharacter = paraTag.textContent.trim().slice(-1);
-        var spanElement = document.createElement('span');
-        paraTag.appendChild(spanElement);
-
-        var spanRect = spanElement.getBoundingClientRect();
-        var leftCoordinate = spanRect.left + window.pageXOffset;
-        paraTag.removeChild(spanElement);
-
-        widthinner = window.innerWidth;
-        multiplier = 2358/widthinner;
-        comparewidth = widthinner/2;
-        comparewidthtwo = widthinner - (widthinner * 0.278); 
-
-        if(leftCoordinate < comparewidth)
-        {
-            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            // change some properties of each span element in loop
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";  
-        }
-        if(leftCoordinate > comparewidthtwo)
-        {
-            var calwidth = comparewidth * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            spanElement.style.marginLeft = "0px";
-            
-        } });
-    }
-}
+    timer3 = setInterval(adsheights, 0);
+    setTimeout(() => { clearInterval(timer3); }, 5000);
+    setTimeout(() => { setInterval(() => { adsheights(); buttonfxd(); }, 1000); }, 5000); 
+    // window.addEventListener('scroll', adsheights, false); 
 
