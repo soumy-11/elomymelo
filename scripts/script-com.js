@@ -351,20 +351,5 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-   timer2 = setInterval(function() 
-   {  
-       if (window.matchMedia("(min-width: 615px)").matches) 
-       {
-           document.getElementById("ads-v1-in").style.minHeight = "612px";
-           // document.getElementById("ads-v2-in").style.minHeight = "262px";
-       }
-       if (window.matchMedia("(max-width: 615px)").matches) 
-       {
-           document.getElementById("ads-v1-in").style.display = "none";
-       }
-
-   }, 500); 
-
-   setTimeout(() => { clearInterval(timer2); }, 5000); 
-   // document ends here ---------
+  // document ends here ---------
 
