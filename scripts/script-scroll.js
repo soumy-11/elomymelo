@@ -120,4 +120,5 @@
   }
   window.addEventListener('resize', sizeme); 
   if(!isdesk) { window.removeEventListener('resize', sizeme); } 
+  // document ends here ---
 

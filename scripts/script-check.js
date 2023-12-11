@@ -135,9 +135,8 @@ function updateAdsAttributes()
 }
 updateAdsAttributes(); 
 
-// document.addEventListener('DOMContentLoaded', updateLogo);
-window.addEventListener('resize', updateLogo);
-// setTimeout(updateLogo, 500);
+// setTimeout(updateLogo, 500); 
+window.addEventListener('resize', updateLogo); 
 function updateLogo() 
 {
     if (window.matchMedia("(min-width: 615px)").matches) 
@@ -172,7 +171,7 @@ function updateLogo()
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
     if (window.matchMedia("(max-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    setTimeout(detectCharacter, 1700); } 
+    clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); } 
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
@@ -288,7 +287,8 @@ function detectCharacter()
     {
         const divElement = document.getElementById("article-text-div");
         const pTags = divElement.querySelectorAll("p");
-        
+        console.log("inside-detect-char"); 
+
         // Loop through all the p tags and change span element's style using forEach method
         pTags.forEach((paraTag) => {
 
