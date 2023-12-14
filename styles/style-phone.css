@@ -69,6 +69,19 @@
 		animation: fadein 2s;
         --set-size: 0px;
     }
+
+    @keyframes fadein
+    {
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+    }
+
     #Path_1 
     {
 		fill: transparent;
