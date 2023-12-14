@@ -242,6 +242,14 @@
 		border-radius: 50px;
 		z-index: -1;
 	}
+	.main-article-div
+    {
+        position: relative;
+        left: 56px;
+        top: 280px;
+        width: 2235px;
+        border: 0px grey solid;
+    }
     #left-edge
     {
         position: absolute;
@@ -904,6 +912,38 @@
 	{
 		display: none;
 	}
+	#cat-cross
+	{
+		display: none;
+	}
+	#reviews-cross
+	{
+		display: none;
+	}
+	#about-cross
+	{
+		display: none;
+	}
+	#cat-menu
+	{
+		display: none;
+	}
+	#submenu-phones
+	{
+		display: none;
+	}
+	#submenu-speakers
+	{
+		display: none;
+	}
+	#submenu-earbuds
+	{
+		display: none;
+	}
+	#submenu-accessories
+	{
+		display: none;
+	}
 	#about-me-hover
 	{
 		display: none;
@@ -937,6 +977,14 @@
 		display: none;
 	}
 	.Rectangle_10 
+	{
+		display: none;
+	}
+	#reviews-main
+	{
+		display: none;
+	}
+	#about-me-main
 	{
 		display: none;
 	}
