@@ -198,6 +198,7 @@ function upme()
 }
 document.addEventListener('DOMContentLoaded', upme); 
 window.addEventListener('resize', upme); 
+if(isdesk) { window.removeEventListener('resize', upme); } 
 
 </script>
 
