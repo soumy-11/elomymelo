@@ -206,7 +206,8 @@ as="font" crossorigin="anonymous">
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); 
 
-document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme(); }); 
+document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme(); 
+window.addEventListener('resize', upme); }); 
 document.addEventListener('DOMContentLoaded', () => { console.log("second dom here"); }); 
 function updateAdsAttributes() 
 {
@@ -343,7 +344,6 @@ function updateAdsAttributes()
 
 // for other than windows and mac ----
 var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-window.addEventListener('resize', upme); 
 function upme()
 {
     // checks if user is on a desktop device 
