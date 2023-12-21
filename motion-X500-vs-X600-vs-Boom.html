@@ -206,9 +206,8 @@ as="font" crossorigin="anonymous">
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); 
 
-document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme(); 
+document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme();
 window.addEventListener('resize', upme); }); 
-document.addEventListener('DOMContentLoaded', () => { console.log("second dom here"); }); 
 function updateAdsAttributes() 
 {
     // Array of IDs
@@ -339,7 +338,7 @@ function updateAdsAttributes()
     var element = document.getElementById(id);
     if (element) 
     { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
-    updatemute(); console.log("first inside"); 
+    updatemute(); 
 }
 
 // for other than windows and mac ----
@@ -502,7 +501,7 @@ function upme()
     }
 
     // Call to update all elements at once
-    getMoreAttributes(); console.log("second inside"); 
+    getMoreAttributes(); 
 }
 
 function detectCharacter() 
@@ -577,7 +576,7 @@ function detectCharacter()
     if (media2) { displayAd.style.removeProperty('--set-margin'); }
     if (displayAdHeight > 10 && media1) { nextelement.style.display = 'none'; }
     if (displayAdHeight < 10) { nextelement.style.display = 'block'; } }); 
-    console.log("here here"); } 
+    /* console.log("here here"); */ } 
 
     timer3 = setInterval(adsheights, 0);
     setTimeout(() => { clearInterval(timer3); }, 5000);
