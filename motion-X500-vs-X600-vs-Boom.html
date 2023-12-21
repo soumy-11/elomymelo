@@ -190,8 +190,8 @@ as="font" crossorigin="anonymous">
 
 </style>
 
-<script defer type="text/javascript" src="scripts/script-scroll.js"></script>
-<script defer type="text/javascript" src="scripts/script-com.js"></script>
+<script async type="text/javascript" src="scripts/script-scroll.js"></script>
+<script async type="text/javascript" src="scripts/script-com.js"></script>
 
 <script type="text/javascript">
 
@@ -207,6 +207,7 @@ as="font" crossorigin="anonymous">
    setTimeout(() => { clearInterval(timerch); }, 10000); 
 
 document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme(); }); 
+document.addEventListener('DOMContentLoaded', () => { console.log("second dom here"); }); 
 function updateAdsAttributes() 
 {
     // Array of IDs
@@ -337,7 +338,7 @@ function updateAdsAttributes()
     var element = document.getElementById(id);
     if (element) 
     { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
-    updatemute(); 
+    updatemute(); console.log("first inside"); 
 }
 
 // for other than windows and mac ----
@@ -501,7 +502,7 @@ function upme()
     }
 
     // Call to update all elements at once
-    getMoreAttributes(); 
+    getMoreAttributes(); console.log("second inside"); 
 }
 
 function detectCharacter() 
@@ -585,7 +586,7 @@ function detectCharacter()
 
 </script>
 
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
 {
