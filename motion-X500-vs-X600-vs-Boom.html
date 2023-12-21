@@ -206,7 +206,7 @@ as="font" crossorigin="anonymous">
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); 
 
-document.addEventListener('DOMContentLoaded', () => { updateAdsAttributes(); upme(); }); 
+document.addEventListener('DOMContentLoaded', () => { setTimeout(updateAdsAttributes, 2000); upme(); }); 
 document.addEventListener('DOMContentLoaded', () => { console.log("second dom here"); }); 
 function updateAdsAttributes() 
 {
