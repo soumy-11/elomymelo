@@ -116,7 +116,7 @@
         clearTimeout(window.resizedFinished);
         window.resizedFinished = setTimeout(function() {  
         document.getElementById("top-pos").style.display = "block"; doso(); }, 100); 
-    }
+    }   console.log("scroll here"); 
   }
   window.addEventListener('resize', sizeme); 
   if(!isdesk) { window.removeEventListener('resize', sizeme); } 
