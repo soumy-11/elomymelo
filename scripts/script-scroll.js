@@ -13,7 +13,7 @@
 
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
   if(!isdesk) { window.removeEventListener('scroll', scrolltrick, false);
-  window.removeEventListener('resize', doso, false); } 
+  window.removeEventListener('resize', doso, false); }
 
   function doso()
   {
@@ -116,7 +116,7 @@
         clearTimeout(window.resizedFinished);
         window.resizedFinished = setTimeout(function() {  
         document.getElementById("top-pos").style.display = "block"; doso(); }, 100); 
-    }   console.log("scroll here"); 
+    }
   }
   window.addEventListener('resize', sizeme); 
   if(!isdesk) { window.removeEventListener('resize', sizeme); } 
