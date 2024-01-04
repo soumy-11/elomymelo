@@ -903,7 +903,7 @@ function iosnone()
    var intervalId = setInterval(function() {
    linkEl = document.querySelector('link[rel="stylesheet"][href="styles/style-desk-2.css"]');
    cssLoaded = Boolean(linkEl && linkEl.sheet);
-   if (cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
+   if (cssLoaded) { linkEl.media = "all"; document.getElementById("Web_1920__1").style.visibility = "visible";
    document.getElementById("loader-id").style.display = "none";
    console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
    else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
