@@ -910,43 +910,14 @@ function iosnone()
    entry.sources.forEach((source) => { console.log(source); }); }); });
    observer.observe({ type: "layout-shift", buffered: true });
    // performance observer ends 
-
-function isStylesheetLoaded(stylesheetHref) {
-  var stylesheets = document.styleSheets;
-
-  for (var i = 0; i < stylesheets.length; i++) {
-    var sheet = stylesheets[i];
-    if (sheet.href === stylesheetHref) {
-      // Check if the stylesheet is loaded
-      if ('complete' in sheet || (sheet.sheet && sheet.sheet.complete)) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-var stylesheetHref = 'styles/style-desk-2.css';
-
-// Initial check
-if (isStylesheetLoaded(stylesheetHref)) {
-  console.log('Stylesheet is already loaded.');
-} else {
-  console.log('Stylesheet is not yet loaded.');
   
-  // Set interval to check every 500 milliseconds
-  var intervalId = setInterval(function() {
-    if (isStylesheetLoaded(stylesheetHref)) {
-      console.log('Stylesheet is now loaded.');
-      
-      // Clear the interval once the stylesheet is loaded
-      clearInterval(intervalId);
-    } else {
-      console.log('Still waiting for the stylesheet to load.');
-    }
-  }, 500);
-}
+   var intervalId = setInterval(function() {
+   linkEl = document.querySelector('link[rel="stylesheet"][href="styles/style-desk-2.css"]');
+   cssLoaded = Boolean(linkEl && linkEl.sheet);
+   if (cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
+   document.getElementById("loader-id").style.display = "none";
+   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
+   else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
 
 </script>
 
