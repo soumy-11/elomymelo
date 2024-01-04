@@ -887,6 +887,7 @@ function iosnone()
    if(isios) { // console.log("hello there"); 
    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
+   document.getElementById("loader-id").style.display = "none";
 }
 
    timerch = setInterval(() => { console.log(document.readyState); }, 0); 
