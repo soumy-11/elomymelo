@@ -27,9 +27,9 @@
    function dome() { // Find the link element
    var linkElement = document.querySelector('link[rel="preload"][href="styles/style-desk-2.css"]'); 
    if (linkElement) { linkElement.rel = "stylesheet"; 
-   document.addEventListener('DOMContentLoaded', function () {
-   document.getElementById("Web_1920__1").style.visibility = "visible";
-   document.getElementById("loader-id").style.display = "none"; }); } } 
+   timerLoader = setInterval(() => { document.getElementById("Web_1920__1").style.visibility = "visible";
+   document.getElementById("loader-id").style.display = "none"; console.log("loader-here"); }, 50); 
+   document.addEventListener('DOMContentLoaded', () => { clearInterval(timerLoader); }); } } 
 
 </script>
 
