@@ -69,10 +69,11 @@ function changesecond() {  }
 
 function scrollmethod() 
 {
-	  mybutton = document.getElementById("scroll-top-button");
-    if (document.documentElement.scrollTop > 200) { mybutton.style.display = "block"; } 
+	mybutton = document.getElementById("scroll-top-button"); 
+	const mediain = window.matchMedia("(max-width: 615px)").matches; 
+    if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
-    if (document.documentElement.scrollTop < 200) { mybutton.style.display = "none"; }  
+    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
 }
 
   // for other than windows and mac
