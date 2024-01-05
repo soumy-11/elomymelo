@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
+<link rel="preload" as="image" href="https://docs.elomymelo.com/images/a14-main.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -5055,7 +5056,7 @@ function updateLogo()
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
     if (window.matchMedia("(max-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    setTimeout(detectCharacter, 2000); } 
+    clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); } 
 
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
     if(isios) {
@@ -5266,7 +5267,7 @@ function detectCharacter()
     }
   },
   "datePublished": "2023-07-07T00:00:00+06:00",
-  "dateModified": "2023-12-02T18:00:00+06:00"
+  "dateModified": "2023-12-13T02:40:10+06:00"
 }
 </script>
 
