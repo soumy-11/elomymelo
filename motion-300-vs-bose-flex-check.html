@@ -20,7 +20,7 @@
 <meta name="author" content="Soumya Roy">
 
 <link rel="stylesheet" href="styles/style-phone-2.css" media="screen and (max-width: 615px)">
-<link rel="preload" href="styles/style-desk-2.css" as="style" onload="this.rel='stylesheet'"> 
+<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="this.media='all'"> 
 <link rel="stylesheet" href="styles/style-com-2.css" media="print" onload="this.media='all'">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
 
@@ -901,8 +901,8 @@ function iosnone()
    var intervalId = setInterval(function() {
    linkEl = document.querySelector('link[rel="stylesheet"][href="styles/style-desk-2.css"]');
    cssLoaded = Boolean(linkEl && linkEl.sheet);
-   if (cssLoaded) { document.getElementById("loader-id").style.display = "none";
-   document.getElementById("Web_1920__1").style.visibility = "visible";
+   if (cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
+   document.getElementById("loader-id").style.display = "none";
    console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
    else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
 
