@@ -903,7 +903,7 @@ function iosnone()
    var intervalId = setInterval(function() {
    linkEl = document.querySelector('link[rel="preload"][href="styles/style-desk-2.css"]');
    cssLoaded = Boolean(linkEl && linkEl.sheet);
-   if (cssLoaded) { linkEl.media = "all"; document.getElementById("Web_1920__1").style.visibility = "visible";
+   if (cssLoaded) { linkEl.rel = "stylesheet"; document.getElementById("Web_1920__1").style.visibility = "visible";
    document.getElementById("loader-id").style.display = "none";
    console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
    else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
@@ -976,7 +976,7 @@ function iosnone()
            window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
            document.body.style.transform = "none"; 
       }
-      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
+      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflowY = "visible"; document.body.style.overflowX = "hidden"; } 
       if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
       if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
       }
