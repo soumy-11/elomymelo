@@ -26,7 +26,7 @@
    if (linkElement) { linkElement.rel = "stylesheet"; 
    timerLoader = setInterval(() => { document.getElementById("Web_1920__1").style.visibility = "visible";
    document.getElementById("loader-id").style.display = "none"; 
-   console.log("loader-here"); clearInterval(timerLoader); }, 200); } } 
+   console.log("loader-here"); }, 0); } } 
 
 </script>
 
@@ -893,7 +893,7 @@ function iosnone()
    cssLoaded = Boolean(linkEl && linkEl.sheet); 
    if(cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible"; 
    setTimeout(() => { document.getElementById("loader-id").style.display = "none"; }, 1000); 
-   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
+   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); clearInterval(timerLoader); } 
    else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
 
 </script>
