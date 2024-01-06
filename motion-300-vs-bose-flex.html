@@ -23,7 +23,7 @@
 
    function dome() { // Find the link element
    var linkElement = document.querySelector('link[href="styles/style-desk-2.css"]'); 
-   if (linkElement) { linkElement.media = "all"; 
+   if (linkElement) { linkElement.rel = "stylesheet"; 
    timerLoader = setInterval(() => { document.getElementById("Web_1920__1").style.visibility = "visible";
    document.getElementById("loader-id").style.display = "none"; 
    console.log("loader-here"); clearInterval(timerLoader); }, 0); } } 
@@ -31,7 +31,7 @@
 </script>
 
 <link rel="stylesheet" href="styles/style-phone-2.css" media="screen and (max-width: 615px)">
-<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="dome()"> 
+<link rel="preload" href="styles/style-desk-2.css" as="style" onload="dome()"> 
 <link rel="stylesheet" href="styles/style-com-2.css" media="print" onload="this.media='all'">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
 
