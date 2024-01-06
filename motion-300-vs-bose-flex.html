@@ -872,37 +872,20 @@ function iosnone()
    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
    // document.getElementById("loader-id").style.display = "none";
+   console.log("main-dom-here"); 
 }
 
-   timerch = setInterval(() => { console.log(document.readyState); }, 0); 
-   setTimeout(() => { clearInterval(timerch); }, 10000); 
+   /* timerch = setInterval(() => { console.log(document.readyState); }, 0); 
+   setTimeout(() => { clearInterval(timerch); }, 10000); */
 
-   // performance observer begins 
-   new PerformanceObserver(entryList => {
-   var entries = entryList.getEntries() || [];
-   var cls = 0;
-   entries.forEach(e => {
-        if (!e.hadRecentInput) { // omit entries likely caused by user input
-            cls += e.value;
-        }
-    });
-    console.log("Cumulative Layout Shift = ", cls); 
-   }).observe({ type: "layout-shift", buffered: true }); 
-   // CLS check ends here -----
-
-   const observer = new PerformanceObserver((list) => {
-   list.getEntries().forEach((entry) => {
-   entry.sources.forEach((source) => { console.log(source); }); }); });
-   observer.observe({ type: "layout-shift", buffered: true });
-   // performance observer ends 
-  
    var intervalId = setInterval(function() {
    linkEl = document.querySelector('link[rel="stylesheet"][href="styles/style-desk-2.css"]');
    cssLoaded = Boolean(linkEl && linkEl.sheet);
-   if (cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
+   if(cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
    setTimeout(() => { document.getElementById("loader-id").style.display = "none"; }, 1000); 
-   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
-   else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
+   console.log('Stylesheet is now loaded.'); document.addEventListener('DOMContentLoaded', () => { 
+   clearInterval(intervalId); console.log("inside-dom-here"); }); } 
+   else { console.log('Still waiting for the stylesheet to load.'); } }, 0); 
 
 </script>
 
