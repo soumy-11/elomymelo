@@ -19,8 +19,19 @@
 <meta name="keywords" content="Soundcore Motion 300, Bose SoundLink Flex, PositionIQ, SmartTune, custom 9 band EQ, Bluetooth 5.3, Orientation, smart speakers, Xtra Bass, Bass Up technology, standing mode, lying mode, hanging mode, stereo vs mono, true wireless stereo pairing"> 
 <meta name="author" content="Soumya Roy">
 
+<script type="text/javascript">
+
+   function dome() { // Find the link element
+   var linkElement = document.querySelector('link[href="styles/style-desk-2.css"]'); 
+   if (linkElement) { linkElement.media = "all"; 
+   timerLoader = setInterval(() => { document.getElementById("Web_1920__1").style.visibility = "visible";
+   document.getElementById("loader-id").style.display = "none"; console.log("loader-here"); }, 50); 
+   document.addEventListener('DOMContentLoaded', () => { clearInterval(timerLoader); }); } } 
+
+</script>
+
 <link rel="stylesheet" href="styles/style-phone-2.css" media="screen and (max-width: 615px)">
-<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="this.media='all'"> 
+<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="dome()"> 
 <link rel="stylesheet" href="styles/style-com-2.css" media="print" onload="this.media='all'">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
 
@@ -872,20 +883,18 @@ function iosnone()
    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
    // document.getElementById("loader-id").style.display = "none";
-   console.log("main-dom-here"); 
 }
 
    /* timerch = setInterval(() => { console.log(document.readyState); }, 0); 
    setTimeout(() => { clearInterval(timerch); }, 10000); */
 
-   var intervalId = setInterval(function() {
-   linkEl = document.querySelector('link[rel="stylesheet"][href="styles/style-desk-2.css"]');
-   cssLoaded = Boolean(linkEl && linkEl.sheet);
-   if(cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible";
+   var intervalId = setInterval(function() { 
+   linkEl = document.querySelector('link[href="styles/style-desk-2.css"]'); 
+   cssLoaded = Boolean(linkEl && linkEl.sheet); 
+   if(cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible"; 
    setTimeout(() => { document.getElementById("loader-id").style.display = "none"; }, 1000); 
-   console.log('Stylesheet is now loaded.'); document.addEventListener('DOMContentLoaded', () => { 
-   clearInterval(intervalId); console.log("inside-dom-here"); }); } 
-   else { console.log('Still waiting for the stylesheet to load.'); } }, 0); 
+   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
+   else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
 
 </script>
 
