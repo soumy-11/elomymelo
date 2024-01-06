@@ -23,7 +23,7 @@
 
    function dome() { // Find the link element
    var linkElement = document.querySelector('link[href="styles/style-desk-2.css"]'); 
-   if (linkElement) { linkElement.media = "all"; 
+   if (linkElement) { linkElement.media = "all"; // setting media to all 
    timerLoader = setInterval(() => { document.getElementById("Web_1920__1").style.visibility = "visible";
    document.getElementById("loader-id").style.display = "none"; 
    console.log("loader-here"); clearInterval(timerLoader); }, 0); } } 
@@ -31,7 +31,7 @@
 </script>
 
 <link rel="stylesheet" href="styles/style-phone-2.css" media="screen and (max-width: 615px)">
-<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="dome()" fetchpriority="high"> 
+<link rel="stylesheet" href="styles/style-desk-2.css" media="print" onload="dome()"> 
 <link rel="stylesheet" href="styles/style-com-2.css" media="print" onload="this.media='all'">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" crossorigin="anonymous">
 
@@ -884,19 +884,6 @@ function iosnone()
    document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); }
    // document.getElementById("loader-id").style.display = "none";
 }
-
-   /* timerch = setInterval(() => { console.log(document.readyState); }, 0); 
-   setTimeout(() => { clearInterval(timerch); }, 10000); */
-
-/*
-   var intervalId = setInterval(function() { 
-   linkEl = document.querySelector('link[href="styles/style-desk-2.css"]'); 
-   cssLoaded = Boolean(linkEl && linkEl.sheet); 
-   if(cssLoaded) { document.getElementById("Web_1920__1").style.visibility = "visible"; 
-   setTimeout(() => { document.getElementById("loader-id").style.display = "none"; }, 1000); 
-   console.log('Stylesheet is now loaded.'); clearInterval(intervalId); } 
-   else { console.log('Still waiting for the stylesheet to load.'); } }, 500); 
-*/
 
 </script>
 
