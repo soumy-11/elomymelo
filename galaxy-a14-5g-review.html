@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="preload" as="style" href="https://docs.elomymelo.com/images/a14-main.jpg" fetchpriority="high">
+<script type="text/javascript"> function changeme() 
+{ const linkTag = document.getElementById("style-to-image"); if(linkTag) { linkTag.as = "image"; } } 
+</script>
+<link rel="preload" as="style" href="https://docs.elomymelo.com/images/a14-main.jpg" 
+fetchpriority="high" id="style-to-image" onload="changeme()">
 <link rel="preload" href="fonts/segoeui.ttf" as="font" media="screen and (min-width: 615px)" 
 crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
