@@ -818,6 +818,10 @@
         font-size: 104px; 
         color: rgba(146,155,212,1);
     }
+    #scroll-here-tip
+    {
+        display: none;
+    }
     .footer
 	{
 		display: none;
@@ -1735,11 +1739,11 @@
         height: 85px;
         font-size: 40px;
         font-family: roboto, cus-roboto, sans-serif;
-        top: 7100px;
+        top: 7025px;
         left: 1042px;
         visibility: hidden;
-        background-color: rgba(0,0,0,0.68);
-        color: rgba(255,255,255,0.80);
+        background-color: rgba(0,0,0,0.75);
+        color: rgba(255,255,255,0.85);
         border: 0px rgba(112,112,112,0.5) solid;
         border-radius: 15px;
         padding-left: 30px;
@@ -4962,7 +4966,7 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.overflow = "visible";
            document.getElementById("sc-clk-char").style.display = "none";
        }
-       if (isdesk) 
+       if (isdesk && window.matchMedia("(min-width: 615px)").matches) 
        {
            document.getElementById("sc-clk-char").style.display = "block";
        }
