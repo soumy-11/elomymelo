@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="old-images/circle-trans.png">
 <meta charset="utf-8"/>
+<meta property="og:image" content="https://elomymelo.com/old-images/soundcoremotionplus.jpg">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width">
 <title> Anker Soundcore Motion Plus speaker detailed review </title>
@@ -55,6 +56,26 @@
 		visibility: visible;
 		z-index: -999;
 	}
+
+    .fc-stacks.fc-dialog-restricted-content
+    {
+        border: 2px #dadce0 solid !important;
+        padding: 10px 10px 0px 20px !important;
+        border-radius: 7px !important;
+        margin-bottom: 10px !important;
+    }
+    .fc-footer.fc-dialog-restricted-content
+    {
+        border: 2px #dadce0 solid !important;
+        padding: 10px 10px 10px 20px !important;
+        border-radius: 7px !important;
+        margin-top: 10px !important;
+    }
+    .fc-consent-root .fc-choice-dialog .fc-footer-buttons-divider
+    {
+        opacity: 0 !important; 
+        visibility: hidden !important; 
+    }
 
     @media only screen and (max-width: 940px) and (orientation: portrait)
     {
@@ -791,6 +812,10 @@
         font-family: cus-roboto-medium, cus-roboto-round, 'Roboto', cus-roboto;
         font-size: 104px; 
         color: rgba(146,155,212,1);
+    }
+    #scroll-here-tip
+    {
+        display: none;
     }
     .footer
 	{
@@ -1738,6 +1763,42 @@
         font-size: 65px; 
         color: rgba(28,117,121,0.92);
     }
+
+    #scroll-here-tip
+    {
+        position: absolute;
+        height: 85px;
+        font-size: 40px;
+        font-family: roboto, cus-roboto, sans-serif;
+        top: 7187px;
+        left: 1695px;
+        visibility: hidden;
+        background-color: rgba(0,0,0,0.75);
+        color: rgba(255,255,255,0.85);
+        border: 0px rgba(112,112,112,0.5) solid;
+        border-radius: 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 18px;
+        padding-bottom: 15px;
+        z-index: 2;
+    }
+    .scroll-clk-button
+    {
+        position: absolute;
+        top: 7155px;
+        left: 2252px;
+        width: 150px;
+        height: 140px;
+        background: white;
+        box-shadow: 0px 0px 40px rgba(112,112,112,0.3);
+        border-radius: 25px;
+        color: rgba(33,97,140,0.74);
+        user-select: none;
+        font-size: 90px;
+        cursor: pointer;
+    }
+
     .footer
 	{
 		position: absolute;
@@ -4904,6 +4965,30 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
+function scrolldown()
+{
+    var artcontainer = document.querySelector(".articles-container"); 
+    var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
+    var bottomPosition = rect.bottom; var topPosition = rect.top; 
+    var actHeight = rect.height; var innr = window.innerHeight; 
+
+    var newscroll = scsc - (innr - bottomPosition) - (actHeight * 0.011); 
+    window.scrollTo({ top: newscroll, behavior: 'smooth' }); 
+
+    setTimeout(() => { 
+    var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
+    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
+
+    /* var containerheight = artcontainer.offsetHeight; var contentheight = artcontainer.scrollHeight; 
+    var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
+    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
+    if (currentscroll + containerheight >= contentheight) { 
+    document.querySelector(".scroll-click").style.opacity = "0"; 
+    setTimeout(() => { document.querySelector(".scroll-click").style.display = "none"; }, 4000); } */
+}
+function scrltipon() { document.getElementById("scroll-here-tip").style.visibility = "visible"; }
+function scrltipout() { document.getElementById("scroll-here-tip").style.visibility = ""; }
+
    setInterval(function() 
    {   
        const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
@@ -4953,20 +5038,36 @@ window.addEventListener('resize', updateLogo);
 
 function updateLogo() 
 {
-      if (window.matchMedia("(min-width: 615px)").matches) 
+       var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
+       if (window.matchMedia("(min-width: 615px)").matches) 
        {
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+           document.getElementById("Web_1920__1").style.width = "3554px";
        }
 
-      if (window.matchMedia("(max-width: 615px)").matches) 
+       if (window.matchMedia("(max-width: 615px)").matches) 
        {
            const mypagephone = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
+           document.getElementById("sc-clk-char").style.display = "none";
+       }
+
+       if (isdesk && window.matchMedia("(min-width: 615px)").matches) 
+       {
+           document.getElementById("sc-clk-char").style.display = "block";
+       }
+       if (!isdesk) 
+       {
+           document.getElementById("sc-clk-char").innerHTML = "▼";
+           document.getElementById("sc-clk-char").style.display = "block";
+           document.getElementById("sc-clk-char").style.fontSize = "70px";
+           document.getElementById("sc-clk-char").style.bottom = "15px";
+           document.getElementById("sc-clk-char").style.left = "66px";
        }
 
     var isios = (navigator.userAgent.match(/iPad|iPhone|iPod/i));
@@ -5018,8 +5119,8 @@ function updateLogo()
                     const attrname = record.attributeName;
                     const attrvalue = record.target.getAttribute(attrname);
 
-                    console.log(attrname);
-                    console.log(attrvalue);
+                    // console.log(attrname);
+                    // console.log(attrvalue);
     
                     if(attrvalue === 'filled' && record.target.id === 'ins-dis-phone-1')
                     {
@@ -5027,7 +5128,7 @@ function updateLogo()
                         document.getElementById("ads-style-display-res-phone").style.background = "#4D4D4D";
                         document.getElementById("ads-style-display-res-phone").style.border = "3px transparent solid";
                     }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-1' && window.matchMedia("(max-width: 615px)").matches)
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-phone-1')
                     {
                         document.getElementById("ads-style-display-res-phone").style.display = "none";
                         document.getElementById("ads-br-2").style.display = "block";
@@ -5041,11 +5142,11 @@ function updateLogo()
                         document.getElementById("ads-style-feed-res-phone").style.display = "none";
                         document.getElementById("ads-br-6").style.display = "block";
                     }
-                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-2' && window.matchMedia("(max-width: 615px)").matches)
+                    if(attrvalue === 'filled' && record.target.id === 'ins-feed-phone-2')
                     {
                         document.getElementById("ads-style-feed-res-phone-2").style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))";
                     }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-2' && window.matchMedia("(max-width: 615px)").matches)
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-phone-2')
                     {
                         document.getElementById("ads-style-feed-res-phone-2").style.display = "none";
                         document.getElementById("ads-br-8").style.display = "block";
@@ -5074,7 +5175,7 @@ function updateLogo()
                     }
                     
                     // on desktop
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one' && window.matchMedia("(min-width: 615px)").matches)
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-feed-one')
                     {
                         document.getElementById("ads-style-feed-res").style.display = "none";
                     }
@@ -5086,7 +5187,7 @@ function updateLogo()
                     {
                         document.getElementById("ads-style-feed-res-3").style.display = "none";
                     }
-                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one' && window.matchMedia("(min-width: 615px)").matches)
+                    if(attrvalue === 'unfilled' && record.target.id === 'ins-dis-one')
                     {
                         document.getElementById("ads-style-display-res").style.display = "none";
                     }
@@ -5094,7 +5195,7 @@ function updateLogo()
                     {
                         document.getElementById("ads-style-display-res-2").style.display = "none";
                     } 
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1' && window.matchMedia("(min-width: 615px)").matches)
+                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
                     {
                         document.getElementById("ads-v1-in").style.background = "#EAEAEA";
                     }   
@@ -5132,7 +5233,8 @@ function updateLogo()
   "image": "https://elomymelo.com/old-images/soundcoremotionplus.jpg",
   "author": {
     "@type": "Person",
-    "name": "Soumya Roy"
+    "name": "Soumya Roy",
+    "url": "https://elomymelo.com/about-me.html"
   },
   "publisher": {
     "@type": "Organization",
@@ -5142,10 +5244,33 @@ function updateLogo()
       "url": "https://elomymelo.com/old-images/circle-trans.png"
     }
   },
-  "datePublished": "2021-10-19",
-  "dateModified": "2021-11-24"
+  "datePublished": "2021-10-19T00:00:00+00:00",
+  "dateModified": "2023-12-19T12:10:20+00:00"
 }
 </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "name": "Soundcore Motion+",
+        "description": "This is an excellent mid-sized portable Bluetooth speaker that shines with sound quality. It still outperforms more expensive speakers.",
+        "image": "https://elomymelo.com/old-images/soundcoremotionplus.jpg",
+        "review": {
+            "@type": "Review",
+            "author": {
+                "@type": "Person",
+                "name": "Soumya Roy"
+            },
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "9.2",
+                "bestRating": "10"
+            },
+            "reviewBody": "I love the Soundcore Motion Plus speaker and it makes me happy."
+        }
+    }
+    </script>
 
 </head>
 
@@ -5163,13 +5288,35 @@ function updateLogo()
 <script type="text/javascript">
 
   function scaleMe()
-  { 
-      console.log('hello-here'); 
+  {       
+      // Check if the body element has overflow set to "hidden"
+      var parentElementNew = document.querySelector('.fc-consent-root');
+      var bodyOverflow = window.getComputedStyle(document.body).overflow; 
+      var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+      var parentElement = document.querySelector('.google-revocation-link-placeholder');
+      if (parentElement) { var childElements = parentElement.querySelectorAll('*');
+      // Loop through the child elements and set display to "none"
+      for (var i = 0; i < childElements.length; i++) 
+      {
+           childElements[i].parentNode.removeChild(childElements[i]);
+      }
+           parentElement.parentNode.removeChild(parentElement);
+      }
+      if (parentElementNew || bodyOverflow === "hidden") 
+      { 
+           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
+           document.body.style.transform = "none"; 
+      }
+      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
+      if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
+      if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
+      }
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
+           document.getElementById("Web_1920__1").style.width = "3554px";
       }
       if (window.matchMedia("(max-width: 615px)").matches) 
       {
@@ -5179,8 +5326,29 @@ function updateLogo()
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
       }
+      if (window.matchMedia("(max-width: 615px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "none";
+      }
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(1.0)";
+      }
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.920)";
+      }
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.860)";
+      }
+      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.80)";
+      }
   }
-  scaleMe();
+  scaleMe(); setInterval(scaleMe, 1000); 
+  window.addEventListener('resize', scaleMe, false); 
 
 </script>
 
@@ -6198,7 +6366,12 @@ function updateLogo()
 
   </div>
 
-      <div class="footer">
+  <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
+         <span id="sc-clk-char" style="position: absolute; display: none; left: 35px; bottom: 20px"> ⏷ </span>
+  </div>
+  <div id="scroll-here-tip"> scroll here on this section </div>
+
+  <div class="footer">
 
   	<div class="ft-01" style="position: absolute; overflow: visible; top: 45px; left: 385px; height: 140px; width: 1600px; border: 0px grey solid; border-radius: 25px;">
 
