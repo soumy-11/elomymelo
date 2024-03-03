@@ -5013,7 +5013,7 @@ function scrltipout() { document.querySelectorAll(".scroll-here-tip").forEach(fu
        var currentscroll = artcontainer.scrollTop; if(currentscroll > 420 && scsc < newscroll) 
        { scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
        document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.setAttribute('onclick', 'scrollmedown()');
-       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 420 && scsc < 600) 
+       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 420) 
        { scrlbtn.style.display = ""; } 
    }
    function mainscroll()
