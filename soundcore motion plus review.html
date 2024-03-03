@@ -1764,7 +1764,7 @@
         color: rgba(28,117,121,0.92);
     }
 
-    #scroll-here-tip
+    .scroll-here-tip
     {
         position: absolute;
         height: 85px;
@@ -4995,8 +4995,10 @@ function scrolldown()
     var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
     artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
 }
-function scrltipon() { document.getElementById("scroll-here-tip").style.visibility = "visible"; }
-function scrltipout() { document.getElementById("scroll-here-tip").style.visibility = ""; }
+function scrltiptwo() { document.getElementById("scrl-tip-two").style.visibility = "visible"; }
+function scrltipon() { document.getElementById("scrl-tip-one").style.visibility = "visible"; }
+function scrltipout() { document.querySelectorAll(".scroll-here-tip").forEach(function(el) 
+{ el.style.visibility = ""; }); } 
 
    document.addEventListener('DOMContentLoaded', function() {
    const artcontainer = document.querySelector(".articles-container");
@@ -5007,19 +5009,21 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
    {
        var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
        topPosition, actHeight, innr] = comvars(); // calls here 
-       var currentscroll = artcontainer.scrollTop; if(currentscroll > 400 && scsc < 250) { 
-       scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
-       document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.removeAttribute('onclick');
-       scrlbtn.setAttribute('onclick', 'scrollmedown()'); } if(currentscroll < 400 && scsc < 600) 
+       var newscroll = scsc + topPosition + (actHeight * 0.006); 
+       var currentscroll = artcontainer.scrollTop; if(currentscroll > 420 && scsc < newscroll) 
+       { scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
+       document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.setAttribute('onclick', 'scrollmedown()');
+       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 420 && scsc < 600) 
        { scrlbtn.style.display = ""; } 
    }
    function mainscroll()
    {
-       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
-       topPosition, actHeight, innr] = comvars(); if(scsc > 600) { scrlbtn.style.display = "none"; 
-       scrlbtn.removeAttribute('onclick'); scrlbtn.setAttribute('onclick', 'scrolldown()'); } 
-       if(scsc > 800) { scrlbtn.style.display = "none"; scrlbtn.style.top = "7155px"; 
-       document.getElementById("sc-clk-char").innerHTML = "⏷";
+       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, topPosition, actHeight, innr] = comvars(); 
+       var newscroll = scsc - (innr - bottomPosition) - (actHeight * 0.011); 
+       var scnone = scsc - (innr - bottomPosition) - (actHeight * 0.30); 
+       if(scsc > scnone) { scrlbtn.style.display = "none"; } if(scsc > newscroll) { scrlbtn.style.top = "7155px"; 
+       document.getElementById("sc-clk-char").innerHTML = "⏷"; scrlbtn.setAttribute('onclick', 'scrolldown()');
+       scrlbtn.setAttribute('onmouseover', 'scrltipon()');
        scrlbtn.style.display = "block"; } 
    }
 
@@ -6403,7 +6407,8 @@ function updateLogo()
   <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
          <span id="sc-clk-char" style="position: absolute; display: none; left: 35px; bottom: 20px"> ⏷ </span>
   </div>
-  <div id="scroll-here-tip"> scroll here on this section </div>
+  <div class="scroll-here-tip" id="scrl-tip-one"> scroll here on this section </div>
+  <div class="scroll-here-tip" id="scrl-tip-two" style="top: 987px; left: 1892px"> pull up + scroll </div>
 
   <div class="footer">
 
