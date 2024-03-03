@@ -1797,6 +1797,7 @@
         user-select: none;
         font-size: 90px;
         cursor: pointer;
+        display: none;
     }
 
     .footer
@@ -4965,29 +4966,62 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function scrolldown()
+function comvars()
 {
+    var scrlbtn = document.querySelector(".scroll-clk-button");
     var artcontainer = document.querySelector(".articles-container"); 
     var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
     var bottomPosition = rect.bottom; var topPosition = rect.top; 
     var actHeight = rect.height; var innr = window.innerHeight; 
 
+    return [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
+    topPosition, actHeight, innr]; 
+}
+function scrollmedown()
+{
+    var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
+    topPosition, actHeight, innr] = comvars(); // calls here 
+    var newscroll = scsc + topPosition + (actHeight * 0.006); 
+    window.scrollTo({ top: newscroll, behavior: 'smooth' }); setTimeout(() => { 
+    var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll - 1000; 
+    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
+}
+function scrolldown()
+{
+    var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
+    topPosition, actHeight, innr] = comvars(); // calls here 
     var newscroll = scsc - (innr - bottomPosition) - (actHeight * 0.011); 
-    window.scrollTo({ top: newscroll, behavior: 'smooth' }); 
-
-    setTimeout(() => { 
+    window.scrollTo({ top: newscroll, behavior: 'smooth' }); setTimeout(() => { 
     var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
     artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
-
-    /* var containerheight = artcontainer.offsetHeight; var contentheight = artcontainer.scrollHeight; 
-    var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
-    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
-    if (currentscroll + containerheight >= contentheight) { 
-    document.querySelector(".scroll-click").style.opacity = "0"; 
-    setTimeout(() => { document.querySelector(".scroll-click").style.display = "none"; }, 4000); } */
 }
 function scrltipon() { document.getElementById("scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.getElementById("scroll-here-tip").style.visibility = ""; }
+
+   document.addEventListener('DOMContentLoaded', function() {
+   const artcontainer = document.querySelector(".articles-container");
+   artcontainer.addEventListener('scroll', scrollmeup, false); });
+   window.addEventListener('scroll', mainscroll, false); 
+
+   function scrollmeup() 
+   {
+       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
+       topPosition, actHeight, innr] = comvars(); // calls here 
+       var currentscroll = artcontainer.scrollTop; if(currentscroll > 400 && scsc < 250) { 
+       scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
+       document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.removeAttribute('onclick');
+       scrlbtn.setAttribute('onclick', 'scrollmedown()'); } if(currentscroll < 400 && scsc < 600) 
+       { scrlbtn.style.display = ""; } 
+   }
+   function mainscroll()
+   {
+       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
+       topPosition, actHeight, innr] = comvars(); if(scsc > 600) { scrlbtn.style.display = "none"; 
+       scrlbtn.removeAttribute('onclick'); scrlbtn.setAttribute('onclick', 'scrolldown()'); } 
+       if(scsc > 800) { scrlbtn.style.display = "none"; scrlbtn.style.top = "7155px"; 
+       document.getElementById("sc-clk-char").innerHTML = "⏷";
+       scrlbtn.style.display = "block"; } 
+   }
 
    setInterval(function() 
    {   
