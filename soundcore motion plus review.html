@@ -5007,14 +5007,14 @@ function scrltipout() { document.querySelectorAll(".scroll-here-tip").forEach(fu
 
    function scrollmeup() 
    {
-       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
-       topPosition, actHeight, innr] = comvars(); // calls here 
-       var newscroll = scsc + topPosition + (actHeight * 0.006); 
-       var currentscroll = artcontainer.scrollTop; if(currentscroll > 420 && scsc < newscroll) 
+       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, topPosition, 
+       actHeight, innr] = comvars(); var newscroll = scsc + topPosition + (actHeight * 0.006); 
+       var scnone = scsc - (innr - bottomPosition) - (actHeight * 0.30); 
+       var currentscroll = artcontainer.scrollTop; if(currentscroll > 150 && scsc < newscroll) 
        { scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
        document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.setAttribute('onclick', 'scrollmedown()');
-       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 420) 
-       { scrlbtn.style.display = ""; } 
+       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 150 && scsc < scnone || 
+       currentscroll > 150 && scsc > newscroll && scsc < scnone) { scrlbtn.style.display = ""; }  
    }
    function mainscroll()
    {
@@ -5023,25 +5023,22 @@ function scrltipout() { document.querySelectorAll(".scroll-here-tip").forEach(fu
        var scnone = scsc - (innr - bottomPosition) - (actHeight * 0.30); 
        if(scsc > scnone) { scrlbtn.style.display = "none"; } if(scsc > newscroll) { scrlbtn.style.top = "7155px"; 
        document.getElementById("sc-clk-char").innerHTML = "⏷"; scrlbtn.setAttribute('onclick', 'scrolldown()');
-       scrlbtn.setAttribute('onmouseover', 'scrltipon()');
-       scrlbtn.style.display = "block"; } 
+       scrlbtn.setAttribute('onmouseover', 'scrltipon()'); scrlbtn.style.display = "block"; } 
+       if(scsc < (newscroll + 4)) { scrlbtn.style.display = "none"; } 
    }
 
-   setInterval(function() 
-   {   
-       const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
-       const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
-       const adheightthree = document.getElementById("ads-style-feed-res-phone-2").clientHeight;
-       const adheightfour = document.getElementById("ads-style-display-res-phone-2").clientHeight;
-       const adheightfive = document.getElementById("ads-style-display-res-phone-3").clientHeight;
-
-       document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
-       document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
-       document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
-       document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
-       document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
-
-   }, 0);
+  setInterval(function() {
+  const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
+  const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
+  const adheightthree = document.getElementById("ads-style-feed-res-phone-2").clientHeight;
+  const adheightfour = document.getElementById("ads-style-display-res-phone-2").clientHeight;
+  const adheightfive = document.getElementById("ads-style-display-res-phone-3").clientHeight;
+  document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
+  document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
+  document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
+  document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
+  document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', 
+  adheightfive + "px"); }, 0);
 
    setTimeout(function()
    {  
