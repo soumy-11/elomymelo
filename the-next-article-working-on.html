@@ -231,7 +231,8 @@ as="style" onload="this.rel='stylesheet'">
     var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
     var topPosition = rect.top; var actHeight = rect.height; 
     var newscroll = scsc + topPosition + (actHeight * 0.1); if(scsc > newscroll) { 
-    artcontainer.style.overflowY = "scroll"; window.removeEventListener('scroll', scrollflow); } } 
+    artcontainer.style.overflowY = "scroll"; setTimeout(() => { 
+    window.removeEventListener('scroll', scrollflow); }, 2000); } } 
 
     window.addEventListener('resize', checkflow);
     function checkflow() {
@@ -1447,7 +1448,8 @@ as="style" onload="this.rel='stylesheet'">
   </div>
 
   <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
-        <span id="sc-clk-char" style="position: absolute; left: 35px; bottom: 20px"> ⏷ </span>
+        <img src="old-images/down-triangle.png" id="sc-clk-char" 
+        style="position: absolute; left: 40px; bottom: 32px; width: 81px">
   </div>
   <div class="scroll-here-tip"> scroll here on this section </div>
 
