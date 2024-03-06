@@ -25,7 +25,7 @@ as="style" onload="this.rel='stylesheet'">
 <meta name="author" content="Soumya Roy">
 
 <link rel="stylesheet" href="styles/style-phone.css" media="screen and (max-width: 615px)">
-<link rel="stylesheet" href="styles/style-desk.css" media="screen and (min-width: 615px)"> 
+<link rel="stylesheet" href="styles/style-desk-2.css" media="screen and (min-width: 615px)"> 
 <link rel="preload" href="scripts/script-check.js" as="script"> 
 <link rel="preload" href="scripts/script-phone.js" as="script" media="screen and (max-width: 615px)"> 
 <link rel="preload" href="scripts/script-com.js" as="script" media="screen and (min-width: 615px)"> 
@@ -134,22 +134,24 @@ as="style" onload="this.rel='stylesheet'">
     {
         src: url("fonts/Roboto-Regular-Round.ttf");
         font-family: cus-roboto-round;
+        font-display: swap;
     }
     @font-face
     {
         src: url("fonts/Lato-Regular.ttf");
         font-family: cus-lato;
+        font-display: swap;
     } 
 
     @media only screen and (max-width: 615px)
     { 
     #Web_1920__1 
     {
-		position: absolute;
-		background-color: rgba(0,0,0,0);
-		width: auto;
-		height: 5216px;
-		overflow: hidden;
+        position: absolute;
+        background-color: rgba(0,0,0,0);
+        width: auto;
+        height: 5216px;
+        overflow: hidden;
     }
     #pros-cons
     {
@@ -210,7 +212,6 @@ as="style" onload="this.rel='stylesheet'">
 
 <script defer type="text/javascript" src="scripts/script-check.js"></script>
 <script defer type="text/javascript" src="scripts/script-phone.js"></script>
-<script async type="text/javascript" src="scripts/script-scroll.js"></script>
 <script async type="text/javascript" src="scripts/script-com.js"></script>
 
 <script type="text/javascript">
@@ -223,48 +224,9 @@ as="style" onload="this.rel='stylesheet'">
     js.content = "script-src 'unsafe-inline'"; 
     fjs.appendChild(js, fjs); }
 
-    timermain = setInterval(upme, 500); 
-    setTimeout(() => { clearInterval(timermain); }, 5000); 
-
-// for other than windows and mac ----
-var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
-document.addEventListener('DOMContentLoaded', upme); 
-window.addEventListener('resize', upme); 
-function upme()
-{
-    // some IOS changes --------------
-    if(isios) { // console.log("check-here"); 
-    document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
+    // for other than windows and mac ----- 
+    if(isios) { document.querySelectorAll(".dis-com").forEach(function(el) { el.style.display = "none"; });
     document.querySelectorAll(".feed-com").forEach(function(el) { el.style.display = "none"; }); } 
-
-    // checks if user is on a desktop device 
-    if(window.matchMedia("(min-width: 615px)").matches && !isdesk)
-    {
-        document.getElementById("Web_1920__1").style.height = "2216px";
-        document.getElementById("Web_1920__1").style.paddingBottom = "0px";
-        document.getElementById("arts-con-id").style.position = "absolute";
-        timer4 = setInterval(function() { // console.log("meme here"); 
-        document.getElementById("arts-con-id").style.height = "6712px"; }, 0);
-        setTimeout(() => { clearInterval(timer4); }, 4500); 
-        document.getElementById("arts-con-id").style.overflowX = "hidden";
-        document.getElementById("arts-con-id").style.overflowY = "scroll";
-        document.getElementById("arts-con-id").style.paddingBottom = "0px";
-        document.getElementById("main-art-id").style.position = "absolute";
-        document.getElementById("footer-id").style.display = "block";
-        document.getElementById("footer-id").style.position = "absolute";
-        document.getElementById("footer-id").style.top = "7562px";
-        document.getElementById("out-cmnt").style.top = "7074px";
-        document.getElementById("ads-vertical-two").style.display = "none";
-        document.getElementById("hoty-blnk").style.display = "none";
-        document.getElementById("top-pos").style.display = "none";
-    } 
-    if(window.matchMedia("(max-width: 615px)").matches) 
-    {
-        document.getElementById("arts-con-id").style.overflow = "visible";
-        document.getElementById("footer-id").style.display = "none";
-    }
-}
-if(isdesk) { window.removeEventListener('resize', upme); } 
 
 </script>
 
@@ -295,7 +257,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
     }
   },
   "datePublished": "2023-12-16T20:35:10+00:00",
-  "dateModified": "2024-01-04T18:20:10+00:00"
+  "dateModified": "2024-01-29T17:50:10+00:00"
 }
 </script>
 
@@ -829,8 +791,8 @@ if(isdesk) { window.removeEventListener('resize', upme); }
 	<div id="category-top">
 		<span>SPEAKER COMPARISON</span>
 	</div>
-    <div id="left-edge"></div>
-    <div id="right-edge"></div>
+  <div id="left-edge"></div>
+  <div id="right-edge"></div>
 	<div id="left-ring-one"></div>
 	<div id="left-ring-two"></div>
 	<div id="left-ring-three"></div>
@@ -839,7 +801,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
 	<div id="right-ring-three"></div>
 	<div id="category-top-phone">
         <span> SPEAKER </span>
-    </div>
+  </div>
 	<article class="main-article-div" id="main-art-id">
 
 		<div id="main-art-header"> Soundcore Motion X500 vs X600 vs Boom <span id="nillkin-glass-extra"> ➜ Boom is a champ </span>
@@ -852,23 +814,23 @@ if(isdesk) { window.removeEventListener('resize', upme); }
 		<div id="main-art-header-phone"> <h1 id="h1-size-phone" style="font-size: 128px; display: inline-block; font-weight: normal"> Soundcore Motion X500 vs X600 vs Boom - Boom is a champion </h1> 
 		  <span id="short-verdict-phone"> Motion X600 offers better stereo separation than X500 speaker </span>
 		  <span id="publication-detail-phone"> Saturday, December 16, 2023 - by <a style="text-decoration: none; color: rgba(238,99,122,1);" href="https://www.facebook.com/profile.php?id=100022991028680">Soumya Roy</a> </span>
-          <span class="header-line-phone"></span><span class="header-line-phone-2"></span> 
+      <span class="header-line-phone"></span><span class="header-line-phone-2"></span> 
 		</div>
 		<br>
 		<div class="art-text-div" id="article-text-div">
 
-			<img id="art-image-one" src="https://docs.elomymelo.com/docs-images/boom-vs-xs-main.jpg" alt="photo of soundcore motion boom and x500 and x600 speaker"> <br>
+			      <img id="art-image-one" src="https://docs.elomymelo.com/docs-images/boom-vs-xs-main.jpg" alt="photo of soundcore motion boom and x500 and x600 speaker" fetchpriority="high"> <br>
              
-		    <p id="intro-para"><span id="big-intro-char">M</span>otion X500 has been creating a lot of hype since its launch, as was the <a href="https://us.soundcore.com/products/motion-x600-a3130011" target="_blank" rel="nofollow noopener noreferrer">Motion X600</a>. I am gonna be open, transparent and honest while comparing those two speakers with the Soundcore Motion Boom. We will validate and debunk a lot of non&shy;sense together, in this article. So, the hype was about X’s Spatial Audio feature, design and probably the retail price too. I don’t mind the design and price, even though the price is way higher than what I expected. However, the misinformation around these products caught my attention. Today, I will compare both X series products thoroughly with the much cheaper <a href="https://us.soundcore.com/products/motion-boom" target="_blank" rel="nofollow noopener noreferrer">Motion Boom</a> with technical details, like how they are different from one another - huge difference.</p>  
+		        <p id="intro-para"><span id="big-intro-char">M</span>otion X500 has been creating a lot of hype since its launch, as was the <a href="https://us.soundcore.com/products/motion-x600-a3130011" target="_blank" rel="nofollow noopener noreferrer">Motion X600</a>. I am gonna be open, transparent and honest while comparing those two speakers with the Soundcore Motion Boom. We will validate and debunk a lot of non&shy;sense together, in this article. So, the hype was about X’s Spatial Audio feature, design and probably the retail price too. I don’t mind the design and price, even though the price is way higher than what I expected. However, the misinformation around these products caught my attention. Today, I will compare both X series products thoroughly with the much cheaper <a href="https://us.soundcore.com/products/motion-boom" target="_blank" rel="nofollow noopener noreferrer">Motion Boom</a> with technical details, like how they are different from one another - huge difference.</p>  
 
-		    <br><br>
+		        <br><br>
 
             <div id="pros-cons"> 
                 <h2 id="thoughts"> Overall Thoughts </h2> 
                 <p id="thoughts-para">My opinion on this is if you want a speaker for ana&shy;lytical and critical listening, go for the more expen&shy;sive X600. Want a warmer sound with premium build, take the X500. If you want a pound-for-pound champion, Motion Boom is a clear winner. I love the accuracy of the Boom, pretty flat frequency response. There is another option for analytical listening, which is way cheaper than X600 - the Motion+. Spatial Audio not very noticeable.</p>
             </div> <br><br>
 
-		    <span class="sections"> Inside-the-box Comparison </span>
+		        <span class="sections"> Inside-the-box Comparison </span>
             <br>
             
             <p>I found that there is a significant difference in their packaging. Both Xs look like they have pretty good, kinda premium-quality packaging. Also, both have an outer sleeve kinda wrap and nice foam protection inside the main black box. But the actual plastic wrap around the speaker and charging cable seems pretty different to me. Motion X500 with a <a href="https://www.youtube.com/watch?v=882HpLS6EC4&t=34s" target="_blank" rel="nofollow noopener noreferrer">smoky soft</a> plastic wrap, but a clear <a href="https://www.youtube.com/watch?v=UBsq2M2M7Nk&t=73s" target="_blank" rel="nofollow noopener noreferrer">transparent</a> plastic wrap for the Motion X600 - quite a difference.</p> 
@@ -885,11 +847,11 @@ if(isdesk) { window.removeEventListener('resize', upme); }
 
             <p>Check out the user manuals for <a href="https://anker-shopify.s3.us-west-2.amazonaws.com/s//59296477-2a29-42a8-a223-d1dc133cfa3b.pdf" target="_blank" rel="nofollow noopener noreferrer">X500</a> and <a href="https://cdn.shopify.com/s/files/1/0517/2199/4432/files/V01_soundcore_Speaker_A3130_UM_20230404.pdf?v=1683528824" target="_blank" rel="nofollow noopener noreferrer">X600</a> speakers.</p>
 
-		    <br><br><br>
-		    <span class="sections"> Design & Build Analogy </span>
+		        <br><br><br>
+		        <span class="sections"> Design & Build Analogy </span>
             <br>
 
-		    <p>The Xs are under the X series and share a similar design and build. I like when companies try something new and different. Here, their overall design isn’t anything significantly different than what’s out there, but some implementation choices that they are introducing, are pretty new in portable Bluetooth speakers. The top-firing speaker isn’t flat relative to the surface, it’s slightly tilted towards you. I have mixed feelings about this choice on both.</p> 
+		        <p>The Xs are under the X series and share a similar design and build. I like when companies try something new and different. Here, their overall design isn’t anything significantly different than what’s out there, but some implementation choices that they are introducing, are pretty new in portable Bluetooth speakers. The top-firing speaker isn’t flat relative to the surface, it’s slightly tilted towards you. I have mixed feelings about this choice on both.</p> 
 
             <br>
             <div class="dis-com" id="ads-style-display-1">
@@ -1539,90 +1501,85 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             </div>
   </div>
 
-       <div class="hot-devices-sec" id="hot-dvs-sctn">
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 70px; padding-right: 65px; color: rgba(0,0,0,0.58); border: 1px rgba(112,112,112,0.6) solid; border-radius: 80px; top: 95px; left: 240px; padding-top: 28px; padding-bottom: 26px;"> HOT DEVICES </span>
-        	<br>
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 48px; padding-left: 65px; padding-right: 65px; color: rgba(0,0,0,0.57); border: 4px rgba(255,119,119,0.35) solid; border-radius: 80px; top: 210px; left: 50px; padding-top: 20px; padding-bottom: 20px;"> Smartphones </span>
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 60px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 280px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/google_pixel_6-11037.php" target="_blank" rel="noopener noreferrer"> Pixel 6 
-        	</a></span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 55px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 280px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/oneplus_nord_2_5g-10960.php" target="_blank" rel="noopener noreferrer"> OnePlus Nord 2 </a></span>
-        	
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 340px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/samsung_galaxy_a52s_5g-11039.php" target="_blank" rel="noopener noreferrer"> Galaxy A52s </a></span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 65px; padding-right: 65px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 340px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/apple_iphone_13-11103.php" target="_blank" rel="noopener noreferrer"> Iphone 13 Pro </a></span>
+  <div class="hot-devices-sec">
+
+            <div class="top-dsgn" style="left: 27px; transform: rotate(33deg)"></div><div class="top-dsgn" style="right: 27px; transform: rotate(147deg)"></div>
+
+            <div class="hot-dvcs-hdr" style="left: 20%; width: 60%; top: 124px; height: 20px; background: #EAEAEA; border-left: 15px rgba(113,208,245,1) solid; border-right: 15px rgba(113,208,245,1) solid"> 
+            <span class="hot-dvcs-hdr-span" style="top: -53px; padding: 31px 65px 29px 70px"> HOT DEVICES </span>
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 309px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(255,119,119,0.9), white)">
+            <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(255,119,119,0.35) solid; top: -46px"> Smartphones </span>
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 393px; width: 100%; height: auto; border: 0px grey solid; height: 358px">
+
+            <div class="hot-dvcs-hdr expmore">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/google_pixel_8-12546.php" target="_blank" rel="noopener noreferrer"> Pixel 8 </a></span> 
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/oneplus_nord_3-12135.php" target="_blank" rel="noopener noreferrer"> OnePlus Nord 3 </a></span>
+            </div>
+
+            <div class="hot-dvcs-hdr expmore" style="top: 130px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/samsung_galaxy_a54-12070.php" target="_blank" rel="noopener noreferrer"> Galaxy A54 </a></span>           
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.gsmarena.com/apple_iphone_15_pro-12557.php" target="_blank" rel="noopener noreferrer"> iPhone 15 Pro </a></span>
+            </div>
+
+            <div class="hot-dvcs-hdr expmore" style="top: 250px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.gsmarena.com/nothing_phone_(2)-12386.php" target="_blank" rel="noopener noreferrer"> Nothing Phone 2 </a></span>
+            </div>
+
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 855px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(236,96,202,1), white)">
+            <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(236,96,202,0.36) solid; top: -46px"> Portable Speakers </span>
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 939px; width: 100%; height: auto; border: 0px grey solid; height: 358px">
+
+            <div class="hot-dvcs-hdr expmore">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://us.soundcore.com/products/a3116011" target="_blank" rel="noopener noreferrer"> Motion+ </a></span>     
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://us.soundcore.com/collections/portable/products/motion-boom" target="_blank" rel="noopener noreferrer"> Motion Boom </a></span>
+            </div>
             
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 55px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 400px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/xiaomi_redmi_note_11-11181.php" target="_blank" rel="noopener noreferrer"> Redmi Note 11 </a></span>
-        	
-        	<br>
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 48px; padding-left: 65px; padding-right: 65px; color: rgba(0,0,0,0.57); border: 4px rgba(236,96,202,0.36) solid; border-radius: 80px; top: 500px; left: 50px; padding-top: 20px; padding-bottom: 20px;"> Portable Speakers </span>
+            <div class="hot-dvcs-hdr expmore" style="top: 130px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://news.jbl.com/en-CEU/201927-jbl-flip-6-bold-sound-for-every-adventure" target="_blank" rel="noopener noreferrer"> JBL Flip 6 </a></span> 
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.jbl.com/bluetooth-speakers/CHARGE5-.html" target="_blank" rel="noopener noreferrer"> JBL Charge 5 </a></span>
+            </div>
 
-            <br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 60px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 570px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://us.soundcore.com/products/a3116011" target="_blank" rel="noopener noreferrer"> Motion+ </a></span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 55px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 570px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://us.soundcore.com/collections/portable/products/motion-boom" target="_blank" rel="noopener noreferrer"> Motion Boom </a></span>
-        	
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 630px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://news.jbl.com/en-CEU/201927-jbl-flip-6-bold-sound-for-every-adventure" target="_blank" rel="noopener noreferrer"> JBL Flip 6 </a></span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 65px; padding-right: 75px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 630px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.jbl.com/bluetooth-speakers/CHARGE5-.html" target="_blank" rel="noopener noreferrer"> JBL Charge 5 </a></span>
+            <div class="hot-dvcs-hdr expmore" style="top: 250px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.sony.com/et/electronics/portable-speakers/srs-xb33" target="_blank" rel="noopener noreferrer"> Sony srs-XB33 </a></span>
+            </div>
+
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 1401px; left: 6%; height: 20px; background: linear-gradient(to right, white, rgba(235,152,78,1), white)">
+            <span class="hot-dvcs-hdr-span" style="font-size: 48px; border: 4px rgba(235,152,78,0.36) solid; top: -46px"> TWS Earbuds </span>
+            </div>
+
+            <div class="hot-dvcs-hdr" style="top: 1486px; width: 100%; height: auto; border: 0px grey solid; height: 358px">
+
+            <div class="hot-dvcs-hdr expmore">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://www.apple.com/airpods-pro/" target="_blank" rel="noopener noreferrer"> Airpods Pro </a></span> 
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://store.google.com/product/pixel_buds_a_series?hl=en-US" target="_blank" rel="noopener noreferrer"> Pixel Buds </a></span>
+            </div>
             
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 55px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 690px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.sony-asia.com/electronics/wireless-speakers/srs-xb33" target="_blank" rel="noopener noreferrer"> Sony srs-XB33 </a></span>
-        	
-        	<br>
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 48px; padding-left: 65px; padding-right: 65px; color: rgba(0,0,0,0.57); border: 4px rgba(235,152,78,0.36) solid; border-radius: 80px; top: 790px; left: 50px; padding-top: 20px; padding-bottom: 20px;"> TWS Earbuds </span>
-
-            <br>
-
-            <span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 40px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 860px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.apple.com/airpods-pro/" target="_blank" rel="noopener noreferrer"> Airpods Pro </a>
-        	</span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 55px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 860px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://store.google.com/product/pixel_buds_a_series?hl=en-US" target="_blank" rel="noopener noreferrer"> Pixel Buds </a></span>
-        	
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 55px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 920px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://us.soundcore.com/products/a3952011" target="_blank" rel="noopener noreferrer"> Liberty 3 Pro 
-        	</a></span> 
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 65px; padding-right: 75px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 920px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.apac.jabra.com/bluetooth-headsets/jabra-elite-3##100-91410000-40" target="_blank" rel="noopener noreferrer"> Jabra Elite 3 </a></span>
-
-        	<br>
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 50px; padding-right: 45px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 980px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.gsmarena.com/lypertek_tevi_review-news-47000.php" target="_blank" rel="noopener noreferrer"> Tevi </a></span>
-        	
-        	&nbsp;&nbsp;&nbsp;&nbsp;
-        	
-        	<span style="position: relative; overflow: visible; font-family: roboto, cus-roboto, sans-serif; font-size: 45px; padding-left: 50px; padding-right: 50px; color: rgba(0,0,0,0.54); border: 1px rgba(112,112,112,0.40) solid; border-radius: 80px; top: 980px; left: 50px; padding-top: 15px; padding-bottom: 15px;"><a href="https://www.soundguys.com/sennheiser-momentum-true-wireless-2-review-40848/" target="_blank" rel="noopener noreferrer"> Momentum </a></span>
+            <div class="hot-dvcs-hdr expmore" style="top: 130px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://us.soundcore.com/products/liberty-4-nc-a3947z61" target="_blank" rel="noopener noreferrer"> Liberty 4 NC </a></span> 
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.apac.jabra.com/bluetooth-headsets/jabra-elite-10" target="_blank" rel="noopener noreferrer"> Jabra Elite 10 </a></span>
+            </div>
             
-        	<br>
-        	       	
-        </div>
+            <div class="hot-dvcs-hdr expmore" style="top: 250px">
+            <span class="hot-dvcs-hdr-span spnmore"><a href="https://intl.nothing.tech/products/ear-2" target="_blank" rel="noopener noreferrer"> Ear 2 </a></span> 
+            <span class="hot-dvcs-hdr-span spnmore02"><a href="https://www.sennheiser-hearing.com/en-US/p/momentum-true-wireless-3/" target="_blank" rel="noopener noreferrer"> Momentum </a></span>
+            </div>
 
-    <div class="ads-vertical" id="ads-vertical-two" style="height: 798px !important; top: 7077px">
-       
+            </div>
+            
+    </div>
+
+    <div class="ads-vertical" id="ads-vertical-two" style="height: 798px !important; top: 5226px">
+    
             <div class="ads-vrtl-in" id="ads-v2-in" style="top: 66px; left: 24px; width: 850px; height: 665px; background-image: url('https://docs.elomymelo.com/old-images/gig-back.PNG'); background-position: -6px 440px; background-repeat: no-repeat; filter: blur(10px); border-radius: 40px; background-size: 850px"> </div> 
 
                 <!-- new code -->
@@ -1638,7 +1595,6 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             </div> 
     </div>
     
-    <div id="out-cmnt">
     <div class="comment-sec" id="comnt-sctn">
     	<span class="header-comment">COMMENT SECTION</span>
 
@@ -1659,10 +1615,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
         <div id="blank-fields"> blank fields allowed </div>
 
     </div> 
-    <div id="last-dab"></div>
-    </div>
     <div class="after-hot-blank" id="hoty-blnk"></div>
-    <div id="top-pos"></div>
 
 </div>
 </body>
