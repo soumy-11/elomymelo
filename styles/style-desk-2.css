@@ -63,7 +63,7 @@ br
     width: 2358px;
     height: 7725px;
     min-height: 700px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     padding-bottom: 400px;
     border: 1px rgba(112,112,112,0.450) solid;
