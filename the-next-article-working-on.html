@@ -236,10 +236,11 @@ as="style" onload="this.rel='stylesheet'">
 
     window.addEventListener('resize', checkflow);
     function checkflow() {
-    if(window.matchMedia("(max-width: 615px)").matches) {
-    document.querySelector(".articles-container").style.overflowY = "visible"; }
     if(window.matchMedia("(min-width: 615px)").matches) {
-    document.querySelector(".articles-container").style.overflowY = "scroll"; } }
+    document.querySelector(".articles-container").style.overflowY = "scroll"; }
+    if(window.matchMedia("(max-width: 615px)").matches) {
+    document.querySelector(".articles-container").style.overflowY = "visible";
+    window.removeEventListener('scroll', scrollflow); } }
 
     document.addEventListener('DOMContentLoaded', upme); 
     function upme() { // for other than windows and mac ----- 
@@ -1449,7 +1450,7 @@ as="style" onload="this.rel='stylesheet'">
 
   <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
         <img src="old-images/down-triangle.png" id="sc-clk-char" 
-        style="position: absolute; left: 40px; bottom: 32px; width: 81px">
+        style="position: absolute; left: 40px; bottom: 37px; width: 77px">
   </div>
   <div class="scroll-here-tip"> scroll here on this section </div>
 
