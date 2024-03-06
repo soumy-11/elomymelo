@@ -624,6 +624,48 @@
         z-index: 1;
     }
 
+    .hot-dvcs-hdr
+    {
+        position: absolute; 
+        font-size: 45px; 
+        color: rgba(0,0,0,0.62); 
+        font-family: roboto, cus-roboto, sans-serif;
+        text-align: center;
+        border-radius: 20px;
+        width: 88%;
+    }
+    .hot-dvcs-hdr.expmore
+    {
+        top: 10px; width: 100%; height: auto; 
+    }
+    .hot-dvcs-hdr-span
+    {
+        padding: 22px 65px 24px 65px;
+        border: 4px rgba(112,112,112,0.20) solid;
+        position: relative;
+        display: inline-block;
+        border-radius: 80px;
+        background: white;
+    }
+    .hot-dvcs-hdr-span.spnmore
+    {
+        padding: 18px 55px 18px 60px; border: 4px rgba(112,112,112,0.14) solid;
+    }
+    .hot-dvcs-hdr-span.spnmore02
+    {
+        padding: 18px 60px 18px 60px; margin-left: 10px; 
+        border: 4px rgba(112,112,112,0.14) solid;
+    }
+    .top-dsgn
+    {
+        position: absolute;
+        width: 20%;
+        height: 7px;
+        background: linear-gradient(to right, white, #EAEAEA);
+        border-radius: 8px;
+        top: 87px; 
+        display: none;
+    }
     .hot-devices-sec a
     {
         text-decoration: none; 
