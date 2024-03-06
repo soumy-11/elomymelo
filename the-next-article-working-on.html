@@ -224,13 +224,21 @@ as="style" onload="this.rel='stylesheet'">
     js.content = "script-src 'unsafe-inline'"; 
     fjs.appendChild(js, fjs); } 
 
-    window.addEventListener('scroll', scrollflow); 
+    if(window.matchMedia("(min-width: 615px)").matches) 
+    { window.addEventListener('scroll', scrollflow); } 
     function scrollflow() { 
     var artcontainer = document.querySelector(".articles-container"); 
     var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
     var topPosition = rect.top; var actHeight = rect.height; 
     var newscroll = scsc + topPosition + (actHeight * 0.1); if(scsc > newscroll) { 
     artcontainer.style.overflowY = "scroll"; window.removeEventListener('scroll', scrollflow); } } 
+
+    window.addEventListener('resize', checkflow);
+    function checkflow() {
+    if(window.matchMedia("(max-width: 615px)").matches) {
+    document.querySelector(".articles-container").style.overflowY = "visible"; }
+    if(window.matchMedia("(min-width: 615px)").matches) {
+    document.querySelector(".articles-container").style.overflowY = "scroll"; } }
 
     document.addEventListener('DOMContentLoaded', upme); 
     function upme() { // for other than windows and mac ----- 
