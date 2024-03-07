@@ -232,15 +232,19 @@ as="style" onload="this.rel='stylesheet'">
     var topPosition = rect.top; var actHeight = rect.height; 
     var newscroll = scsc + topPosition + (actHeight * 0.1); if(scsc > newscroll) { 
     artcontainer.style.overflowY = "scroll"; setTimeout(() => { 
-    window.removeEventListener('scroll', scrollflow); }, 2000); } } 
+    window.removeEventListener('scroll', scrollflow); }, 2000); }
+    return [artcontainer, scsc, newscroll]; } 
 
     window.addEventListener('resize', checkflow);
-    function checkflow() {
-    if(window.matchMedia("(min-width: 615px)").matches) {
-    document.querySelector(".articles-container").style.overflowY = "scroll"; }
+    function checkflow() { 
+    var [artcontainer, scsc, newscroll] = scrollflow(); var divscroll = artcontainer.scrollTop;
     if(window.matchMedia("(max-width: 615px)").matches) {
-    document.querySelector(".articles-container").style.overflowY = "visible";
-    window.removeEventListener('scroll', scrollflow); } }
+    window.removeEventListener('scroll', scrollflow); artcontainer.style.overflowY = "visible"; }
+    if(window.matchMedia("(min-width: 615px)").matches && scsc > newscroll 
+    && divscroll > 4) { artcontainer.style.overflowY = "scroll"; }
+    if(window.matchMedia("(min-width: 615px)").matches && scsc < newscroll 
+    && divscroll < 4) { artcontainer.style.overflowY = "hidden";
+    window.addEventListener('scroll', scrollflow); } }
 
     document.addEventListener('DOMContentLoaded', upme); 
     function upme() { // for other than windows and mac ----- 
