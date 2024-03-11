@@ -230,9 +230,9 @@ as="style" onload="this.rel='stylesheet'">
     var artcontainer = document.querySelector(".articles-container"); 
     var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
     var topPosition = rect.top; var actHeight = rect.height; 
-    var newscroll = scsc + topPosition + (actHeight * 0.1); if(scsc > newscroll) { 
-    artcontainer.style.overflowY = "scroll"; setTimeout(() => { 
-    window.removeEventListener('scroll', scrollflow); }, 2000); }
+    var newscroll = scsc + topPosition + (actHeight * 0.1); if(scsc > newscroll 
+    && window.matchMedia("(min-width: 615px)").matches) { artcontainer.style.overflowY = "scroll"; 
+    setTimeout(() => { window.removeEventListener('scroll', scrollflow); }, 2000); }
     return [artcontainer, scsc, newscroll]; } 
 
     window.addEventListener('resize', checkflow);
