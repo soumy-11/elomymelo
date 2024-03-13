@@ -5320,7 +5320,7 @@ function detectCharacter()
       }
       if (parentElementNew || bodyOverflow === "hidden") 
       { 
-           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
+           document.body.style.overflow = "hidden"; 
            document.body.style.transform = "none"; 
       }
       if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
