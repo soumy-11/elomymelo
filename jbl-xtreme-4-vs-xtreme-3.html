@@ -53,7 +53,7 @@ as="style" onload="this.rel='stylesheet'">
     #Web_1920__1 
     {
         position: absolute;
-        width: 3554px;
+        width: 3554px !important;
         height: 2216px;
         border: 0px grey solid;
         background-color: rgba(112,112,112,0);
@@ -330,7 +330,6 @@ as="style" onload="this.rel='stylesheet'">
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-           document.getElementById("Web_1920__1").style.width = "3554px";
       }
       if (window.matchMedia("(max-width: 615px)").matches) 
       {
