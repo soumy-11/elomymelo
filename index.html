@@ -79,11 +79,6 @@
         visibility: hidden !important; 
     }
 
-	body 
-	{
-        transform: scale(0.8);
-    }
-
     @media only screen and (max-width: 615px)
     {
     #ads-v1-in
@@ -119,8 +114,6 @@
     }
     }
 
-    @media only screen and (min-width: 0px)
-    {
     .hot-devices-sec
     {
         position: absolute;
@@ -206,32 +199,7 @@
 		background: transparent;
 		border-radius: 10px;
     }
-    }
 
-    @media only screen and (max-width: 940px) 
-    {
-    body 
-    {
-        transform: scale(1.0); 
-    }
-    }
-    
-    @media only screen and (min-width: 1140px) and (max-width: 1340px)
-    {
-    body 
-    {
-        transform: scale(0.86); 
-    }
-    }
-
-    @media only screen and (min-width: 940px) and (max-width: 1140px)
-    {
-    body 
-    {
-        transform: scale(0.92); 
-    }
-    }
-    
     #elomymelo
     {
         position: absolute;
@@ -2506,8 +2474,8 @@
 	.scroll-clk-button
 	{
         position: absolute;
-        top: 80px;
-        left: 2122px;
+        top: 8270px;
+        left: 2250px;
         width: 150px;
         height: 140px;
         background: white;
@@ -2517,6 +2485,7 @@
         user-select: none;
         font-size: 90px;
         cursor: pointer;
+        z-index: 5;
 	}
 
 	.footer a
@@ -3296,8 +3265,8 @@ function scrolldown()
 	document.querySelector(".articles-container").style.overflowY = "scroll";
 	document.querySelector(".articles-container").scrollTo({ top: '860', behavior: 'smooth' });
 	document.querySelector(".scroll-click").style.opacity = "0";
-	setTimeout(() => { 
-	document.querySelector(".scroll-click").style.display = "none"; }, 4000);
+	setTimeout(() => { document.querySelector(".scroll-click").style.display = "none";
+	document.querySelector(".scroll-clk-button").style.display = "none"; }, 4000);
 }
 setTimeout(() => { document.querySelector(".articles-container").scrollTo(0, 0); }, 200);
 
@@ -4316,11 +4285,10 @@ function updateLogo()
 
   </div>
 
-  <div class="scroll-click">
-   	  <div class="scroll-clk-button" onclick="scrolldown()">
-   	  <img src="old-images/down-triangle.png" id="sc-clk-char" 
-   	  style="position: absolute; left: 40px; bottom: 37px; width: 77px">
-   	  </div>
+  <div class="scroll-click"></div>
+  <div class="scroll-clk-button" onclick="scrolldown()">
+   	 <img src="old-images/down-triangle.png" id="sc-clk-char" 
+   	 style="position: absolute; left: 40px; bottom: 37px; width: 77px">
   </div>
   
   <div class="footer">
