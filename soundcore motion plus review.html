@@ -1764,14 +1764,14 @@
         color: rgba(28,117,121,0.92);
     }
 
-    .scroll-here-tip
+    #scroll-here-tip
     {
         position: absolute;
         height: 85px;
         font-size: 40px;
         font-family: roboto, cus-roboto, sans-serif;
-        top: 7187px;
-        left: 1695px;
+        top: 7025px;
+        left: 1042px;
         visibility: hidden;
         background-color: rgba(0,0,0,0.75);
         color: rgba(255,255,255,0.85);
@@ -1783,21 +1783,38 @@
         padding-bottom: 15px;
         z-index: 2;
     }
-    .scroll-clk-button
+    .scroll-click
     {
         position: absolute;
-        top: 7155px;
-        left: 2252px;
-        width: 150px;
-        height: 140px;
+        top: 7190px;
+        left: 114px;
+        width: 2362px;
+        height: 300px;
+        margin: auto;
+        border: 4px #E4E4E4 solid;
+        border-top: 0px transparent solid;
+        border-radius: 0px 0px 50px 50px;
+        background: linear-gradient(to bottom, transparent 0%, transparent 65%, white 80%, white 100%);
+        -webkit-mask-image: linear-gradient(transparent, black, black);
+        backdrop-filter: blur(10px);
+        transition: opacity 2s;
+        transition-delay: 2s;
+    }
+    .scroll-clk-button
+    {
+        position: relative;
+        bottom: -192px;
+        width: 200px;
+        height: 107px;
+        margin: auto;
+        border: 0px grey solid;
         background: white;
         box-shadow: 0px 0px 40px rgba(112,112,112,0.3);
-        border-radius: 25px;
+        border-radius: 100px 100px 0px 0px;
         color: rgba(33,97,140,0.74);
         user-select: none;
-        font-size: 90px;
+        font-size: 110px;
         cursor: pointer;
-        display: none;
     }
 
     .footer
@@ -4966,80 +4983,34 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function comvars()
-{
-    var scrlbtn = document.querySelector(".scroll-clk-button");
-    var artcontainer = document.querySelector(".articles-container"); 
-    var scsc = window.scrollY; var rect = artcontainer.getBoundingClientRect(); 
-    var bottomPosition = rect.bottom; var topPosition = rect.top; 
-    var actHeight = rect.height; var innr = window.innerHeight; 
-
-    return [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
-    topPosition, actHeight, innr]; 
-}
-function scrollmedown()
-{
-    var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
-    topPosition, actHeight, innr] = comvars(); // calls here 
-    var newscroll = scsc + topPosition + (actHeight * 0.006); 
-    window.scrollTo({ top: newscroll, behavior: 'smooth' }); setTimeout(() => { 
-    var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll - 1000; 
-    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
-}
 function scrolldown()
 {
-    var [scrlbtn, artcontainer, scsc, rect, bottomPosition, 
-    topPosition, actHeight, innr] = comvars(); // calls here 
-    var newscroll = scsc - (innr - bottomPosition) - (actHeight * 0.011); 
-    window.scrollTo({ top: newscroll, behavior: 'smooth' }); setTimeout(() => { 
+    var artcontainer = document.querySelector(".articles-container"); 
+    var containerheight = artcontainer.offsetHeight; var contentheight = artcontainer.scrollHeight; 
     var currentscroll = artcontainer.scrollTop; var newscroll = currentscroll + 1000; 
-    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); }, 300); 
+    artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
+    if (currentscroll + containerheight >= contentheight) { 
+    document.querySelector(".scroll-click").style.opacity = "0"; 
+    setTimeout(() => { document.querySelector(".scroll-click").style.display = "none"; }, 4000); } 
 }
-var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-function scrltiptwo() { document.getElementById("scrl-tip-two").style.visibility = "visible"; }
-function scrltipon() { document.getElementById("scrl-tip-one").style.visibility = "visible"; }
-function scrltipout() { document.querySelectorAll(".scroll-here-tip").forEach(function(el) 
-{ el.style.visibility = ""; }); } 
+function scrltipon() { document.getElementById("scroll-here-tip").style.visibility = "visible"; }
+function scrltipout() { document.getElementById("scroll-here-tip").style.visibility = ""; }
 
-   if(isdesk) { document.addEventListener('DOMContentLoaded', function() {
-   const artcontainer = document.querySelector(".articles-container");
-   artcontainer.addEventListener('scroll', scrollmeup, false); });
-   window.addEventListener('scroll', mainscroll, false); } 
+   setInterval(function() 
+   {   
+       const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
+       const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
+       const adheightthree = document.getElementById("ads-style-feed-res-phone-2").clientHeight;
+       const adheightfour = document.getElementById("ads-style-display-res-phone-2").clientHeight;
+       const adheightfive = document.getElementById("ads-style-display-res-phone-3").clientHeight;
 
-   function scrollmeup() 
-   {
-       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, topPosition, 
-       actHeight, innr] = comvars(); var newscroll = scsc + topPosition + (actHeight * 0.006); 
-       var scnone = scsc - (innr - bottomPosition) - (actHeight * 0.30); 
-       var currentscroll = artcontainer.scrollTop; if(currentscroll > 150 && scsc < newscroll) 
-       { scrlbtn.style.display = "none"; scrlbtn.style.top = "955px"; scrlbtn.style.display = "block"; 
-       document.getElementById("sc-clk-char").innerHTML = "⏶"; scrlbtn.setAttribute('onclick', 'scrollmedown()');
-       scrlbtn.setAttribute('onmouseover', 'scrltiptwo()'); } if(currentscroll < 150 && scsc < scnone || 
-       currentscroll > 150 && scsc > newscroll && scsc < scnone) { scrlbtn.style.display = ""; }  
-   }
-   function mainscroll()
-   {
-       var [scrlbtn, artcontainer, scsc, rect, bottomPosition, topPosition, actHeight, innr] = comvars(); 
-       var newscroll = scsc - (innr - bottomPosition) - (actHeight * 0.011); 
-       var scnone = scsc - (innr - bottomPosition) - (actHeight * 0.30); 
-       if(scsc > scnone) { scrlbtn.style.display = "none"; } if(scsc > newscroll) { scrlbtn.style.top = "7155px"; 
-       document.getElementById("sc-clk-char").innerHTML = "⏷"; scrlbtn.setAttribute('onclick', 'scrolldown()');
-       scrlbtn.setAttribute('onmouseover', 'scrltipon()'); scrlbtn.style.display = "block"; } 
-       if(scsc < (newscroll + 4)) { scrlbtn.style.display = "none"; } 
-   }
+       document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
+       document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
+       document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
+       document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
+       document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
 
-  setInterval(function() {
-  const adheightone = document.getElementById("ads-style-display-res-phone").clientHeight;
-  const adheighttwo = document.getElementById("ads-style-feed-res-phone").clientHeight;
-  const adheightthree = document.getElementById("ads-style-feed-res-phone-2").clientHeight;
-  const adheightfour = document.getElementById("ads-style-display-res-phone-2").clientHeight;
-  const adheightfive = document.getElementById("ads-style-display-res-phone-3").clientHeight;
-  document.getElementById("ads-style-display-res-phone").style.setProperty('--set-margin', adheightone + "px");
-  document.getElementById("ads-style-feed-res-phone").style.setProperty('--set-margin', adheighttwo + "px");
-  document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
-  document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
-  document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', 
-  adheightfive + "px"); }, 0);
+   }, 0);
 
    setTimeout(function()
    {  
@@ -6387,11 +6358,13 @@ function updateLogo()
 
   </div>
 
-  <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
-         <span id="sc-clk-char" style="position: absolute; left: 35px; bottom: 20px"> ⏷ </span>
+  <div class="scroll-click">
+      <div class="scroll-clk-button" onclick="scrolldown()" onmouseover="scrltipon()" onmouseout="scrltipout()">
+      <img src="old-images/down-triangle.png" id="sc-clk-char" 
+      style="position: absolute; left: 62px; bottom: 20px; width: 77px">
+      </div>
   </div>
-  <div class="scroll-here-tip" id="scrl-tip-one"> scroll here on this section </div>
-  <div class="scroll-here-tip" id="scrl-tip-two" style="top: 987px; left: 1892px"> pull up + scroll </div>
+  <div id="scroll-here-tip"> scroll here on this section </div>
 
   <div class="footer">
 
