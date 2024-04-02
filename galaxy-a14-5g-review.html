@@ -2271,6 +2271,7 @@ as="style" onload="this.rel='stylesheet'">
         border-right: 20px rgba(33,97,140,0.2) solid;
         background: linear-gradient(to bottom, rgba(255,255,255,0), white, white, white, white, white, white, white, rgba(255,255,255,0.5), rgba(255,255,255,0));
         border-radius: 0px 0px 20px 20px;
+        display: none;
     }
     #out-cmnt
     {
@@ -4465,7 +4466,7 @@ function relod()
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(function() 
     {  
-        document.getElementById("top-pos").style.display = "block";
+        // document.getElementById("top-pos").style.display = "block";
         doso(); // console.log("after-resize");
 
     }, 100);
