@@ -4556,10 +4556,8 @@ function scrollmethod()
 
   var timer = null; 
   function scrolltrick() 
-  { doso(); window.removeEventListener('resize', relod, false);
-  if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso();
-  window.addEventListener('resize', relod, false); }, 2000); }
+  { doso(); if(timer !== null) { clearTimeout(timer); }
+  timer = setTimeout(function() { doso(); }, 2000); }
   setTimeout(doso, 3000); // setTimeout(doso, 0); 
 
   // adding the event listeners 
