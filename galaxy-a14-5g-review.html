@@ -2266,11 +2266,11 @@ as="style" onload="this.rel='stylesheet'">
         height: 600px;
         left: 2527px;
         top: 8934px;
-        visibility: hidden;
         border-left: 20px rgba(33,97,140,0.2) solid;
         border-right: 20px rgba(33,97,140,0.2) solid;
         background: linear-gradient(to bottom, rgba(255,255,255,0), white, white, white, white, white, white, white, rgba(255,255,255,0.5), rgba(255,255,255,0));
         border-radius: 0px 0px 20px 20px;
+        display: none;
     }
     #out-cmnt
     {
@@ -4631,6 +4631,7 @@ function scrollmethod()
         document.getElementById("top-pos").style.top = topp + "px";
         document.getElementById("top-pos").style.visibility = "visible";
         document.getElementById("top-pos").style.transform = "translateY("+tran+"px)";
+        document.getElementById("top-pos").style.display = "block";
     }
     if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
