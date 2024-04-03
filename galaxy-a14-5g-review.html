@@ -2271,7 +2271,6 @@ as="style" onload="this.rel='stylesheet'">
         border-right: 20px rgba(33,97,140,0.2) solid;
         background: linear-gradient(to bottom, rgba(255,255,255,0), white, white, white, white, white, white, white, rgba(255,255,255,0.5), rgba(255,255,255,0));
         border-radius: 0px 0px 20px 20px;
-        display: none;
     }
     #out-cmnt
     {
@@ -4466,7 +4465,7 @@ function relod()
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(function() 
     {  
-        // document.getElementById("top-pos").style.display = "block";
+        document.getElementById("top-pos").style.display = "block";
         doso(); // console.log("after-resize");
 
     }, 100);
@@ -4541,11 +4540,13 @@ function scrollmethod()
     var innr = window.innerHeight; // console.log("innr inner-height = ", innr);
     var scbb = scmx - scsc; var finn = scsc * keke; 
     var nunn = scbb * keke; var cscs = innr * keke; 
-    var alttrigr = 8924/keke - innr; // console.log(keke);
+    var alttrigr = 8924/keke - innr; // 8924 is out-cmnt's top + height;
     var topo = nunn + cscs - 250;
+    var topp = 8924 - cscs - 450;
     
-    console.log("scrollY: ", scsc);
-    console.log("alttrigr: ", alttrigr);
+    // console.log("scrollY: ", scsc);
+    // console.log("alttrigr: ", alttrigr);
+    var tran = keke * (scsc - alttrigr);
   
     if (window.matchMedia("(min-width: 615px)").matches) 
     {
@@ -4567,29 +4568,35 @@ function scrollmethod()
     if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
         // document.body.style.transform = "scale(0.920)";
+        var tran = keke * (scsc - alttrigr) * 1.087 + 800;
         var finn = scsc * keke * 1.087;
         var nunn = scbb * keke * 1.087;
         var cscs = innr * keke * 1.087; 
         var alttrigr = (8924/keke) * 0.920 - innr;
         var topo = nunn + cscs - 200;
+        var topp = 8924 - cscs - 450;
     }
     if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
         // document.body.style.transform = "scale(0.860)";
+        var tran = keke * (scsc - alttrigr) * 1.1625 + 1470;
         var finn = scsc * keke * 1.1625;
         var nunn = scbb * keke * 1.1625;
         var cscs = innr * keke * 1.1625;
         var alttrigr = (8924/keke) * 0.860 - innr;
         var topo = nunn + cscs - 200;
+        var topp = 8924 - cscs - 450;
     }
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
         // document.body.style.transform = "scale(0.80)";
+        var tran = keke * (scsc - alttrigr) * 1.250 + 2230;
         var finn = scsc * keke * 1.250;
         var nunn = scbb * keke * 1.250;
         var cscs = innr * keke * 1.250;
         var alttrigr = (8924/keke) * 0.80 - innr;
         var topo = nunn + cscs - 200;
+        var topp = 8924 - cscs - 450;
     }
 
     // console.log("from-resize-doso");
@@ -4606,8 +4613,8 @@ function scrollmethod()
         var momo = nunn + 932 + 880 + 110;
         var koko = nunn + 932 + 1850 + 880 + 102; 
 
-        var tran = keke * (scsc - alttrigr);
-        console.log("translate: ", tran);
+        // var tran = keke * (scsc - alttrigr) * 1.250;
+        // console.log("translate: ", tran);
         var tran1 = tran + 932 + 114;
         var tran2 = tran + 932 + 880 + 110;
         var tran3 = tran + 932 + 1850 + 880 + 102; 
@@ -4620,9 +4627,10 @@ function scrollmethod()
         document.getElementById("hot-dvs-sctn").style.transform = "translateY("+tran+"px)";
         // document.getElementById("ads-vertical-one").style.top = "auto";
         document.getElementById("ads-vertical-one").style.transform = "translateY("+tran+"px)";
-        document.getElementById("top-pos").style.top = "auto";
-        document.getElementById("top-pos").style.bottom = topo + "px";
+        // document.getElementById("top-pos").style.top = "auto";
+        document.getElementById("top-pos").style.top = topp + "px";
         document.getElementById("top-pos").style.visibility = "visible";
+        document.getElementById("top-pos").style.transform = "translateY("+tran+"px)";
     }
     if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
