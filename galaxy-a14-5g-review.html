@@ -4628,13 +4628,13 @@ function scrollmethod()
         // document.getElementById("ads-vertical-one").style.top = "auto";
         document.getElementById("ads-vertical-one").style.transform = "translateY("+tran+"px)";
         // document.getElementById("top-pos").style.top = "auto";
-        // document.getElementById("top-pos").style.top = topp + "px";
-        // document.getElementById("top-pos").style.visibility = "visible";
-        // document.getElementById("top-pos").style.transform = "translateY("+tran+"px)";
-        // document.getElementById("top-pos").style.display = "block";
+        document.getElementById("top-pos").style.top = topp + "px";
+        document.getElementById("top-pos").style.transform = "translateY("+tran+"px)";
+        document.getElementById("top-pos").style.display = "block";
     }
     if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
+        document.getElementById("top-pos").style.display = "none";
         document.getElementById("out-cmnt").style.top = "7954px";
         document.getElementById("hot-dvs-sctn").style.top = "5226px";
         document.getElementById("ads-vertical-one").style.top = "3350px";
