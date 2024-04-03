@@ -4461,11 +4461,11 @@ function relod()
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   if(isdesk) 
   {
-    document.getElementById("top-pos").style.display = "none";
+    document.getElementById("top-pos").style.visibility = "hidden";
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(function() 
     {  
-        document.getElementById("top-pos").style.display = "block";
+        document.getElementById("top-pos").style.visibility = "visible";
         doso(); // console.log("after-resize");
 
     }, 100);
@@ -4640,6 +4640,12 @@ function scrollmethod()
         document.getElementById("ads-vertical-one").style.top = "3350px";
         document.getElementById("ads-vertical-two").style.top = "7077px"; 
         document.getElementById("top-pos").style.top = "8934px"; 
+
+        document.getElementById("out-cmnt").style.transform = "translateY(0px)";
+        document.getElementById("hot-dvs-sctn").style.transform = "translateY(0px)";
+        document.getElementById("ads-vertical-one").style.transform = "translateY(0px)";
+        document.getElementById("ads-vertical-two").style.transform = "translateY(0px)";
+        document.getElementById("top-pos").style.transform = "translateY(0px)";
     } 
     if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
