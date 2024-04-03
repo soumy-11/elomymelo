@@ -4464,10 +4464,12 @@ function relod()
   if(isdesk) 
   {
     document.getElementById("top-pos").style.visibility = "hidden";
+    window.removeEventListener('scroll', scrolltrick, false); 
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(function() 
     {  
         document.getElementById("top-pos").style.visibility = "visible";
+        window.addEventListener('scroll', scrolltrick, false); 
         // window.scrollTo(0, newscch);
         doso(); // console.log("after-resize");
 
@@ -4475,6 +4477,7 @@ function relod()
   }
 }
 
+/*
 window.addEventListener('resize', relodd, false);
 function relodd() 
 {
@@ -4494,6 +4497,7 @@ function relodd()
     }, 2100);
   }
 }
+*/
 
 function scrollmethod() 
 {
@@ -4542,12 +4546,24 @@ function scrollmethod()
         document.getElementById("footer-id").style.display = "none";
     }
   }
-*/
+
   var timer = null;
   window.addEventListener('scroll', function() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
   timer = setTimeout(function() { doso(); }, 2000); }, false);
   setTimeout(doso, 3000); // setTimeout(doso, 0);
+*/
+
+  var timer = null; 
+  function scrolltrick() 
+  { doso(); window.removeEventListener('resize', relod, false);
+  if(timer !== null) { clearTimeout(timer); }
+  timer = setTimeout(function() { doso();
+  window.addEventListener('resize', relod, false); }, 2000); }
+  setTimeout(doso, 3000); // setTimeout(doso, 0); 
+
+  // adding the event listeners 
+  window.addEventListener('scroll', scrolltrick, false); 
 
   document.addEventListener('DOMContentLoaded', doso);
   window.addEventListener('resize', doso, false);
