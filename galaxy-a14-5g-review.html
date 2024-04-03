@@ -4461,7 +4461,7 @@ function relod()
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   var scch = window.scrollY;
   var newscch = scch + 5;
-  if(!isdesk) 
+  if(isdesk) 
   {
     document.getElementById("top-pos").style.visibility = "hidden";
     // window.removeEventListener('scroll', scrolltrick, false); 
