@@ -4593,7 +4593,7 @@ function scrollmethod()
 
     var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   
-    if(scsc > alttrigr && window.matchMedia("(min-width: 615px)").matches)
+    if(scsc > alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
         document.getElementById("out-cmnt").style.transform = "translateY("+tran+"px)";
         document.getElementById("ads-vertical-two").style.transform = "translateY("+tran+"px)";
@@ -4603,7 +4603,7 @@ function scrollmethod()
         document.getElementById("top-pos").style.transform = "translateY("+tran+"px)";
         document.getElementById("top-pos").style.display = "block";
     }
-    if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches)
+    if(scsc < alttrigr && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
         document.getElementById("top-pos").style.display = "none";
         document.getElementById("out-cmnt").style.transform = "translateY(0px)";
@@ -4613,11 +4613,11 @@ function scrollmethod()
         document.getElementById("top-pos").style.transform = "translateY(0px)";
         document.getElementById("top-pos").style.top = "8934px"; 
     } 
-    if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches)
+    if(nunn < 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
         document.getElementById("last-dab").style.visibility = "hidden";
     }
-    if(nunn > 100 && window.matchMedia("(min-width: 615px)").matches)
+    if(nunn > 100 && window.matchMedia("(min-width: 615px)").matches && isdesk)
     {
         document.getElementById("last-dab").style.visibility = "visible";
     }
