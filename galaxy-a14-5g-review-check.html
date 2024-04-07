@@ -4459,13 +4459,14 @@ window.addEventListener('resize', relod, false);
 function relod() 
 {
   var scwidth = screen.availWidth; var outwidth = window.outerWidth;
+  var inwidth = window.innerWidth; console.log("in = ", inwidth); console.log("out = ", outwidth);
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   if(isdesk) { document.getElementById("top-pos").style.visibility = "hidden"; 
   clearTimeout(window.resizedFinished); 
   window.resizedFinished = setTimeout(function() {  
   document.getElementById("top-pos").style.visibility = "visible"; 
   doso(); }, 100); }
-  if(isdesk && (scwidth == outwidth)) { 
+  if(isdesk && (scwidth == outwidth) && (outwidth - inwidth) < 70) { 
   clearTimeout(window.rizzFinished);
   window.rizzFinished = setTimeout(function() {  
   document.getElementById("out-cmnt").style.transform = "translateY(0px)";
@@ -4473,7 +4474,7 @@ function relod()
   document.getElementById("ads-vertical-one").style.transform = "translateY(0px)";
   document.getElementById("ads-vertical-two").style.transform = "translateY(0px)";
   document.getElementById("top-pos").style.transform = "translateY(0px)";
-  console.log("matched"); }, 20); } 
+  console.log("matched"); }, 40); } 
 }
 
 function scrollmethod() 
@@ -4542,7 +4543,7 @@ function scrollmethod()
     const keke = hope/meme; const scsc = window.scrollY; var innr = window.innerHeight; 
     var scmx = (document.documentElement.scrollHeight - document.documentElement.clientHeight);
     // console.log("meme scroll-height = ", meme); console.log("scsc scroll-y = ", scsc); 
-    console.log("scmx max-scroll-y = ", scmx);   
+    // console.log("scmx max-scroll-y = ", scmx);   
 
     const scrollbarHeight = innr - document.documentElement.clientHeight;
     const scbar = scrollbarHeight * keke;
@@ -4582,7 +4583,7 @@ function scrollmethod()
         // document.body.style.transform = "scale(0.860)";
         var nunn = scbb * keke * 1.1625; var cscs = innr * keke * 1.1625;
         var alttrigr = (8924/keke) * 0.860 - innr; var topp = 8924 - cscs - 400;
-        var tran = keke * (scsc - alttrigr) * 1.1625;
+        var tran = keke * (scsc - alttrigr) * 1.1628;
     }
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
