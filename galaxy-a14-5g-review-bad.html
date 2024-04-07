@@ -4458,22 +4458,22 @@ function changesecond()
 window.addEventListener('resize', relod, false);
 function relod() 
 {
-  var scwidth = screen.availWidth; var outwidth = window.outerWidth;
+  doso(); // immediate call 
+  var scwidth = screen.availWidth; 
+  var outwidth = window.outerWidth; var inwidth = window.innerWidth; 
+  console.log("in = ", inwidth); console.log("out = ", outwidth); console.log(scwidth);
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   if(isdesk) { document.getElementById("top-pos").style.visibility = "hidden"; 
-  clearTimeout(window.resizedFinished); 
-  window.resizedFinished = setTimeout(function() {  
-  document.getElementById("top-pos").style.visibility = "visible"; 
-  doso(); }, 100); }
-  if(!isdesk && (scwidth == outwidth)) { 
-  clearTimeout(window.rizzFinished);
-  window.rizzFinished = setTimeout(function() {  
+  clearTimeout(window.resizedFinished); window.resizedFinished = setTimeout(function() {  
+  document.getElementById("top-pos").style.visibility = "visible"; doso(); }, 100); }
+  if(isdesk && (scwidth == outwidth) && (outwidth - inwidth) < 70) { 
+  clearTimeout(window.rizzFinished); window.rizzFinished = setTimeout(function() {  
   document.getElementById("out-cmnt").style.transform = "translateY(0px)";
   document.getElementById("hot-dvs-sctn").style.transform = "translateY(0px)";
   document.getElementById("ads-vertical-one").style.transform = "translateY(0px)";
   document.getElementById("ads-vertical-two").style.transform = "translateY(0px)";
   document.getElementById("top-pos").style.transform = "translateY(0px)";
-  console.log("matched"); }, 20); } 
+  console.log("matched"); }, 40); } 
 }
 
 function scrollmethod() 
@@ -4534,7 +4534,7 @@ function scrollmethod()
   window.addEventListener('scroll', scrolltrick, false); 
 
   // document.addEventListener('DOMContentLoaded', doso);
-  window.addEventListener('resize', doso, false);
+  // window.addEventListener('resize', doso, false);
   function doso()
   {
     const lopp = document.getElementById("Web_1920__1");
