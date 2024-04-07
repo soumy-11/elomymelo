@@ -4459,8 +4459,8 @@ window.addEventListener('resize', relod, false);
 function relod() 
 {
   doso(); // immediate call 
-  var scwidth = screen.availWidth; 
-  var outwidth = window.outerWidth; var inwidth = window.innerWidth; 
+  var scwidth = screen.width; var snwidth = window.screen.width; 
+  var outwidth = window.outerWidth; var inwidth = window.innerWidth; console.log(snwidth);
   console.log("in = ", inwidth); console.log("out = ", outwidth); console.log(scwidth);
   var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
   if(isdesk) { document.getElementById("top-pos").style.visibility = "hidden"; 
