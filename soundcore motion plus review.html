@@ -5249,20 +5249,21 @@ function updateLogo()
 }
 </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Product",
+    "image": "https://elomymelo.com/old-images/soundcoremotionplus.jpg",
+    "name": "Soundcore Motion+",
+    "offers": {
+      "@type": "Offer",
+      "price": "90.00",
+      "priceCurrency": "USD"
+    },
+    "review": {
       "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "image": "https://elomymelo.com/old-images/soundcoremotionplus.jpg",
-        "name": "Soundcore Motion+",
-        "offers": {
-          "@type": "Offer",
-          "price": "90.00",
-          "priceCurrency": "USD"
-        }
-      },
       "reviewRating": {
         "@type": "Rating",
         "ratingValue": "9.2",
@@ -5272,12 +5273,24 @@ function updateLogo()
         "@type": "Person",
         "name": "Soumya Roy"
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "elomymelo.com"
-      }
+      "reviewBody": "I love the Soundcore Motion Plus speaker and it makes me happy."
     }
-    </script>
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "9.2",
+    "bestRating": "10"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Soumya Roy"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "elomymelo.com"
+  }
+}
+</script>
 
 </head>
 
