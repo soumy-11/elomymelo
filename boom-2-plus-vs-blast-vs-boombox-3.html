@@ -345,8 +345,6 @@ if(isdesk) { window.removeEventListener('resize', upme); }
       var bodyOverflow = window.getComputedStyle(document.body).overflow; 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
       var parentElement = document.querySelector('.ft-container.ft-left-pos');
-	  document.querySelector('.ft-reg-message-info').style.display = 'none';
-document.querySelector('#ft-floating-toolbar').style.display = 'none';
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
@@ -400,6 +398,8 @@ document.querySelector('#ft-floating-toolbar').style.display = 'none';
       {
            document.body.style.transform = "scale(0.80)";
       }
+      document.querySelector('.ft-reg-message-info').style.display = 'none';
+      document.querySelector('#ft-floating-toolbar').style.display = 'none';
   }
   scaleMe(); setInterval(scaleMe, 1000); 
   window.addEventListener('resize', scaleMe, false); 
