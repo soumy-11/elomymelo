@@ -329,7 +329,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
       var parentElementNew = document.querySelector('.fc-consent-root');
       var bodyOverflow = window.getComputedStyle(document.body).overflow; 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
-      var parentElement = document.querySelector('ft-floating-toolbar');
+      var parentElement = document.querySelector('#ft-floating-toolbar');
       if (parentElement) { var childElements = parentElement.querySelectorAll('*');
       // Loop through the child elements and set display to "none"
       for (var i = 0; i < childElements.length; i++) 
