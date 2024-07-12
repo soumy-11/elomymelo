@@ -347,17 +347,14 @@ if(isdesk) { window.removeEventListener('resize', upme); }
       const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
       if (hostElement) {
       console.log("Found host element:", hostElement);
-  
-  // Remove shadow root if it exists
-  if (hostElement.shadowRoot) {
-    hostElement.shadowRoot.innerHTML = '';
-    hostElement.shadowRoot.remove(); // Remove the shadow root itself
-  }
-  
-  // Remove host element from the DOM
-  hostElement.remove();
-}
-
+      // Remove shadow root if it exists
+      if (hostElement.shadowRoot) {
+      hostElement.shadowRoot.innerHTML = '';
+      hostElement.shadowRoot.host.remove(); // Remove the shadow root itself
+      }
+      // Remove host element from the DOM
+      hostElement.remove();
+      }
       if (parentElementNew || bodyOverflow === "hidden") 
       { 
            window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
