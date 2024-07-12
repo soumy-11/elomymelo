@@ -344,15 +344,20 @@ if(isdesk) { window.removeEventListener('resize', upme); }
       var parentElementNew = document.querySelector('.fc-consent-root');
       var bodyOverflow = window.getComputedStyle(document.body).overflow; 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
-      var parentElement = document.querySelector('.ft-container.ft-left-pos');
-      if (parentElement) { var childElements = parentElement.querySelectorAll('*');
-      // Loop through the child elements and set display to "none"
-      for (var i = 0; i < childElements.length; i++) 
-      {
-           childElements[i].parentNode.removeChild(childElements[i]);
-      }
-           parentElement.parentNode.removeChild(parentElement);
-      }
+      const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
+      if (hostElement) {
+      console.log("Found host element:", hostElement);
+  
+  // Remove shadow root if it exists
+  if (hostElement.shadowRoot) {
+    hostElement.shadowRoot.innerHTML = '';
+    hostElement.shadowRoot.remove(); // Remove the shadow root itself
+  }
+  
+  // Remove host element from the DOM
+  hostElement.remove();
+}
+
       if (parentElementNew || bodyOverflow === "hidden") 
       { 
            window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
@@ -398,8 +403,6 @@ if(isdesk) { window.removeEventListener('resize', upme); }
       {
            document.body.style.transform = "scale(0.80)";
       }
-      document.querySelector('.ft-reg-message-info').style.display = 'none';
-      document.querySelector('#ft-floating-toolbar').style.display = 'none';
   }
   scaleMe(); setInterval(scaleMe, 1000); 
   window.addEventListener('resize', scaleMe, false); 
