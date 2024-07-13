@@ -351,10 +351,10 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-(function() {
-    let checkscale; // Use closure to maintain checkscale state across function calls
-
-    function scaleMe2() {
+function outscale()
+{
+     let checkscale;
+     function scaleMe2() {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
@@ -402,7 +402,7 @@ function toppicksout()
         console.log("Found scale me");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
-            console.log("Found host elements");
+            console.log("Found host elements", hostElement);
             if (hostElement.shadowRoot) {
                 const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
@@ -440,9 +440,9 @@ function toppicksout()
         }
     }
 
-    const ftinterval = setInterval(scaleMe2, 5000);
+    const ftinterval = setInterval(scaleMe2, 3000);
     scaleMe2(); // window.addEventListener('resize', scaleMe2);
-})();
-
-  // document ends here ---------
+}   
+outscale();
+// document ends here ---------
 
