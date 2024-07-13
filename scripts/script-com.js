@@ -355,7 +355,6 @@ function outscale()
 {
      let checkscale;
      function scaleMe2() { 
-        console.log(checkscale);
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
@@ -387,8 +386,6 @@ function outscale()
                 }
             }
             checkscale = "absent"; document.body.style.transform = "";
-            console.log("Scale consent done");
-            console.log(checkscale);
         }
 
         if (footerDiv) {
@@ -398,7 +395,6 @@ function outscale()
             }
         }
 
-        console.log("Found scale me");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
             if (hostElement.shadowRoot) {
@@ -438,9 +434,9 @@ function outscale()
         }
     }
 
-    const ftinterval = setInterval(scaleMe2, 3000);
-    scaleMe2(); // window.addEventListener('resize', scaleMe2); 
-}   
+    const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 
+}
 outscale();
+
 // document ends here ---------
 
