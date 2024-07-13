@@ -353,7 +353,8 @@ function toppicksout()
 
   function scaleMe2()
   {       
-      var checkscale; // Declare the variable initially 
+      var checkscale; var ftstyle1; 
+      var ftstyle2; var ftstyle3; var ftstyle4; 
       var parentElementNew = document.querySelector('.fc-consent-root');
       var bodyOverflow = window.getComputedStyle(document.body).overflow; 
       var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -392,38 +393,33 @@ function toppicksout()
       const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
       if (hostElement) {
       console.log("Found host elements", hostElement);
-      if (hostElement && hostElement.shadowRoot) {
+      if (hostElement && hostElement.shadowRoot) 
+      {
       const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
       const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
       const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
       const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
 
       // Apply styles
-      if (regMessageInfo) {
-        regMessageInfo.style.display = 'none';
-        regMessageInfo.style.setProperty('display', 'none', 'important');
+      if (regMessageInfo) { regMessageInfo.style.setProperty('display', 'none', 'important');
+      var ftstyle1 = "reg-message"; }
+      if (regBubble) { regBubble.style.setProperty('bottom', '10px', 'important');
+      regBubble.style.setProperty('padding-left', '20px', 'important');
+      regBubble.style.setProperty('width', '222px', 'important');
+      regBubble.style.setProperty('border-radius', '50px', 'important');
+      var ftstyle2 = "reg-bubble"; }
+      if (regBubbleCloseIcon) { regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
+      regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
+      regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
+      var ftstyle3 = "reg-icon"; }
+      if (regButton) { regButton.style.setProperty('border-radius', '55px', 'important');
+      var ftstyle1 = "reg-button"; } 
       }
-      if (regBubble) {
-        regBubble.style.bottom = '10px';
-        regBubble.style.setProperty('bottom', '10px', 'important');
-        regBubble.style.paddingLeft = '20px';
-        regBubble.style.setProperty('padding-left', '20px', 'important');
-        regBubble.style.width = '250px';
-        regBubble.style.setProperty('width', '222px', 'important');
-        regBubble.style.borderRadius = '50px';
-        regBubble.style.setProperty('border-radius', '50px', 'important');
+
+      if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && 
+      ftstyle3 === "reg-icon" && ftstyle4 === "reg-button")
+      { clearInterval(ftinterval); console.log("Removed interval"); } 
       }
-      if (regBubbleCloseIcon) {
-        regBubbleCloseIcon.style.right = '15px';
-        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
-        regBubbleCloseIcon.style.position = 'absolute';
-        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
-        regBubbleCloseIcon.style.top = '13px';
-        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-      }
-      if (regButton) { regButton.style.setProperty('border-radius', '55px', 'important'); } }
-      // clearInterval(ftinterval); console.log("Removed interval"); 
-    }
   }
   const ftinterval = setInterval(scaleMe2, 1000); 
   scaleMe2(); // window.addEventListener('resize', scaleMe2); 
