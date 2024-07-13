@@ -351,8 +351,9 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function scaleMe2() {       
-    var checkscale;
+function scaleMe2() 
+{       
+    var checkscale; // setting variables
     var ftstyle1, ftstyle2, ftstyle3, ftstyle4; 
     var parentElementNew = document.querySelector('.fc-consent-root');
     var bodyOverflow = window.getComputedStyle(document.body).overflow; 
@@ -362,7 +363,7 @@ function scaleMe2() {
         window.scrollTo(0, 0);
         document.body.style.overflow = "hidden"; 
         document.body.style.transform = "none"; 
-        checkscale = "present"; // Use assignment here
+        checkscale = "present"; // assigned 
     }
 
     if (!parentElementNew || bodyOverflow !== "hidden") {
@@ -440,5 +441,5 @@ function scaleMe2() {
 const ftinterval = setInterval(scaleMe2, 1000); 
 scaleMe2(); // window.addEventListener('resize', scaleMe2);
 
-  // document ends here ---------
+// document ends here ---------
 
