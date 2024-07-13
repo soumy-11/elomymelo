@@ -363,7 +363,7 @@ function scaleMe2()
         window.scrollTo(0, 0);
         document.body.style.overflow = "hidden"; 
         document.body.style.transform = "none"; 
-        checkscale = "present"; // Use assignment here
+        var checkscale = "present"; // Use assignment here
         console.log(checkscale); 
     }
 
