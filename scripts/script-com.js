@@ -351,7 +351,7 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-  function scaleMe()
+  function scaleMe2()
   {       
       var checkscale; // Declare the variable initially 
       var parentElementNew = document.querySelector('.fc-consent-root');
@@ -384,21 +384,19 @@ function toppicksout()
       if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
       {
            document.body.style.transform = "scale(0.80)";
-      } 
+      } console.log("Scale consent done");
       } document.body.style.transform = ""; } 
       if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
       if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
-      }
-      console.log("Found scale me");
+      } console.log("Found scale me");
       const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
       if (hostElement) {
-      console.log("Found host element:", hostElement);
-      // Remove shadow root if it exists
+      console.log("Found host elements", hostElement);
       if (hostElement && hostElement.shadowRoot) {
-      // Select elements inside the shadow root
       const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
       const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
       const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
+      const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
 
       // Apply styles
       if (regMessageInfo) {
@@ -411,7 +409,7 @@ function toppicksout()
         regBubble.style.paddingLeft = '20px';
         regBubble.style.setProperty('padding-left', '20px', 'important');
         regBubble.style.width = '250px';
-        regBubble.style.setProperty('width', '250px', 'important');
+        regBubble.style.setProperty('width', '222px', 'important');
         regBubble.style.borderRadius = '50px';
         regBubble.style.setProperty('border-radius', '50px', 'important');
       }
@@ -423,11 +421,11 @@ function toppicksout()
         regBubbleCloseIcon.style.top = '13px';
         regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
       }
-      }
-      clearInterval(scaleMe); console.log("Removed interval"); }
+      if (regButton) { regButton.style.setProperty('border-radius', '55px', 'important'); } }
+      clearInterval(ftinterval); console.log("Removed interval"); }
   }
-  scaleMe(); setInterval(scaleMe, 1000); 
-  // window.addEventListener('resize', scaleMe, false); 
+  const ftinterval = setInterval(scaleMe2, 1000); 
+  scaleMe2(); // window.addEventListener('resize', scaleMe2); 
 
   // document ends here ---------
 
