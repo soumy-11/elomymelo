@@ -351,17 +351,60 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function scrolldown()
-{
-    var artcontainer = document.querySelector(".articles-container"); 
-    artcontainer.style.overflowY = "scroll"; var containerheight = artcontainer.offsetHeight; 
-    var contentheight = artcontainer.scrollHeight; var currentscroll = artcontainer.scrollTop; 
-    var newscroll = currentscroll + 1000; artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
-    if (currentscroll + containerheight >= contentheight - 1000) { 
-    document.querySelector(".scroll-clk-button").style.display = "none"; } 
-}
-function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
-function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
+  function scaleMe()
+  {       
+      var checkscale; // Declare the variable initially 
+      var parentElementNew = document.querySelector('.fc-consent-root');
+      var bodyOverflow = window.getComputedStyle(document.body).overflow; 
+      var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+      if (parentElementNew || bodyOverflow === "hidden") 
+      { 
+           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
+           document.body.style.transform = "none"; var checkscale = "present";
+      }
+      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible";
+      if (checkscale === "present") 
+      { 
+      if (window.matchMedia("(max-width: 615px)").matches) 
+      {
+           document.body.style.transform = "none"; // for pos-fxd 
+      }
+      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(1.0)";
+      }
+      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.920)";
+      }
+      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.860)";
+      }
+      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
+      {
+           document.body.style.transform = "scale(0.80)";
+      } 
+      } document.body.style.transform = ""; } 
+      if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
+      if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
+      }
+      console.log("Found scale me");
+      const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
+      if (hostElement) {
+      console.log("Found host element:", hostElement);
+      // Remove shadow root if it exists
+      if (hostElement.shadowRoot) {
+      hostElement.shadowRoot.innerHTML = '';
+      hostElement.shadowRoot.host.remove(); // Remove the shadow root itself
+      }
+      // Remove host element from the DOM
+      hostElement.remove(); clearInterval(scaleMe);
+      console.log("Removed interval");
+      }
+  }
+  scaleMe(); setInterval(scaleMe, 1000); 
+  // window.addEventListener('resize', scaleMe, false); 
 
   // document ends here ---------
 
