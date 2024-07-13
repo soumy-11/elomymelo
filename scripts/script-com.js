@@ -394,14 +394,37 @@ function toppicksout()
       if (hostElement) {
       console.log("Found host element:", hostElement);
       // Remove shadow root if it exists
-      if (hostElement.shadowRoot) {
-      hostElement.shadowRoot.innerHTML = '';
-      hostElement.shadowRoot.host.remove(); // Remove the shadow root itself
+      if (hostElement && hostElement.shadowRoot) {
+      // Select elements inside the shadow root
+      const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
+      const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
+      const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
+
+      // Apply styles
+      if (regMessageInfo) {
+        regMessageInfo.style.display = 'none';
+        regMessageInfo.style.setProperty('display', 'none', 'important');
       }
-      // Remove host element from the DOM
-      hostElement.remove(); clearInterval(scaleMe);
-      console.log("Removed interval");
+      if (regBubble) {
+        regBubble.style.bottom = '10px';
+        regBubble.style.setProperty('bottom', '10px', 'important');
+        regBubble.style.paddingLeft = '20px';
+        regBubble.style.setProperty('padding-left', '20px', 'important');
+        regBubble.style.width = '250px';
+        regBubble.style.setProperty('width', '250px', 'important');
+        regBubble.style.borderRadius = '50px';
+        regBubble.style.setProperty('border-radius', '50px', 'important');
       }
+      if (regBubbleCloseIcon) {
+        regBubbleCloseIcon.style.right = '15px';
+        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
+        regBubbleCloseIcon.style.position = 'absolute';
+        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
+        regBubbleCloseIcon.style.top = '13px';
+        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
+      }
+      }
+      clearInterval(scaleMe); console.log("Removed interval"); }
   }
   scaleMe(); setInterval(scaleMe, 1000); 
   // window.addEventListener('resize', scaleMe, false); 
