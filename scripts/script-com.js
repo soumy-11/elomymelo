@@ -397,10 +397,10 @@ function scaleMe2()
         } // changing the inner text of the p tag of consent message  
     }
 
-    console.log("Found scale me");
+    // console.log("Found scale me");
     const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
     if (hostElement) {
-        console.log("Found host elements", hostElement);
+        // console.log("Found host elements", hostElement);
         if (hostElement.shadowRoot) {
             const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
             const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
