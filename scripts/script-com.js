@@ -401,7 +401,6 @@ function outscale()
         console.log("Found scale me");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
-            console.log("Found host elements", hostElement);
             if (hostElement.shadowRoot) {
                 const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
@@ -416,7 +415,7 @@ function outscale()
                 if (regBubble) {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');
-                    regBubble.style.setProperty('width', '250px', 'important');
+                    regBubble.style.setProperty('width', '220px', 'important');
                     regBubble.style.setProperty('border-radius', '50px', 'important');
                     ftstyle2 = "reg-bubble";
                 }
@@ -430,17 +429,17 @@ function outscale()
                     regButton.style.setProperty('border-radius', '55px', 'important');
                     ftstyle4 = "reg-button";
                 }
+                if (window.matchMedia("(min-width: 615px)").matches) { hostElement.shadowRoot.innerHTML = ''; }
             }
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                clearInterval(ftinterval);
-                console.log("Removed interval");
+                clearInterval(ftinterval); window.addEventListener('resize', scaleMe2); 
             }
         }
     }
 
     const ftinterval = setInterval(scaleMe2, 3000);
-    scaleMe2(); // window.addEventListener('resize', scaleMe2);
+    scaleMe2(); // window.addEventListener('resize', scaleMe2); 
 }   
 outscale();
 // document ends here ---------
