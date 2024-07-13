@@ -354,7 +354,8 @@ function toppicksout()
 function outscale()
 {
      let checkscale;
-     function scaleMe2() {
+     function scaleMe2() { 
+        console.log(checkscale);
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
@@ -365,13 +366,10 @@ function outscale()
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
             checkscale = "present"; // assigned
-            console.log("checkscale assigned:", checkscale);
-        } else {
-            document.body.style.overflow = "visible";
-            console.log("checkscale value before if check:", checkscale);
+        } 
+        else { document.body.style.overflow = "visible";
 
             if (checkscale === "present") {
-                console.log("inside checkscale =", checkscale);
                 if (window.matchMedia("(max-width: 615px)").matches) {
                     document.body.style.transform = "none"; // for pos-fxd
                 }
@@ -387,9 +385,10 @@ function outscale()
                 if (window.matchMedia("(min-width: 1501px)").matches) {
                     document.body.style.transform = "scale(0.80)";
                 }
-                console.log("Scale consent done");
             }
-            document.body.style.transform = "";
+            checkscale = "absent"; document.body.style.transform = "";
+            console.log("Scale consent done");
+            console.log(checkscale);
         }
 
         if (footerDiv) {
