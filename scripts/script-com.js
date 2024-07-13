@@ -364,12 +364,14 @@ function scaleMe2()
         document.body.style.overflow = "hidden"; 
         document.body.style.transform = "none"; 
         checkscale = "present"; // Use assignment here
+        console.log(checkscale); 
     }
 
     if (!parentElementNew || bodyOverflow !== "hidden") {
         document.body.style.overflow = "visible";
+        console.log("checkscale value = ", checkscale); 
 
-        if (checkscale === "present") { 
+        if (checkscale === "present") { console.log("inside checkscale = ", checkscale); 
             if (window.matchMedia("(max-width: 615px)").matches) {
                 document.body.style.transform = "none"; // for pos-fxd 
             }
@@ -438,7 +440,7 @@ function scaleMe2()
     }
 }
 
-const ftinterval = setInterval(scaleMe2, 1000); 
+const ftinterval = setInterval(scaleMe2, 5000); 
 scaleMe2(); // window.addEventListener('resize', scaleMe2);
 
   // document ends here ---------
