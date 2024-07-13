@@ -351,9 +351,8 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function scaleMe2() 
-{
-    let checkscale; // setting variables
+function scaleMe2() {
+    let checkscale = null; // set default value
     let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
     const parentElementNew = document.querySelector('.fc-consent-root');
     const bodyOverflow = window.getComputedStyle(document.body).overflow;
@@ -364,10 +363,10 @@ function scaleMe2()
         document.body.style.overflow = "hidden";
         document.body.style.transform = "none";
         checkscale = "present"; // assigned
-        console.log(checkscale);
+        console.log("checkscale assigned:", checkscale);
     } else {
         document.body.style.overflow = "visible";
-        console.log("checkscale value =", checkscale);
+        console.log("checkscale value before if check:", checkscale);
 
         if (checkscale === "present") {
             console.log("inside checkscale =", checkscale);
@@ -401,7 +400,7 @@ function scaleMe2()
     console.log("Found scale me");
     const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
     if (hostElement) {
-        console.log("Found host elements", hostElement);
+        console.log("Found host elements");
         if (hostElement.shadowRoot) {
             const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
             const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
@@ -439,8 +438,9 @@ function scaleMe2()
     }
 }
 
-const ftinterval = setInterval(scaleMe2, 1000);
+const ftinterval = setInterval(scaleMe2, 5000);
 scaleMe2(); // window.addEventListener('resize', scaleMe2);
+
 
   // document ends here ---------
 
