@@ -354,11 +354,15 @@ function toppicksout()
 function outscale()
 {
      let checkscale;
-     function scaleMe2() { 
+     function scaleMe2() 
+     { 
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+
+        const topButton = document.querySelector('#scroll-top-button');
+        const topArrow = document.querySelector('#path_1');
 
         if (parentElementNew || bodyOverflow === "hidden") {
             window.scrollTo(0, 0);
@@ -404,8 +408,6 @@ function outscale()
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
 		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
-                const topButton = document.querySelector('#scroll-top-button');
-                const topArrow = document.querySelector('#path_1');
 
                 // Apply styles
                 if (regMessageInfo) {
