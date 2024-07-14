@@ -417,25 +417,25 @@ function outscale()
 		            if (regMenu) {
                     regMenu.style.setProperty('box-shadow', 'none', 'important');
                 }
-                
-                if (regBubbleCloseIcon) {
-                    regBubbleCloseIcon.onclick = function() { 
-                    topButton.style.background = ''; topArrow.style.stroke = ''; }
-                    regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
-                    regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
-                    regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-                    ftstyle3 = "reg-icon";
-                }
-                if (regButton) {
-                    regButton.style.setProperty('border-radius', '55px', 'important');
-                    ftstyle4 = "reg-button";
-                }
-		    if (regBubble) {
+                if (regBubble) {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');
                     regBubble.style.setProperty('width', '220px', 'important');
                     regBubble.style.setProperty('border-radius', '50px', 'important');
                     ftstyle2 = "reg-bubble";
+                }
+                if (regBubbleCloseIcon) {
+                    regBubbleCloseIcon.onclick = function() { 
+                    topButton.style.background = ''; topArrow.style.stroke = ''; }
+                    setTimeout(() => { regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
+                    regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
+                    regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
+                    console.log("inside timeout"); }, 1500);
+                    ftstyle3 = "reg-icon";
+                }
+                if (regButton) {
+                    regButton.style.setProperty('border-radius', '55px', 'important');
+                    ftstyle4 = "reg-button";
                 }
                 if (window.matchMedia("(min-width: 615px)").matches) { 
                     hostElement.shadowRoot.innerHTML = '';
