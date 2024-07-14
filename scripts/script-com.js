@@ -426,6 +426,8 @@ function outscale()
                     ftstyle2 = "reg-bubble";
                 }
                 if (regBubbleCloseIcon) {
+		    regBubbleCloseIcon.onclick = function() { topButton.style.background =''; if(topArrow) {
+                    topArrow.setAttribute('stroke', ''); } };
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -442,8 +444,7 @@ function outscale()
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
                 topButton.style.background ='white'; if(topArrow) { topArrow.setAttribute('stroke', '#3c4043'); }
-                regBubbleCloseIcon.onclick = function() { topButton.style.background =''; if(topArrow) {
-                topArrow.setAttribute('stroke', ''); } }; clearInterval(ftinterval); 
+                clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
             if (ftsize === "window-resized") {
