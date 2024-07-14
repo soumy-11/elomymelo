@@ -440,11 +440,16 @@ function outscale()
             }
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                topButton.style.background ='white'; topArrow.setAttribute('stroke', '#3c4043'); 
-                regBubbleCloseIcon.onclick = function() { topButton.style.background =''; 
-                topArrow.setAttribute('stroke', ''); } clearInterval(ftinterval); 
-                window.addEventListener('resize', scaleMe2); 
-            }
+    topButton.style.background = 'white';
+    topArrow.setAttribute('stroke', '#3c4043');
+    regBubbleCloseIcon.onclick = function() {
+        topButton.style.background = '';
+        topArrow.setAttribute('stroke', '');
+    };
+    clearInterval(ftinterval); 
+    window.addEventListener('resize', scaleMe2); 
+}
+
             if (ftsize === "window-resized") {
                 clearInterval(ftinterval); window.removeEventListener('resize', scaleMe2); 
             }
