@@ -424,13 +424,12 @@ function outscale()
                     regBubble.style.setProperty('border-radius', '50px', 'important');
                     ftstyle2 = "reg-bubble";
                 }
-                if (regBubbleCloseIcon) {
-                    regBubbleCloseIcon.onclick = function() { 
+                if (regBubbleCloseIcon && ftstyle1 === "reg-message") {
+                    regBubbleCloseIcon.onclick = function() {
                     topButton.style.background = ''; topArrow.style.stroke = ''; }
-                    setTimeout(() => { regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
+                    regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-                    console.log("inside timeout"); }, 1500);
                     ftstyle3 = "reg-icon";
                 }
                 if (regButton) {
