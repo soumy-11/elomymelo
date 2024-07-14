@@ -351,6 +351,18 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
+function scrolldown()
+{
+  var artcontainer = document.querySelector(".articles-container"); 
+  artcontainer.style.overflowY = "scroll"; var containerheight = artcontainer.offsetHeight; 
+  var contentheight = artcontainer.scrollHeight; var currentscroll = artcontainer.scrollTop; 
+  var newscroll = currentscroll + 1000; artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
+  if (currentscroll + containerheight >= contentheight - 1000) { 
+  document.querySelector(".scroll-clk-button").style.display = "none"; } 
+}
+function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
+function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
+
 function outscale()
 {
      let checkscale, sizedetection;
@@ -410,16 +422,15 @@ function outscale()
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
-		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+                const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
 
                 // Apply styles
-                if (regMessageInfo) {
+                if (regMessageInfo) 
+                {
                     regMessageInfo.style.setProperty('display', 'none', 'important');
                     ftstyle1 = "reg-message";
                 }
-		            if (regMenu) {
-                    regMenu.style.setProperty('box-shadow', 'none', 'important');
-                }
+                if (regMenu) { regMenu.style.setProperty('box-shadow', 'none', 'important'); }
                 if (regBubble && ftstyle1 === "reg-message") {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');
@@ -441,10 +452,12 @@ function outscale()
                 }
                 if (window.matchMedia("(min-width: 615px)").matches) { 
                     hostElement.shadowRoot.innerHTML = '';
-                    ftsize = "window-resized"; }
+                    ftsize = "window-resized"; 
+                }
             }
 
-            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
+            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") 
+            {
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
