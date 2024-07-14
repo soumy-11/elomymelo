@@ -2,17 +2,11 @@
 // console.log("defer-script-phone"); 
 function scrollmethod() 
 {
-	arow = document.querySelector('#Path_1');
     mybutton = document.getElementById("scroll-top-button"); 
-    const documentHeight = document.documentElement.scrollHeight;
-	const mediain = window.matchMedia("(max-width: 615px)").matches; 
-    const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+    const mediain = window.matchMedia("(max-width: 615px)").matches; 
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; } 
-    if ((scrollPosition + viewportHeight) > (documentHeight - 400)) { arow.style.stroke = '#5c5c5c'; 
-    mybutton.style.background = 'white'; } else { arow.style.stroke = ''; 
-    mybutton.style.background = ''; }
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 

@@ -361,6 +361,9 @@ function outscale()
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
+        const documentHeight = document.documentElement.scrollHeight;
+        const mediain = window.matchMedia("(max-width: 615px)").matches; 
+        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
         const topButton = document.querySelector('#scroll-top-button');
         const topArrow = document.querySelector('#Path_1');
 
@@ -449,6 +452,12 @@ function outscale()
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !=== "reg-message")) 
+            {   
+                topArrow.style.stroke = '#5c5c5c'; 
+                topButton.style.background = 'white'; 
+            } 
+            else { topArrow.style.stroke = ''; topButton.style.background = ''; }
             if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
         }
     }
