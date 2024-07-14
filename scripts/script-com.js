@@ -351,18 +351,6 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function scrolldown()
-{
-  var artcontainer = document.querySelector(".articles-container"); 
-  artcontainer.style.overflowY = "scroll"; var containerheight = artcontainer.offsetHeight; 
-  var contentheight = artcontainer.scrollHeight; var currentscroll = artcontainer.scrollTop; 
-  var newscroll = currentscroll + 1000; artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
-  if (currentscroll + containerheight >= contentheight - 1000) { 
-  document.querySelector(".scroll-clk-button").style.display = "none"; } 
-}
-function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
-function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
-
 function outscale()
 {
      let checkscale, sizedetection;
@@ -411,7 +399,7 @@ function outscale()
             }
         }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = "none"; }
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
@@ -422,7 +410,7 @@ function outscale()
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
-                const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
 
                 // Apply styles
                 if (regMessageInfo) 
@@ -430,7 +418,7 @@ function outscale()
                     regMessageInfo.style.setProperty('display', 'none', 'important');
                     ftstyle1 = "reg-message";
                 }
-                if (regMenu) { regMenu.style.setProperty('box-shadow', 'none', 'important'); }
+		            if (regMenu) { regMenu.style.setProperty('box-shadow', 'none', 'important'); }
                 if (regBubble && ftstyle1 === "reg-message") {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');

@@ -2,20 +2,26 @@
 // console.log("defer-script-phone"); 
 function scrollmethod() 
 {
-	mybutton = document.getElementById("scroll-top-button"); 
+	arow = document.querySelector('#Path_1');
+    mybutton = document.getElementById("scroll-top-button"); 
+    const documentHeight = document.documentElement.scrollHeight;
 	const mediain = window.matchMedia("(max-width: 615px)").matches; 
+    const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
-    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
+    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; } 
+    if ((scrollPosition + viewportHeight) > (documentHeight - 400)) { arow.style.stroke = '#5c5c5c'; 
+    mybutton.style.background = 'white'; } else { arow.style.stroke = ''; 
+    mybutton.style.background = ''; }
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
 function buttonfxd()
-{      
-    document.getElementById("Web_1920__1").style.visibility = "visible";
-    document.getElementById("top-check").style.visibility = "hidden";
-    if (window.matchMedia("(max-width: 615px)").matches) 
-    {
+{ 	   
+   	document.getElementById("Web_1920__1").style.visibility = "visible";
+   	document.getElementById("top-check").style.visibility = "hidden";
+   	if (window.matchMedia("(max-width: 615px)").matches) 
+   	{
         const mypage = window.innerWidth * 0.12;
         const pagebot = window.innerWidth * 0.167;
         const pageright = window.innerWidth * 0.04;
@@ -25,7 +31,7 @@ function buttonfxd()
         document.getElementById("scroll-top-button").style.height = mypage + "px";
     }
     if (window.matchMedia("(max-width: 415px)").matches)
-    {
+   	{
         const mypage = window.innerWidth * 0.14;
         const pagebot = window.innerWidth * 0.190;
         const pageright = window.innerWidth * 0.04;
@@ -35,7 +41,7 @@ function buttonfxd()
         document.getElementById("scroll-top-button").style.height = mypage + "px";
     }
     if (window.matchMedia("(max-width: 415px)").matches && window.matchMedia("(max-height: 745px)").matches) 
-    {
+   	{
         const mypage = window.innerWidth * 0.13;
         const pagebot = window.innerWidth * 0.16;
         const pageright = window.innerWidth * 0.04;
@@ -75,6 +81,6 @@ function buttonfxd()
 
     timer3 = setInterval(adsheights, 0);
     setTimeout(() => { clearInterval(timer3); }, 5000);
-    setTimeout(() => { setInterval(() => { adsheights(); }, 1000); }, 5000); 
+    setTimeout(() => { setInterval(() => { adsheights(); /* buttonfxd(); */ }, 1000); }, 5000); 
     // window.addEventListener('scroll', adsheights, false); 
 
