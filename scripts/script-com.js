@@ -399,9 +399,8 @@ function outscale()
             }
         }
 
-        console.log(sizedetection);
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; console.log("desk check = ", sizedetection); }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { console.log("mob check = ", sizedetection); buttonfxd(); }
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
@@ -449,6 +448,7 @@ function outscale()
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
+            if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
         }
     }
 
