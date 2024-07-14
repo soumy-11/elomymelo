@@ -417,14 +417,14 @@ function outscale()
 		            if (regMenu) {
                     regMenu.style.setProperty('box-shadow', 'none', 'important');
                 }
-                if (regBubble) {
+                if (regBubble && ftstyle1 === "reg-message") {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');
                     regBubble.style.setProperty('width', '220px', 'important');
                     regBubble.style.setProperty('border-radius', '50px', 'important');
                     ftstyle2 = "reg-bubble";
                 }
-                if (regBubbleCloseIcon && ftstyle1 === "reg-message") {
+                if (regBubbleCloseIcon) {
                     regBubbleCloseIcon.onclick = function() {
                     topButton.style.background = ''; topArrow.style.stroke = ''; }
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
