@@ -402,10 +402,15 @@ function outscale()
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
+		const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
 
                 // Apply styles
                 if (regMessageInfo) {
                     regMessageInfo.style.setProperty('display', 'none', 'important');
+                    ftstyle1 = "reg-message";
+                }
+		if (regMenu) {
+                    regMessageInfo.style.setProperty('box-shadow', 'none', 'important');
                     ftstyle1 = "reg-message";
                 }
                 if (regBubble) {
