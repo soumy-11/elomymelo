@@ -1,5 +1,5 @@
 
-console.log("defer-script-phone"); 
+// console.log("defer-script-phone"); 
 function scrollmethod() 
 {
 	mybutton = document.getElementById("scroll-top-button"); 
@@ -43,7 +43,7 @@ function buttonfxd()
     }
 }
 
-    setTimeout(buttonfxd, 2000); setTimeout(buttonfxd, 3500); 
+    // setTimeout(buttonfxd, 1000); setTimeout(buttonfxd, 3000); 
     // window.addEventListener('resize', buttonfxd, false); 
 
     function adsheights() {  
@@ -72,6 +72,6 @@ function buttonfxd()
 
     timer3 = setInterval(adsheights, 0);
     setTimeout(() => { clearInterval(timer3); }, 5000);
-    setTimeout(() => { setInterval(() => { adsheights(); buttonfxd(); }, 1000); }, 5000); 
+    setTimeout(() => { setInterval(() => { adsheights(); /* buttonfxd(); */ }, 1000); }, 5000); 
     // window.addEventListener('scroll', adsheights, false); 
 
