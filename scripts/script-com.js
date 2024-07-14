@@ -360,9 +360,6 @@ function outscale()
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
-	      const topButton = document.querySelector('#scroll-top-button');
-                const topArrow = document.querySelector('#path_1');
-
         if (parentElementNew || bodyOverflow === "hidden") {
             window.scrollTo(0, 0);
             document.body.style.overflow = "hidden";
@@ -407,6 +404,8 @@ function outscale()
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
 		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+                const topButton = document.querySelector('#scroll-top-button');
+                const topArrow = document.querySelector('#path_1');
 
                 // Apply styles
                 if (regMessageInfo) {
@@ -439,10 +438,10 @@ function outscale()
             }
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                topButton.style.background ='white'; topArrow.style.stroke ='#3c4043';
-                regBubbleCloseIcon.onclick = function() {
-                topButton.style.background =''; topArrow.style.stroke =''; }
-                clearInterval(ftinterval); window.addEventListener('resize', scaleMe2); 
+                topButton.style.background ='white'; topArrow.setAttribute('stroke', '#3c4043'); 
+                regBubbleCloseIcon.onclick = function() { topButton.style.background =''; 
+                topArrow.setAttribute('stroke', ''); } clearInterval(ftinterval); 
+                window.addEventListener('resize', scaleMe2); 
             }
             if (ftsize === "window-resized") {
                 clearInterval(ftinterval); window.removeEventListener('resize', scaleMe2); 
