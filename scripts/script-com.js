@@ -353,9 +353,9 @@ function toppicksout()
 
 function outscale()
 {
-     let checkscale;
-     function scaleMe2() 
-     { 
+     let checkscale, sizedetection;
+     function scaleMe2()
+     {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
@@ -399,11 +399,9 @@ function outscale()
             }
         }
 
-        if (topButton && window.matchMedia("(max-width: 615px)").matches) 
-        {
-            topButton.style.bottom = '55px'; topButton.style.right = '15px';
-            topButton.style.width = '50px'; topButton.style.height = '50px';
-        }
+        console.log(sizedetection);
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; console.log("desk check = ", sizedetection); }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { console.log("mob check = ", sizedetection); buttonfxd(); }
 
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
