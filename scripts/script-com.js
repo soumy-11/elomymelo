@@ -363,8 +363,6 @@ function outscale()
 
         const topButton = document.querySelector('#scroll-top-button');
         const topArrow = document.querySelector('#Path_1');
-        console.log("path-ele-found", topArrow);
-        console.log("scrl-button", topButton);
 
         if (parentElementNew || bodyOverflow === "hidden") {
             window.scrollTo(0, 0);
@@ -428,7 +426,7 @@ function outscale()
                 }
                 if (regBubbleCloseIcon) {
                     regBubbleCloseIcon.onclick = function() { 
-                    topButton.style.background = ''; if(topArrow) { topArrow.style.stroke = '#3c4043'; } }
+                    topButton.style.background = ''; topArrow.style.stroke = ''; }
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -444,8 +442,8 @@ function outscale()
             }
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                topButton.style.background = 'white'; if(topArrow) { topArrow.style.stroke = '#3c4043'; }
-                clearInterval(ftinterval); window.addEventListener('resize', scaleMe2); 
+                topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
+                window.addEventListener('resize', scaleMe2); 
             }
             if (ftsize === "window-resized") {
                 clearInterval(ftinterval); window.removeEventListener('resize', scaleMe2); 
