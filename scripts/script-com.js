@@ -449,9 +449,6 @@ function outscale()
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
-            if (ftsize === "window-resized") {
-                clearInterval(ftinterval); window.removeEventListener('resize', scaleMe2); 
-            }
         }
     }
 
