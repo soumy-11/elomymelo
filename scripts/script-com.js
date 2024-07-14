@@ -410,8 +410,7 @@ function outscale()
                     ftstyle1 = "reg-message";
                 }
 		if (regMenu) {
-                    regMessageInfo.style.setProperty('box-shadow', 'none', 'important');
-                    ftstyle1 = "reg-message";
+                    regMenu.style.setProperty('box-shadow', 'none', 'important');
                 }
                 if (regBubble) {
                     regBubble.style.setProperty('bottom', '10px', 'important');
