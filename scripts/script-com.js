@@ -399,6 +399,12 @@ function outscale()
             }
         }
 
+        if (topButton && window.matchMedia("(max-width: 615px)").matches) 
+        {
+            topButton.style.bottom = '55px'; topButton.style.right = '15px';
+            topButton.style.width = '50px'; topButton.style.height = '50px';
+        }
+
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
