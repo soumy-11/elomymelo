@@ -355,7 +355,7 @@ function outscale()
 {
      let checkscale;
      function scaleMe2() { 
-        let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
+        let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -395,6 +395,7 @@ function outscale()
             }
         }
 
+        console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
             if (hostElement.shadowRoot) {
@@ -402,14 +403,16 @@ function outscale()
                 const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
                 const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
                 const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
-		const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+                const topButton = document.querySelector('#scroll-top-button');
+                const topArrow = document.querySelector('#path_1');
 
                 // Apply styles
                 if (regMessageInfo) {
                     regMessageInfo.style.setProperty('display', 'none', 'important');
                     ftstyle1 = "reg-message";
                 }
-		if (regMenu) {
+		            if (regMenu) {
                     regMenu.style.setProperty('box-shadow', 'none', 'important');
                 }
                 if (regBubble) {
@@ -429,11 +432,19 @@ function outscale()
                     regButton.style.setProperty('border-radius', '55px', 'important');
                     ftstyle4 = "reg-button";
                 }
-                if (window.matchMedia("(min-width: 615px)").matches) { hostElement.shadowRoot.innerHTML = ''; }
+                if (window.matchMedia("(min-width: 615px)").matches) { 
+                    hostElement.shadowRoot.innerHTML = '';
+                    ftsize = "window-resized"; }
             }
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
+                topButton.style.background ='white'; topArrow.style.stroke ='#3c4043';
+                regBubbleCloseIcon.onclick = function() {
+                topButton.style.background =''; topArrow.style.stroke =''; }
                 clearInterval(ftinterval); window.addEventListener('resize', scaleMe2); 
+            }
+            if (ftsize === "window-resized") {
+                clearInterval(ftinterval); window.removeEventListener('resize', scaleMe2); 
             }
         }
     }
