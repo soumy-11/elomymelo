@@ -465,10 +465,10 @@ function outscale()
             {
                 topButton.style.background = ''; topArrow.style.stroke = '';
             }
-            if (ftsize === "window-resized" && (!scaleinterval)) 
-            {
-                scaleinterval = setInterval(buttonfxd, 1000); 
-            }
+        }
+        if (ftsize === "window-resized" && (!scaleinterval)) 
+        {
+            scaleinterval = setInterval(buttonfxd, 1000); 
         }
     }
 
