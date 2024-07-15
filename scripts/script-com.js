@@ -467,17 +467,12 @@ function outscale()
             if (ftsize === "window-resized") 
             {
                 topButton.style.background = ''; topArrow.style.stroke = '';
-		    scaleinterval = setInterval(buttonfxd, 1000); 
-            }
-        }
-        if ((ftsize === "window-resized") && (!scaleinterval)) 
-        {
-            console.log("inside resize");
-            topButton.style.width = "";
+                topButton.style.width = "";
                 topButton.style.bottom = "";
                 topButton.style.right = "";
                 topButton.style.height = "";
-            scaleinterval = setInterval(buttonfxd, 1000); 
+                scaleinterval = setInterval(buttonfxd, 1000); 
+            }
         }
     }
 
