@@ -353,9 +353,7 @@ function toppicksout()
 
 function outscale()
 {
-     let checkscale, sizedetection, scaleinterval;
-     if (window.matchMedia("(max-width: 615px)").matches) { 
-     scaleinterval = setInterval(buttonfxd, 1000); }
+     let checkscale, sizedetection;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -363,9 +361,6 @@ function outscale()
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
-        const documentHeight = document.documentElement.scrollHeight;
-        const mediain = window.matchMedia("(max-width: 615px)").matches; 
-        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
         const topButton = document.querySelector('#scroll-top-button');
         const topArrow = document.querySelector('#Path_1');
 
@@ -404,12 +399,8 @@ function outscale()
             }
         }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = "none"; }
-        if (window.matchMedia("(max-width: 615px)").matches && (!scaleinterval)) 
-        { 
-            console.log("first-interval check");
-            scaleinterval = setInterval(buttonfxd, 1000); 
-        }
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
@@ -422,12 +413,13 @@ function outscale()
 		            const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
 
                 // Apply styles
-                if (regMessageInfo) 
-                {
+                if (regMessageInfo) {
                     regMessageInfo.style.setProperty('display', 'none', 'important');
                     ftstyle1 = "reg-message";
                 }
-		            if (regMenu) { regMenu.style.setProperty('box-shadow', 'none', 'important'); }
+		            if (regMenu) {
+                    regMenu.style.setProperty('box-shadow', 'none', 'important');
+                }
                 if (regBubble && ftstyle1 === "reg-message") {
                     regBubble.style.setProperty('bottom', '10px', 'important');
                     regBubble.style.setProperty('padding-left', '20px', 'important');
@@ -437,8 +429,7 @@ function outscale()
                 }
                 if (regBubbleCloseIcon) {
                     regBubbleCloseIcon.onclick = function() {
-                    topButton.style.background = ''; topArrow.style.stroke = '';
-                    if (!scaleinterval) { scaleinterval = setInterval(buttonfxd, 1000); } }
+                    topButton.style.background = ''; topArrow.style.stroke = ''; }
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -450,29 +441,14 @@ function outscale()
                 }
                 if (window.matchMedia("(min-width: 615px)").matches) { 
                     hostElement.shadowRoot.innerHTML = '';
-                    ftsize = "window-resized"; 
-                }
+                    ftsize = "window-resized"; }
             }
 
-            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") 
-            {
-                clearInterval(scaleinterval); 
-                topButton.style.width = "50px";
-                topButton.style.bottom = "55px";
-                topButton.style.right = "15px";
-                topButton.style.height = "50px";
+            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
-            if (ftsize === "window-resized") 
-            {
-                topButton.style.background = ''; topArrow.style.stroke = '';
-                topButton.style.width = "";
-                topButton.style.bottom = "";
-                topButton.style.right = "";
-                topButton.style.height = "";
-                scaleinterval = setInterval(buttonfxd, 1000); 
-            }
+            if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
         }
     }
 
