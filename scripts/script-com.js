@@ -353,7 +353,7 @@ function toppicksout()
 
 function outscale()
 {
-     let checkscale, sizedetection;
+     let checkscale, sizedetection; scaleinterval;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -403,7 +403,10 @@ function outscale()
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = "none"; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
+        if (window.matchMedia("(max-width: 615px)").matches && (!scaleinterval)) 
+        { 
+            scaleinterval = setInterval(buttonfxd, 1000); 
+        }
 
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
@@ -449,18 +452,16 @@ function outscale()
 
             if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") 
             {
+                clearInterval(scaleinterval); 
+                topButton.style.width = "50px";
+                topButton.style.bottom = "55px";
+                topButton.style.right = "15px";
+                topButton.style.height = "50px";
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
             if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
         }
-
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) 
-        {   
-            topArrow.style.stroke = '#5c5c5c'; 
-            topButton.style.background = 'white'; 
-        } 
-        else { topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
     const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 

@@ -2,51 +2,49 @@
 // console.log("defer-script-phone"); 
 function scrollmethod() 
 {
-    mybutton = document.getElementById("scroll-top-button"); 
-    const mediain = window.matchMedia("(max-width: 615px)").matches; 
+	mybutton = document.getElementById("scroll-top-button"); 
+	const mediain = window.matchMedia("(max-width: 615px)").matches; 
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
-    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; } 
+    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
 function buttonfxd()
 { 	   
-   	document.getElementById("Web_1920__1").style.visibility = "visible";
+   	console.log("inside buttonfxd");
+    document.getElementById("Web_1920__1").style.visibility = "visible";
    	document.getElementById("top-check").style.visibility = "hidden";
    	if (window.matchMedia("(max-width: 615px)").matches) 
    	{
         const mypage = window.innerWidth * 0.12;
         const pagebot = window.innerWidth * 0.167;
         const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.width = mypage + "px";
-        document.getElementById("scroll-top-button").style.bottom = pagebot + "px";
-        document.getElementById("scroll-top-button").style.right = pageright + "px";
-        document.getElementById("scroll-top-button").style.height = mypage + "px";
+        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
     }
     if (window.matchMedia("(max-width: 415px)").matches)
    	{
         const mypage = window.innerWidth * 0.14;
         const pagebot = window.innerWidth * 0.190;
         const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.width = mypage + "px";
-        document.getElementById("scroll-top-button").style.bottom = pagebot + "px";
-        document.getElementById("scroll-top-button").style.right = pageright + "px";
-        document.getElementById("scroll-top-button").style.height = mypage + "px";
+        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
     }
     if (window.matchMedia("(max-width: 415px)").matches && window.matchMedia("(max-height: 745px)").matches) 
    	{
         const mypage = window.innerWidth * 0.13;
         const pagebot = window.innerWidth * 0.16;
         const pageright = window.innerWidth * 0.04;
-        document.getElementById("scroll-top-button").style.width = mypage + "px";
-        document.getElementById("scroll-top-button").style.bottom = pagebot + "px";
-        document.getElementById("scroll-top-button").style.right = pageright + "px";
-        document.getElementById("scroll-top-button").style.height = mypage + "px";
+        document.getElementById("scroll-top-button").style.setProperty('--set-size', mypage + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-bottom', pagebot + "px");
+        document.getElementById("scroll-top-button").style.setProperty('--set-right', pageright + "px");
     }
 }
 
-    // setTimeout(buttonfxd, 1000); setTimeout(buttonfxd, 3000); 
+    setTimeout(buttonfxd, 1000); setTimeout(buttonfxd, 3000); 
     // window.addEventListener('resize', buttonfxd, false); 
 
     function adsheights() {  
@@ -75,6 +73,6 @@ function buttonfxd()
 
     timer3 = setInterval(adsheights, 0);
     setTimeout(() => { clearInterval(timer3); }, 5000);
-    setTimeout(() => { setInterval(() => { adsheights(); /* buttonfxd(); */ }, 1000); }, 5000); 
+    setTimeout(() => { setInterval(() => { adsheights(); }, 1000); }, 5000); 
     // window.addEventListener('scroll', adsheights, false); 
 
