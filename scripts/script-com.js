@@ -353,7 +353,7 @@ function toppicksout()
 
 function outscale()
 {
-     let checkscale, sizedetection, scaleinterval, ftsize;
+     let checkscale, sizedetection, scaleinterval;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -466,8 +466,13 @@ function outscale()
                 topButton.style.background = ''; topArrow.style.stroke = '';
             }
         }
-        if (ftsize === "window-resized" && (!scaleinterval)) 
+        if ((ftsize === "window-resized") && (!scaleinterval)) 
         {
+            console.log("inside resize");
+            topButton.style.width = "";
+                topButton.style.bottom = "";
+                topButton.style.right = "";
+                topButton.style.height = "";
             scaleinterval = setInterval(buttonfxd, 1000); 
         }
     }
