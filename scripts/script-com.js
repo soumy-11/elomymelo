@@ -354,6 +354,8 @@ function toppicksout()
 function outscale()
 {
      let checkscale, sizedetection, scaleinterval;
+     if (window.matchMedia("(max-width: 615px)").matches) { 
+     scaleinterval = setInterval(buttonfxd, 1000); }
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -405,6 +407,7 @@ function outscale()
         if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = "none"; }
         if (window.matchMedia("(max-width: 615px)").matches && (!scaleinterval)) 
         { 
+            console.log("first-interval check");
             scaleinterval = setInterval(buttonfxd, 1000); 
         }
 
