@@ -405,6 +405,20 @@ function outscale()
         if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
+        function afterftclose()
+        {
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
+            {   
+                topArrow.style.stroke = '#5c5c5c'; 
+                topButton.style.background = 'white'; 
+            } 
+            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
+            {   
+                topArrow.style.stroke = ''; 
+                topButton.style.background = ''; 
+            }   console.log("button close");
+        }
+
         console.log("interval check");
         const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         if (hostElement) {
@@ -431,8 +445,7 @@ function outscale()
                     ftstyle2 = "reg-bubble";
                 }
                 if (regBubbleCloseIcon) {
-                    regBubbleCloseIcon.onclick = function() {
-                    topButton.style.background = ''; topArrow.style.stroke = ''; }
+                    regBubbleCloseIcon.onclick = function() { setInterval(afterftclose, 1000); }
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -453,12 +466,13 @@ function outscale()
             }
             if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
         }
+        
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) 
         {   
             topArrow.style.stroke = '#5c5c5c'; 
             topButton.style.background = 'white'; 
         } 
-	if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) 
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) 
         {   
             topArrow.style.stroke = ''; 
             topButton.style.background = ''; 
