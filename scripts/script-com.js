@@ -353,7 +353,7 @@ function toppicksout()
 
 function outscale()
 {
-     let checkscale, sizedetection, scaleinterval;
+     let checkscale, sizedetection, scaleinterval, ftsize;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
