@@ -434,7 +434,8 @@ function outscale()
                 }
                 if (regBubbleCloseIcon) {
                     regBubbleCloseIcon.onclick = function() {
-                    topButton.style.background = ''; topArrow.style.stroke = ''; }
+                    topButton.style.background = ''; topArrow.style.stroke = '';
+                    if (!scaleinterval) { scaleinterval = setInterval(buttonfxd, 1000); } }
                     regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                     regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                     regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -460,7 +461,11 @@ function outscale()
                 topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; clearInterval(ftinterval); 
                 window.addEventListener('resize', scaleMe2); 
             }
-            if (ftsize === "window-resized") { topButton.style.background = ''; topArrow.style.stroke = ''; }
+            if (ftsize === "window-resized") 
+            { 
+                topButton.style.background = ''; topArrow.style.stroke = '';
+                scaleinterval = setInterval(buttonfxd, 1000); 
+            }
         }
     }
 
