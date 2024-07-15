@@ -467,6 +467,7 @@ function outscale()
             if (ftsize === "window-resized") 
             {
                 topButton.style.background = ''; topArrow.style.stroke = '';
+		    scaleinterval = setInterval(buttonfxd, 1000); 
             }
         }
         if ((ftsize === "window-resized") && (!scaleinterval)) 
