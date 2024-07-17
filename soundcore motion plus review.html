@@ -5020,10 +5020,13 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
 
         const annosa = document.getElementById('google-anno-sa');
+        const toolbar = document.getElementById('ft-floating-toolbar');
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        hostElements.forEach(hostElement => 
+        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, toolbar); });
+
+        function alldynamic()
         {
-           if (hostElement.shadowRoot) 
+           if (hostElement.shadowRoot && toolbar) 
            {
                hostElement.shadowRoot.innerHTML = '';
                hostElement.shadowRoot.host.remove();
@@ -5041,7 +5044,7 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
                annosa.style.setProperty('display', 'initial', 'important'); annosa.style.removeProperty('background');
                annosa.style.setProperty('background', 'linear-gradient(to right, #5c0099, #703d03)', 'important');
            }
-        });
+        }
    }
 
    timer3 = setInterval(upheight, 0);
