@@ -5020,17 +5020,22 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
 
         const annosa = document.getElementById('google-anno-sa');
-        const toolbar = document.getElementById('ft-floating-toolbar');
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, toolbar); });
+        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
 
-        function alldynamic(hostElement, annosa, toolbar)
+        function alldynamic(hostElement, annosa)
         {
-           if (hostElement.shadowRoot && toolbar) 
+           if (hostElement.shadowRoot) 
            {
-               hostElement.shadowRoot.innerHTML = '';
-               hostElement.shadowRoot.host.remove();
-               console.log("Removed 111");
+               const shadowdom = hostElement.shadowRoot;
+               const toolbar = shadowdom.getElementById('toolbar'); 
+
+               if (toolbar)
+               {
+                   shadowdom.innerHTML = '';
+                   shadowdom.host.remove();
+                   console.log("111");
+               }
            }
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
