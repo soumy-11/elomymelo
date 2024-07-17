@@ -5030,6 +5030,8 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        { 
 	   const element = document.getElementById('google-anno-sa');
            element.style.setProperty('display', 'initial', 'important'); 
+	   element.style.removeProperty('background');
+           element.style.setProperty('background', 'linear-gradient(to right, #5c0099, #703d03)', 'important');
        }
    }
 
