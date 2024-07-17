@@ -5026,6 +5026,11 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
            element.style.setProperty('display', 'none', 'important');
            console.log('Display property set to none');
        }
+       else 
+       { 
+	   const element = document.getElementById('google-anno-sa');
+           element.style.setProperty('display', 'initial', 'important'); 
+       }
    }
 
    timer3 = setInterval(upheight, 0);
