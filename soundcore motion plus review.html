@@ -5019,22 +5019,29 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
        document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
 
-       if (window.matchMedia("(min-width: 615px)").matches) 
-       {
-           const element = document.getElementById('google-anno-sa');
-	   element.style.removeProperty('display');
-           element.style.setProperty('display', 'none', 'important');
-           console.log('Display property set to none');
-       }
-       else 
-       { 
-	   const element = document.getElementById('google-anno-sa');
-           element.style.setProperty('display', 'initial', 'important'); 
-	   element.style.removeProperty('background');
-	   element.style.removeProperty('width');
-           element.style.setProperty('background', 'linear-gradient(to right, #5c0099, #703d03)', 'important');
-	   element.style.setProperty('width', '580px', 'important'); 
-       }
+        const annosa = document.getElementById('google-anno-sa');
+        const hostElements = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
+        hostElements.forEach(hostElement => 
+        {
+           if (hostElement.shadowRoot) 
+           {
+               hostElement.shadowRoot.innerHTML = '';
+               hostElement.shadowRoot.host.remove();
+               console.log("Removed 111");
+           }
+
+           if (annosa && window.matchMedia("(min-width: 615px)").matches) 
+           {
+               annosa.style.removeProperty('display');
+               annosa.style.setProperty('display', 'none', 'important');
+               console.log("Display 222");
+           }
+           else 
+           { 
+               annosa.style.setProperty('display', 'initial', 'important'); annosa.style.removeProperty('background');
+               annosa.style.setProperty('background', 'linear-gradient(to right, #5c0099, #703d03)', 'important');
+           }
+        });
    }
 
    timer3 = setInterval(upheight, 0);
