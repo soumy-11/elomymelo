@@ -5020,7 +5020,7 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
 
         const annosa = document.getElementById('google-anno-sa');
-        const hostElements = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
+        const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         hostElements.forEach(hostElement => 
         {
            if (hostElement.shadowRoot) 
