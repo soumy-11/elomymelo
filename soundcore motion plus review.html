@@ -5024,7 +5024,7 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, toolbar); });
 
-        function alldynamic()
+        function alldynamic(hostElement, annosa, toolbar)
         {
            if (hostElement.shadowRoot && toolbar) 
            {
