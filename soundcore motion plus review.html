@@ -5018,6 +5018,14 @@ function scrltipout() { document.getElementById("scroll-here-tip").style.visibil
        document.getElementById("ads-style-feed-res-phone-2").style.setProperty('--set-margin', adheightthree + "px");
        document.getElementById("ads-style-display-res-phone-2").style.setProperty('--set-margin', adheightfour + "px");
        document.getElementById("ads-style-display-res-phone-3").style.setProperty('--set-margin', adheightfive + "px");
+
+       if (window.matchMedia("(min-width: 615px)").matches) 
+       {
+           const element = document.getElementById('google-anno-sa');
+	   element.style.removeProperty('display');
+           element.style.setProperty('display', 'none', 'important');
+           console.log('Display property set to none');
+       }
    }
 
    timer3 = setInterval(upheight, 0);
