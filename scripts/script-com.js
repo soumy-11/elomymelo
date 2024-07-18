@@ -421,11 +421,50 @@ function outscale()
                const toolbar = shadowdom.getElementById('ft-floating-toolbar'); 
                const contain = shadowdom.querySelector('.ipr-container'); 
 
-               if (toolbar || contain)
+               const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
+               const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
+               const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
+               const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
+               const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+
+               if (contain)
                {
                    shadowdom.innerHTML = '';
                    shadowdom.host.remove();
                    console.log("111");
+               }
+
+               if (toolbar)
+               {
+                   if (regMessageInfo) {
+                       regMessageInfo.style.setProperty('display', 'none', 'important');
+                       ftstyle1 = "reg-message";
+                   }
+                   if (regMenu) {
+                       regMenu.style.setProperty('box-shadow', 'none', 'important');
+                   }
+                   if (regBubble && ftstyle1 === "reg-message") {
+                       regBubble.style.setProperty('bottom', '10px', 'important');
+                       regBubble.style.setProperty('padding-left', '20px', 'important');
+                       regBubble.style.setProperty('width', '220px', 'important');
+                       regBubble.style.setProperty('border-radius', '50px', 'important');
+                       ftstyle2 = "reg-bubble";
+                   }
+                   if (regBubbleCloseIcon) {
+                       regBubbleCloseIcon.onclick = function() { setInterval(afterftclose, 1000); }
+                       regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
+                       regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
+                       regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
+                       ftstyle3 = "reg-icon";
+                   }
+                   if (regButton) {
+                       regButton.style.setProperty('border-radius', '55px', 'important');
+                       ftstyle4 = "reg-button";
+                   }
+                   if (window.matchMedia("(min-width: 615px)").matches) {
+                       hostElement.shadowRoot.innerHTML = '';
+                       // ftsize = "window-resized";
+                   }
                }
 
                const iframe = shadowdom.querySelector('#prose-iframe');
@@ -448,8 +487,7 @@ function outscale()
                const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
-               document.body.style.height = adjustedTopPos + "px"; annosa.style.removeProperty('width');
-               annosa.style.setProperty('width', '70%', 'important');
+               document.body.style.height = adjustedTopPos + "px"; 
            }
         }
     }
