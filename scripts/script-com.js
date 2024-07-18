@@ -427,6 +427,11 @@ function outscale()
                    shadowdom.host.remove();
                    console.log("111");
                }
+
+               const iframe = shadowdom.querySelector('#prose-iframe');
+               const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+               const iframeHtml = iframeDoc.documentElement; // select html element
+               iframeHtml.style.setProperty('overflow', 'hidden', 'important');
            }
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
@@ -443,7 +448,7 @@ function outscale()
                const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
-               document.body.style.height = adjustedTopPos + "px"; console.log(bodyTop);
+               document.body.style.height = adjustedTopPos + "px"; 
            }
         }
     }
