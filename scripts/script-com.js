@@ -442,8 +442,8 @@ function outscale()
                const bodyStyles = window.getComputedStyle(document.body);
                const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
-               lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.max(0, bodyTop);
-               document.body.style.height = adjustedTopPos + "px"; console.log(adjustedTopPos);
+               lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
+               document.body.style.height = adjustedTopPos + "px"; console.log(bodyTop);
            }
         }
     }
