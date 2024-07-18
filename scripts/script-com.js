@@ -375,9 +375,6 @@ function outscale()
 
         if (parentElementNew || bodyOverflow === "hidden") {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            // document.body.style.removeProperty('position');
-            // document.body.style.removeProperty('width');
-            // document.body.style.removeProperty('top');
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
             checkscale = "present"; // assigned
@@ -442,9 +439,11 @@ function outscale()
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
                const lastele = document.getElementById('after-ft-phone');
+               const bodyStyles = window.getComputedStyle(document.body);
+               const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
-               lastele.style.border = "1px transparent solid"; document.body.style.height = topPos + "px";
-               // document.body.style.setProperty('overflow', 'visible', 'important');
+               lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.max(0, bodyTop);
+               document.body.style.height = adjustedTopPos + "px"; console.log(adjustedTopPos);
            }
         }
     }
