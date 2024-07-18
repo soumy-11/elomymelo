@@ -448,7 +448,8 @@ function outscale()
                const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
-               document.body.style.height = adjustedTopPos + "px"; 
+               document.body.style.height = adjustedTopPos + "px"; annosa.style.removeProperty('width');
+               annosa.style.setProperty('width', '70%', 'important');
            }
         }
     }
