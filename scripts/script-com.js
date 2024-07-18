@@ -351,46 +351,38 @@ function toppicksout()
 	document.getElementById("top-picks-text").style.visibility = "";
 }
 
-function outscale() {
-    let checkscale, sizedetection;
-    const topButton = document.querySelector('#scroll-top-button');
-    const topArrow = document.querySelector('#Path_1');
+function scrolldown()
+{
+  var artcontainer = document.querySelector(".articles-container"); 
+  artcontainer.style.overflowY = "scroll"; var containerheight = artcontainer.offsetHeight; 
+  var contentheight = artcontainer.scrollHeight; var currentscroll = artcontainer.scrollTop; 
+  var newscroll = currentscroll + 1000; artcontainer.scrollTo({ top: newscroll, behavior: 'smooth' }); 
+  if (currentscroll + containerheight >= contentheight - 1000) { 
+  document.querySelector(".scroll-clk-button").style.display = "none"; } 
+}
+function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
+function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
-    function afterftclose() {
-        const documentHeight = document.documentElement.scrollHeight;
-        const mediain = window.matchMedia("(max-width: 615px)").matches;
-        const viewportHeight = window.innerHeight;
-        const scrollPosition = window.scrollY;
-        
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
-            topArrow.style.stroke = '#5c5c5c';
-            topButton.style.background = 'white';
-        }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
-            topArrow.style.stroke = '';
-            topButton.style.background = '';
-        }
-        console.log("button close");
-    }
-
-    function scaleMe2() {
-        let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
+function outscale()
+{
+     let checkscale;
+     function scaleMe2()
+     {
+        let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
-        const documentHeight = document.documentElement.scrollHeight;
-        const mediain = window.matchMedia("(max-width: 615px)").matches;
-        const viewportHeight = window.innerHeight;
-        const scrollPosition = window.scrollY;
-
         if (parentElementNew || bodyOverflow === "hidden") {
-            window.scrollTo(0, 0);
+            if (parentElementNew) { window.scrollTo(0, 0); }
+            document.body.style.removeProperty('position');
+            document.body.style.removeProperty('width');
+            document.body.style.removeProperty('top');
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
             checkscale = "present"; // assigned
-        } else {
-            document.body.style.overflow = "visible";
+        }
+        else { document.body.style.overflow = "visible";
 
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
@@ -409,8 +401,7 @@ function outscale() {
                     document.body.style.transform = "scale(0.80)";
                 }
             }
-            checkscale = "absent";
-            document.body.style.transform = "";
+            checkscale = "absent"; document.body.style.transform = "";
         }
 
         if (footerDiv) {
@@ -420,75 +411,45 @@ function outscale() {
             }
         }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
-
         console.log("interval check");
-        const hostElement = document.querySelector('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        if (hostElement) {
-            if (hostElement.shadowRoot) {
-                const regMessageInfo = hostElement.shadowRoot.querySelector('.ft-reg-message-info');
-                const regBubble = hostElement.shadowRoot.querySelector('.ft-reg-bubble');
-                const regBubbleCloseIcon = hostElement.shadowRoot.querySelector('.ft-reg-bubble-close-icon');
-                const regButton = hostElement.shadowRoot.querySelector('.ft-styless-button');
-                const regMenu = hostElement.shadowRoot.querySelector('.ft-menu');
+        const annosa = document.getElementById('google-anno-sa');
+        const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
+        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
 
-                // Apply styles
-                if (regMessageInfo) {
-                    regMessageInfo.style.setProperty('display', 'none', 'important');
-                    ftstyle1 = "reg-message";
-                }
-                if (regMenu) {
-                    regMenu.style.setProperty('box-shadow', 'none', 'important');
-                }
-                if (regBubble && ftstyle1 === "reg-message") {
-                    regBubble.style.setProperty('bottom', '10px', 'important');
-                    regBubble.style.setProperty('padding-left', '20px', 'important');
-                    regBubble.style.setProperty('width', '220px', 'important');
-                    regBubble.style.setProperty('border-radius', '50px', 'important');
-                    ftstyle2 = "reg-bubble";
-                }
-                if (regBubbleCloseIcon) {
-                    regBubbleCloseIcon.onclick = function() { setInterval(afterftclose, 1000); }
-                    regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
-                    regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
-                    regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-                    ftstyle3 = "reg-icon";
-                }
-                if (regButton) {
-                    regButton.style.setProperty('border-radius', '55px', 'important');
-                    ftstyle4 = "reg-button";
-                }
-                if (window.matchMedia("(min-width: 615px)").matches) {
-                    hostElement.shadowRoot.innerHTML = '';
-                    ftsize = "window-resized";
-                }
-            }
+        function alldynamic(hostElement, annosa)
+        {
+           if (hostElement.shadowRoot) 
+           {
+               const shadowdom = hostElement.shadowRoot;
+               const toolbar = shadowdom.getElementById('ft-floating-toolbar'); 
+               const contain = shadowdom.querySelector('.ipr-container'); 
 
-            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                topButton.style.background = 'white';
-                topArrow.style.stroke = '#5c5c5c';
-                clearInterval(ftinterval);
-                window.addEventListener('resize', scaleMe2);
-            }
-            if (ftsize === "window-resized") {
-                topButton.style.background = '';
-                topArrow.style.stroke = '';
-            }
-        }
+               if (toolbar || contain)
+               {
+                   shadowdom.innerHTML = '';
+                   shadowdom.host.remove();
+                   console.log("111");
+               }
+           }
 
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
-            topArrow.style.stroke = '#5c5c5c';
-            topButton.style.background = 'white';
-        }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
-            topArrow.style.stroke = '';
-            topButton.style.background = '';
+           if (annosa && window.matchMedia("(min-width: 615px)").matches) 
+           {
+               document.body.style.height = "";
+               annosa.style.removeProperty('display');
+               annosa.style.setProperty('display', 'none', 'important');
+               console.log("Display 222");
+           }
+           if (annosa && window.matchMedia("(max-width: 615px)").matches) 
+           {
+               const lastele = document.getElementById('after-ft-phone');
+               const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
+               lastele.style.border = "1px transparent solid"; document.body.style.height = topPos + "px";
+               // document.body.style.setProperty('overflow', 'visible', 'important');
+           }
         }
     }
 
-    const ftinterval = setInterval(scaleMe2, 1000);
-    scaleMe2();
+    const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 
 }
 outscale();
 
