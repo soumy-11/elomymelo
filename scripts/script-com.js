@@ -498,16 +498,17 @@ function outscale()
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
-                   annosa.style.setProperty('width', '80%', 'important');
+                   annosa.style.removeProperty('border-radius');
+                   annosa.style.setProperty('width', '95%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
-                   annosa.style.setProperty('border-radius', 'initial', 'important');
+                   annosa.style.setProperty('border-radius', '15px', 'important');
                }
                if (annowidth < 100) 
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('left', '15px', 'important');
-                   annosa.style.setProperty('border-radius', '50%', 'important');
+                   annosa.style.setProperty('border-radius', '55px', 'important');
                    // topButton style implementation ---
                }
            }
