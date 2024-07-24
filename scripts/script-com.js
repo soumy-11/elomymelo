@@ -480,12 +480,19 @@ function outscale()
            {
                document.body.style.height = "";
                annosa.style.removeProperty('left');
+               annosa.style.removeProperty('width');
                annosa.style.removeProperty('bottom');
+               annosa.style.removeProperty('transform');
                // annosa.style.removeProperty('display');
                annosa.style.setProperty('left', '55px', 'important');
                annosa.style.setProperty('bottom', '25px', 'important');
+               annosa.style.setProperty('width', 'initial', 'important');
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
+
+               sawidth = annosa.innerHeight;
+               transa = (sawidth - 200) + window.scrollY;
+               annosa.style.transform = "translateY("+transa+"px)";
 
                if (annowidth > 100) 
                {
@@ -514,7 +521,7 @@ function outscale()
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
                    annosa.style.removeProperty('border-radius');
-                   annosa.style.setProperty('width', '93%', 'important');
+                   annosa.style.setProperty('width', '94%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
                }
