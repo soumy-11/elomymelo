@@ -479,9 +479,24 @@ function outscale()
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
            {
                document.body.style.height = "";
-               annosa.style.removeProperty('display');
-               annosa.style.setProperty('display', 'none', 'important');
-               console.log("Display 222");
+               annosa.style.removeProperty('left');
+               annosa.style.removeProperty('bottom');
+               // annosa.style.removeProperty('display');
+               annosa.style.setProperty('left', '55px', 'important');
+               annosa.style.setProperty('bottom', '25px', 'important');
+               // annosa.style.setProperty('display', 'none', 'important');
+               // console.log("Display 222");
+
+               if (annowidth > 100) 
+               {
+                   annosa.style.removeProperty('left');
+                   annosa.style.setProperty('left', '55px', 'important');
+               }
+               if (annowidth < 100) 
+               {
+                   annosa.style.removeProperty('left');
+                   annosa.style.setProperty('left', '50px', 'important');
+               }
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
@@ -499,7 +514,7 @@ function outscale()
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
                    annosa.style.removeProperty('border-radius');
-                   annosa.style.setProperty('width', '95%', 'important');
+                   annosa.style.setProperty('width', '93%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
                }
@@ -509,7 +524,6 @@ function outscale()
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
-                   // topButton style implementation ---
                }
            }
         }
