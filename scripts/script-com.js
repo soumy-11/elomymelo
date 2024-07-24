@@ -486,15 +486,16 @@ function outscale()
                // annosa.style.removeProperty('display');
                annosa.style.setProperty('left', '55px', 'important');
                annosa.style.setProperty('bottom', '25px', 'important');
-               annosa.style.setProperty('width', 'initial', 'important');
+               // annosa.style.setProperty('width', 'initial', 'important');
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
 
                const sawidth = annosa.innerHeight;
                const annowidth = annosa.clientWidth;
                var transa = (sawidth - 200) + window.scrollY;
+               const transformValue = `translateY(${transa}px)`;
                // annosa.style.transform = "translateY("+transa+"px)";
-               annosa.style.setProperty('transform', 'translateY('+transa+'px)', 'important');
+               annosa.style.setProperty('transform', transformValue, 'important');
 
                if (annowidth > 100) 
                {
