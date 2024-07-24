@@ -490,9 +490,11 @@ function outscale()
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
 
-               sawidth = annosa.innerHeight;
-               transa = (sawidth - 200) + window.scrollY;
-               annosa.style.transform = "translateY("+transa+"px)";
+               const sawidth = annosa.innerHeight;
+               const annowidth = annosa.clientWidth;
+               var transa = (sawidth - 200) + window.scrollY;
+               // annosa.style.transform = "translateY("+transa+"px)";
+               annosa.style.setProperty('transform', 'translateY('+transa+'px)', 'important');
 
                if (annowidth > 100) 
                {
@@ -520,6 +522,7 @@ function outscale()
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
+                   annosa.style.removeProperty('transform');
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('width', '94%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
