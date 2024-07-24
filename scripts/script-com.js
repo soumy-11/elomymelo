@@ -496,12 +496,17 @@ function outscale()
 
                if (annowidth > 100) 
                {
+                   annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
-                   annosa.style.setProperty('width', '100%', 'important');
+                   annosa.style.setProperty('width', '80%', 'important');
+                   annosa.style.setProperty('left', '15px', 'important');
+                   annosa.style.setProperty('border-radius', 'initial', 'important');
                }
                if (annowidth < 100) 
                {
+                   annosa.style.removeProperty('left');
                    annosa.style.removeProperty('border-radius');
+                   annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '50%', 'important');
                    // topButton style implementation ---
                }
