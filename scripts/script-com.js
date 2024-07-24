@@ -480,10 +480,8 @@ function outscale()
            {
                document.body.style.height = "";
                annosa.style.removeProperty('left');
-               annosa.style.removeProperty('width');
                annosa.style.removeProperty('bottom');
                annosa.style.removeProperty('transform');
-               // annosa.style.removeProperty('display');
                annosa.style.setProperty('left', '55px', 'important');
                annosa.style.setProperty('bottom', '25px', 'important');
                // annosa.style.setProperty('width', 'initial', 'important');
