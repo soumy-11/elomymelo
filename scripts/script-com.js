@@ -490,13 +490,13 @@ function outscale()
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
 
-               const sawidth = window.innerHeight;
-               const annowidth = annosa.clientWidth;
+               var sawidth = window.innerHeight;
+               var annowidth = annosa.clientWidth;
                var transa = (sawidth - 200) + window.scrollY;
-               // const transformValue = `translateY(${transa}px)`;
-               annosa.style.transform = "translateY("+transa+"px)";
-               // annosa.style.setProperty('transform', transformValue, 'important');
-               console.log("transform value = ", transa);
+               var transformValue = `translateY(${transa}px)`;
+               // annosa.style.transform = "translateY("+transa+"px)";
+               annosa.style.setProperty('transform', transformValue, 'important');
+               console.log("transform value = ", transformValue);
 
                if (annowidth > 100) 
                {
