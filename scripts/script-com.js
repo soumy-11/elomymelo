@@ -478,21 +478,29 @@ function outscale()
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
            {
-               document.body.style.height = "";
+               var bodyHeight = document.getElementById("Web_1920__1").clientHeight;
+               document.body.style.height = bodyHeight + "px"; 
+               console.log("body height = ", bodyHeight);
+
+               var saheight = window.innerHeight;
+               var annowidth = annosa.clientWidth;
+               var topsa = saheight - 100; // for top
+
+               annosa.style.removeProperty('top');
                annosa.style.removeProperty('left');
+               annosa.style.removeProperty('width');
                annosa.style.removeProperty('bottom');
                annosa.style.removeProperty('position');
                annosa.style.removeProperty('transform');
-               annosa.style.setProperty('left', '55px', 'important');
-               annosa.style.setProperty('bottom', '25px', 'important');
+               annosa.style.setProperty('top', topsa, 'important');
+               // annosa.style.setProperty('left', '55px', 'important');
+               // annosa.style.setProperty('bottom', '25px', 'important');
                annosa.style.setProperty('position', 'absolute', 'important');
                // annosa.style.setProperty('width', 'initial', 'important');
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
 
-               var sawidth = window.innerHeight;
-               var annowidth = annosa.clientWidth;
-               var transa = (sawidth - 200) + window.scrollY;
+               var transa = topsa + window.scrollY;
                var transformValue = `translateY(${transa}px)`;
                // annosa.style.transform = "translateY("+transa+"px)";
                annosa.style.setProperty('transform', transformValue, 'important');
@@ -500,13 +508,12 @@ function outscale()
 
                if (annowidth > 100) 
                {
-                   annosa.style.removeProperty('left');
-                   annosa.style.setProperty('left', '55px', 'important');
+                   annosa.style.setProperty('width', '400px', 'important');
+                   annosa.style.setProperty('left', '50px', 'important');
                }
                if (annowidth < 100) 
                {
-                   annosa.style.removeProperty('left');
-                   annosa.style.setProperty('left', '50px', 'important');
+                   annosa.style.setProperty('left', '40px', 'important');
                }
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
