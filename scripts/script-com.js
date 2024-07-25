@@ -478,9 +478,14 @@ function outscale()
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
            {
-               var bodyHeight = document.getElementById("Web_1920__1").clientHeight;
-               document.body.style.height = bodyHeight + "px"; 
-               console.log("body height = ", bodyHeight);
+               
+               var bodyStyles = window.getComputedStyle(document.body);
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop);
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
 
                var saheight = window.innerHeight;
                var annowidth = annosa.clientWidth;
@@ -518,13 +523,13 @@ function outscale()
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
-               const annowidth = annosa.clientWidth;
-               const lastele = document.getElementById('after-ft-phone');
-               const bodyStyles = window.getComputedStyle(document.body);
-               const topButton = document.querySelector('#scroll-top-button');
-               const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
-               lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
+               var annowidth = annosa.clientWidth;
+               var lastele = document.getElementById('after-ft-phone');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var topButton = document.querySelector('#scroll-top-button');
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = lastele.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
+               lastele.style.border = "1px transparent solid"; var adjustedTopPos = topPos + Math.abs(bodyTop);
                document.body.style.height = adjustedTopPos + "px"; 
 
                if (annowidth > 100) 
