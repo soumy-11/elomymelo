@@ -478,12 +478,11 @@ function outscale()
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
            {
-               
-               var bodyStyles = window.getComputedStyle(document.body);
                var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop);
+               var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
 
@@ -493,6 +492,7 @@ function outscale()
 
                annosa.style.removeProperty('top');
                annosa.style.removeProperty('left');
+               annosa.style.removeProperty('right');
                annosa.style.removeProperty('width');
                annosa.style.removeProperty('bottom');
                annosa.style.removeProperty('position');
