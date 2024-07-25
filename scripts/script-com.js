@@ -436,8 +436,8 @@ function outscale()
 
                if (toolbar)
                {
-                   toolbar.style.removeProperty('bottom');
-                   toolbar.style.setProperty('bottom', '75px', 'important');
+                   // toolbar.style.removeProperty('bottom');
+                   // toolbar.style.setProperty('bottom', '75px', 'important');
 
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
@@ -446,12 +446,18 @@ function outscale()
                    if (regMenu) {
                        regMenu.style.setProperty('box-shadow', 'none', 'important');
                    }
+                   if (regMenu && annosa) {
+                       regMenu.style.setProperty('bottom', '-30px', 'important');
+                   }
                    if (regBubble && ftstyle1 === "reg-message") {
                        regBubble.style.setProperty('bottom', '10px', 'important');
                        regBubble.style.setProperty('padding-left', '20px', 'important');
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
                        ftstyle2 = "reg-bubble";
+                   }
+                   if (regBubble && annosa) {
+                       regBubble.style.setProperty('bottom', '-20px', 'important');
                    }
                    if (regBubbleCloseIcon) {
                        regBubbleCloseIcon.onclick = function() { setInterval(afterftclose, 1000); }
@@ -476,39 +482,6 @@ function outscale()
                iframeHtml.style.setProperty('overflow', 'hidden', 'important');
            }
 
-           if (annosa && window.matchMedia("(min-width: 615px)").matches) 
-           {
-               document.body.style.height = "";
-               annosa.style.removeProperty('left');
-               annosa.style.removeProperty('bottom');
-               annosa.style.removeProperty('position');
-               annosa.style.removeProperty('transform');
-               annosa.style.setProperty('left', '55px', 'important');
-               annosa.style.setProperty('bottom', '25px', 'important');
-               annosa.style.setProperty('position', 'absolute', 'important');
-               // annosa.style.setProperty('width', 'initial', 'important');
-               // annosa.style.setProperty('display', 'none', 'important');
-               // console.log("Display 222");
-
-               var sawidth = window.innerHeight;
-               var annowidth = annosa.clientWidth;
-               var transa = (sawidth - 200) + window.scrollY;
-               var transformValue = `translateY(${transa}px)`;
-               // annosa.style.transform = "translateY("+transa+"px)";
-               annosa.style.setProperty('transform', transformValue, 'important');
-               console.log("transform value = ", transformValue);
-
-               if (annowidth > 100) 
-               {
-                   annosa.style.removeProperty('left');
-                   annosa.style.setProperty('left', '55px', 'important');
-               }
-               if (annowidth < 100) 
-               {
-                   annosa.style.removeProperty('left');
-                   annosa.style.setProperty('left', '50px', 'important');
-               }
-           }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
                const annowidth = annosa.clientWidth;
@@ -519,6 +492,7 @@ function outscale()
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
                document.body.style.height = adjustedTopPos + "px"; 
+               topButton.style.bottom = "80px";
 
                if (annowidth > 100) 
                {
@@ -536,6 +510,7 @@ function outscale()
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
+                   topButton.style.bottom = "15px";
                }
            }
         }
