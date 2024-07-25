@@ -437,7 +437,7 @@ function outscale()
                if (toolbar)
                {
                    toolbar.style.removeProperty('bottom');
-                   toolbar.style.setProperty('bottom', '75px', 'important');
+                   // toolbar.style.setProperty('bottom', '75px', 'important');
 
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
@@ -522,11 +522,11 @@ function outscale()
                if (annowidth > 100) 
                {
                    // annosa.style.setProperty('width', '400px', 'important');
-                   annosa.style.setProperty('right', '25px', 'important');
+                   annosa.style.setProperty('right', '32px', 'important');
                }
                if (annowidth < 100) 
                {
-                   annosa.style.setProperty('right', '30px', 'important');
+                   annosa.style.setProperty('right', '32px', 'important');
                }   
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
