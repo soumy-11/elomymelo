@@ -491,11 +491,10 @@ function outscale()
                var topsa = saheight - 100; // for top
 
                annosa.style.removeProperty('top');
-               annosa.style.removeProperty('left');
-               annosa.style.removeProperty('right');
-               annosa.style.removeProperty('width');
-               annosa.style.removeProperty('bottom');
-               annosa.style.removeProperty('position');
+               // annosa.style.removeProperty('left');
+               // annosa.style.removeProperty('width');
+               // annosa.style.removeProperty('bottom');
+               // annosa.style.removeProperty('position');
                annosa.style.removeProperty('transform');
                annosa.style.setProperty('top', topsa, 'important');
                // annosa.style.setProperty('left', '55px', 'important');
@@ -510,7 +509,7 @@ function outscale()
                // annosa.style.transform = "translateY("+transa+"px)";
                annosa.style.setProperty('transform', transformValue, 'important');
                console.log("transform value = ", transformValue);
-
+/*
                if (annowidth > 100) 
                {
                    annosa.style.setProperty('width', '400px', 'important');
@@ -519,7 +518,7 @@ function outscale()
                if (annowidth < 100) 
                {
                    annosa.style.setProperty('left', '40px', 'important');
-               }
+               }   */
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
