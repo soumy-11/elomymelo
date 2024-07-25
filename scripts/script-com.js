@@ -481,19 +481,22 @@ function outscale()
                document.body.style.height = "";
                annosa.style.removeProperty('left');
                annosa.style.removeProperty('bottom');
+               annosa.style.removeProperty('position');
                annosa.style.removeProperty('transform');
                annosa.style.setProperty('left', '55px', 'important');
                annosa.style.setProperty('bottom', '25px', 'important');
+               annosa.style.setProperty('position', 'absolute', 'important');
                // annosa.style.setProperty('width', 'initial', 'important');
                // annosa.style.setProperty('display', 'none', 'important');
                // console.log("Display 222");
 
-               const sawidth = annosa.innerHeight;
+               const sawidth = window.innerHeight;
                const annowidth = annosa.clientWidth;
                var transa = (sawidth - 200) + window.scrollY;
-               const transformValue = `translateY(${transa}px)`;
-               // annosa.style.transform = "translateY("+transa+"px)";
-               annosa.style.setProperty('transform', transformValue, 'important');
+               // const transformValue = `translateY(${transa}px)`;
+               annosa.style.transform = "translateY("+transa+"px)";
+               // annosa.style.setProperty('transform', transformValue, 'important');
+               console.log("transform value = ", transa);
 
                if (annowidth > 100) 
                {
