@@ -522,11 +522,11 @@ function outscale()
                if (annowidth > 100) 
                {
                    // annosa.style.setProperty('width', '400px', 'important');
-                   annosa.style.setProperty('right', '50px', 'important');
+                   annosa.style.setProperty('right', '25px', 'important');
                }
                if (annowidth < 100) 
                {
-                   annosa.style.setProperty('right', '40px', 'important');
+                   annosa.style.setProperty('right', '30px', 'important');
                }   
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
