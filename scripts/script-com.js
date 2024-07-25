@@ -506,7 +506,7 @@ function outscale()
 
                const viewportHeight = window.innerHeight;
                const elementRect = annosa.getBoundingClientRect();
-               const desiredOffset = 20; // Adjust this value as needed
+               const desiredOffset = 60; // Adjust this value as needed
 
                const offset = viewportHeight - elementRect.top - desiredOffset;
                const transValue = `translateY(${offset}px)`;
@@ -518,16 +518,16 @@ function outscale()
                // annosa.style.transform = "translateY("+transa+"px)";
                annosa.style.setProperty('transform', transformValue, 'important');
                console.log("transform value = ", transformValue);
-
+*/
                if (annowidth > 100) 
                {
-                   annosa.style.setProperty('width', '400px', 'important');
-                   annosa.style.setProperty('left', '50px', 'important');
+                   // annosa.style.setProperty('width', '400px', 'important');
+                   annosa.style.setProperty('right', '50px', 'important');
                }
                if (annowidth < 100) 
                {
-                   annosa.style.setProperty('left', '40px', 'important');
-               }   */
+                   annosa.style.setProperty('right', '40px', 'important');
+               }   
            }
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
