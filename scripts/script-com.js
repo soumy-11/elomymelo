@@ -484,13 +484,13 @@ function outscale()
 
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
-               var annowidth = annosa.clientWidth;
-               var lastele = document.getElementById('after-ft-phone');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var topButton = document.querySelector('#scroll-top-button');
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = lastele.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
-               lastele.style.border = "1px transparent solid"; var adjustedTopPos = topPos + Math.abs(bodyTop);
+               const annowidth = annosa.clientWidth;
+               const lastele = document.getElementById('after-ft-phone');
+               const bodyStyles = window.getComputedStyle(document.body);
+               const topButton = document.querySelector('#scroll-top-button');
+               const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
+               lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
                document.body.style.height = adjustedTopPos + "px"; 
 
                if (annowidth > 100) 
