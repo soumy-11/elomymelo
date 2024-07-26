@@ -366,6 +366,8 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let checkscale;
+     const viewportWidth = window.innerWidth;
+     var initialWidth = viewportWidth;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
@@ -413,7 +415,7 @@ function outscale()
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
 
-        function alldynamic(hostElement, annosa)
+        function alldynamic(hostElement, annosa, initialWidth)
         {
            if (hostElement.shadowRoot) 
            {
@@ -515,10 +517,9 @@ function outscale()
                const elementRect = annosa.getBoundingClientRect();
                const desiredOffset = 60; // Adjust this value as needed
 
-               var initialWidth = viewportWidth;
                const offset = viewportHeight - elementRect.top - desiredOffset;
                const transValue = `translateY(${offset}px)`; annosa.style.setProperty('transform', transValue, 'important');
-               console.log("viewport width = ", viewportWidth);
+               console.log("initial viewport width = ", initialWidth);
 /*
                var transa = topsa + window.scrollY;
                var transformValue = `translateY(${transa}px)`;
