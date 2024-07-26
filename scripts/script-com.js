@@ -498,10 +498,9 @@ function outscale()
                var annowidth = annosa.clientWidth;
                // var topsa = saheight - 100; // for top
 
-               // annosa.style.removeProperty('top');
-               // annosa.style.removeProperty('left');
-               // annosa.style.removeProperty('width');
-               // annosa.style.removeProperty('bottom');
+               annosa.style.removeProperty('left');
+               annosa.style.removeProperty('width');
+               annosa.style.removeProperty('right');
                // annosa.style.removeProperty('position');
                annosa.style.removeProperty('transform');
                // annosa.style.setProperty('top', topsa, 'important');
@@ -527,7 +526,7 @@ function outscale()
                annosa.style.setProperty('transform', transformValue, 'important');
                console.log("transform value = ", transformValue);
 */
-               const parent = document.getElementById("Web_1920__1");
+               const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const parentLeft = rectParent.left;
                console.log("parent left position = ", parentLeft);
 
