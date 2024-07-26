@@ -518,6 +518,7 @@ function outscale()
                var initialWidth = viewportWidth;
                const offset = viewportHeight - elementRect.top - desiredOffset;
                const transValue = `translateY(${offset}px)`; annosa.style.setProperty('transform', transValue, 'important');
+               console.log("viewport width = ", viewportWidth);
 /*
                var transa = topsa + window.scrollY;
                var transformValue = `translateY(${transa}px)`;
@@ -534,10 +535,11 @@ function outscale()
                {
                    annosa.style.setProperty('right', '32px', 'important');
                }
-               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth + 10)) 
+               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
                    document.body.style.height = ""; 
                    console.log("body height back to default");
+                   console.log("viewport width = ", viewportWidth);
                }
            }
 
