@@ -368,7 +368,7 @@ function outscale()
      let checkscale;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
-     function scaleMe2()
+     function scaleMe2(initialWidth)
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
         const parentElementNew = document.querySelector('.fc-consent-root');
