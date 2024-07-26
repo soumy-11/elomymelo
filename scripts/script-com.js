@@ -456,6 +456,7 @@ function outscale()
                        regBubble.style.setProperty('padding-left', '20px', 'important');
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
+                       regBubble.style.setProperty('max-height', '32px', 'important');
                        ftstyle2 = "reg-bubble";
                    }
                    if (regBubble && annosa) {
@@ -529,6 +530,7 @@ function outscale()
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
                    console.log("body height back to default");
+                   annosa.style.setProperty('display', 'none', 'important');
                    console.log("viewport width = ", viewportWidth);
                }
            }
@@ -544,6 +546,7 @@ function outscale()
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
                document.body.style.removeProperty('padding-bottom');
                document.body.style.height = adjustedTopPos + "px"; 
+               const viewportWidth = window.innerWidth;
                topButton.style.bottom = "80px";
 
                if (annowidth > 100) 
@@ -568,6 +571,7 @@ function outscale()
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
                    console.log("body height back to default");
+                   annosa.style.setProperty('display', 'none', 'important');
                    console.log("viewport width = ", viewportWidth);
                }
            }
