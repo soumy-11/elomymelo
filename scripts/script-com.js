@@ -528,7 +528,7 @@ function outscale()
 */
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left;
-               const parentLeft = '('+leftPos+'px)'; // getting left value
+               const parentLeft = ''+leftPos+'px'; // getting left value
                console.log("parent left position = ", parentLeft);
 
                if (annowidth > 100) 
