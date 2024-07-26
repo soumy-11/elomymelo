@@ -559,7 +559,7 @@ function outscale()
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
                }
-               if (annowidth < 100) 
+               if (annowidth < 100 && annowidth > 10) 
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('border-radius');
