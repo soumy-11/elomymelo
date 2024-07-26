@@ -578,7 +578,8 @@ function outscale()
         }
     }
 
-    const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 
+      const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
+      scaleMe2(initialWidth);
 }
 outscale();
 
