@@ -480,9 +480,12 @@ function outscale()
                }
 
                const iframe = shadowdom.querySelector('#prose-iframe');
-               const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-               const iframeHtml = iframeDoc.documentElement; // select html element
-               iframeHtml.style.setProperty('overflow', 'hidden', 'important');
+               if (iframe) 
+               {
+                   const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                   const iframeHtml = iframeDoc.documentElement; // select html element
+                   iframeHtml.style.setProperty('overflow', 'hidden', 'important');
+               }
            }
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
