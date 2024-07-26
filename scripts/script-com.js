@@ -494,22 +494,11 @@ function outscale()
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
 
-               // var saheight = window.innerHeight;
                var annowidth = annosa.clientWidth;
-               // var topsa = saheight - 100; // for top
-
                annosa.style.removeProperty('left');
                annosa.style.removeProperty('width');
                annosa.style.removeProperty('right');
-               // annosa.style.removeProperty('position');
                annosa.style.removeProperty('transform');
-               // annosa.style.setProperty('top', topsa, 'important');
-               // annosa.style.setProperty('left', '55px', 'important');
-               // annosa.style.setProperty('bottom', '25px', 'important');
-               // annosa.style.setProperty('position', 'absolute', 'important');
-               // annosa.style.setProperty('width', 'initial', 'important');
-               // annosa.style.setProperty('display', 'none', 'important');
-               // console.log("Display 222");
 
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
@@ -518,18 +507,12 @@ function outscale()
 
                const offset = viewportHeight - elementRect.top - desiredOffset;
                const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-               console.log("initial viewport width = ", initialWidth);
-/*
-               var transa = topsa + window.scrollY;
-               var transformValue = `translateY(${transa}px)`;
-               // annosa.style.transform = "translateY("+transa+"px)";
-               annosa.style.setProperty('transform', transformValue, 'important');
-               console.log("transform value = ", transformValue);
-*/
+               // console.log("initial viewport width = ", initialWidth);
+
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left;
                const parentLeft = ''+leftPos+'px'; // getting left value
-               console.log("parent left position = ", parentLeft);
+               document.body.style.removeProperty('padding-bottom');
 
                if (annowidth > 100) 
                {
@@ -559,6 +542,7 @@ function outscale()
                const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
+               document.body.style.removeProperty('padding-bottom');
                document.body.style.height = adjustedTopPos + "px"; 
                topButton.style.bottom = "80px";
 
@@ -578,6 +562,13 @@ function outscale()
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
+               }
+               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
+               {
+                   document.body.style.height = ""; 
+                   document.body.style.transformOrigin = "";
+                   console.log("body height back to default");
+                   console.log("viewport width = ", viewportWidth);
                }
            }
         }
