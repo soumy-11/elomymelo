@@ -532,9 +532,7 @@ function outscale()
                {
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
-                   console.log("body height back to default");
                    annosa.style.setProperty('display', 'none', 'important');
-                   console.log("viewport width = ", viewportWidth);
                }
            }
 
@@ -573,9 +571,8 @@ function outscale()
                {
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
-                   console.log("body height back to default");
                    annosa.style.setProperty('display', 'none', 'important');
-                   console.log("viewport width = ", viewportWidth);
+                   topButton.style.bottom = "";
                }
            }
         }
