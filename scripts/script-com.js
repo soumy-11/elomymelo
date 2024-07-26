@@ -533,7 +533,7 @@ function outscale()
 
                if (annowidth > 100) 
                {
-                   // annosa.style.setProperty('width', '400px', 'important');
+                   annosa.style.setProperty('width', '400px', 'important');
                    annosa.style.setProperty('left', parentLeft, 'important');
                }
                if (annowidth < 100) 
