@@ -537,6 +537,7 @@ function outscale()
                }
                if (annowidth < 100) 
                {
+                   annosa.style.setProperty('width', '50px', 'important');
                    annosa.style.setProperty('left', parentLeft, 'important');
                }
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
