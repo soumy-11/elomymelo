@@ -413,7 +413,7 @@ function outscale()
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
+        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
 
         function alldynamic(hostElement, annosa, initialWidth)
         {
