@@ -482,6 +482,65 @@ function outscale()
                iframeHtml.style.setProperty('overflow', 'hidden', 'important');
            }
 
+           if (annosa && window.matchMedia("(min-width: 615px)").matches) 
+           {
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.transformOrigin = "50% 0%";
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
+
+               // var saheight = window.innerHeight;
+               var annowidth = annosa.clientWidth;
+               // var topsa = saheight - 100; // for top
+
+               // annosa.style.removeProperty('top');
+               // annosa.style.removeProperty('left');
+               // annosa.style.removeProperty('width');
+               // annosa.style.removeProperty('bottom');
+               // annosa.style.removeProperty('position');
+               annosa.style.removeProperty('transform');
+               // annosa.style.setProperty('top', topsa, 'important');
+               // annosa.style.setProperty('left', '55px', 'important');
+               // annosa.style.setProperty('bottom', '25px', 'important');
+               // annosa.style.setProperty('position', 'absolute', 'important');
+               // annosa.style.setProperty('width', 'initial', 'important');
+               // annosa.style.setProperty('display', 'none', 'important');
+               // console.log("Display 222");
+
+               const viewportWidth = window.innerWidth;
+               const viewportHeight = window.innerHeight;
+               const elementRect = annosa.getBoundingClientRect();
+               const desiredOffset = 60; // Adjust this value as needed
+
+               var initialWidth = viewportWidth;
+               const offset = viewportHeight - elementRect.top - desiredOffset;
+               const transValue = `translateY(${offset}px)`; annosa.style.setProperty('transform', transValue, 'important');
+/*
+               var transa = topsa + window.scrollY;
+               var transformValue = `translateY(${transa}px)`;
+               // annosa.style.transform = "translateY("+transa+"px)";
+               annosa.style.setProperty('transform', transformValue, 'important');
+               console.log("transform value = ", transformValue);
+*/
+               if (annowidth > 100) 
+               {
+                   // annosa.style.setProperty('width', '400px', 'important');
+                   annosa.style.setProperty('right', '32px', 'important');
+               }
+               if (annowidth < 100) 
+               {
+                   annosa.style.setProperty('right', '32px', 'important');
+               }
+               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth + 10)) 
+               {
+                   document.body.style.height = ""; 
+                   console.log("body height back to default");
+               }
+           }
+
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
            {
                const annowidth = annosa.clientWidth;
