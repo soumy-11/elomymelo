@@ -518,7 +518,7 @@ function outscale()
                const desiredOffset = 60; // Adjust this value as needed
 
                const offset = viewportHeight - elementRect.top - desiredOffset;
-               const transValue = `translateY(${offset}px)`; annosa.style.setProperty('transform', transValue, 'important');
+               const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
                console.log("initial viewport width = ", initialWidth);
 /*
                var transa = topsa + window.scrollY;
@@ -527,18 +527,23 @@ function outscale()
                annosa.style.setProperty('transform', transformValue, 'important');
                console.log("transform value = ", transformValue);
 */
+               const parent = document.getElementById("Web_1920__1");
+               const rectParent = parent.getBoundingClientRect(); const parentLeft = rectParent.left;
+               console.log("parent left position = ", parentLeft);
+
                if (annowidth > 100) 
                {
                    // annosa.style.setProperty('width', '400px', 'important');
-                   annosa.style.setProperty('right', '32px', 'important');
+                   annosa.style.setProperty('left', parentLeft, 'important');
                }
                if (annowidth < 100) 
                {
-                   annosa.style.setProperty('right', '32px', 'important');
+                   annosa.style.setProperty('left', parentLeft, 'important');
                }
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
                    document.body.style.height = ""; 
+                   document.body.style.transformOrigin = "";
                    console.log("body height back to default");
                    console.log("viewport width = ", viewportWidth);
                }
@@ -560,7 +565,6 @@ function outscale()
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
-                   annosa.style.removeProperty('transform');
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('width', '94%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
@@ -578,8 +582,8 @@ function outscale()
         }
     }
 
-      const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
-      scaleMe2(initialWidth);
+    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
+    scaleMe2(initialWidth);
 }
 outscale();
 
