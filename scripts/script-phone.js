@@ -7,7 +7,7 @@ function scrollmethod()
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
-
+/*
     const annosa = document.getElementById('google-anno-sa'); 
     const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
     const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
@@ -22,7 +22,7 @@ function scrollmethod()
     {
         var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
         annosa.style.setProperty('transform', transValue, 'important');
-    }
+    }   */
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
