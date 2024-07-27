@@ -583,12 +583,12 @@ function outscale()
     scaleMe2(initialWidth);
 }
 outscale();
-
+/*
 function saScroll()
 {
     const annosa = document.getElementById('google-anno-sa'); 
     console.log("window scroll");
-/*
+
     const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
     const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
 
@@ -603,7 +603,7 @@ function saScroll()
         var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
         annosa.style.setProperty('transform', transValue, 'important');
     } 
-*/
+
     if (annosa && window.matchMedia("(min-width: 615px)").matches) 
     {
        annosa.style.removeProperty('transform');
@@ -618,6 +618,6 @@ function saScroll()
     }
 }
 window.addEventListener('scroll', saScroll, false); 
-
+*/
 // document ends here ---------
 
