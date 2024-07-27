@@ -10,15 +10,51 @@ function scrollmethod()
     
     const annosa = document.getElementById('google-anno-sa'); 
     console.log("window scroll");
-    var viewportHeight = window.innerHeight;
-    var elementRect = annosa.getBoundingClientRect();
 
-    if (annosa && window.matchMedia("(min-width: 615px)").matches) 
+    if (annosa && window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
-       annosa.style.removeProperty('transform');
-       var offset = viewportHeight - elementRect.top - 60;
-       var transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-       // console.log("initial viewport width for display = ", initialWidth);
+        annosa.style.removeProperty('transform');
+        const viewportHeight = window.innerHeight;
+        const elementRect = annosa.getBoundingClientRect();
+        const desiredOffset = 60; // Adjust this value as needed
+
+        const offset = viewportHeight - elementRect.top - desiredOffset;
+        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        // console.log("initial viewport width for display = ", initialWidth);
+    }
+
+    if (annosa && window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+    {
+        annosa.style.removeProperty('transform');
+        const viewportHeight = window.innerHeight;
+        const elementRect = annosa.getBoundingClientRect();
+        const desiredOffset = 60; // Adjust this value as needed
+
+        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.087;
+        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        // console.log("initial viewport width for display = ", initialWidth);
+    }
+    if (annosa && window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+    {
+        annosa.style.removeProperty('transform');
+        const viewportHeight = window.innerHeight;
+        const elementRect = annosa.getBoundingClientRect();
+        const desiredOffset = 60; // Adjust this value as needed
+
+        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.1628;
+        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        // console.log("initial viewport width for display = ", initialWidth);
+    }
+    if (annosa && window.matchMedia("(min-width: 1501px)").matches) 
+    {
+        annosa.style.removeProperty('transform');
+        const viewportHeight = window.innerHeight;
+        const elementRect = annosa.getBoundingClientRect();
+        const desiredOffset = 60; // Adjust this value as needed
+
+        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.250;
+        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        // console.log("initial viewport width for display = ", initialWidth);
     }
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
