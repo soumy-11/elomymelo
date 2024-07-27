@@ -490,20 +490,13 @@ function outscale()
 
            if (annosa && window.matchMedia("(min-width: 615px)").matches) 
            {
-               /*
+               
                var blank = document.querySelector('.after-hot-blank');
                var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.transformOrigin = "50% 0%";
-               document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-*/
-               var blank = document.getElementById("Web_1920__1");
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = rect.height; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.transformOrigin = "50% 0%";
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               // document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
          
