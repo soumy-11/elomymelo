@@ -7,18 +7,6 @@ function scrollmethod()
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; } 
-
-    const annosa = document.getElementById('google-anno-sa'); 
-    const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
-    const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
-
-    if (annosa) 
-    {
-        annosa.style.removeProperty('transform'); 
-        var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
-        annosa.style.setProperty('transform', transValue, 'important');
-        console.log("transform done after a while");
-    } 
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 

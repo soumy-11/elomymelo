@@ -583,41 +583,22 @@ function outscale()
     scaleMe2(initialWidth);
 }
 outscale();
-/*
+
 function saScroll()
 {
     const annosa = document.getElementById('google-anno-sa'); 
-    console.log("window scroll");
-
     const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
     const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
 
-    if (!getTrans.includes('translateY')) 
-    {
-        annosa.style.removeProperty('transform'); 
-        console.log('transform property removed');
-    }
-
-    if (annosa) 
-    {
-        var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
-        annosa.style.setProperty('transform', transValue, 'important');
-    } 
-
     if (annosa && window.matchMedia("(min-width: 615px)").matches) 
     {
-       annosa.style.removeProperty('transform');
-       const viewportWidth = window.innerWidth;
-       const viewportHeight = window.innerHeight;
-       const elementRect = annosa.getBoundingClientRect();
-       const desiredOffset = 60; // Adjust this value as needed
-
-       const offset = viewportHeight - elementRect.top - desiredOffset;
-       const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-       // console.log("initial viewport width for display = ", initialWidth);
+        annosa.style.removeProperty('transform'); 
+        var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
+        console.log("transform done after a while");
     }
 }
 window.addEventListener('scroll', saScroll, false); 
-*/
+
 // document ends here ---------
 
