@@ -563,12 +563,13 @@ function outscale()
                // const offset = viewportHeight - elementRect.top - desiredOffset;
                // const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
                // console.log("initial viewport width for display = ", initialWidth);
+               let parentLeft;
 
     if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left;
-               const parentLeft = ''+leftPos+'px'; // getting left value
+                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
@@ -577,7 +578,7 @@ function outscale()
     {
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.920;
-               const parentLeft = ''+leftPos+'px'; // getting left value
+                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
@@ -585,7 +586,7 @@ function outscale()
     {
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.860;
-               const parentLeft = ''+leftPos+'px'; // getting left value
+                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
@@ -593,7 +594,7 @@ function outscale()
     {
                const parent = document.querySelector('.articles-container');
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.80;
-               const parentLeft = ''+leftPos+'px'; // getting left value
+                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
