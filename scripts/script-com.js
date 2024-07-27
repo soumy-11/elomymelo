@@ -506,8 +506,8 @@ function outscale()
 
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
-               const elementRect = annosa.getBoundingClientRect();
-               const desiredOffset = 60; // Adjust this value as needed
+               // const elementRect = annosa.getBoundingClientRect();
+               // const desiredOffset = 60; // Adjust this value as needed
 
                // const offset = viewportHeight - elementRect.top - desiredOffset;
                // const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');

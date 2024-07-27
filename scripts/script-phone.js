@@ -9,8 +9,20 @@ function scrollmethod()
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
 
     const annosa = document.getElementById('google-anno-sa'); 
-    annosa.style.removeProperty('transform'); const offset = viewportHeight - elementRect.top - desiredOffset;
-    const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+    const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
+    const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
+
+    if (!getTrans.includes('translateY')) 
+    {
+        annosa.style.removeProperty('transform'); 
+        console.log('transform property removed');
+    }
+
+    if (annosa) 
+    {
+        var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
+    }
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
