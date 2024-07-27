@@ -502,6 +502,49 @@ function outscale()
                var bodyrect = document.body.getBoundingClientRect();
                var bodyHi = bodyrect.height;
                console.log("rect body height = ", bodyHi);
+
+    if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+    {
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.087) + window.scrollY; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.transformOrigin = "50% 0%";
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
+               var bodyrect = document.body.getBoundingClientRect();
+               var bodyHi = bodyrect.height;
+               console.log("rect body height = ", bodyHi);
+    }
+    if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+    {
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.628) + window.scrollY; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.transformOrigin = "50% 0%";
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
+               var bodyrect = document.body.getBoundingClientRect();
+               var bodyHi = bodyrect.height;
+               console.log("rect body height = ", bodyHi);
+    }
+    if (window.matchMedia("(min-width: 1501px)").matches) 
+    {
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.250) + window.scrollY; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.transformOrigin = "50% 0%";
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
+               var bodyrect = document.body.getBoundingClientRect();
+               var bodyHi = bodyrect.height;
+               console.log("rect body height = ", bodyHi);
+    }
          
                var annowidth = annosa.clientWidth;
                annosa.style.removeProperty('left');
@@ -523,6 +566,31 @@ function outscale()
                const parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
+
+    if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+    {
+               const parent = document.querySelector('.articles-container');
+               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.920;
+               const parentLeft = ''+leftPos+'px'; // getting left value
+               document.body.style.removeProperty('padding-bottom');
+               console.log("parent left = ", parentLeft);
+    }
+    if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+    {
+               const parent = document.querySelector('.articles-container');
+               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.860;
+               const parentLeft = ''+leftPos+'px'; // getting left value
+               document.body.style.removeProperty('padding-bottom');
+               console.log("parent left = ", parentLeft);
+    }
+    if (window.matchMedia("(min-width: 1501px)").matches) 
+    {
+               const parent = document.querySelector('.articles-container');
+               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.80;
+               const parentLeft = ''+leftPos+'px'; // getting left value
+               document.body.style.removeProperty('padding-bottom');
+               console.log("parent left = ", parentLeft);
+    }
 
                if (annowidth > 100) 
                {
