@@ -570,7 +570,7 @@ function outscale()
     if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.860;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.560;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                rrrcc = rectParent.left;
