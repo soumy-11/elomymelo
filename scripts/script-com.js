@@ -502,15 +502,15 @@ function outscale()
                annosa.style.removeProperty('left');
                annosa.style.removeProperty('width');
                annosa.style.removeProperty('right');
-               annosa.style.removeProperty('transform');
+               // annosa.style.removeProperty('transform');
 
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
-               const elementRect = annosa.getBoundingClientRect();
-               const desiredOffset = 60; // Adjust this value as needed
+               // const elementRect = annosa.getBoundingClientRect();
+               // const desiredOffset = 60; // Adjust this value as needed
 
-               const offset = viewportHeight - elementRect.top - desiredOffset;
-               const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+               // const offset = viewportHeight - elementRect.top - desiredOffset;
+               // const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
                // console.log("initial viewport width for display = ", initialWidth);
 
                const parent = document.querySelector('.articles-container');
@@ -578,10 +578,30 @@ function outscale()
         }
     }
 
-    const ftinterval = setInterval(() => scaleMe2(initialWidth), 0);
+    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
     scaleMe2(initialWidth);
 }
 outscale();
+
+function saScroll()
+{
+    const annosa = document.getElementById('google-anno-sa'); 
+    const saStyle = window.getComputedStyle(annosa); const getTrans = saStyle.getPropertyValue('transform');
+    const viewportHeight = window.innerHeight; const elementRect = annosa.getBoundingClientRect();
+
+    if (!getTrans.includes('translateY')) 
+    {
+        annosa.style.removeProperty('transform'); 
+        console.log('transform property removed');
+    }
+
+    if (annosa) 
+    {
+        var offset = viewportHeight - elementRect.top - 60; var transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
+    } 
+}
+window.addEventListener('scroll', saScroll, false); 
 
 // document ends here ---------
 
