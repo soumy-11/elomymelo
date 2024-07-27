@@ -14,8 +14,8 @@ function scrollmethod()
 
     if (!getTrans.includes('translateY')) 
     {
-        annosa.style.removeProperty('transform'); 
-        console.log('transform property removed');
+        // annosa.style.removeProperty('transform'); 
+        // console.log('transform property removed');
     }
 
     if (annosa) 
