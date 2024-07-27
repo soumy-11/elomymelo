@@ -491,8 +491,8 @@ function outscale()
            if (annosa) 
            {
                
-    if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-    {
+             if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
+             {
                var blank = document.querySelector('.after-hot-blank');
                var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
@@ -504,14 +504,25 @@ function outscale()
                var bodyrect = document.body.getBoundingClientRect();
                var bodyHi = bodyrect.height;
                console.log("rect body height = ", bodyHi);
-    }
+             }
 
-    if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-    {
+             if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+             {
                var blank = document.querySelector('.after-hot-blank');
                var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.087) + window.scrollY; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.087; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.transformOrigin = "50% 0%";
+               document.body.style.height = adjustedTopPos + "px"; 
+               console.log("body height = ", adjustedTopPos);
+             }
+             if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+             {
+               var blank = document.querySelector('.after-hot-blank');
+               var bodyStyles = window.getComputedStyle(document.body);
+               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.628; 
                var adjustedTopPos = topPos + Math.abs(bodyTop); 
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
@@ -519,13 +530,13 @@ function outscale()
                var bodyrect = document.body.getBoundingClientRect();
                var bodyHi = bodyrect.height;
                console.log("rect body height = ", bodyHi);
-    }
-    if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-    {
+             }
+             if (window.matchMedia("(min-width: 1501px)").matches) 
+             {
                var blank = document.querySelector('.after-hot-blank');
                var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.628) + window.scrollY; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.250; 
                var adjustedTopPos = topPos + Math.abs(bodyTop); 
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
@@ -533,21 +544,7 @@ function outscale()
                var bodyrect = document.body.getBoundingClientRect();
                var bodyHi = bodyrect.height;
                console.log("rect body height = ", bodyHi);
-    }
-    if (window.matchMedia("(min-width: 1501px)").matches) 
-    {
-               var blank = document.querySelector('.after-hot-blank');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top * 1.250) + window.scrollY; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.transformOrigin = "50% 0%";
-               document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-               var bodyrect = document.body.getBoundingClientRect();
-               var bodyHi = bodyrect.height;
-               console.log("rect body height = ", bodyHi);
-    }
+             }
          
                var annowidth = annosa.clientWidth;
                annosa.style.removeProperty('left');
@@ -557,12 +554,6 @@ function outscale()
 
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
-               // const elementRect = annosa.getBoundingClientRect();
-               // const desiredOffset = 60; // Adjust this value as needed
-
-               // const offset = viewportHeight - elementRect.top - desiredOffset;
-               // const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-               // console.log("initial viewport width for display = ", initialWidth);
                let parentLeft;
 
     if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
