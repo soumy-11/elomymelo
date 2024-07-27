@@ -602,7 +602,7 @@ function saScroll()
        // console.log("initial viewport width for display = ", initialWidth);
     }
 }
-window.addEventListener('scroll', saScroll, false); 
+// window.addEventListener('scroll', saScroll, false); 
 
 // document ends here ---------
 
