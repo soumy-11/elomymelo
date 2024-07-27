@@ -562,7 +562,7 @@ function outscale()
     if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.920;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.4290;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
@@ -570,7 +570,7 @@ function outscale()
     if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.560;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.2615;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                rrrcc = rectParent.left;
@@ -580,7 +580,7 @@ function outscale()
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.80;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.2124;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
