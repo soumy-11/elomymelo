@@ -496,9 +496,12 @@ function outscale()
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
                var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
                var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               // document.body.style.transformOrigin = "50% 0%";
+               document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
+               var bodyrect = document.body.getBoundingClientRect();
+               var bodyHi = bodyrect.height;
+               console.log("rect body height = ", bodyHi);
          
                var annowidth = annosa.clientWidth;
                annosa.style.removeProperty('left');
