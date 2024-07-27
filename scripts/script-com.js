@@ -522,6 +522,7 @@ function outscale()
                const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left;
                const parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
+               console.log("parent left = ", parentLeft);
 
                if (annowidth > 100) 
                {
