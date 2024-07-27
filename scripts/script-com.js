@@ -612,7 +612,7 @@ function saScroll()
    const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
    // console.log("initial viewport width for display = ", initialWidth);
 }
-window.addEventListener('scroll', saScroll, false); 
+setInterval(saScroll, 0);
 
 // document ends here ---------
 
