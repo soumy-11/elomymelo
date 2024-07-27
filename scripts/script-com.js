@@ -652,7 +652,7 @@ function saScroll()
                }
     }
 }
-setInterval(saScroll, 0);
+window.addEventListener('scroll', saScroll, false); 
 
 // document ends here ---------
 
