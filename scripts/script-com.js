@@ -501,9 +501,6 @@ function outscale()
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
-               var bodyrect = document.body.getBoundingClientRect();
-               var bodyHi = bodyrect.height;
-               console.log("rect body height = ", bodyHi);
              }
 
              if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
@@ -516,20 +513,19 @@ function outscale()
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
+               document.documentElement.style.height = "0px";
              }
              if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
              {
                var blank = document.querySelector('.after-hot-blank');
                var bodyStyles = window.getComputedStyle(document.body);
                var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.628; 
+               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.1628; 
                var adjustedTopPos = topPos + Math.abs(bodyTop); 
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
-               var bodyrect = document.body.getBoundingClientRect();
-               var bodyHi = bodyrect.height;
-               console.log("rect body height = ", bodyHi);
+               document.documentElement.style.height = "0px";
              }
              if (window.matchMedia("(min-width: 1501px)").matches) 
              {
@@ -541,9 +537,7 @@ function outscale()
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
-               var bodyrect = document.body.getBoundingClientRect();
-               var bodyHi = bodyrect.height;
-               console.log("rect body height = ", bodyHi);
+               document.documentElement.style.height = "0px";
              }
          
                var annowidth = annosa.clientWidth;
@@ -554,38 +548,38 @@ function outscale()
 
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
-               let parentLeft;
+               let parent, rectParent, leftPos, parentLeft;
 
     if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
-               const parent = document.querySelector('.articles-container');
-               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left;
-                parentLeft = ''+leftPos+'px'; // getting left value
+               parent = document.querySelector('.articles-container');
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+               parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
 
     if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
-               const parent = document.querySelector('.articles-container');
-               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.920;
-                parentLeft = ''+leftPos+'px'; // getting left value
+               parent = document.querySelector('.articles-container');
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.920;
+               parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
     if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
-               const parent = document.querySelector('.articles-container');
-               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.860;
-                parentLeft = ''+leftPos+'px'; // getting left value
+               parent = document.querySelector('.articles-container');
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.860;
+               parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
-               const parent = document.querySelector('.articles-container');
-               const rectParent = parent.getBoundingClientRect(); const leftPos = rectParent.left * 0.80;
-                parentLeft = ''+leftPos+'px'; // getting left value
+               parent = document.querySelector('.articles-container');
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.80;
+               parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
     }
