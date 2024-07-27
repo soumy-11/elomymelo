@@ -573,7 +573,9 @@ function outscale()
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.860;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
+               rrrcc = rectParent.left;
                console.log("parent left = ", parentLeft);
+               console.log("rrcc parent left = ", rrrcc);
     }
     if (window.matchMedia("(min-width: 1501px)").matches) 
     {
@@ -588,11 +590,13 @@ function outscale()
                {
                    annosa.style.setProperty('width', '400px', 'important');
                    annosa.style.setProperty('left', parentLeft, 'important');
+                   console.log("parent left = ", parentLeft);
                }
                if (annowidth < 100) 
                {
                    annosa.style.setProperty('width', '50px', 'important');
                    annosa.style.setProperty('left', parentLeft, 'important');
+                   console.log("parent left = ", parentLeft);
                }
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
