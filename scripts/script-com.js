@@ -605,7 +605,7 @@ function outscale()
                    annosa.style.setProperty('width', '50px', 'important');
                    if (window.matchMedia("(min-width: 1501px)").matches) 
                    {
-                       leftPos = (rectParent.left - lbody) + 35; parentLeft = ''+leftPos+'px'; 
+                       leftPos = viewportWidth * 0.035; parentLeft = ''+leftPos+'px'; 
                        annosa.style.setProperty('left', parentLeft, 'important');
                        console.log("parent left = ", parentLeft);
                    }
