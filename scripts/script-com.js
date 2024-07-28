@@ -583,7 +583,7 @@ function outscale()
              if (window.matchMedia("(min-width: 1501px)").matches) 
              {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.2924;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
@@ -702,7 +702,7 @@ function saScroll()
         const elementRect = annosa.getBoundingClientRect();
 
         const offset = (viewportHeight - elementRect.top - 60) * 1.250;
-        const transValue = 'translateY('+offset+'px) scale(1.5) translateX(100px)'; 
+        const transValue = 'translateY('+offset+'px) scale(1.5)'; 
         annosa.style.setProperty('transform', transValue, 'important');
     }
 }
