@@ -707,7 +707,7 @@ function saScroll()
         const elementRect = annosa.getBoundingClientRect();
 
         const offset = (viewportHeight - elementRect.top - 60) * 1.250;
-        const transValue = 'translateY('+offset+'px)'; 
+        const transValue = 'translateY('+offset+'px) scale(1.5)'; 
         annosa.style.setProperty('transform', transValue, 'important');
     }
 }
