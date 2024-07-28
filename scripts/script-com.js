@@ -554,25 +554,24 @@ function outscale()
                const viewportHeight = window.innerHeight;
                let parent, rectParent, leftPos, parentLeft;
 
-    if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-    {
+             if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
+             {
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
-    }
-
-    if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-    {
+             }
+             if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+             {
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.4550;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
-    }
-    if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-    {
+             }
+             if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+             {
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.3615;
                parentLeft = ''+leftPos+'px'; // getting left value
@@ -580,15 +579,15 @@ function outscale()
                rrrcc = rectParent.left;
                console.log("parent left = ", parentLeft);
                console.log("rrcc parent left = ", rrrcc);
-    }
-    if (window.matchMedia("(min-width: 1501px)").matches) 
-    {
+             }
+             if (window.matchMedia("(min-width: 1501px)").matches) 
+             {
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.3124;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.2924;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
-    }
+             }
 
                if (annowidth > 100) 
                {
@@ -705,6 +704,7 @@ function saScroll()
 
         const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.250;
         const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        annosa.style.setProperty('transform', 'scale(1.5, 1.5)', 'important');
         // console.log("initial viewport width for display = ", initialWidth);
     }
 }
