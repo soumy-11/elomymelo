@@ -603,8 +603,13 @@ function outscale()
                if (annowidth < 100) 
                {
                    annosa.style.setProperty('width', '50px', 'important');
-                   annosa.style.setProperty('left', parentLeft, 'important');
-                   console.log("parent left = ", parentLeft);
+                   if (window.matchMedia("(min-width: 1501px)").matches) 
+                   {
+                       leftPos = (rectParent.left - lbody) + 35; parentLeft = ''+leftPos+'px'; 
+                       annosa.style.setProperty('left', parentLeft, 'important');
+                       console.log("parent left = ", parentLeft);
+                   }
+                   else { annosa.style.setProperty('left', parentLeft, 'important'); }
                }
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
