@@ -542,7 +542,7 @@ function outscale()
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
                document.documentElement.style.height = adjustedTopPos + "px"; 
-               document.documentElement.style.overflow = "hidden"; 
+               // document.documentElement.style.overflow = "hidden"; 
              }
          
                var annowidth = annosa.clientWidth;
