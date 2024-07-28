@@ -586,7 +586,7 @@ function outscale()
                lannosa = annosa.getBoundingClientRect().left;
                lbody = document.body.getBoundingClientRect().left;
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = (rectParent.left - lbody) + 100;
+               rectParent = parent.getBoundingClientRect(); leftPos = (rectParent.left - lbody) + 120;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
@@ -605,7 +605,7 @@ function outscale()
                    annosa.style.setProperty('width', '50px', 'important');
                    if (window.matchMedia("(min-width: 1501px)").matches) 
                    {
-                       leftPos = rectParent.left - lbody; parentLeft = ''+leftPos+'px'; 
+                       leftPos = (rectParent.left - lbody) + 35; parentLeft = ''+leftPos+'px'; 
                        annosa.style.setProperty('left', parentLeft, 'important');
                        console.log("parent left = ", parentLeft);
                    }
