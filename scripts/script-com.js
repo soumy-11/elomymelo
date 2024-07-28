@@ -700,14 +700,10 @@ function saScroll()
         annosa.style.removeProperty('transform');
         const viewportHeight = window.innerHeight;
         const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
 
-        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.250;
-        const transValue = 'translateY('+offset+'px) scale(1.5) translateX(-100px)'; 
+        const offset = (viewportHeight - elementRect.top - 60) * 1.250;
+        const transValue = 'translateY('+offset+'px) scale(1.5) translateX(100px)'; 
         annosa.style.setProperty('transform', transValue, 'important');
-        // annosa.style.setProperty('transform', 'scale(1.5)', 'important');
-        // annosa.style.setProperty('transform-origin', 'top right', 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
     }
 }
 
