@@ -703,7 +703,7 @@ function saScroll()
         const desiredOffset = 60; // Adjust this value as needed
 
         const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.250;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
+        const transValue = 'translateY('+offset+'px) scale(1.5)'; annosa.style.setProperty('transform', transValue, 'important');
         // annosa.style.setProperty('transform', 'scale(1.5)', 'important');
         // annosa.style.setProperty('transform-origin', 'top right', 'important');
         // console.log("initial viewport width for display = ", initialWidth);
