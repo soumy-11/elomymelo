@@ -586,10 +586,9 @@ function outscale()
                lannosa = annosa.getBoundingClientRect().left;
                lbody = document.body.getBoundingClientRect().left;
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = (rectParent.left - lbody) + 122;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left - lbody;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
-               console.log("rect parent left = ", rectParent.left);
                console.log("parent left = ", parentLeft);
                console.log("annosa left = ", lannosa);
                console.log("body left = ", lbody);
@@ -604,14 +603,8 @@ function outscale()
                if (annowidth < 100) 
                {
                    annosa.style.setProperty('width', '50px', 'important');
-                   if (window.matchMedia("(min-width: 1501px)").matches) 
-                   {
-                       leftPos = (rectParent.left - lbody) + 35; parentLeft = ''+leftPos+'px'; 
-                       annosa.style.setProperty('left', parentLeft, 'important');
-                       console.log("parent left = ", parentLeft);
-                   }
-                   else { annosa.style.setProperty('left', parentLeft, 'important'); }
-
+                   annosa.style.setProperty('left', parentLeft, 'important');
+                   console.log("parent left = ", parentLeft);
                }
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
@@ -714,7 +707,7 @@ function saScroll()
         const elementRect = annosa.getBoundingClientRect();
 
         const offset = (viewportHeight - elementRect.top - 60) * 1.250;
-        const transValue = 'translateY('+offset+'px) scale(1.5)'; 
+        const transValue = 'translateY('+offset+'px)'; 
         annosa.style.setProperty('transform', transValue, 'important');
     }
 }
