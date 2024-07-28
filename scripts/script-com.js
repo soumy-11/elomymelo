@@ -586,7 +586,7 @@ function outscale()
                lannosa = annosa.getBoundingClientRect().left;
                lbody = document.body.getBoundingClientRect().left;
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left - lbody;
+               rectParent = parent.getBoundingClientRect(); leftPos = (rectParent.left - lbody) + 100;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
