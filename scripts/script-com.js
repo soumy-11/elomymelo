@@ -553,6 +553,7 @@ function outscale()
                const viewportWidth = window.innerWidth;
                const viewportHeight = window.innerHeight;
                let parent, rectParent, leftPos, parentLeft;
+               let lbody, lannosa;
 
              if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
              {
@@ -582,11 +583,15 @@ function outscale()
              }
              if (window.matchMedia("(min-width: 1501px)").matches) 
              {
+               lannosa = annosa.getBoundingClientRect().left;
+               lbody = document.body.getBoundingClientRect().left;
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left - lbody;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.removeProperty('padding-bottom');
                console.log("parent left = ", parentLeft);
+               console.log("annosa left = ", lannosa);
+               console.log("body left = ", lbody);
              }
 
                if (annowidth > 100) 
@@ -702,7 +707,7 @@ function saScroll()
         const elementRect = annosa.getBoundingClientRect();
 
         const offset = (viewportHeight - elementRect.top - 60) * 1.250;
-        const transValue = 'translateY('+offset+'px) scale(1.5)'; 
+        const transValue = 'translateY('+offset+'px)'; 
         annosa.style.setProperty('transform', transValue, 'important');
     }
 }
