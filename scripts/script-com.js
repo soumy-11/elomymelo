@@ -487,11 +487,11 @@ function outscale()
                    iframeHtml.style.setProperty('overflow', 'hidden', 'important');
                }
            }
-
+/*
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            if (annosa && mozFox) { document.body.style.removeProperty('padding-bottom');
            annosa.remove(); console.log("moz sa removed"); }
-
+*/
            const blank = document.querySelector('.after-hot-blank');
            const bodyStyles = window.getComputedStyle(document.body);
            const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
@@ -502,7 +502,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa && !mozFox) 
+           if (annosa) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
                { window.addEventListener('scroll', saScroll, false); }
@@ -540,7 +540,7 @@ function outscale()
                    document.body.style.height = adjustedTopPos + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
-                   leftPos = viewportWidth * 0.040;
+                   leftPos = viewportWidth * 0.035;
                    parentLeft = ''+leftPos+'px';
                }
                if (window.matchMedia("(min-width: 1501px)").matches) 
