@@ -488,7 +488,8 @@ function outscale()
                }
            }
 
-           if (annosa) 
+           const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
+           if (annosa & !mozFox) 
            {
              if (window.matchMedia("(min-width: 615px)").matches)
              { window.addEventListener('scroll', saScroll, false); }
@@ -541,8 +542,7 @@ function outscale()
                document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
                console.log("body height = ", adjustedTopPos);
-               document.documentElement.style.height = (adjustedTopPos * 0.8) + "px"; 
-               // document.documentElement.style.overflow = "hidden"; 
+               document.documentElement.style.height = "0px";
              }
          
                var annowidth = annosa.clientWidth;
