@@ -503,61 +503,61 @@ function outscale()
 
            if (annosa && !mozFox) 
            {
-             if (window.matchMedia("(min-width: 615px)").matches)
-             { window.addEventListener('scroll', saScroll, false); }
-             if (window.matchMedia("(max-width: 615px)").matches)
-             { window.removeEventListener('scroll', saScroll, false); }
+               if (window.matchMedia("(min-width: 615px)").matches)
+               { window.addEventListener('scroll', saScroll, false); }
+               if (window.matchMedia("(max-width: 615px)").matches)
+               { window.removeEventListener('scroll', saScroll, false); }
 
-             document.body.style.removeProperty('padding-bottom');
-             if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-             {
-               var topPos = rect.top + window.scrollY; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.height = adjustedTopPos + "px"; 
-               document.body.style.transformOrigin = "50% 0%";
+               document.body.style.removeProperty('padding-bottom');
+               if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
+               {
+                   var topPos = rect.top + window.scrollY; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
+                   document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.transformOrigin = "50% 0%";
 
-               parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
-               parentLeft = ''+leftPos+'px'; // getting left value
-             }
-             if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-             {
-               document.documentElement.style.height = "0px";
-               var topPos = (rect.top + window.scrollY) * 1.087; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.height = adjustedTopPos + "px"; 
-               document.body.style.transformOrigin = "50% 0%";
+                   parent = document.querySelector('.articles-container');
+                   rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+                   parentLeft = ''+leftPos+'px'; // getting left value
+               }
+               if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
+               {
+                   document.documentElement.style.height = "0px";
+                   var topPos = (rect.top + window.scrollY) * 1.087; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
+                   document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.transformOrigin = "50% 0%";
 
-               leftPos = viewportWidth * 0.015;
-               parentLeft = ''+leftPos+'px';
-             }
-             if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-             {
-               document.documentElement.style.height = "0px";
-               var topPos = (rect.top + window.scrollY) * 1.1628; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.height = adjustedTopPos + "px"; 
-               document.body.style.transformOrigin = "50% 0%";
+                   leftPos = viewportWidth * 0.015;
+                   parentLeft = ''+leftPos+'px';
+               }
+               if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
+               {
+                   document.documentElement.style.height = "0px";
+                   var topPos = (rect.top + window.scrollY) * 1.1628; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
+                   document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.transformOrigin = "50% 0%";
 
-               leftPos = viewportWidth * 0.025;
-               parentLeft = ''+leftPos+'px';
-             }
-             if (window.matchMedia("(min-width: 1501px)").matches) 
-             {
-               document.documentElement.style.height = "0px";
-               var topPos = (rect.top + window.scrollY) * 1.250; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.height = adjustedTopPos + "px"; 
-               document.body.style.transformOrigin = "50% 0%";
+                   leftPos = viewportWidth * 0.025;
+                   parentLeft = ''+leftPos+'px';
+               }
+               if (window.matchMedia("(min-width: 1501px)").matches) 
+               {
+                   document.documentElement.style.height = "0px";
+                   var topPos = (rect.top + window.scrollY) * 1.250; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
+                   document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.transformOrigin = "50% 0%";
 
-               leftPos = (viewportWidth * 0.035) + 100;
-               parentLeft = ''+leftPos+'px';
-             }
+                   leftPos = (viewportWidth * 0.035) + 100;
+                   parentLeft = ''+leftPos+'px';
+               }
 
-               annosa.style.removeProperty('left');
-               annosa.style.removeProperty('width');
-               annosa.style.removeProperty('right');
-               var annowidth = annosa.clientWidth;
+                   annosa.style.removeProperty('left');
+                   // annosa.style.removeProperty('width');
+                   annosa.style.removeProperty('right');
+                   var annowidth = annosa.clientWidth;
 
                if (annowidth > 100) 
                {
