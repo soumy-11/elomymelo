@@ -489,6 +489,18 @@ function outscale()
            }
 
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
+           if (annosa && mozFox) { document.body.style.removeProperty('padding-bottom');
+           annosa.remove(); console.log("moz sa removed"); }
+
+           const blank = document.querySelector('.after-hot-blank');
+           const bodyStyles = window.getComputedStyle(document.body);
+           const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
+           const rect = blank.getBoundingClientRect(); 
+
+           let parent, rectParent, leftPos, parentLeft;
+           const viewportHeight = window.innerHeight;
+           const viewportWidth = window.innerWidth;
+
            if (annosa && !mozFox) 
            {
              if (window.matchMedia("(min-width: 615px)").matches)
@@ -496,104 +508,56 @@ function outscale()
              if (window.matchMedia("(max-width: 615px)").matches)
              { window.removeEventListener('scroll', saScroll, false); }
 
+             document.body.style.removeProperty('padding-bottom');
              if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
              {
-               var blank = document.querySelector('.after-hot-blank');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
+               var topPos = rect.top + window.scrollY; 
                var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.transformOrigin = "50% 0%";
                document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-             }
+               document.body.style.transformOrigin = "50% 0%";
 
-             if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-             {
-               var blank = document.querySelector('.after-hot-blank');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.087; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.transformOrigin = "50% 0%";
-               document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-               document.documentElement.style.height = "0px";
-             }
-             if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-             {
-               var blank = document.querySelector('.after-hot-blank');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.1628; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.transformOrigin = "50% 0%";
-               document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-               document.documentElement.style.height = "0px";
-             }
-             if (window.matchMedia("(min-width: 1501px)").matches) 
-             {
-               var blank = document.querySelector('.after-hot-blank');
-               var bodyStyles = window.getComputedStyle(document.body);
-               var bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               var rect = blank.getBoundingClientRect(); var topPos = (rect.top + window.scrollY) * 1.250; 
-               var adjustedTopPos = topPos + Math.abs(bodyTop); 
-               document.body.style.transformOrigin = "50% 0%";
-               document.body.style.height = adjustedTopPos + "px"; 
-               console.log("body height = ", adjustedTopPos);
-               document.documentElement.style.height = "0px";
-             }
-         
-               var annowidth = annosa.clientWidth;
-               annosa.style.removeProperty('left');
-               annosa.style.removeProperty('width');
-               annosa.style.removeProperty('right');
-               // annosa.style.removeProperty('transform');
-
-               const viewportWidth = window.innerWidth;
-               const viewportHeight = window.innerHeight;
-               let parent, rectParent, leftPos, parentLeft;
-               let lbody, lannosa;
-
-             if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-             {
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
-               document.body.style.removeProperty('padding-bottom');
-               console.log("parent left = ", parentLeft);
              }
              if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
              {
-               parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.4550;
-               parentLeft = ''+leftPos+'px'; // getting left value
-               document.body.style.removeProperty('padding-bottom');
-               console.log("parent left = ", parentLeft);
+               document.documentElement.style.height = "0px";
+               var topPos = (rect.top + window.scrollY) * 1.087; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.height = adjustedTopPos + "px"; 
+               document.body.style.transformOrigin = "50% 0%";
+
+               leftPos = viewportWidth * 0.015;
+               parentLeft = ''+leftPos+'px';
              }
              if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
              {
-               parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left * 0.3615;
-               parentLeft = ''+leftPos+'px'; // getting left value
-               document.body.style.removeProperty('padding-bottom');
-               rrrcc = rectParent.left;
-               console.log("parent left = ", parentLeft);
-               console.log("rrcc parent left = ", rrrcc);
+               document.documentElement.style.height = "0px";
+               var topPos = (rect.top + window.scrollY) * 1.1628; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.height = adjustedTopPos + "px"; 
+               document.body.style.transformOrigin = "50% 0%";
+
+               leftPos = viewportWidth * 0.025;
+               parentLeft = ''+leftPos+'px';
              }
              if (window.matchMedia("(min-width: 1501px)").matches) 
              {
-               lannosa = annosa.getBoundingClientRect().left;
-               lbody = document.body.getBoundingClientRect().left;
-               parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = (viewportWidth * 0.035) + 100;
-               parentLeft = ''+leftPos+'px'; // getting left value
-               document.body.style.removeProperty('padding-bottom');
-               console.log("parent left = ", parentLeft);
-               console.log("annosa left = ", lannosa);
-               console.log("body left = ", lbody);
+               document.documentElement.style.height = "0px";
+               var topPos = (rect.top + window.scrollY) * 1.250; 
+               var adjustedTopPos = topPos + Math.abs(bodyTop); 
+               document.body.style.height = adjustedTopPos + "px"; 
+               document.body.style.transformOrigin = "50% 0%";
+
+               leftPos = (viewportWidth * 0.035) + 100;
+               parentLeft = ''+leftPos+'px';
              }
+
+               annosa.style.removeProperty('left');
+               annosa.style.removeProperty('width');
+               annosa.style.removeProperty('right');
+               var annowidth = annosa.clientWidth;
 
                if (annowidth > 100) 
                {
