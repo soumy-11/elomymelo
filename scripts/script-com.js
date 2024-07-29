@@ -489,7 +489,7 @@ function outscale()
            }
 
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
-           if (annosa & !mozFox) 
+           if (annosa && !mozFox) 
            {
              if (window.matchMedia("(min-width: 615px)").matches)
              { window.addEventListener('scroll', saScroll, false); }
