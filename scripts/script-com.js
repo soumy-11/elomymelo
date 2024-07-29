@@ -500,6 +500,7 @@ function outscale()
            let parent, rectParent, leftPos, parentLeft;
            const viewportHeight = window.innerHeight;
            const viewportWidth = window.innerWidth;
+           const annowidth = annosa.clientWidth;
 
            if (annosa && !mozFox) 
            {
@@ -528,7 +529,7 @@ function outscale()
                    document.body.style.height = adjustedTopPos + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
-                   leftPos = viewportWidth * 0.015;
+                   leftPos = viewportWidth * 0.025;
                    parentLeft = ''+leftPos+'px';
                }
                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
@@ -539,7 +540,7 @@ function outscale()
                    document.body.style.height = adjustedTopPos + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
-                   leftPos = viewportWidth * 0.025;
+                   leftPos = viewportWidth * 0.030;
                    parentLeft = ''+leftPos+'px';
                }
                if (window.matchMedia("(min-width: 1501px)").matches) 
@@ -554,10 +555,10 @@ function outscale()
                    parentLeft = ''+leftPos+'px';
                }
 
-                   annosa.style.removeProperty('left');
+                   // annosa.style.removeProperty('left');
                    // annosa.style.removeProperty('width');
-                   annosa.style.removeProperty('right');
-                   var annowidth = annosa.clientWidth;
+                   // annosa.style.removeProperty('right');
+                   // var annowidth = annosa.clientWidth;
 
                if (annowidth > 100) 
                {
