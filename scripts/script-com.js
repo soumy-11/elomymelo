@@ -567,7 +567,7 @@ function outscale()
                }
                if (annowidth < 100) 
                {
-                   annosa.style.setProperty('width', '50px', 'important');
+                   // annosa.style.setProperty('width', '50px', 'important');
                    if (window.matchMedia("(min-width: 1501px)").matches) 
                    {
                        leftPos = (viewportWidth * 0.035) + 12.5; parentLeft = ''+leftPos+'px'; 
