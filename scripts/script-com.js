@@ -529,7 +529,7 @@ function outscale()
                    document.body.style.height = adjustedTopPos + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
-                   leftPos = viewportWidth * 0.025;
+                   leftPos = viewportWidth * 0.035;
                    parentLeft = ''+leftPos+'px';
                }
                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
@@ -540,7 +540,7 @@ function outscale()
                    document.body.style.height = adjustedTopPos + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
-                   leftPos = viewportWidth * 0.030;
+                   leftPos = viewportWidth * 0.040;
                    parentLeft = ''+leftPos+'px';
                }
                if (window.matchMedia("(min-width: 1501px)").matches) 
@@ -554,11 +554,6 @@ function outscale()
                    leftPos = (viewportWidth * 0.035) + 100;
                    parentLeft = ''+leftPos+'px';
                }
-
-                   // annosa.style.removeProperty('left');
-                   // annosa.style.removeProperty('width');
-                   // annosa.style.removeProperty('right');
-                   // var annowidth = annosa.clientWidth;
 
                if (annowidth > 100) 
                {
