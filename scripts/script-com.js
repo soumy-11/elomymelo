@@ -487,11 +487,16 @@ function outscale()
                    iframeHtml.style.setProperty('overflow', 'hidden', 'important');
                }
            }
-/*
+
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            if (annosa && mozFox) { document.body.style.removeProperty('padding-bottom');
            annosa.remove(); console.log("moz sa removed"); }
-*/
+
+           const vignette = document.querySelector('.adsbygoogle.adsbygoogle-noablate');
+           const inlineDisplay = vignette.style.getPropertyValue('display');
+           if (inlineDisplay === 'none') { 
+           document.body.style.removeProperty('top'); }
+
            const blank = document.querySelector('.after-hot-blank');
            const bodyStyles = window.getComputedStyle(document.body);
            const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
@@ -502,7 +507,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa) 
+           if (annosa && !mozFox) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
                { window.addEventListener('scroll', saScroll, false); }
