@@ -635,9 +635,9 @@ outscale();
 function saScroll()
 {
     const annosa = document.getElementById('google-anno-sa'); 
-    console.log("window scroll");
+    // console.log("window scroll");
 
-    annosa.style.removeProperty('transform');
+    // annosa.style.removeProperty('transform');
     const viewportHeight = window.innerHeight;
     const elementRect = annosa.getBoundingClientRect();
 
@@ -672,11 +672,11 @@ function saScroll()
 
     if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
     {
-        annosa.style.setProperty('display', 'none', 'important');
+        annosa.style.setProperty('visibility', 'hidden', 'important');
     }
     if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
     {
-        annosa.style.setProperty('display', '', 'important');
+        annosa.style.setProperty('visibility', 'visible', 'important');
     }
 }
 
