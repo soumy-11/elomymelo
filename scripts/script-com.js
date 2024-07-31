@@ -492,10 +492,10 @@ function outscale()
            if (annosa && mozFox) { document.body.style.removeProperty('padding-bottom');
            annosa.remove(); console.log("moz sa removed"); }
 
-           const vignette = document.querySelector('.adsbygoogle.adsbygoogle-noablate');
-           const inlineDisplay = vignette.style.getPropertyValue('display');
-           if (inlineDisplay === 'none') { 
-           document.body.style.removeProperty('top'); }
+           const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
+           vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
+           if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
+           document.body.style.removeProperty('top'); } });
 
            const blank = document.querySelector('.after-hot-blank');
            const bodyStyles = window.getComputedStyle(document.body);
@@ -642,41 +642,33 @@ function saScroll()
         annosa.style.removeProperty('transform');
         const viewportHeight = window.innerHeight;
         const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = viewportHeight - elementRect.top - desiredOffset;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        const offset = viewportHeight - elementRect.top - 60;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
-
     if (annosa && window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
         annosa.style.removeProperty('transform');
         const viewportHeight = window.innerHeight;
         const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.087;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        const offset = (viewportHeight - elementRect.top - 60) * 1.087;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
     if (annosa && window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
         annosa.style.removeProperty('transform');
         const viewportHeight = window.innerHeight;
         const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.1628;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        const offset = (viewportHeight - elementRect.top - 60) * 1.1628;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
     if (annosa && window.matchMedia("(min-width: 1501px)").matches) 
     {
         annosa.style.removeProperty('transform');
         const viewportHeight = window.innerHeight;
         const elementRect = annosa.getBoundingClientRect();
-
         const offset = (viewportHeight - elementRect.top - 60) * 1.250;
         const transValue = 'translateY('+offset+'px) scale(1.5)'; 
         annosa.style.setProperty('transform', transValue, 'important');
