@@ -379,6 +379,7 @@ function outscale()
         const tran2 = document.getElementById("ads-vertical-two");
         const tran3 = document.getElementById("hot-dvs-sctn");
         const tran4 = document.getElementById("ads-vertical-one");
+        const tran5 = document.getElementById("top-pos");
 
         if (parentElementNew || bodyOverflow === "hidden") 
         {
@@ -387,14 +388,14 @@ function outscale()
             document.body.style.transform = "none";
             checkscale = "present"; // assigned
 
-            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden";
-            tran3.style.visibility = "hidden"; tran4.style.visibility = "hidden";
+            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
+            tran4.style.visibility = "hidden"; tran5.style.visibility = "hidden";
         }
         else 
         { 
             document.body.style.overflow = "visible"; doso(); 
-            tran1.style.visibility = "visible"; tran2.style.visibility = "visible";
-            tran3.style.visibility = "visible"; tran4.style.visibility = "visible";
+            tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
+            tran4.style.visibility = "visible"; tran5.style.visibility = "visible";
 
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
