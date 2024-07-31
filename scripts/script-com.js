@@ -643,7 +643,6 @@ function saScroll()
 
     const documentHeight = document.documentElement.scrollHeight;
     const mediain = window.matchMedia("(min-width: 615px)").matches;
-    const viewportHeight = window.innerHeight;
     const scrollPosition = window.scrollY;
 
     if (annosa && window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
