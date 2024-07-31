@@ -375,13 +375,26 @@ function outscale()
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
-        if (parentElementNew || bodyOverflow === "hidden") {
+        const tran1 = document.getElementById("out-cmnt");
+        const tran2 = document.getElementById("ads-vertical-two");
+        const tran3 = document.getElementById("hot-dvs-sctn");
+        const tran4 = document.getElementById("ads-vertical-one");
+
+        if (parentElementNew || bodyOverflow === "hidden") 
+        {
             if (parentElementNew) { window.scrollTo(0, 0); }
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
             checkscale = "present"; // assigned
+
+            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden";
+            tran3.style.visibility = "hidden"; tran4.style.visibility = "hidden";
         }
-        else { document.body.style.overflow = "visible";
+        else 
+        { 
+            document.body.style.overflow = "visible"; doso(); 
+            tran1.style.visibility = "visible"; tran2.style.visibility = "visible";
+            tran3.style.visibility = "visible"; tran4.style.visibility = "visible";
 
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
@@ -403,9 +416,11 @@ function outscale()
             checkscale = "absent"; document.body.style.transform = "";
         }
 
-        if (footerDiv) {
+        if (footerDiv) 
+        {
             const secondPTag = footerDiv.querySelector('p:nth-child(2)');
-            if (secondPTag) {
+            if (secondPTag) 
+            {
                 secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.';
             }
         }
