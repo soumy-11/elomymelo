@@ -577,15 +577,13 @@ function outscale()
                    }
                    else { annosa.style.setProperty('left', parentLeft, 'important'); }
                }
-/*
+
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
                    document.body.style.height = ""; 
-                   document.body.style.transformOrigin = ""; doso();
-                   annosa.style.setProperty('display', 'none', 'important');
+                   document.body.style.transformOrigin = ""; doso(); annosa.remove();
                    window.removeEventListener('scroll', saScroll);
                }
-*/
            }
 
            if (annosa && window.matchMedia("(max-width: 615px)").matches) 
