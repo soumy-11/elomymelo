@@ -582,6 +582,7 @@ function outscale()
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
                    annosa.style.setProperty('display', 'none', 'important');
+                   window.removeEventListener('scroll', saScroll);
                }   
            }
 
@@ -637,13 +638,13 @@ function saScroll()
     // console.log("window scroll");
     const annosa = document.getElementById('google-anno-sa'); 
 
+    const mediain = window.matchMedia("(min-width: 615px)").matches;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.scrollY;
+
     annosa.style.removeProperty('transform');
     const viewportHeight = window.innerHeight;
     const elementRect = annosa.getBoundingClientRect();
-
-    const documentHeight = document.documentElement.scrollHeight;
-    const mediain = window.matchMedia("(min-width: 615px)").matches;
-    const scrollPosition = window.scrollY;
 
     if (annosa && window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
@@ -672,11 +673,11 @@ function saScroll()
 
     if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
     {
-        annosa.style.setProperty('visibility', 'hidden', 'important');
+        annosa.style.setProperty('display', 'none', 'important');
     }
     if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
     {
-        annosa.style.setProperty('visibility', 'visible', 'important');
+        annosa.style.setProperty('display', '', 'important');
     }
 }
 
