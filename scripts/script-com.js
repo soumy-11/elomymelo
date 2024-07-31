@@ -366,6 +366,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let checkscale;
+     let fcone = false, fctwo = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
@@ -386,7 +387,7 @@ function outscale()
             if (parentElementNew) { window.scrollTo(0, 0); }
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
-            checkscale = "present"; // assigned
+            checkscale = "present"; fcone = false;
 
             tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
             tran4.style.visibility = "hidden"; tran5.style.visibility = "hidden";
@@ -394,6 +395,7 @@ function outscale()
         else 
         { 
             document.body.style.overflow = "visible"; doso(); 
+            if (!fcone) { doso(); fcone = true; console.log("doso called visible"); }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
             tran4.style.visibility = "visible"; tran5.style.visibility = "visible";
 
