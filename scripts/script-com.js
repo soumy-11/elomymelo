@@ -634,10 +634,10 @@ outscale();
 
 function saScroll()
 {
-    const annosa = document.getElementById('google-anno-sa'); 
     // console.log("window scroll");
+    const annosa = document.getElementById('google-anno-sa'); 
 
-    // annosa.style.removeProperty('transform');
+    annosa.style.removeProperty('transform');
     const viewportHeight = window.innerHeight;
     const elementRect = annosa.getBoundingClientRect();
 
