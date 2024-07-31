@@ -394,8 +394,8 @@ function outscale()
         }
         else 
         { 
-            document.body.style.overflow = "visible"; doso(); 
-            if (!fcone) { doso(); fcone = true; console.log("doso called visible"); }
+            document.body.style.overflow = "visible"; 
+            if (!fcone) { setTimeout(doso, 4000); fcone = true; }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
             tran4.style.visibility = "visible"; tran5.style.visibility = "visible";
 
