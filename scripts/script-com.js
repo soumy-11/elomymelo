@@ -415,6 +415,11 @@ function outscale()
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
 
+        const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
+        vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
+        if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
+        document.body.style.removeProperty('top'); } });
+
         function alldynamic(hostElement, annosa, initialWidth)
         {
            if (hostElement.shadowRoot) 
@@ -575,8 +580,9 @@ function outscale()
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
                    document.body.style.height = ""; 
-                   document.body.style.transformOrigin = "";
+                   document.body.style.transformOrigin = ""; doso();
                    annosa.style.setProperty('display', 'none', 'important');
+                   window.removeEventListener('scroll', saScroll);
                }   
            }
 
@@ -629,52 +635,49 @@ outscale();
 
 function saScroll()
 {
+    // console.log("window scroll");
     const annosa = document.getElementById('google-anno-sa'); 
-    console.log("window scroll");
+
+    const mediain = window.matchMedia("(min-width: 615px)").matches;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.scrollY;
+
+    annosa.style.removeProperty('transform');
+    const viewportHeight = window.innerHeight;
+    const elementRect = annosa.getBoundingClientRect();
 
     if (annosa && window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
     {
-        annosa.style.removeProperty('transform');
-        const viewportHeight = window.innerHeight;
-        const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = viewportHeight - elementRect.top - desiredOffset;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        var offset = viewportHeight - elementRect.top - 60;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
-
     if (annosa && window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
     {
-        annosa.style.removeProperty('transform');
-        const viewportHeight = window.innerHeight;
-        const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.087;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        var offset = (viewportHeight - elementRect.top - 60) * 1.087;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
     if (annosa && window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
     {
-        annosa.style.removeProperty('transform');
-        const viewportHeight = window.innerHeight;
-        const elementRect = annosa.getBoundingClientRect();
-        const desiredOffset = 60; // Adjust this value as needed
-
-        const offset = (viewportHeight - elementRect.top - desiredOffset) * 1.1628;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-        // console.log("initial viewport width for display = ", initialWidth);
+        var offset = (viewportHeight - elementRect.top - 60) * 1.1628;
+        const transValue = 'translateY('+offset+'px)'; 
+        annosa.style.setProperty('transform', transValue, 'important');
     }
     if (annosa && window.matchMedia("(min-width: 1501px)").matches) 
     {
-        annosa.style.removeProperty('transform');
-        const viewportHeight = window.innerHeight;
-        const elementRect = annosa.getBoundingClientRect();
-
-        const offset = (viewportHeight - elementRect.top - 60) * 1.250;
+        var offset = (viewportHeight - elementRect.top - 60) * 1.250;
         const transValue = 'translateY('+offset+'px) scale(1.5)'; 
         annosa.style.setProperty('transform', transValue, 'important');
+    }
+
+    if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
+    {
+        annosa.style.setProperty('display', 'none', 'important');
+    }
+    if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
+    {
+        annosa.style.setProperty('display', '', 'important');
     }
 }
 
