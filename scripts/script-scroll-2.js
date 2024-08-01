@@ -3,7 +3,7 @@
   var timer = null; 
   function scrolltrick() 
   { doso(); if(timer !== null) { clearTimeout(timer); }
-  timer = setTimeout(function() { doso(); saScroll(); }, 2000); }
+  timer = setTimeout(function() { doso(); }, 2000); }
   setTimeout(doso, 3000); // setTimeout(doso, 0); 
 
   // adding the event listeners 
