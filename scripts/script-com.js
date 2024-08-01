@@ -365,6 +365,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
+     let ftstyle1;
      let checkscale, sizedetection;
      let fcone = false, fctwo = false;
      const viewportWidth = window.innerWidth;
@@ -392,7 +393,7 @@ function outscale()
 
      function scaleMe2(initialWidth)
      {
-        let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
+        let ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
