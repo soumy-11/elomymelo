@@ -50,16 +50,6 @@ as="style" onload="this.rel='stylesheet'">
         box-sizing: border-box;
         border: none;
     }
-    #Web_1920__1 
-    {
-        position: absolute;
-        width: 3554px !important;
-        height: 2216px;
-        border: 0px grey solid;
-        background-color: rgba(112,112,112,0);
-        overflow: visible;
-        visibility: visible;
-    }
     #top-check
     {
         position: absolute;
@@ -172,7 +162,7 @@ as="style" onload="this.rel='stylesheet'">
         margin: 0px 510px 0px 510px; 
         border-radius: 0px 0px 95px 95px;  
         padding: 15px 20px 24px 20px; 
-        background: rgba(255,207,163,0.55); 
+        background: rgba(255,207,163,0.64); 
         color: rgba(0,0,0,0.9);
     }
     #thoughts-para
@@ -184,6 +174,16 @@ as="style" onload="this.rel='stylesheet'">
 
     @media only screen and (min-width: 615px)
     { 
+    #Web_1920__1 
+    {
+        position: absolute;
+        width: 3554px !important;
+        height: auto;
+        border: 0px grey solid;
+        background-color: rgba(112,112,112,0);
+        overflow: visible;
+        visibility: visible;
+    }
     #pros-cons
     {
         position: relative;
@@ -282,7 +282,7 @@ as="style" onload="this.rel='stylesheet'">
     }
   },
   "datePublished": "2024-03-20T16:10:10+00:00",
-  "dateModified": "2024-03-20T16:10:10+00:00"
+  "dateModified": "2024-07-29T15:30:10+00:00"
 }
 </script>
 
@@ -302,35 +302,13 @@ as="style" onload="this.rel='stylesheet'">
 <script type="text/javascript">
 
   function scaleMe()
-  {       
-      // Check if the body element has overflow set to "hidden"
-      var parentElementNew = document.querySelector('.fc-consent-root');
-      var bodyOverflow = window.getComputedStyle(document.body).overflow; 
-      var footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
-      var parentElement = document.querySelector('.google-revocation-link-placeholder');
-      if (parentElement) { var childElements = parentElement.querySelectorAll('*');
-      // Loop through the child elements and set display to "none"
-      for (var i = 0; i < childElements.length; i++) 
-      {
-           childElements[i].parentNode.removeChild(childElements[i]);
-      }
-           parentElement.parentNode.removeChild(parentElement);
-      }
-      if (parentElementNew || bodyOverflow === "hidden") 
-      { 
-           window.scrollTo(0, 0); document.body.style.overflow = "hidden"; 
-           document.body.style.transform = "none"; 
-      }
-      if (!parentElementNew || bodyOverflow !== "hidden") { document.body.style.overflow = "visible"; } 
-      if (footerDiv) { var secondPTag = footerDiv.querySelector('p:nth-child(2)');
-      if (secondPTag) { secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.'; } // changing the inner text of the p tag of consent message  
-      }
+  {
       if (window.matchMedia("(min-width: 615px)").matches) 
       {
            const mypage = window.innerWidth;
            document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
            document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-	   document.getElementById("Web_1920__1").style.width = "3554px";
+           document.getElementById("Web_1920__1").style.width = "3554px";
       }
       if (window.matchMedia("(max-width: 615px)").matches) 
       {
@@ -340,29 +318,8 @@ as="style" onload="this.rel='stylesheet'">
            document.getElementById("Web_1920__1").style.width = "2358px";
            document.getElementById("Web_1920__1").style.overflow = "visible";
       }
-      if (window.matchMedia("(max-width: 615px)").matches) 
-      {
-           document.body.style.transform = "none";
-      }
-      if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches && bodyOverflow !== "hidden") 
-      {
-           document.body.style.transform = "scale(1.0)";
-      }
-      if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches && bodyOverflow !== "hidden") 
-      {
-           document.body.style.transform = "scale(0.920)";
-      }
-      if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches && bodyOverflow !== "hidden") 
-      {
-           document.body.style.transform = "scale(0.860)";
-      }
-      if (window.matchMedia("(min-width: 1501px)").matches && bodyOverflow !== "hidden") 
-      {
-           document.body.style.transform = "scale(0.80)";
-      }
   }
-  scaleMe(); setInterval(scaleMe, 1000); 
-  window.addEventListener('resize', scaleMe, false); 
+  scaleMe(); window.addEventListener('resize', scaleMe, false); 
 
 </script>
 
@@ -1081,7 +1038,9 @@ as="style" onload="this.rel='stylesheet'">
 
             <p>Both speakers are also compatible with JBL <a href="https://reviewindetail.com/what-is-jbl-partyboost/" target="_blank" rel="nofollow noopener noreferrer">PartyBoost</a> to connect multiple speakers. They can be connected in a stereo configuration or a mono configuration with multiple speakers. Both the X3 and X4 have IP67 support. So they are dustproof and waterproof. There is this new feature PlaytimeBoost, which will reduce the bass to make the battery last longer. They say it will give you up to 6 hours of additional backup. The default codec is <a href="https://www.headphonecheck.com/guides/sbc-aptx-and-aac-bluetooth-standards-simply-explained/" target="_blank" rel="nofollow noopener noreferrer">SBC</a> for both, even being that expensive they don’t have high-end codecs. Bluetooth <a href="https://www.tcl.com/global/en/blog/guides/bluetooth-different-versions-comparison" target="_blank" rel="nofollow noopener noreferrer">5.1</a> for the Xtreme 3 and <a href="https://www.tcl.com/global/en/blog/guides/bluetooth-different-versions-comparison" target="_blank" rel="nofollow noopener noreferrer">5.3</a> for the Xtreme 4. The power bank feature is at max 11 volts 2 amps.</p> 
 
-            <br><br>
+            <br>
+            <a target="_blank" href="boom-2-vs-xtreme-4.html"><img class="art-images" src="https://elomymelo.com/images/boom-2-vs-x4-main.jpg" alt="jbl xtreme 4 vs boom 2"></a>
+            <br>
 
             <p>The battery capacity is almost double with the new Xtreme 4. This is to me the biggest upgrade that can make people buy the X4. The X4 has a 7.2-volt Li-ion battery pack with 9444 mAh 68 Wh capacity. And the X3 has a 7.2-volt pack with 36.3 Wh 5000 mAh capacity. Xtreme 4 can last 24 hours on average 50-60% listening volume and Xtreme 3 can last 15 hours. Charge time 3.5 hours for X4 vs 2.5 hours for X3. Power bank out 5V / 3A from the type-c port of the X4 and 5V / 2A maximum from the type-a port of the X3 speaker.</p>  
 
@@ -1522,21 +1481,13 @@ as="style" onload="this.rel='stylesheet'">
 
     <div class="ads-vertical" id="ads-vertical-two" style="height: 798px !important; top: 5226px">
     
-            <div class="ads-vrtl-in" id="ads-v2-in" style="top: 66px; left: 24px; width: 850px; height: 665px; background-image: url('https://docs.elomymelo.com/old-images/gig-back.PNG'); background-position: -6px 440px; background-repeat: no-repeat; filter: blur(10px); border-radius: 40px; background-size: 850px"> </div> 
-
-                <!-- new code -->
-                <div style="position: absolute; top: 55px; left: 24px; border: 10px rgba(184,130,53,0.5) solid; width: 850px; height: 685px; border-radius: 45px"> 
-
-                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
-                <img id="fiverr-gig-image" src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/324874782/original/ceaf034e52930aa11fe088faa9410b2d970ddfb6/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories.jpg" onerror="this.src='images/boost-main.jpg'"> </a>
-                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
-                <img id="fiverr-logo" src="https://docs.elomymelo.com/old-images/fiverr-logo.jpg"> </a>
-                <a href="https://www.fiverr.com/soumya_roy/write-on-purchasing-value-for-money-audio-devices-smartphones-and-accessories" target="_blank" rel="noreferrer noopener">
-                <div class="check-my-gigs"> CHECK MY GIG </div> </a>
-
-            </div> 
+            <div class="ads-vrtl-in" id="ads-v2-in" style="top: 252px; border: none; 
+            transform: scale(2.44, 2.44); width: 348px; height: 292px; left: 275px"> 
+            <a target="_blank" href="https://uk.jbl.com/bluetooth-speakers/XTREME-4.html"><img src="https://elomymelo.com/old-images/jbl-x4-flex.webp" alt="jbl xtreme 4" 
+            style="width: 348px; height: 292px; border-radius: 15px">
+            </a></div>
     </div>
-    
+
     <div class="comment-sec" id="comnt-sctn">
     	<span class="header-comment">COMMENT SECTION</span>
 
