@@ -501,6 +501,10 @@
         display: none;
     }
 
+    .scroll-clk-button
+    {
+        display: none;
+    }
     .aff-link-text
     {
         display: none;
