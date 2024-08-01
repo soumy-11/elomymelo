@@ -365,13 +365,34 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
-     let checkscale;
+     let checkscale, sizedetection;
      let fcone = false, fctwo = false;
      const viewportWidth = window.innerWidth;
+     const topButton = document.querySelector('#scroll-top-button');
+     const topArrow = document.querySelector('#Path_1');
      var initialWidth = viewportWidth;
+
+        const documentHeight = document.documentElement.scrollHeight;
+        const mediain = window.matchMedia("(max-width: 615px)").matches;
+        const viewportHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
+
+     function afterftclose() 
+     {
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
+            topArrow.style.stroke = '#5c5c5c';
+            topButton.style.background = 'white';
+        }
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
+            topArrow.style.stroke = '';
+            topButton.style.background = '';
+        }
+        console.log("button close");
+     }
+
      function scaleMe2(initialWidth)
      {
-        let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
+        let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -498,9 +519,18 @@ function outscale()
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
                        hostElement.shadowRoot.innerHTML = '';
-                       // ftsize = "window-resized";
+                       ftsize = "window-resized";
                    }
                }
+
+            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
+                topButton.style.background = 'white';
+                topArrow.style.stroke = '#5c5c5c';
+            }
+            if (ftsize === "window-resized") {
+                topButton.style.background = '';
+                topArrow.style.stroke = '';
+            }
 
                const iframe = shadowdom.querySelector('#prose-iframe');
                if (iframe) 
@@ -643,6 +673,15 @@ function outscale()
                    topButton.style.bottom = "25px";
                }
            }
+        }
+
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
+            topArrow.style.stroke = '#5c5c5c';
+            topButton.style.background = 'white';
+        }
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
+            topArrow.style.stroke = '';
+            topButton.style.background = '';
         }
     }
 
