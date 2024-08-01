@@ -373,13 +373,13 @@ function outscale()
      const topArrow = document.querySelector('#Path_1');
      var initialWidth = viewportWidth;
 
+     function afterftclose() 
+     {
         const documentHeight = document.documentElement.scrollHeight;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
         const viewportHeight = window.innerHeight;
         const scrollPosition = window.scrollY;
 
-     function afterftclose() 
-     {
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
             topArrow.style.stroke = '#5c5c5c';
             topButton.style.background = 'white';
@@ -397,6 +397,11 @@ function outscale()
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+
+        const documentHeight = document.documentElement.scrollHeight;
+        const mediain = window.matchMedia("(max-width: 615px)").matches;
+        const viewportHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
 
         const tran1 = document.getElementById("out-cmnt");
         const tran2 = document.getElementById("ads-vertical-two");
@@ -676,6 +681,7 @@ function outscale()
            }
         }
 
+        console.log("ftstyle1 = ", ftstyle1);
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
             topArrow.style.stroke = '#5c5c5c';
             topButton.style.background = 'white';
