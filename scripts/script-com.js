@@ -448,7 +448,7 @@ function outscale()
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); console.log("buttonfxd called"); }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -524,14 +524,12 @@ function outscale()
                    }
                }
 
-            if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
-                topButton.style.background = 'white';
-                topArrow.style.stroke = '#5c5c5c';
-            }
-            if (ftsize === "window-resized") {
-                topButton.style.background = '';
-                topArrow.style.stroke = '';
-            }
+               if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" && ftstyle4 === "reg-button") {
+                  topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c';
+               }
+               if (ftsize === "window-resized") {
+                  topButton.style.background = ''; topArrow.style.stroke = '';
+               }
 
                const iframe = shadowdom.querySelector('#prose-iframe');
                if (iframe) 
@@ -559,9 +557,9 @@ function outscale()
            if (annosa && !mozFox) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
-               { window.addEventListener('scroll', saScroll, false); }
+               { window.addEventListener('scroll', scrollsa, false); }
                if (window.matchMedia("(max-width: 615px)").matches)
-               { window.removeEventListener('scroll', saScroll, false); }
+               { window.removeEventListener('scroll', scrollsa, false); }
 
                document.body.style.removeProperty('padding-bottom');
                if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
@@ -631,7 +629,7 @@ function outscale()
                {
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = ""; doso(); annosa.remove();
-                   window.removeEventListener('scroll', saScroll);
+                   window.removeEventListener('scroll', scrollsa);
                }
            }
 
@@ -676,7 +674,7 @@ function outscale()
            }
         }
 
-        console.log("ftstyle1 = ", ftstyle1);
+        // console.log("ftstyle1 = ", ftstyle1);
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
             topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white';
         }
@@ -734,5 +732,10 @@ function saScroll()
     }
 }
 
-// document ends here ---------
+    var satimer = null; 
+    function scrollsa() { 
+    saScroll(); if(satimer !== null) { clearTimeout(satimer); }
+    satimer = setTimeout(function() { saScroll(); }, 2500); }
+
+    // document ends here ---------
 
