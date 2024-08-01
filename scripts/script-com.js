@@ -540,8 +540,11 @@ function outscale()
                }
            }
 
+           const mediaout = window.matchMedia("(min-width: 615px)").matches;
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
-           if (annosa && mozFox) { document.body.style.removeProperty('padding-bottom');
+           const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
+           if ((annosa && mozFox && mediaout) || (annosa && !isdesk && mediaout)) { 
+           document.body.style.removeProperty('padding-bottom');
            annosa.remove(); console.log("moz sa removed"); }
 
            const blank = document.querySelector('.after-hot-blank');
@@ -554,7 +557,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa && !mozFox) 
+           if (annosa && !mozFox && !isdesk) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
                { window.addEventListener('scroll', scrollsa, false); }
