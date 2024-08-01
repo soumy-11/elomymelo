@@ -365,7 +365,6 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
-     let ftstyle1;
      let checkscale, sizedetection;
      let fcone = false, fctwo = false;
      const viewportWidth = window.innerWidth;
@@ -377,31 +376,27 @@ function outscale()
      {
         const documentHeight = document.documentElement.scrollHeight;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
-        const viewportHeight = window.innerHeight;
-        const scrollPosition = window.scrollY;
+        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
 
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
-            topArrow.style.stroke = '#5c5c5c';
-            topButton.style.background = 'white';
+            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white';
         }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
-            topArrow.style.stroke = '';
-            topButton.style.background = '';
+            topArrow.style.stroke = ''; topButton.style.background = '';
         }
         console.log("button close");
      }
 
      function scaleMe2(initialWidth)
      {
-        let ftstyle2, ftstyle3, ftstyle4, ftsize;
+        let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
         const documentHeight = document.documentElement.scrollHeight;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
-        const viewportHeight = window.innerHeight;
-        const scrollPosition = window.scrollY;
+        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
 
         const tran1 = document.getElementById("out-cmnt");
         const tran2 = document.getElementById("ads-vertical-two");
