@@ -472,7 +472,7 @@ function outscale()
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
                    annosa.style.removeProperty('border-radius');
-                   annosa.style.setProperty('width', '90%', 'important');
+                   annosa.style.setProperty('width', '92%', 'important');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
                }
