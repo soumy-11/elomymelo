@@ -557,7 +557,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa && !mozFox && !isdesk) 
+           if (annosa && !mozFox && isdesk) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
                { window.addEventListener('scroll', scrollsa, false); }
