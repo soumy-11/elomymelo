@@ -467,20 +467,23 @@ function outscale()
                const viewportWidth = window.innerWidth;
                topButton.style.bottom = "80px";
 
+               calwidth = viewportWidth - 30;
+               sawidth = ''+calwidth+'px';
+
                if (annowidth > 100) 
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('width');
                    annosa.style.removeProperty('border-radius');
-                   annosa.style.setProperty('width', '92%', 'important');
-                   annosa.style.setProperty('left', '4%', 'important');
+                   annosa.style.setProperty('width', sawidth, 'important');
+                   annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
                }
                if (annowidth < 100 && annowidth > 10) 
                {
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('border-radius');
-                   annosa.style.setProperty('left', '4%', 'important');
+                   annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
                }
