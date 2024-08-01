@@ -365,17 +365,12 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
-     let checkscale, sizedetection;
-     let fcone = false, fctwo = false;
-     const viewportWidth = window.innerWidth;
+     const mediain = window.matchMedia("(max-width: 615px)").matches;
      const topButton = document.querySelector('#scroll-top-button');
      const topArrow = document.querySelector('#Path_1');
-     var initialWidth = viewportWidth;
-
      function afterftclose() 
      {
         const documentHeight = document.documentElement.scrollHeight;
-        const mediain = window.matchMedia("(max-width: 615px)").matches;
         const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
 
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
@@ -387,6 +382,10 @@ function outscale()
         console.log("button close");
      }
 
+     let checkscale, sizedetection;
+     let fcone = false, fctwo = false;
+     const viewportWidth = window.innerWidth;
+     var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -395,7 +394,6 @@ function outscale()
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
 
         const documentHeight = document.documentElement.scrollHeight;
-        const mediain = window.matchMedia("(max-width: 615px)").matches;
         const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
 
         const tran1 = document.getElementById("out-cmnt");
@@ -449,6 +447,9 @@ function outscale()
                 secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.';
             }
         }
+
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -678,12 +679,10 @@ function outscale()
 
         console.log("ftstyle1 = ", ftstyle1);
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
-            topArrow.style.stroke = '#5c5c5c';
-            topButton.style.background = 'white';
+            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white';
         }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
-            topArrow.style.stroke = '';
-            topButton.style.background = '';
+            topArrow.style.stroke = ''; topButton.style.background = '';
         }
     }
 
