@@ -379,7 +379,6 @@ function outscale()
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
             topArrow.style.stroke = ''; topButton.style.background = '';
         }
-        console.log("button close");
      }
 
      let checkscale, sizedetection;
@@ -449,7 +448,7 @@ function outscale()
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); console.log("buttonfxd called"); }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
