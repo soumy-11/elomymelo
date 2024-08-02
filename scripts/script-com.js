@@ -444,8 +444,10 @@ function outscale()
             }
         }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
+        if (window.matchMedia("(min-width: 615px)").matches) { 
+        sizedetection = "desk"; topButton.style.display = 'none'; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
+        { buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -518,6 +520,9 @@ function outscale()
                    if (window.matchMedia("(min-width: 615px)").matches) {
                        hostElement.shadowRoot.innerHTML = '';
                        ftsize = "window-resized";
+                   }
+                   if (mediain && sizedetection === "desk") {
+                       shadowdom.innerHTML = '';
                    }
                }
 
