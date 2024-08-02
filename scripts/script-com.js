@@ -632,7 +632,7 @@ function outscale()
                }
            }
 
-           if (annosa && window.matchMedia("(max-width: 615px)").matches) 
+           if (annosa && mediain && (sizedetection !== "desk")) 
            {
                const annowidth = annosa.clientWidth;
                const lastele = document.getElementById('after-ft-phone');
@@ -666,20 +666,24 @@ function outscale()
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
                }
-               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
-               {
-                   document.body.style.height = ""; 
-                   document.body.style.transformOrigin = "";
-                   annosa.style.setProperty('display', 'none', 'important');
-                   // topButton.style.bottom = "25px";
-               }
+           }
+
+           if (annosa && mediain && (sizedetection === "desk")) 
+           {
+               annosa.style.removeProperty('display');
+               document.body.style.removeProperty('padding-bottom');
+               annosa.style.setProperty('display', 'none', 'important');
+               annosa.remove(); console.log("annosa removed");
+               document.body.style.height = ""; 
            }
         }
 
         // console.log("ftstyle1 = ", ftstyle1);
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) 
+        && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) {
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (ftstyle1 !== "reg-message")) {
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
+        && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) {
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
