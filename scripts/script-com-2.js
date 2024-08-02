@@ -365,7 +365,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
-     let checkscale;
+     let checkscale, sizedetection;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
      function scaleMe2()
@@ -382,11 +382,9 @@ function outscale()
         const topArrow = document.querySelector('#Path_1');
 
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
-            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white';
-        }
+        topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
-            topArrow.style.stroke = ''; topButton.style.background = '';
-        }
+        topArrow.style.stroke = ''; topButton.style.background = ''; }
 
         if (parentElementNew || bodyOverflow === "hidden") 
         {
@@ -423,6 +421,9 @@ function outscale()
                 secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.';
             }
         }
+
+        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = 'none'; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
