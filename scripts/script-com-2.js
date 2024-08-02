@@ -493,7 +493,7 @@ function outscale()
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = "";
                    annosa.style.setProperty('display', 'none', 'important');
-                   topButton.style.bottom = "25px";
+                   // topButton.style.bottom = "25px";
                }
            }
 
