@@ -366,8 +366,6 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let checkscale, sizedetection;
-     const viewportWidth = window.innerWidth;
-     var initialWidth = viewportWidth;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
@@ -377,14 +375,10 @@ function outscale()
 
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+        const mediaout = window.matchMedia("(min-width: 615px)").matches;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
         const topButton = document.querySelector('#scroll-top-button');
         const topArrow = document.querySelector('#Path_1');
-
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
-        topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
-        topArrow.style.stroke = ''; topButton.style.background = ''; }
 
         if (parentElementNew || bodyOverflow === "hidden") 
         {
@@ -422,8 +416,10 @@ function outscale()
             }
         }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { buttonfxd(); }
+        if (window.matchMedia("(min-width: 615px)").matches) { 
+        sizedetection = "desk"; topButton.style.display = 'none'; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
+        { buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -454,7 +450,7 @@ function outscale()
                }
            }
 
-           if (annosa && window.matchMedia("(max-width: 615px)").matches) 
+           if (annosa && mediain && (sizedetection !== "desk")) 
            {
                const annowidth = annosa.clientWidth;
                const lastele = document.getElementById('after-ft-phone');
@@ -488,16 +484,9 @@ function outscale()
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
                }
-               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
-               {
-                   document.body.style.height = ""; 
-                   document.body.style.transformOrigin = "";
-                   annosa.style.setProperty('display', 'none', 'important');
-                   // topButton.style.bottom = "25px";
-               }
            }
 
-           if (annosa && window.matchMedia("(min-width: 615px)").matches) 
+           if ((annosa && mediain && sizedetection === "desk") || (annosa && mediaout)) 
            {
                annosa.style.removeProperty('display');
                document.body.style.removeProperty('padding-bottom');
@@ -506,6 +495,11 @@ function outscale()
                document.body.style.height = ""; 
            }
         }
+
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (sizedetection !== "desk")) {
+        topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) {
+        topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
     const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 
