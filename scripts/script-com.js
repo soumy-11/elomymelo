@@ -411,7 +411,7 @@ function outscale()
         else 
         { 
             document.body.style.overflow = "visible"; 
-            if (!fcone) { setTimeout(doso, 4000); fcone = true; }
+            if (!fcone) { setTimeout(doso, 2500); fcone = true; }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
             tran4.style.visibility = "visible"; tran5.style.visibility = "visible";
 
@@ -696,7 +696,8 @@ function outscale()
     const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
     scaleMe2(initialWidth);
 }
-outscale();
+document.addEventListener('DOMContentLoaded', outscale); 
+// outscale called after html parse ---- 
 
 function saScroll()
 {
