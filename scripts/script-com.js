@@ -406,14 +406,14 @@ function outscale()
             checkscale = "present"; fcone = false;
 
             tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
-            tran4.style.visibility = "hidden"; tran5.style.visibility = "hidden";
+            tran4.style.display = "none"; tran5.style.visibility = "hidden";
         }
         else 
         { 
             document.body.style.overflow = "visible"; 
             if (!fcone) { setTimeout(doso, 2500); fcone = true; }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            tran4.style.visibility = "visible"; tran5.style.visibility = "visible";
+            tran4.style.display = "block"; tran5.style.visibility = "visible";
 
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
