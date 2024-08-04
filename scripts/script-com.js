@@ -544,7 +544,7 @@ function outscale()
            const mediaout = window.matchMedia("(min-width: 615px)").matches;
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-           const safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome|edge|opera|brave|vivaldi/.test(navigator.userAgent.toLowerCase());
+           const safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome|edg|opera|brave|vivaldi/.test(navigator.userAgent.toLowerCase());
            if ((annosa && mozFox && mediaout) || (annosa && !isdesk && mediaout) || (annosa && safari && mediaout)) { 
            document.body.style.removeProperty('padding-bottom');
            document.body.style.height = ""; document.body.style.transformOrigin = "";
