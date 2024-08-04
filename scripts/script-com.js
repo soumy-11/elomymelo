@@ -544,7 +544,8 @@ function outscale()
            const mediaout = window.matchMedia("(min-width: 615px)").matches;
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-           if ((annosa && mozFox && mediaout) || (annosa && !isdesk && mediaout)) { 
+           const safari = /safari/.test(navigator.userAgent.toLowerCase()) && !/chrome|edge|opera|brave|vivaldi/.test(navigator.userAgent.toLowerCase());
+           if ((annosa && mozFox && mediaout) || (annosa && !isdesk && mediaout) || (annosa && safari && mediaout)) { 
            document.body.style.removeProperty('padding-bottom');
            document.body.style.height = ""; document.body.style.transformOrigin = "";
            annosa.remove(); console.log("moz sa removed"); }
@@ -559,7 +560,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa && !mozFox && isdesk) 
+           if (annosa && !mozFox && isdesk && !safari) 
            {
                if (window.matchMedia("(min-width: 615px)").matches)
                { window.addEventListener('scroll', scrollsa, false); }
