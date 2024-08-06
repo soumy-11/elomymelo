@@ -368,6 +368,7 @@ function outscale()
      const mediain = window.matchMedia("(max-width: 615px)").matches;
      const topButton = document.querySelector('#scroll-top-button');
      const topArrow = document.querySelector('#Path_1');
+     let valTimer1 = false, valTimer2 = false;
      function afterftclose() 
      {
         const documentHeight = document.documentElement.scrollHeight;
@@ -376,6 +377,7 @@ function outscale()
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
         topArrow.style.stroke = ''; topButton.style.background = ''; }
+        console.log("afterftclose here");
      }
 
      let checkscale, sizedetection;
@@ -527,9 +529,9 @@ function outscale()
                }
 
                if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" 
-               && ftstyle4 === "reg-button" && (sizedetection !== "desk")) {
+               && ftstyle4 === "reg-button" && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
                topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; }
-               if (ftsize === "window-resized" && (sizedetection === "desk")) {
+               if (ftsize === "window-resized" && (sizedetection === "desk")) { topButton.style.boxShadow = '';
                topButton.style.background = ''; topArrow.style.stroke = ''; }
 
                const iframe = shadowdom.querySelector('#prose-iframe');
@@ -671,6 +673,11 @@ function outscale()
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
+               }
+               if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
+               {
+                   hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
+                   if (!valTimer1) { setInterval(afterftclose, 1000); valTimer1 = true; }
                }
            }
 
