@@ -696,7 +696,7 @@ function outscale()
     const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
     scaleMe2(initialWidth);
 }
-document.addEventListener('DOMContentLoaded', outscale); 
+document.addEventListener('DOMContentLoaded', outscale); outscale();
 // outscale called after html parse ---- 
 
 function saScroll()
