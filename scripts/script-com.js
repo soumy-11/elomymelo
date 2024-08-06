@@ -700,8 +700,8 @@ function outscale()
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
-    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
-    scaleMe2(initialWidth);
+    if (!valTimer2) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
+    valTimer2 = true; } scaleMe2(initialWidth);
 }
 document.addEventListener('DOMContentLoaded', outscale); outscale();
 // outscale called after html parse ---- 

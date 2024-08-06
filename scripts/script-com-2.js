@@ -366,6 +366,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let checkscale, sizedetection;
+     let valTimer2 = false;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
@@ -502,9 +503,9 @@ function outscale()
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
-    const ftinterval = setInterval(scaleMe2, 1000); scaleMe2(); 
+    if (!valTimer2) { const ftinterval = setInterval(scaleMe2, 1000); valTimer2 = true; } scaleMe2(); 
 }
-document.addEventListener('DOMContentLoaded', outscale); 
+document.addEventListener('DOMContentLoaded', outscale); outscale();
 // outscale called after html parse ---- 
 
 // document ends here ---------
