@@ -420,7 +420,7 @@ function outscale()
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
-        { buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = ''; }
+        { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -498,9 +498,9 @@ function outscale()
         }
 
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (sizedetection !== "desk")) {
-        topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+        topButton.style.boxShadow = 'none'; topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) {
-        topArrow.style.stroke = ''; topButton.style.background = ''; }
+        topButton.style.boxShadow = ''; topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
     if (!valTimer2) { const ftinterval = setInterval(scaleMe2, 1000); valTimer2 = true; } scaleMe2(); 

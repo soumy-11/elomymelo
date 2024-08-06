@@ -373,9 +373,9 @@ function outscale()
      {
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) {
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) {
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
         console.log("afterftclose here");
      }
@@ -449,7 +449,7 @@ function outscale()
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
-        { buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = ''; }
+        { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
@@ -484,9 +484,6 @@ function outscale()
 
                if (toolbar)
                {
-                   // toolbar.style.removeProperty('bottom');
-                   // toolbar.style.setProperty('bottom', '75px', 'important');
-
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
                        ftstyle1 = "reg-message";
@@ -521,10 +518,12 @@ function outscale()
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
                        hostElement.shadowRoot.innerHTML = '';
+                       hostElement.shadowRoot.host.remove();
                        ftsize = "window-resized";
                    }
                    if (mediain && sizedetection === "desk") {
                        shadowdom.innerHTML = '';
+                       shadowdom.host.remove();
                    }
                }
 
