@@ -366,23 +366,9 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 let outvalTimer = false;
 function outscale()
 {
-     const mediain = window.matchMedia("(max-width: 615px)").matches;
-     const topButton = document.querySelector('#scroll-top-button');
-     const topArrow = document.querySelector('#Path_1');
-     let valTimer1 = false, valTimer2 = false;
-     function afterftclose() 
-     {
-        const documentHeight = document.documentElement.scrollHeight;
-        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
-        topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
-        topArrow.style.stroke = ''; topButton.style.background = ''; }
-        console.log("afterftclose here");
-     }
-
      let checkscale, sizedetection;
      let fcone = false, fctwo = false;
+     let valTimer1 = false, valTimer2 = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
@@ -394,6 +380,9 @@ function outscale()
 
         const documentHeight = document.documentElement.scrollHeight;
         const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+        const mediain = window.matchMedia("(max-width: 615px)").matches;
+        const topButton = document.querySelector('#scroll-top-button');
+        const topArrow = document.querySelector('#Path_1');
 
         const tran1 = document.getElementById("out-cmnt");
         const tran2 = document.getElementById("ads-vertical-two");
@@ -445,6 +434,17 @@ function outscale()
             {
                 secondPTag.innerText = 'Some vendors may process your personal data on the basis of legitimate interest, which you can object to by managing your options below. Look for a link at the bottom of this page or in our privacy policy where you can withdraw consent at anytime.';
             }
+        }
+
+        function afterftclose() 
+        {
+            const documentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
+            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
+            topArrow.style.stroke = ''; topButton.style.background = ''; }
+            console.log("afterftclose here");
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
@@ -644,10 +644,7 @@ function outscale()
            {
                const annowidth = annosa.clientWidth;
                const lastele = document.getElementById('after-ft-phone');
-               const bodyStyles = window.getComputedStyle(document.body);
-               const topButton = document.querySelector('#scroll-top-button');
-               const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-               const rect = lastele.getBoundingClientRect(); const topPos = rect.top + window.scrollY; 
+               const rectin = lastele.getBoundingClientRect(); const topPos = rectin.top + window.scrollY; 
                lastele.style.border = "1px transparent solid"; const adjustedTopPos = topPos + Math.abs(bodyTop);
                document.body.style.removeProperty('padding-bottom');
                document.body.style.height = adjustedTopPos + "px"; 
@@ -703,8 +700,7 @@ function outscale()
     if (!outvalTimer) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
     outvalTimer = true; } scaleMe2(initialWidth);
 }
-document.addEventListener('DOMContentLoaded', outscale); 
-outscale(); window.onload = outscale;
+outscale();
 
 function saScroll()
 {
