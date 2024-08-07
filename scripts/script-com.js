@@ -363,6 +363,7 @@ function scrolldown()
 function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
+let outvalTimer = false;
 function outscale()
 {
      const mediain = window.matchMedia("(max-width: 615px)").matches;
@@ -699,8 +700,8 @@ function outscale()
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
-    if (!valTimer2) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
-    valTimer2 = true; } scaleMe2(initialWidth);
+    if (!outvalTimer) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
+    outvalTimer = true; } scaleMe2(initialWidth);
 }
 document.addEventListener('DOMContentLoaded', outscale); outscale();
 // outscale called after html parse ---- 

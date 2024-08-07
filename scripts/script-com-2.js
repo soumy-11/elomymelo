@@ -363,10 +363,10 @@ function scrolldown()
 function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
+let outvalTimer = false;
 function outscale()
 {
      let checkscale, sizedetection;
-     let valTimer2 = false;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4;
@@ -503,7 +503,8 @@ function outscale()
         topButton.style.boxShadow = ''; topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
 
-    if (!valTimer2) { const ftinterval = setInterval(scaleMe2, 1000); valTimer2 = true; } scaleMe2(); 
+    if (!outvalTimer) { const ftinterval = setInterval(scaleMe2, 1000); 
+    outvalTimer = true; } scaleMe2(); 
 }
 document.addEventListener('DOMContentLoaded', outscale); outscale();
 // outscale called after html parse ---- 
