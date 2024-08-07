@@ -506,8 +506,7 @@ function outscale()
     if (!outvalTimer) { const ftinterval = setInterval(scaleMe2, 1000); 
     outvalTimer = true; } scaleMe2(); 
 }
-document.addEventListener('DOMContentLoaded', outscale); outscale();
-// outscale called after html parse ---- 
+outscale();
 
 // document ends here ---------
 

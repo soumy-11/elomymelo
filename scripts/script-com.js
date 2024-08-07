@@ -701,6 +701,7 @@ function outscale()
     outvalTimer = true; } scaleMe2(initialWidth);
 }
 outscale();
+// outscale called here ---- 
 
 function saScroll()
 {
