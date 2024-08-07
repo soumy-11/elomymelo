@@ -703,8 +703,8 @@ function outscale()
     if (!outvalTimer) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
     outvalTimer = true; } scaleMe2(initialWidth);
 }
-document.addEventListener('DOMContentLoaded', outscale); outscale();
-// outscale called after html parse ---- 
+document.addEventListener('DOMContentLoaded', outscale); 
+outscale(); window.onload = outscale;
 
 function saScroll()
 {
