@@ -492,10 +492,10 @@ function outscale()
                        regMenu.style.setProperty('box-shadow', 'none', 'important');
                    }
                    if (regMenu && annosa) {
-                       regMenu.style.setProperty('bottom', '-30px', 'important');
+                       // regMenu.style.setProperty('bottom', '-30px', 'important');
                    }
                    if (regBubble && ftstyle1 === "reg-message") {
-                       regBubble.style.setProperty('bottom', '10px', 'important');
+                       // regBubble.style.setProperty('bottom', '10px', 'important');
                        regBubble.style.setProperty('padding-left', '20px', 'important');
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
@@ -503,7 +503,7 @@ function outscale()
                        ftstyle2 = "reg-bubble";
                    }
                    if (regBubble && annosa) {
-                       regBubble.style.setProperty('bottom', '-20px', 'important');
+                       // regBubble.style.setProperty('bottom', '-20px', 'important');
                    }
                    if (regBubbleCloseIcon) {
                        regBubbleCloseIcon.onclick = function() { 
