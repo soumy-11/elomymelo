@@ -444,7 +444,6 @@ function outscale()
             topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
             if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
             topArrow.style.stroke = ''; topButton.style.background = ''; }
-            console.log("afterftclose here");
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
@@ -452,7 +451,7 @@ function outscale()
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
         { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
-        // console.log("interval check");
+        console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
         hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
@@ -569,8 +568,7 @@ function outscale()
            if (annosa && !mozFox && isdesk && mediaout) 
            {
                if (mediaout && !valTimer2) { 
-               window.addEventListener('scroll', scrollsa, false); valTimer2 = true; 
-               console.log('listener attached'); }
+               window.addEventListener('scroll', scrollsa, false); valTimer2 = true; }
 
                document.body.style.removeProperty('padding-bottom');
                if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
