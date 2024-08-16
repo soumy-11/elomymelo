@@ -485,21 +485,16 @@ function outscale()
                if (toolbar)
                {
                    var style = document.createElement('style');
+                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    if (annosa) 
-                   { 
-                       if (shadowdom.contains(style) && !valTimer4) 
-                       {   
-                           shadowdom.removeChild(style); 
-                           console.log("child removed");
-                           // valTimer3 = false; 
-                       } 
+                   {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
-                       if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
+                       // if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
                    }
                    else 
                    {   
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
-                       if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
+                       // if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    }
 
                    if (regMessageInfo) {
