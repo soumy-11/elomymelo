@@ -485,8 +485,8 @@ function outscale()
                if (toolbar)
                {
                    const style = document.createElement('style');
-                   if (annosa) { if (valTimer3) { shadowdom.removeChild(style); valTimer3 = false; }
-                   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+                   if (annosa) { if (shadowdom.contains(style)) { shadowdom.removeChild(style); 
+                   valTimer3 = false; } style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
                    if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } }
                    else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
                    if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } }
