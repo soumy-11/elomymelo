@@ -485,9 +485,11 @@ function outscale()
                if (toolbar)
                {
                    const style = document.createElement('style');
-                   if (annosa) { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; }
-                   else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}'; }
-                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; }
+                   if (annosa) { if (valTimer3) { shadowdom.removeChild(style); valTimer3 = false; }
+                   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } }
+                   else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
+                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } }
 
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
@@ -640,7 +642,7 @@ function outscale()
                    valTimer2 = false; }
 
                    if (mediaout && !fctwo) {
-                   setTimeout(() => { doso(); fctwo = true; console.log("doso called"); }, 1000); }
+                   setTimeout(() => { doso(); fctwo = true; }, 1000); }
                }   else { fctwo = false; } 
            }
 
