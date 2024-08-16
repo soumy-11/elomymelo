@@ -484,6 +484,8 @@ function outscale()
 
                if (toolbar)
                {
+		   toolbar.style.removeProperty('bottom');
+                   toolbar.style.setProperty('bottom', '75px', 'important');
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
                        ftstyle1 = "reg-message";
