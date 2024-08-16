@@ -494,7 +494,7 @@ function outscale()
                            // valTimer3 = false; 
                        } 
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
-                       if (!valTimer3) { shadowdom.appendChild(style); valTimer4 = true; } 
+                       if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
                    }
                    else 
                    {   
