@@ -484,8 +484,10 @@ function outscale()
 
                if (toolbar)
                {
-		   toolbar.style.removeProperty('bottom');
-                   toolbar.style.setProperty('bottom', '75px', 'important');
+                   const style = document.createElement('style');
+                   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
+                   shadowdom.appendChild(style);
+
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
                        ftstyle1 = "reg-message";
@@ -494,10 +496,10 @@ function outscale()
                        regMenu.style.setProperty('box-shadow', 'none', 'important');
                    }
                    if (regMenu && annosa) {
-                       // regMenu.style.setProperty('bottom', '-30px', 'important');
+                       regMenu.style.setProperty('bottom', '-30px', 'important');
                    }
                    if (regBubble && ftstyle1 === "reg-message") {
-                       // regBubble.style.setProperty('bottom', '10px', 'important');
+                       regBubble.style.setProperty('bottom', '10px', 'important');
                        regBubble.style.setProperty('padding-left', '20px', 'important');
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
@@ -505,7 +507,7 @@ function outscale()
                        ftstyle2 = "reg-bubble";
                    }
                    if (regBubble && annosa) {
-                       // regBubble.style.setProperty('bottom', '-20px', 'important');
+                       regBubble.style.setProperty('bottom', '-20px', 'important');
                    }
                    if (regBubbleCloseIcon) {
                        regBubbleCloseIcon.onclick = function() { 
