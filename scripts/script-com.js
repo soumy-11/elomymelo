@@ -485,8 +485,9 @@ function outscale()
                if (toolbar)
                {
                    const style = document.createElement('style');
-                   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
-                   shadowdom.appendChild(style);
+                   if (annosa) { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 80px !important;'+'}'; }
+                   else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 55px !important;'+'}'; }
+                   shadowdom.appendChild(style); // style tag shadow 
 
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
@@ -495,9 +496,6 @@ function outscale()
                    if (regMenu) {
                        regMenu.style.setProperty('box-shadow', 'none', 'important');
                    }
-                   if (regMenu && annosa) {
-                       regMenu.style.setProperty('bottom', '-30px', 'important');
-                   }
                    if (regBubble && ftstyle1 === "reg-message") {
                        regBubble.style.setProperty('bottom', '10px', 'important');
                        regBubble.style.setProperty('padding-left', '20px', 'important');
@@ -505,9 +503,6 @@ function outscale()
                        regBubble.style.setProperty('border-radius', '50px', 'important');
                        regBubble.style.setProperty('max-height', '32px', 'important');
                        ftstyle2 = "reg-bubble";
-                   }
-                   if (regBubble && annosa) {
-                       regBubble.style.setProperty('bottom', '-20px', 'important');
                    }
                    if (regBubbleCloseIcon) {
                        regBubbleCloseIcon.onclick = function() { 
