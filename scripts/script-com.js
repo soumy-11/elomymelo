@@ -485,18 +485,15 @@ function outscale()
                if (toolbar)
                {
                    var style = document.createElement('style');
-                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    if (annosa) 
                    {
-                       console.log("annosa found");
-			   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
-			   console.log("inner html after");
-                       // if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
+                       style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+                       if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
                    }
                    else 
-                   {   
+                   {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
-                       // if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
+                       if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    }
 
                    if (regMessageInfo) {
