@@ -488,7 +488,9 @@ function outscale()
                    if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    if (annosa) 
                    {
-                       style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+                       console.log("annosa found");
+			   style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+			   console.log("inner html after");
                        // if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
                    }
                    else 
