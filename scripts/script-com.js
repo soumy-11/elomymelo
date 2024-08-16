@@ -485,8 +485,8 @@ function outscale()
                if (toolbar)
                {
                    const style = document.createElement('style');
-                   if (annosa) { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 80px !important;'+'}'; }
-                   else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 55px !important;'+'}'; }
+                   if (annosa) { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; }
+                   else { style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}'; }
                    shadowdom.appendChild(style); // style tag shadow 
 
                    if (regMessageInfo) {
