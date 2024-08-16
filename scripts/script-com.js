@@ -507,7 +507,8 @@ function outscale()
                        regBubble.style.setProperty('bottom', '-20px', 'important');
                    }
                    if (regBubbleCloseIcon) {
-                       regBubbleCloseIcon.onclick = function() { setInterval(afterftclose, 1000); }
+                       regBubbleCloseIcon.onclick = function() { 
+                       setInterval(afterftclose, 1000); valTimer1 = true; }
                        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -521,6 +522,10 @@ function outscale()
                        hostElement.shadowRoot.innerHTML = '';
                        hostElement.shadowRoot.host.remove();
                        ftsize = "window-resized";
+                   }
+                   if (window.matchMedia("(max-width: 340px)").matches) {
+                       shadowdom.innerHTML = '';
+                       shadowdom.host.remove();
                    }
                    if (mediain && sizedetection === "desk") {
                        shadowdom.innerHTML = '';
@@ -563,10 +568,12 @@ function outscale()
 
            if (annosa && !mozFox && isdesk) 
            {
-               if (window.matchMedia("(min-width: 615px)").matches)
-               { window.addEventListener('scroll', scrollsa, false); }
-               if (window.matchMedia("(max-width: 615px)").matches)
-               { window.removeEventListener('scroll', scrollsa, false); }
+               if (mediaout && !valTimer2) { 
+               window.addEventListener('scroll', scrollsa, false); valTimer2 = true; 
+               console.log('listener attached'); }
+               if (mediain && valTimer2) { 
+               window.removeEventListener('scroll', scrollsa, false); valTimer2 = false; 
+               console.log('listener removed'); }
 
                document.body.style.removeProperty('padding-bottom');
                if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
@@ -634,9 +641,10 @@ function outscale()
 
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
+                   if (mediaout) {
                    document.body.style.height = ""; 
                    document.body.style.transformOrigin = ""; doso(); annosa.remove();
-                   window.removeEventListener('scroll', scrollsa);
+                   window.removeEventListener('scroll', scrollsa); }
                }
            }
 
@@ -707,7 +715,6 @@ function saScroll()
 {
     // console.log("window scroll");
     const annosa = document.getElementById('google-anno-sa'); 
-
     const mediain = window.matchMedia("(min-width: 615px)").matches;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollPosition = window.scrollY;
