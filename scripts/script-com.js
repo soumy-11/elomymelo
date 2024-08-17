@@ -556,7 +556,7 @@ function outscale()
            const mediaout = window.matchMedia("(min-width: 615px)").matches;
            const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-           if ((annosa && mozFox && mediaout) || (annosa && !isdesk && mediaout)) { 
+           if ((annosa && !isdesk && mediaout)) { 
            document.body.style.removeProperty('padding-bottom');
            document.body.style.height = ""; document.body.style.transformOrigin = "";
            annosa.remove(); console.log("moz sa removed"); }
@@ -571,7 +571,7 @@ function outscale()
            const viewportWidth = window.innerWidth;
            const annowidth = annosa.clientWidth;
 
-           if (annosa && !mozFox && isdesk && mediaout) 
+           if (annosa && isdesk && mediaout) 
            {
                if (mediaout && !valTimer2) { 
                window.addEventListener('scroll', scrollsa, false); valTimer2 = true; }
@@ -590,10 +590,11 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.087; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.marginBottom = -(adjustedTopPos/2) + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
                    leftPos = viewportWidth * 0.035;
@@ -601,10 +602,11 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.1628; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
+                   // document.body.style.marginBottom = -(adjustedTopPos/2) + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
                    leftPos = viewportWidth * 0.035;
@@ -612,10 +614,11 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1501px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.250; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
+                   document.body.style.marginBottom = -(adjustedTopPos/2) + "px"; 
                    document.body.style.transformOrigin = "50% 0%";
 
                    leftPos = (viewportWidth * 0.035) + 100;
