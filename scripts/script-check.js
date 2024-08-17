@@ -1,4 +1,5 @@
 
+let fontload = false;
 console.log("defer-script-check"); 
 // setTimeout(updateAdsAttributes, 100);
 function updateAdsAttributes() 
@@ -331,11 +332,9 @@ function detectCharacter()
     }
 }
 
-let fontload = false;
 document.fonts.load('1em Roboto').then(function() {
-    console.log('Roboto font has loaded');
     if (window.matchMedia("(max-width: 615px)").matches) { 
-    detectCharacter(); fontload = true; }
+    detectCharacter(); fontload = true; console.log('font has loaded'); }
 }).catch(function(error) {
     console.error('Failed to load Roboto', error);
 });
