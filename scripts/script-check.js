@@ -332,7 +332,7 @@ function detectCharacter()
 }
 
 let fontload = false;
-document.fonts.load('cus-roboto-medium').then(function() {
+document.fonts.load("normal 400 Roboto").then(function() {
     console.log('Roboto font has loaded');
     if (window.matchMedia("(max-width: 615px)").matches) { 
     detectCharacter(); fontload = true; }
