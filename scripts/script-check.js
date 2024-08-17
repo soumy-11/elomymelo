@@ -332,19 +332,12 @@ function detectCharacter()
 }
 
 let fontload = false;
-// Wait for all fonts to be ready
-document.fonts.ready.then(function() {
-    // Check if a specific font is loaded
-    document.fonts.load('1em Roboto').then(function() {
-        console.log('cus-roboto font has loaded');
-        if (window.matchMedia("(max-width: 615px)").matches) { 
+document.fonts.load('1em Roboto').then(function() {
+    console.log('Roboto font has loaded');
+    if (window.matchMedia("(max-width: 615px)").matches) { 
     detectCharacter(); fontload = true; }
-        // Perform actions that depend on the font being loaded
-    }).catch(function(error) {
-        console.error('Failed to load cus-roboto font:', error);
-    });
 }).catch(function(error) {
-    console.error('Error while waiting for all fonts:', error);
+    console.error('Failed to load Roboto', error);
 });
 
     function heightcheck() { 
