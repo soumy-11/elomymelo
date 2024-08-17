@@ -171,7 +171,7 @@ function updateLogo()
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
     if (window.matchMedia("(max-width: 615px)").matches) 
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); } 
+    clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) { detectCharacter(); } console.log("font load"); }, 1700); } 
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
@@ -330,6 +330,15 @@ function detectCharacter()
         } });
     }
 }
+
+let fontload = false;
+document.fonts.load('cus-roboto').then(function() {
+    console.log('Roboto font has loaded');
+    if (window.matchMedia("(max-width: 615px)").matches) { 
+    detectCharacter(); fontload = true; }
+}).catch(function(error) {
+    console.error('Failed to load Roboto font:', error);
+});
 
     function heightcheck() { 
     if (window.matchMedia("(min-width: 615px)").matches) { 
