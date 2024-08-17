@@ -333,8 +333,9 @@ function detectCharacter()
 }
 
 document.fonts.load('1em Roboto').then(function() {
+    fontload = true; console.log('font has loaded');
     if (window.matchMedia("(max-width: 615px)").matches) { 
-    detectCharacter(); fontload = true; console.log('font has loaded'); }
+    detectCharacter(); }
 }).catch(function(error) {
     console.error('Failed to load Roboto', error);
 });
