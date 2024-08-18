@@ -3253,10 +3253,35 @@ function thanksappear()
 	document.getElementById("thank-you").style.visibility = "visible";
 	setTimeout(function() 
     {
-	    alert('Your Feedback has been sent successfully.');
+	    // alert('Your Feedback has been sent successfully.');
 
 	}, 1000); 
 }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("comments").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Thank you! Your comment has been sent successfully.");
+                    this.reset();  // Reset the form after successful submission
+                } else {
+                    alert("There was an error sending your comment. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("There was an error sending your comment. Please try again.");
+            });
+        });
+    });
 
 function blankfieldson()
 {
@@ -4544,7 +4569,7 @@ function updateLogo()
             </div>
             <div class="com-comment">
                 
-                <textarea style="height: 280px; width: 786px; border: 0px red solid; border-radius: 25px; font-size: 45px; padding-left: 35px; padding-right: 35px; padding-bottom: 20px; padding-top: 15px; position: absolute; top: 12px; left: 10px; font-family: roboto, cus-roboto; color: rgba(112,112,112,1); overflow: auto; outline: none;" id="comment" name="Ycomment" class="form-control" placeholder="write comment here"></textarea>
+                <textarea style="height: 280px; width: 786px; border: 0px red solid; border-radius: 25px; font-size: 45px; padding-left: 35px; padding-right: 35px; padding-bottom: 20px; padding-top: 15px; position: absolute; top: 12px; left: 10px; font-family: roboto, cus-roboto; color: rgba(112,112,112,1); overflow: auto; outline: none;" id="comment" name="Feedback" class="form-control" placeholder="write comment here"></textarea>
             </div>
             <button id="btn-post" onclick="thanksappear()" onmouseover="blankfieldson()" onmouseout="blankfieldsout()">SUBMIT COMMENT</button>
         </form>
