@@ -451,6 +451,10 @@ function outscale()
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
         { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
+	const hoElement = document.querySelector('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]');
+        if (hoElement && hoElement.shadowRoot) 
+        { hoElement.shadowRoot.innerHTML = ''; console.log("ho removed"); }
+
         console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
         const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
