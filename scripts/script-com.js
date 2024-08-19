@@ -465,6 +465,10 @@ function outscale()
         if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
         document.body.style.removeProperty('top'); } });
 
+        const isEdgeOnAndroid = /Edg\/\d+/.test(navigator.userAgent) && /Android/.test(navigator.userAgent);
+        if (isEdgeOnAndroid && annosa) { annosa.remove();
+        console.log("This is Microsoft Edge on Android"); }
+
         function alldynamic(hostElement, annosa, initialWidth)
         {
            if (hostElement.shadowRoot) 
