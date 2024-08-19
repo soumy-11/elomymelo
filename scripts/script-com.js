@@ -478,7 +478,7 @@ function outscale()
                if (contain)
                {
                    shadowdom.innerHTML = '';
-                   shadowdom.host.remove();
+                   // shadowdom.host.remove();
                    console.log("removed");
                }
 
