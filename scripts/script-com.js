@@ -451,30 +451,17 @@ function outscale()
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
         { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
-	const hoElement = document.querySelector('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]');
-        if (hoElement && hoElement.shadowRoot) 
-        { hoElement.shadowRoot.innerHTML = ''; console.log("ho removed"); }
-
-	// Get elements that match both selectors
-        const hostElements = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
-        const hoElements = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
-        // Combine both arrays into one
-        const combinedElements = hostElements.concat(hoElements);
-
-        console.log("interval check");
+        // console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
-        // const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        combinedElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
+        const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
+        const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
+        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
 
         const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
         vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
         if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
         document.body.style.removeProperty('top'); } });
-/*
-        const isEdgeOnAndroid = /Edg\/\d+/.test(navigator.userAgent) && /Android/.test(navigator.userAgent);
-        if (isEdgeOnAndroid && annosa) { annosa.remove();
-        console.log("This is Microsoft Edge on Android"); }
-*/
+
         function alldynamic(hostElement, annosa, initialWidth)
         {
            if (hostElement.shadowRoot) 
@@ -492,7 +479,7 @@ function outscale()
                if (contain)
                {
                    shadowdom.innerHTML = '';
-                   // shadowdom.host.remove();
+                   shadowdom.host.remove();
                    console.log("removed");
                }
 
