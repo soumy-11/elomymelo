@@ -753,11 +753,11 @@ function saScroll()
 
     if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
     {
-        annosa.style.setProperty('z-index', '-9999999', 'important');
+        annosa.style.setProperty('display', 'none', 'important');
     }
     if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
     {
-        annosa.style.setProperty('z-index', '', 'important');
+        annosa.style.setProperty('display', '', 'important');
     }
 }
 
