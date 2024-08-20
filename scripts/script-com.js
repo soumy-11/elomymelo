@@ -589,7 +589,7 @@ function outscale()
                if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
                {
                    var topPos = (rect.top + window.scrollY) * 1.087; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = adjustedTopPos + "px"; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = (adjustedTopPos | 0) + "px"; 
                    document.body.style.marginBottom = -((adjustedTopPos * 0.04) | 0) + "px"; 
                    document.body.style.marginTop = -((adjustedTopPos * 0.04) | 0) + "px"; 
 
@@ -599,7 +599,7 @@ function outscale()
                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
                {
                    var topPos = (rect.top + window.scrollY) * 1.1628; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = adjustedTopPos + "px"; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = (adjustedTopPos | 0) + "px"; 
                    document.body.style.marginBottom = -((adjustedTopPos * 0.07) | 0) + "px"; 
                    document.body.style.marginTop = -((adjustedTopPos * 0.07) | 0) + "px"; 
 
@@ -609,7 +609,7 @@ function outscale()
                if (window.matchMedia("(min-width: 1501px)").matches) 
                {
                    var topPos = (rect.top + window.scrollY) * 1.250; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = adjustedTopPos + "px"; 
+                   var adjustedTopPos = topPos + Math.abs(bodyTop); document.body.style.height = (adjustedTopPos | 0) + "px"; 
                    document.body.style.marginBottom = -((adjustedTopPos * 0.1) | 0) + "px"; 
                    document.body.style.marginTop = -((adjustedTopPos * 0.1) | 0) + "px"; 
 
