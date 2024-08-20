@@ -230,6 +230,25 @@ as="style" onload="this.rel='stylesheet'">
     timermain = setInterval(upme, 500); 
     setTimeout(() => { clearInterval(timermain); }, 5000); 
 
+   // performance observer begins 
+   new PerformanceObserver(entryList => {
+   var entries = entryList.getEntries() || [];
+   var cls = 0;
+   entries.forEach(e => {
+        if (!e.hadRecentInput) { // omit entries likely caused by user input
+            cls += e.value;
+        }
+    });
+    console.log("Cumulative Layout Shift = ", cls); 
+   }).observe({ type: "layout-shift", buffered: true }); 
+   // CLS check ends here -----
+
+   const observer = new PerformanceObserver((list) => {
+   list.getEntries().forEach((entry) => {
+   entry.sources.forEach((source) => { console.log(source); }); }); });
+   observer.observe({ type: "layout-shift", buffered: true });
+   // performance observer ends 
+
 // for other than windows and mac ----
 var isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i)); 
 document.addEventListener('DOMContentLoaded', upme); 
