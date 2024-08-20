@@ -617,9 +617,9 @@ function outscale()
                    var topPos = (rect.top + window.scrollY) * 1.250; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
-                   var marginCal = (adjustedTopPos * 0.1); 
+                   var marginCal = (adjustedTopPos * 0.2); 
                    document.body.style.marginBottom = -(marginCal) + "px"; 
-                   document.body.style.marginTop = -(marginCal) + "px"; 
+                   // document.body.style.marginTop = -(marginCal) + "px"; 
 
                    leftPos = (viewportWidth * 0.035) + 100;
                    parentLeft = ''+leftPos+'px';
