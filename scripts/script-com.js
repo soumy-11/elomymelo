@@ -593,7 +593,7 @@ function outscale()
                    var topPos = (rect.top + window.scrollY) * 1.087; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
-                   var marginCal = (adjustedTopPos * 0.1); 
+                   var marginCal = (adjustedTopPos * 0.04); 
                    document.body.style.marginBottom = -(marginCal) + "px"; 
                    document.body.style.marginTop = -(marginCal) + "px"; 
 
@@ -605,7 +605,7 @@ function outscale()
                    var topPos = (rect.top + window.scrollY) * 1.1628; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
-                   var marginCal = (adjustedTopPos * 0.1); 
+                   var marginCal = (adjustedTopPos * 0.07); 
                    document.body.style.marginBottom = -(marginCal) + "px"; 
                    document.body.style.marginTop = -(marginCal) + "px"; 
 
