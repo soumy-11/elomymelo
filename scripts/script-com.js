@@ -403,10 +403,9 @@ function outscale()
         else 
         { 
             document.body.style.overflow = "visible"; 
-            if (!fcone) { setTimeout(doso, 2500); fcone = true; }
+            if (!fcone) { setTimeout(doso, 2500); fcone = true; tran5.style.visibility = "visible"; }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
             if (mediain) { tran4.style.display = "none"; } else { tran4.style.display = "block"; } 
-            tran5.style.visibility = "visible";
 
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
