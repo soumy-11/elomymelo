@@ -590,7 +590,7 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.087; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
@@ -601,7 +601,7 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.1628; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
@@ -612,7 +612,7 @@ function outscale()
                }
                if (window.matchMedia("(min-width: 1501px)").matches) 
                {
-                   document.documentElement.style.height = "0px";
+                   // document.documentElement.style.height = "0px";
                    var topPos = (rect.top + window.scrollY) * 1.250; 
                    var adjustedTopPos = topPos + Math.abs(bodyTop); 
                    document.body.style.height = adjustedTopPos + "px"; 
