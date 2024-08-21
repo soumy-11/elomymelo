@@ -395,36 +395,15 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden";
-            document.body.style.transform = "none";
-            checkscale = "present"; fcone = false;
+            document.body.style.overflow = "hidden"; fcone = false; 
         }
         else 
-        { 
+        {
             document.body.style.overflow = "visible"; 
-            if (!fcone) { setTimeout(() => { doso(); fcone = true; tran5.style.visibility = "visible"; }, 2500); }
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (mediain) { tran4.style.display = "none"; } else { tran4.style.display = "block"; } 
-
-            if (checkscale === "present") 
-            {
-                if (window.matchMedia("(max-width: 615px)").matches) {
-                    document.body.style.transform = "none"; // for pos-fxd
-                }
-                if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) {
-                    document.body.style.transform = "scale(1.0)";
-                }
-                if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) {
-                    document.body.style.transform = "scale(0.920)";
-                }
-                if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) {
-                    document.body.style.transform = "scale(0.860)";
-                }
-                if (window.matchMedia("(min-width: 1501px)").matches) {
-                    document.body.style.transform = "scale(0.80)";
-                }
-            }
-            checkscale = "absent"; document.body.style.transform = "";
+            if (!fcone && isdesk) { setTimeout(() => { doso(); fcone = true; tran5.style.visibility = "visible"; }, 2500); } 
+            if (mediaout && isdesk) { tran4.style.display = "block"; } 
+            if (mediain && isdesk) { tran4.style.display = "none"; } 
         }
 
         if (footerDiv) 
@@ -449,8 +428,8 @@ function outscale()
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
-        { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { 
+        buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
@@ -575,14 +554,12 @@ function outscale()
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
 
-               if (firstChild && firstChild.tagName === 'SPAN') {
-               firstChild.onclick = function() { hideA(); } }
-
-               if (annowidth > 100) {
-               annosa.style.setProperty('width', '400px', 'important'); 
-               annosa.style.setProperty('left', parentLeft, 'important'); }
                if (annowidth < 100) {   
                annosa.style.setProperty('left', parentLeft, 'important'); }
+               if (annowidth > 100) { annosa.style.setProperty('width', '400px', 'important'); 
+               annosa.style.setProperty('left', parentLeft, 'important'); }
+               if (firstChild && firstChild.tagName === 'SPAN') {
+               firstChild.onclick = function() { hideA(); } }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
