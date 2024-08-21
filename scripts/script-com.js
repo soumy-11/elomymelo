@@ -398,7 +398,7 @@ function outscale()
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { setTimeout(() => { doso(); fcone = true; tran5.style.visibility = "visible"; }, 2500); } 
+            if (!fcone && isdesk) { setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; } 
         }
