@@ -562,9 +562,10 @@ function outscale()
            annosa.remove(); console.log("moz sa removed"); }
 
            const blank = document.querySelector('.after-hot-blank');
-           const bodyStyles = window.getComputedStyle(document.body);
+           const bodyStyles = window.getComputedStyle(document.body); 
            const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
-           const rect = blank.getBoundingClientRect(); 
+           const rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
+           const adjustTopPos = topPos + Math.abs(bodyTop);
 
            let parent, rectParent, leftPos, parentLeft;
            const viewportHeight = window.innerHeight;
@@ -574,46 +575,10 @@ function outscale()
            if (annosa && isdesk && mediaout) 
            {
                document.body.style.removeProperty('padding-bottom');
-               if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-               {
-                   var topPos = rect.top + window.scrollY; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
-                   document.body.style.height = adjustedTopPos + "px"; 
-
-                   parent = document.querySelector('.articles-container');
-                   rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
-                   parentLeft = ''+leftPos+'px'; // getting left value
-               }
-               if (window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-               {
-                   document.documentElement.style.height = "0px";
-                   var topPos = (rect.top + window.scrollY) * 1.087; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
-                   document.body.style.height = adjustedTopPos + "px"; 
-
-                   leftPos = viewportWidth * 0.035;
-                   parentLeft = ''+leftPos+'px';
-               }
-               if (window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-               {
-                   document.documentElement.style.height = "0px";
-                   var topPos = (rect.top + window.scrollY) * 1.1628; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
-                   document.body.style.height = adjustedTopPos + "px"; 
-
-                   leftPos = viewportWidth * 0.035;
-                   parentLeft = ''+leftPos+'px';
-               }
-               if (window.matchMedia("(min-width: 1501px)").matches) 
-               {
-                   document.documentElement.style.height = "0px";
-                   var topPos = (rect.top + window.scrollY) * 1.250; 
-                   var adjustedTopPos = topPos + Math.abs(bodyTop); 
-                   document.body.style.height = adjustedTopPos + "px"; 
-
-                   leftPos = (viewportWidth * 0.035) + 100;
-                   parentLeft = ''+leftPos+'px';
-               }
+               parent = document.querySelector('.articles-container');
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+               parentLeft = ''+leftPos+'px'; // getting left value
+               document.body.style.height = adjustTopPos + "px";
 
                if (annowidth > 100) 
                {
@@ -622,26 +587,9 @@ function outscale()
                    // console.log("parent left = ", parentLeft);
                }
                if (annowidth < 100) 
-               {
-                   if (window.matchMedia("(min-width: 1501px)").matches) 
-                   {
-                       leftPos = (viewportWidth * 0.035) + 12.5; parentLeft = ''+leftPos+'px'; 
-                       annosa.style.setProperty('left', parentLeft, 'important');
-                   }
-                   else { annosa.style.setProperty('left', parentLeft, 'important'); }
+               {   
+                   annosa.style.setProperty('left', parentLeft, 'important'); 
                }
-
-               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
-               {
-                   if (mediaout) {
-                   document.body.style.height = ""; 
-                   document.body.style.transformOrigin = ""; annosa.remove();
-                   window.removeEventListener('scroll', scrollsa); 
-                   valTimer2 = false; }
-
-                   if (mediaout && !fctwo) {
-                   setTimeout(() => { doso(); fctwo = true; }, 1000); }
-               }   else { fctwo = false; } 
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
