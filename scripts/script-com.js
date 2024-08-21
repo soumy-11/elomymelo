@@ -568,24 +568,21 @@ function outscale()
            if (annosa && isdesk && mediaout) 
            {
                const annowidth = annosa.clientWidth;
+               const firstChild = annosa.firstElementChild; 
                document.body.style.removeProperty('padding-bottom');
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
-               annosa.onclick = function() { hideA(); }
 
-               if (annowidth > 100) 
-               {
-                   annosa.style.setProperty('width', '400px', 'important'); annosa.style.setProperty('left', parentLeft, 'important');
-                   if (hostElement.tagName === 'SPAN') { annosa.addEventListener('click', hideA); }
-                   // console.log("parent left = ", parentLeft);
-               }
-               if (annowidth < 100) 
-               {   
-                   annosa.style.setProperty('left', parentLeft, 'important'); 
-                   if (hostElement.tagName === 'SPAN') { annosa.removeEventListener('click', hideA); }
-               }
+               if (firstChild && firstChild.tagName === 'SPAN') {
+               firstChild.onclick = function() { hideA(); } }
+
+               if (annowidth > 100) {
+               annosa.style.setProperty('width', '400px', 'important'); 
+               annosa.style.setProperty('left', parentLeft, 'important'); }
+               if (annowidth < 100) {   
+               annosa.style.setProperty('left', parentLeft, 'important'); }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
