@@ -384,29 +384,16 @@ function outscale()
         const topButton = document.querySelector('#scroll-top-button');
         const topArrow = document.querySelector('#Path_1');
 
-        const tran1 = document.getElementById("out-cmnt");
-        const tran2 = document.getElementById("ads-vertical-two");
-        const tran3 = document.getElementById("hot-dvs-sctn");
-        const tran4 = document.getElementById("ads-vertical-one");
-        const tran5 = document.getElementById("top-pos");
-
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
             document.body.style.overflow = "hidden";
             document.body.style.transform = "none";
             checkscale = "present"; fcone = false;
-
-            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
-            tran4.style.display = "none"; tran5.style.visibility = "hidden";
         }
         else 
-        { 
+        {
             document.body.style.overflow = "visible"; 
-            if (!fcone) { setTimeout(doso, 2500); fcone = true; }
-            tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            tran4.style.display = "block"; tran5.style.visibility = "visible";
-
             if (checkscale === "present") {
                 if (window.matchMedia("(max-width: 615px)").matches) {
                     document.body.style.transform = "none"; // for pos-fxd
@@ -453,8 +440,9 @@ function outscale()
 
         // console.log("interval check");
         const annosa = document.getElementById('google-anno-sa');
-        const hostElements = document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]');
-        hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
+        const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
+        const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
+        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
 
         const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
         vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
@@ -554,26 +542,21 @@ function outscale()
            }
 
            const mediaout = window.matchMedia("(min-width: 615px)").matches;
-           const mozFox = navigator.userAgent.toLowerCase().includes('firefox');
            const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-           if ((annosa && !isdesk && mediaout)) { 
-           document.body.style.removeProperty('padding-bottom');
+           if (annosa && !isdesk && mediaout) { document.body.style.removeProperty('padding-bottom');
            document.body.style.height = ""; document.body.style.transformOrigin = "";
-           annosa.remove(); console.log("moz sa removed"); }
+           annosa.remove(); console.log("annosa removed"); }
 
            const blank = document.querySelector('.after-hot-blank');
-           const bodyStyles = window.getComputedStyle(document.body); 
+           const bodyStyles = window.getComputedStyle(document.body);
            const bodyTop = parseInt(bodyStyles.getPropertyValue('top'), 10) || 0; 
            const rect = blank.getBoundingClientRect(); var topPos = rect.top + window.scrollY; 
            const adjustTopPos = topPos + Math.abs(bodyTop);
-
            let parent, rectParent, leftPos, parentLeft;
-           const viewportHeight = window.innerHeight;
-           const viewportWidth = window.innerWidth;
-           const annowidth = annosa.clientWidth;
 
            if (annosa && isdesk && mediaout) 
            {
+               const annowidth = annosa.clientWidth;
                document.body.style.removeProperty('padding-bottom');
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
@@ -691,11 +674,11 @@ function saScroll()
 
     if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
     {
-        annosa.style.setProperty('display', 'none', 'important');
+        annosa.style.setProperty('filter', 'opacity(0)', 'important');
     }
     if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
     {
-        annosa.style.setProperty('display', '', 'important');
+        annosa.style.setProperty('filter', '', 'important');
     }
 }
 
