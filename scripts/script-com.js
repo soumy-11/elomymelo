@@ -392,13 +392,14 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden"; fcone = false; 
+            document.body.style.overflow = "hidden"; if (fcone) {
+            clearTimeout(visHide); fcone = false; }
         }
         else 
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
+            if (!fcone && isdesk) { const visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; } 
         }
