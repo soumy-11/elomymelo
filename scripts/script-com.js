@@ -577,13 +577,14 @@ function outscale()
 
                if (annowidth > 100) 
                {
-                   annosa.style.setProperty('width', '400px', 'important');
-                   annosa.style.setProperty('left', parentLeft, 'important');
+                   annosa.style.setProperty('width', '400px', 'important'); annosa.style.setProperty('left', parentLeft, 'important');
+                   if (hostElement.tagName === 'SPAN') { annosa.addEventListener('click', hideA); }
                    // console.log("parent left = ", parentLeft);
                }
                if (annowidth < 100) 
                {   
                    annosa.style.setProperty('left', parentLeft, 'important'); 
+                   if (hostElement.tagName === 'SPAN') { annosa.removeEventListener('click', hideA); }
                }
            }
 
