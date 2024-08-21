@@ -377,24 +377,36 @@ function outscale()
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
+        const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
 
-        const documentHeight = document.documentElement.scrollHeight;
-        const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+        const documentHeight = document.documentElement.scrollHeight; const viewportHeight = window.innerHeight; 
+        const scrollPosition = window.scrollY; const topArrow = document.querySelector('#Path_1');
+        const mediaout = window.matchMedia("(min-width: 615px)").matches;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
         const topButton = document.querySelector('#scroll-top-button');
-        const topArrow = document.querySelector('#Path_1');
+
+        const tran1 = document.getElementById("out-cmnt");
+        const tran2 = document.getElementById("ads-vertical-two");
+        const tran3 = document.getElementById("hot-dvs-sctn");
+        const tran4 = document.getElementById("ads-vertical-one");
+        const tran5 = document.getElementById("top-pos");
 
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden";
-            document.body.style.transform = "none";
-            checkscale = "present"; fcone = false;
+            document.body.style.overflow = "hidden"; document.body.style.transform = "none"; checkscale = "present"; fcone = false;
+            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
+            tran4.style.display = "none"; tran5.style.visibility = "hidden";
         }
         else 
-        {
+        { 
             document.body.style.overflow = "visible"; 
-            if (checkscale === "present") {
+            if (!fcone) { setTimeout(() => { doso(); fcone = true; tran5.style.visibility = "visible"; }, 2500); }
+            tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
+            if (mediain) { tran4.style.display = "none"; } else { tran4.style.display = "block"; } 
+
+            if (checkscale === "present") 
+            {
                 if (window.matchMedia("(max-width: 615px)").matches) {
                     document.body.style.transform = "none"; // for pos-fxd
                 }
@@ -423,15 +435,11 @@ function outscale()
             }
         }
 
-        function afterftclose() 
-        {
-            const documentHeight = document.documentElement.scrollHeight;
-            const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
-            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
-            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
-            topArrow.style.stroke = ''; topButton.style.background = ''; }
-        }
+        function afterftclose() {
+        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { 
+        topButton.style.boxShadow = 'none'; topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
+        topArrow.style.stroke = ''; topButton.style.background = ''; } }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
@@ -541,9 +549,8 @@ function outscale()
                }
            }
 
-           const mediaout = window.matchMedia("(min-width: 615px)").matches;
-           const isdesk = (navigator.userAgent.match(/Win32|Win64|Windows|Macintosh|MacIntel|MacPPC|Mac68K/i));
-           if (annosa && !isdesk && mediaout) { document.body.style.removeProperty('padding-bottom');
+           if (annosa && !isdesk && mediaout) { 
+           document.body.style.removeProperty('padding-bottom');
            document.body.style.height = ""; document.body.style.transformOrigin = "";
            annosa.remove(); console.log("annosa removed"); }
 
