@@ -141,11 +141,6 @@ function updateLogo()
 {
     if (window.matchMedia("(min-width: 615px)").matches) 
     {
-           const mypage = window.innerWidth; // console.log(document.readyState); 
-           document.getElementById("Web_1920__1").style.transform = "scale("+mypage/3554+")";
-           document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-           document.getElementById("Web_1920__1").style.width = "3554px";
-
            document.querySelectorAll(".dis-com").forEach(function(el) {
            el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
            document.querySelectorAll(".feed-com").forEach(function(el) {
@@ -155,12 +150,6 @@ function updateLogo()
 
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
-           const mypagephone = window.innerWidth; // console.log(document.readyState); 
-           document.getElementById("Web_1920__1").style.transform = "scale("+mypagephone/2358+")";
-           document.getElementById("Web_1920__1").style.transformOrigin = "0 0";
-           document.getElementById("Web_1920__1").style.width = "2358px";
-           document.getElementById("Web_1920__1").style.overflow = "visible";
-
            document.querySelectorAll(".dis-com").forEach(function(el) {
            el.style.left = ""; el.style.transform = "scale(7.10, 7.10)"; });
            document.querySelectorAll(".feed-com").forEach(function(el) {
