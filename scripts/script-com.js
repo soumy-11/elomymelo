@@ -573,9 +573,6 @@ function outscale()
 
            if (annosa && isdesk && mediaout) 
            {
-               if (mediaout && !valTimer2) { 
-               window.addEventListener('scroll', scrollsa, false); valTimer2 = true; }
-
                document.body.style.removeProperty('padding-bottom');
                if (window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
                {
