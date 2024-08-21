@@ -363,15 +363,12 @@ function scrolldown()
 function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
-let outvalTimer = false;
 function outscale()
 {
-     let checkscale, sizedetection;
+     let sizedetection;
      let fcone = false, fctwo = false;
-     let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     const viewportWidth = window.innerWidth;
-     var initialWidth = viewportWidth;
-     function scaleMe2(initialWidth)
+     let valTimer1 = false, valTimer2 = false, valTimer3 = false;
+     function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
@@ -433,14 +430,14 @@ function outscale()
 
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
-        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
+        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
 
         const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
         vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
         if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
         document.body.style.removeProperty('top'); } });
 
-        function alldynamic(hostElement, annosa, initialWidth)
+        function alldynamic(hostElement, annosa)
         {
            if (hostElement.shadowRoot) 
            {
@@ -467,12 +464,12 @@ function outscale()
                    if (annosa) 
                    {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
-                       if (!valTimer4) { shadowdom.appendChild(style); valTimer4 = true; } 
+                       if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    }
                    else 
                    {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
-                       if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
+                       if (!valTimer2) { shadowdom.appendChild(style); valTimer2 = true; } 
                    }
 
                    if (regMessageInfo) {
@@ -558,8 +555,17 @@ function outscale()
                annosa.style.setProperty('left', parentLeft, 'important'); }
                if (annowidth > 100) { annosa.style.setProperty('width', '400px', 'important'); 
                annosa.style.setProperty('left', parentLeft, 'important'); }
-               if (firstChild && firstChild.tagName === 'SPAN') {
-               firstChild.onclick = function() { hideA(); } }
+               if (!fctwo && firstChild.tagName === 'SPAN') { fctwo = true;
+               annosa.addEventListener('click', hideA); }
+
+               if ((scrollPosition + viewportHeight) > (documentHeight - 400))
+               {
+                  annosa.style.setProperty('filter', 'opacity(0)', 'important');
+               }
+               if ((scrollPosition + viewportHeight) < (documentHeight - 400))
+               {
+                  annosa.style.setProperty('filter', '', 'important');
+               }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
@@ -604,8 +610,8 @@ function outscale()
            {
                annosa.style.removeProperty('display');
                document.body.style.removeProperty('padding-bottom');
+               annosa.removeEventListener('click', hideA); fctwo = false;
                annosa.style.setProperty('display', 'none', 'important');
-               window.removeEventListener('scroll', scrollsa, false);
                annosa.remove(); console.log("annosa removed");
                document.body.style.height = ""; 
            }
@@ -619,60 +625,9 @@ function outscale()
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
-
-    if (!outvalTimer) { const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000); 
-    outvalTimer = true; } scaleMe2(initialWidth);
+    const ftinterval = setInterval(scaleMe2, 1000); 
 }
 outscale();
-// outscale called here ---- 
 
-function saScroll()
-{
-    // console.log("window scroll");
-    const annosa = document.getElementById('google-anno-sa'); 
-    const mediain = window.matchMedia("(min-width: 615px)").matches;
-    const documentHeight = document.documentElement.scrollHeight;
-    const scrollPosition = window.scrollY;
-
-    annosa.style.removeProperty('transform');
-    const viewportHeight = window.innerHeight;
-    const elementRect = annosa.getBoundingClientRect();
-
-    if (annosa && window.matchMedia("(min-width: 615px)").matches && window.matchMedia("(max-width: 1040.99px)").matches) 
-    {
-        var offset = viewportHeight - elementRect.top - 60;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-    }
-    if (annosa && window.matchMedia("(min-width: 1041px)").matches && window.matchMedia("(max-width: 1241.99px)").matches) 
-    {
-        var offset = (viewportHeight - elementRect.top - 60) * 1.087;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-    }
-    if (annosa && window.matchMedia("(min-width: 1242px)").matches && window.matchMedia("(max-width: 1500.99px)").matches) 
-    {
-        var offset = (viewportHeight - elementRect.top - 60) * 1.1628;
-        const transValue = 'translateY('+offset+'px)'; annosa.style.setProperty('transform', transValue, 'important');
-    }
-    if (annosa && window.matchMedia("(min-width: 1501px)").matches) 
-    {
-        var offset = (viewportHeight - elementRect.top - 60) * 1.250;
-        const transValue = 'translateY('+offset+'px) scale(1.5)'; annosa.style.setProperty('transform', transValue, 'important');
-    }
-
-    if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) 
-    {
-        annosa.style.setProperty('filter', 'opacity(0)', 'important');
-    }
-    if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) 
-    {
-        annosa.style.setProperty('filter', '', 'important');
-    }
-}
-
-    var satimer = null; 
-    function scrollsa() { 
-    saScroll(); if(satimer !== null) { clearTimeout(satimer); }
-    satimer = setTimeout(function() { saScroll(); }, 2500); }
-
-    // document ends here ---------
+// document ends here --- 
 
