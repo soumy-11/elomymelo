@@ -384,6 +384,7 @@ function outscale()
         const mediaout = window.matchMedia("(min-width: 615px)").matches;
         const mediain = window.matchMedia("(max-width: 615px)").matches;
         const topButton = document.querySelector('#scroll-top-button');
+        const annosa = document.getElementById('google-anno-sa');
 
         const tran1 = document.getElementById("out-cmnt");
         const tran2 = document.getElementById("ads-vertical-two");
@@ -394,9 +395,9 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden"; document.body.style.transform = "none"; checkscale = "present"; fcone = false;
-            tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; tran3.style.visibility = "hidden"; 
-            tran4.style.display = "none"; tran5.style.visibility = "hidden";
+            document.body.style.overflow = "hidden";
+            document.body.style.transform = "none";
+            checkscale = "present"; fcone = false;
         }
         else 
         { 
@@ -435,6 +436,11 @@ function outscale()
             }
         }
 
+        function hideA() {
+        tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; 
+        tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
+        tran5.style.visibility = "hidden"; }
+
         function afterftclose() {
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { 
         topButton.style.boxShadow = 'none'; topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
@@ -446,8 +452,6 @@ function outscale()
         if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") 
         { buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
-        // console.log("interval check");
-        const annosa = document.getElementById('google-anno-sa');
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
         const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
@@ -569,6 +573,7 @@ function outscale()
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
+               annosa.onclick = function() { hideA(); }
 
                if (annowidth > 100) 
                {
