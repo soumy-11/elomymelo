@@ -511,7 +511,7 @@ function outscale()
                        ftstyle4 = "reg-button";
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
-                       style.innerHTML = '#ft-floating-toolbar { bottom: '+parentLeftH+' !important; }'; 
+                       style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
                        if (!fctb) { shadowdom.appendChild(style); fctb = true; }
                        ftsize = "window-resized";
                    }
