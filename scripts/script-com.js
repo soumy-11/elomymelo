@@ -596,9 +596,9 @@ function outscale()
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
                    if (mediaout) { document.body.style.height = ""; annosa.remove(); }
-                   if (mediaout && !valTimer4) { setTimeout(() => {
-                   hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
-                   doso(); console.log("doso called"); }, 1000); valTimer4 = true; }
+                   if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = '';
+                   hostElement.shadowRoot.host.remove(); } if (mediaout && !valTimer4) { setTimeout(() => {
+                   doso(); console.log("doso called"); valTimer4 = true; }, 1000); }
                }   else { valTimer4 = false; }
            }
 
