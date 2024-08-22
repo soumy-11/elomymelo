@@ -556,7 +556,7 @@ function outscale()
                annosa.style.setProperty('left', parentLeft, 'important'); }
                if (annowidth > 100) { annosa.style.setProperty('width', '400px', 'important'); 
                annosa.style.setProperty('left', parentLeft, 'important'); }
-               if (!fctwo && firstChild.tagName === 'SPAN') { fctwo = true;
+               if (!fctwo && firstChild && firstChild.tagName === 'SPAN') { fctwo = true;
                annosa.addEventListener('click', hideA); }
 
                if ((scrollPosition + viewportHeight) > (documentHeight - 400))
