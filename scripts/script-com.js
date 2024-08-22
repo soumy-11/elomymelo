@@ -402,7 +402,7 @@ function outscale()
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); console.log("doso called"); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
+            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; } 
         }
@@ -528,9 +528,9 @@ function outscale()
                        ftsize = "window-resized";
                    }
 
-                   if ((scrollPosition + viewportHeight) > (documentHeight - 60)) {
+                   if ((scrollPosition + viewportHeight) > (documentHeight - 60) && mediaout) {
                    toolbar.style.setProperty('filter', 'opacity(0)', 'important'); }
-                   if ((scrollPosition + viewportHeight) < (documentHeight - 60)) {
+                   if ((scrollPosition + viewportHeight) < (documentHeight - 60) && mediaout) {
                    toolbar.style.setProperty('filter', '', 'important'); }
 
                    if (window.matchMedia("(max-width: 340px)").matches) {
@@ -605,7 +605,7 @@ function outscale()
                    if (mediaout) { document.body.style.height = ""; }
                    if (annosa) { const firstChild = annosa.firstElementChild;
                    firstChild.removeEventListener('click', hideA); fctwo = false; annosa.remove(); }
-                   if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = '';
+                   if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = ''; // blank shadow 
                    hostElement.shadowRoot.host.remove(); } if (mediaout && !valTimer4) { setTimeout(() => {
                    doso(); console.log("doso called"); valTimer4 = true; }, 1000); }
                }   else { valTimer4 = false; }
