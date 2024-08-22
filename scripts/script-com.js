@@ -516,6 +516,7 @@ function outscale()
 
                    if (window.matchMedia("(min-width: 615px)").matches) 
                    {
+                       regMenu.style.setProperty('box-shadow', '', 'important');
                        if (!annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; 
                        if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
                        if (annosa && annosa.clientWidth > 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
@@ -595,7 +596,7 @@ function outscale()
                    if (mediaout) { document.body.style.height = ""; annosa.remove(); }
                    if (mediaout && !valTimer4) { setTimeout(() => {
                    hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
-                   doso(); valTimer4 = true; }, 1000); }
+                   doso(); valTimer4 = true; console.log("doso called"); }, 1400); }
                }   else { valTimer4 = false; }
            }
 
