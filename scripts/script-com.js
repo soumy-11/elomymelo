@@ -420,11 +420,15 @@ function outscale()
         tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
         tran5.style.visibility = "hidden"; }
 
-        function afterftclose() {
-        if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { 
-        topButton.style.boxShadow = 'none'; topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
-        topArrow.style.stroke = ''; topButton.style.background = ''; } }
+        function afterftclose() 
+        {
+            const documentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
+            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
+            topArrow.style.stroke = ''; topButton.style.background = ''; }
+        }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
