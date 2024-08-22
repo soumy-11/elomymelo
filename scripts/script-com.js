@@ -507,8 +507,8 @@ function outscale()
                        ftstyle4 = "reg-button";
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
-                       hostElement.shadowRoot.innerHTML = '';
-                       hostElement.shadowRoot.host.remove();
+                       // hostElement.shadowRoot.innerHTML = '';
+                       // hostElement.shadowRoot.host.remove();
                        ftsize = "window-resized";
                    }
                    if (window.matchMedia("(max-width: 340px)").matches) {
