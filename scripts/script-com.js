@@ -471,11 +471,10 @@ function outscale()
                    var anoW = annosa.clientWidth;
                    var style = document.createElement('style');
                    var parentH = document.querySelector('.articles-container');
-                   var rectParentH = parentH.getBoundingClientRect(); 
-                   var leftPosL = rectParentH.left + 410 - 410;
-                   var leftPosH = rectParentH.left + 410;
-                   var parentLeftH = ''+leftPosH+'px';
-                   var parentLeftL = ''+leftPosL+'px';
+                   var rectParentH = parentH.getBoundingClientRect(); var leftPosL = rectParentH.left + 410 - 410;
+                   var leftPosH = rectParentH.left + 410; var leftPosS = rectParentH.left + 60;
+                   var parentLeftH = ''+leftPosH+'px'; var parentLeftL = ''+leftPosL+'px';
+                   var parentLeftS = ''+leftPosS+'px';
                    if (annosa && mediain) 
                    {
                        style.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; 
@@ -517,7 +516,7 @@ function outscale()
                    if (window.matchMedia("(min-width: 615px)").matches) {
                        if (annosa && anoW > 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
                        if (!fctb) { shadowdom.appendChild(style); fctb = true; fctc = false; } }
-                       if (annosa && anoW < 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
+                       if (annosa && anoW < 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 10px !important; }'; 
                        if (!fctc) { shadowdom.appendChild(style); fctc = true; fctb = false; } }
                        if (!annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; 
                        if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
