@@ -365,9 +365,9 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 
 function outscale()
 {
-     let sizedetection, visHide;
-     let valTimer1 = false, valTimer2 = false, valTimer3 = false;
+     let sizedetection;
      let fcone = false, fctwo = false;
+     let valTimer1 = false, valTimer2 = false, valTimer3 = false;
      function scaleMe2()
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
@@ -392,14 +392,13 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden"; if (fcone) {
-            clearTimeout(visHide); fcone = false; }
+            document.body.style.overflow = "hidden"; fcone = false; 
         }
         else 
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
+            if (!fcone && isdesk) { setTimeout(() => { doso(); fcone = true; tran5.style.visibility = "visible"; }, 2500); } 
             if (mediaout && isdesk) { tran4.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; } 
         }
@@ -552,12 +551,12 @@ function outscale()
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
 
-               if (annowidth < 100) {   
+               if (annowidth < 100) {
                annosa.style.setProperty('left', parentLeft, 'important'); }
                if (annowidth > 100) { annosa.style.setProperty('width', '400px', 'important'); 
                annosa.style.setProperty('left', parentLeft, 'important'); }
-               if (!fctwo && firstChild && firstChild.tagName === 'SPAN') { fctwo = true;
-               annosa.addEventListener('click', hideA); }
+               if (firstChild && firstChild.tagName === 'SPAN') {
+               firstChild.onclick = function() { hideA(); } }
 
                if ((scrollPosition + viewportHeight) > (documentHeight - 400))
                {
