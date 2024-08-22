@@ -438,14 +438,14 @@ function outscale()
 
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
-        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
+        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, initialWidth); });
 
         const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
         vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
         if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
         document.body.style.removeProperty('top'); } });
 
-        function alldynamic(hostElement, annosa, initialWidth)
+        function alldynamic(hostElement, initialWidth)
         {
            if (hostElement.shadowRoot) 
            {
