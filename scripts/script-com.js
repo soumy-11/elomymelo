@@ -517,12 +517,14 @@ function outscale()
                    if (window.matchMedia("(min-width: 615px)").matches) 
                    {
                        regMenu.style.setProperty('box-shadow', '', 'important');
+                       regMenu.style.setProperty('background', 'white', 'important');
                        if (!annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; 
                        if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
                        if (annosa && annosa.clientWidth > 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
                        if (!fctb) { shadowdom.appendChild(style); fctb = true; fctc = false; } }
                        if (annosa && annosa.clientWidth < 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 10px !important; }'; 
                        if (!fctc) { shadowdom.appendChild(style); fctc = true; fctb = false; } }
+                       regMenu.style.setProperty('border-radius', '65px', 'important');
                        ftsize = "window-resized";
                    }
 
@@ -596,7 +598,7 @@ function outscale()
                    if (mediaout) { document.body.style.height = ""; annosa.remove(); }
                    if (mediaout && !valTimer4) { setTimeout(() => {
                    hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
-                   doso(); console.log("doso called"); }, 1400); valTimer4 = true; }
+                   doso(); console.log("doso called"); }, 1000); valTimer4 = true; }
                }   else { valTimer4 = false; }
            }
 
