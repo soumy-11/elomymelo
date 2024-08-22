@@ -366,9 +366,11 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let sizedetection, visHide;
-     let valTimer1 = false, valTimer2 = false, valTimer3 = false;
      let fcone = false, fctwo = false;
-     function scaleMe2()
+     let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
+     const viewportWidth = window.innerWidth;
+     var initialWidth = viewportWidth;
+     function scaleMe2(initialWidth)
      {
         let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
         const parentElementNew = document.querySelector('.fc-consent-root');
@@ -431,14 +433,14 @@ function outscale()
 
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
-        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa); });
+        const hostElements = chromeEle.concat(edgeEle); hostElements.forEach(hostElement => { alldynamic(hostElement, annosa, initialWidth); });
 
         const vignettes = document.querySelectorAll('.adsbygoogle.adsbygoogle-noablate');
         vignettes.forEach(vignette => { const inlineDisplay = vignette.style.getPropertyValue('display');
         if (inlineDisplay !== 'none' && vignette.hasAttribute('data-vignette-loaded')) {
         document.body.style.removeProperty('top'); } });
 
-        function alldynamic(hostElement, annosa)
+        function alldynamic(hostElement, annosa, initialWidth)
         {
            if (hostElement.shadowRoot) 
            {
@@ -551,22 +553,26 @@ function outscale()
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
+               const viewportWidth = window.innerWidth;
 
-               if (annowidth < 100) {   
+               if (annowidth < 100) { // checking on width 
                annosa.style.setProperty('left', parentLeft, 'important'); }
                if (annowidth > 100) { annosa.style.setProperty('width', '400px', 'important'); 
                annosa.style.setProperty('left', parentLeft, 'important'); }
                if (!fctwo && firstChild.tagName === 'SPAN') { fctwo = true;
                firstChild.addEventListener('click', hideA); }
 
-               if ((scrollPosition + viewportHeight) > (documentHeight - 400))
+               if ((scrollPosition + viewportHeight) > (documentHeight - 400)) {
+               annosa.style.setProperty('filter', 'opacity(0)', 'important'); }
+               if ((scrollPosition + viewportHeight) < (documentHeight - 400)) {
+               annosa.style.setProperty('filter', '', 'important'); }
+
+               if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
-                  annosa.style.setProperty('filter', 'opacity(0)', 'important');
-               }
-               if ((scrollPosition + viewportHeight) < (documentHeight - 400))
-               {
-                  annosa.style.setProperty('filter', '', 'important');
-               }
+                   if (mediaout) { document.body.style.height = ""; annosa.remove(); }
+                   if (mediaout && !valTimer4) { setTimeout(() => {
+                   doso(); valTimer4 = true; }, 1000); }
+               }   else { valTimer4 = false; }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
@@ -627,7 +633,7 @@ function outscale()
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
-    const ftinterval = setInterval(scaleMe2, 1000); 
+    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
 }
 outscale();
 
