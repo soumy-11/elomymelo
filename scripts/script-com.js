@@ -366,7 +366,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let sizedetection, visHide;
-     let fcone = false, fctwo = false;
+     let fcone = false, fctwo = false, fctb = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
@@ -468,12 +468,16 @@ function outscale()
                if (toolbar)
                {
                    var style = document.createElement('style');
-                   if (annosa) 
+                   var parentH = document.querySelector('.articles-container');
+                   var rectParentH = parentH.getBoundingClientRect(); 
+                   var leftPosH = rectParentH.left + 480;
+                   var parentLeftH = ''+leftPosH+'px';
+                   if (annosa && mediain) 
                    {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
                        if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    }
-                   else 
+                   if (!annosa && mediain)
                    {
                        style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
                        if (!valTimer2) { shadowdom.appendChild(style); valTimer2 = true; } 
@@ -507,8 +511,8 @@ function outscale()
                        ftstyle4 = "reg-button";
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
-                       // hostElement.shadowRoot.innerHTML = '';
-                       // hostElement.shadowRoot.host.remove();
+                       style.innerHTML = '#ft-floating-toolbar { bottom: '+parentLeftH+' !important; }'; 
+                       if (!fctb) { shadowdom.appendChild(style); fctb = true; }
                        ftsize = "window-resized";
                    }
                    if (window.matchMedia("(max-width: 340px)").matches) {
