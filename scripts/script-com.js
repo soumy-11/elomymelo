@@ -602,6 +602,7 @@ function outscale()
                const viewportWidth = window.innerWidth;
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
+                   console.log(valTimer4);
                    if (mediaout) { document.body.style.height = ""; }
                    if (annosa) { annosa.remove(); console.log("annosa removed"); }
                    if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = '';
