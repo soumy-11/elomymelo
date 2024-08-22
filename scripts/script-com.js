@@ -424,9 +424,9 @@ function outscale()
         {
             const documentHeight = document.documentElement.scrollHeight;
             const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
-            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400))) { topButton.style.boxShadow = 'none';
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
             topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400))) { topButton.style.boxShadow = '';
+            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
             topArrow.style.stroke = ''; topButton.style.background = ''; }
         }
 
