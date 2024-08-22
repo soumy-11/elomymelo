@@ -596,7 +596,7 @@ function outscale()
                    if (mediaout) { document.body.style.height = ""; annosa.remove(); }
                    if (mediaout && !valTimer4) { setTimeout(() => {
                    hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
-                   doso(); valTimer4 = true; console.log("doso called"); }, 1400); }
+                   doso(); console.log("doso called"); }, 1400); valTimer4 = true; }
                }   else { valTimer4 = false; }
            }
 
