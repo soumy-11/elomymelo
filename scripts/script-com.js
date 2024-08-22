@@ -366,7 +366,8 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let sizedetection, visHide;
-     let fcone = false, fctwo = false, fctb = false, fctl = false;
+     let fcone = false, fctwo = false;
+     let fctb = false, fctc = false, fctl = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
@@ -467,6 +468,7 @@ function outscale()
 
                if (toolbar)
                {
+                   var anoW = annosa.clientWidth;
                    var style = document.createElement('style');
                    var parentH = document.querySelector('.articles-container');
                    var rectParentH = parentH.getBoundingClientRect(); 
@@ -513,8 +515,10 @@ function outscale()
                        ftstyle4 = "reg-button";
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
-                       if (annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
-                       if (!fctb) { shadowdom.appendChild(style); fctb = true; } }
+                       if (annosa && anoW > 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
+                       if (!fctb) { shadowdom.appendChild(style); fctb = true; fctc = false; } }
+                       if (annosa && anoW < 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
+                       if (!fctc) { shadowdom.appendChild(style); fctc = true; fctb = false; } }
                        if (!annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; 
                        if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
                        ftsize = "window-resized";
