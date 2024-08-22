@@ -513,6 +513,7 @@ function outscale()
                        regButton.style.setProperty('border-radius', '55px', 'important');
                        ftstyle4 = "reg-button";
                    }
+
                    if (window.matchMedia("(min-width: 615px)").matches) {
                        if (annosa && anoW > 100) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
                        if (!fctb) { shadowdom.appendChild(style); fctb = true; fctc = false; } }
@@ -522,6 +523,12 @@ function outscale()
                        if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
                        ftsize = "window-resized";
                    }
+
+                   if ((scrollPosition + viewportHeight) > (documentHeight - 60)) {
+                   toolbar.style.setProperty('filter', 'opacity(0)', 'important'); }
+                   if ((scrollPosition + viewportHeight) < (documentHeight - 60)) {
+                   toolbar.style.setProperty('filter', '', 'important'); }
+
                    if (window.matchMedia("(max-width: 340px)").matches) {
                        shadowdom.innerHTML = '';
                        shadowdom.host.remove();
@@ -566,7 +573,6 @@ function outscale()
                document.body.style.removeProperty('padding-bottom');
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
-               const toolB = hostElement.shadowRoot.getElementById('ft-floating-toolbar'); 
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
                const viewportWidth = window.innerWidth;
@@ -578,12 +584,10 @@ function outscale()
                if (!fctwo && firstChild.tagName === 'SPAN') { fctwo = true;
                firstChild.addEventListener('click', hideA); }
 
-               if ((scrollPosition + viewportHeight) > (documentHeight - 400)) {
-               annosa.style.setProperty('filter', 'opacity(0)', 'important');
-               toolB.style.setProperty('filter', 'opacity(0)', 'important'); }
-               if ((scrollPosition + viewportHeight) < (documentHeight - 400)) {
-               annosa.style.setProperty('filter', '', 'important');
-               toolB.style.setProperty('filter', '', 'important'); }
+               if ((scrollPosition + viewportHeight) > (documentHeight - 60)) {
+               annosa.style.setProperty('filter', 'opacity(0)', 'important'); }
+               if ((scrollPosition + viewportHeight) < (documentHeight - 60)) {
+               annosa.style.setProperty('filter', '', 'important'); }
 
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
