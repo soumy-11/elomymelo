@@ -608,7 +608,8 @@ function outscale()
                    if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = '';
                    hostElement.shadowRoot.host.remove(); } if (mediaout && !valTimer4) { setTimeout(() => {
                    doso(); console.log("doso called"); valTimer4 = true; }, 1000); }
-               }   else { valTimer4 = false; }
+               }   
+	       else { console.log("else here"); valTimer4 = false; console.log("valTimer4 here"); }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
