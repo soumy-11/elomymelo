@@ -366,7 +366,7 @@ function scrltipout() { document.querySelector(".scroll-here-tip").style.visibil
 function outscale()
 {
      let sizedetection, visHide;
-     let fcone = false, fctwo = false, fctb = false;
+     let fcone = false, fctwo = false, fctb = false, fctl = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
@@ -470,8 +470,10 @@ function outscale()
                    var style = document.createElement('style');
                    var parentH = document.querySelector('.articles-container');
                    var rectParentH = parentH.getBoundingClientRect(); 
+                   var leftPosL = rectParentH.left + 410 - 410;
                    var leftPosH = rectParentH.left + 410;
                    var parentLeftH = ''+leftPosH+'px';
+                   var parentLeftL = ''+leftPosL+'px';
                    if (annosa && mediain) 
                    {
                        style.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; 
@@ -511,8 +513,10 @@ function outscale()
                        ftstyle4 = "reg-button";
                    }
                    if (window.matchMedia("(min-width: 615px)").matches) {
-                       style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
-                       if (!fctb) { shadowdom.appendChild(style); fctb = true; }
+                       if (annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; 
+                       if (!fctb) { shadowdom.appendChild(style); fctb = true; } }
+                       if (!annosa) { style.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; 
+                       if (!fctl) { shadowdom.appendChild(style); fctl = true; } }
                        ftsize = "window-resized";
                    }
                    if (window.matchMedia("(max-width: 340px)").matches) {
@@ -559,6 +563,7 @@ function outscale()
                document.body.style.removeProperty('padding-bottom');
                parent = document.querySelector('.articles-container');
                rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+               const toolB = hostElement.shadowRoot.getElementById('ft-floating-toolbar'); 
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
                const viewportWidth = window.innerWidth;
@@ -571,9 +576,11 @@ function outscale()
                firstChild.addEventListener('click', hideA); }
 
                if ((scrollPosition + viewportHeight) > (documentHeight - 400)) {
-               annosa.style.setProperty('filter', 'opacity(0)', 'important'); }
+               annosa.style.setProperty('filter', 'opacity(0)', 'important');
+               toolB.style.setProperty('filter', 'opacity(0)', 'important'); }
                if ((scrollPosition + viewportHeight) < (documentHeight - 400)) {
-               annosa.style.setProperty('filter', '', 'important'); }
+               annosa.style.setProperty('filter', '', 'important');
+               toolB.style.setProperty('filter', '', 'important'); }
 
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
