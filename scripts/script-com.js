@@ -470,16 +470,16 @@ function outscale()
                    var style = document.createElement('style');
                    var parentH = document.querySelector('.articles-container');
                    var rectParentH = parentH.getBoundingClientRect(); 
-                   var leftPosH = rectParentH.left + 480;
+                   var leftPosH = rectParentH.left + 410;
                    var parentLeftH = ''+leftPosH+'px';
                    if (annosa && mediain) 
                    {
-                       style.innerHTML = '#ft-floating-toolbar {'+'bottom: 75px !important;'+'}'; 
+                       style.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; 
                        if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
                    }
                    if (!annosa && mediain)
                    {
-                       style.innerHTML = '#ft-floating-toolbar {'+'bottom: 50px !important;'+'}';
+                       style.innerHTML = '#ft-floating-toolbar { bottom: 50px !important; }';
                        if (!valTimer2) { shadowdom.appendChild(style); valTimer2 = true; } 
                    }
 
@@ -577,7 +577,8 @@ function outscale()
 
                if (viewportWidth > (initialWidth + 10) || viewportWidth < (initialWidth - 10)) 
                {
-                   if (mediaout) { document.body.style.height = ""; annosa.remove(); }
+                   if (mediaout) { document.body.style.height = ""; annosa.remove();
+                   hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove(); }
                    if (mediaout && !valTimer4) { setTimeout(() => {
                    doso(); valTimer4 = true; }, 1000); }
                }   else { valTimer4 = false; }
