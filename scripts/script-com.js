@@ -367,8 +367,7 @@ function outscale()
 {
      let sizedetection, visHide;
      let fcone = false, fctwo = false;
-     let fctb = false, fctc = false, fctl = false;
-     let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
+     let valTimer1 = false, valTimer2 = false, valTimer3 = false;
      const viewportWidth = window.innerWidth;
      var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
@@ -474,19 +473,17 @@ function outscale()
                    var leftPosH = rectParentH.left + 410; var leftPosS = rectParentH.left + 60;
                    var parentLeftH = ''+leftPosH+'px'; var parentLeftL = ''+leftPosL+'px';
                    var parentLeftS = ''+leftPosS+'px'; style.id = 'dy-style';
-                   shadowdom.appendChild(style); // push style tag to dom 
+                   if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; }
                    var exStyle = shadowdom.getElementById('dy-style');
                    console.log("style-ele = ", exStyle);
 
                    if (annosa && mediain) 
                    {
-                       style.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; 
-                       if (!valTimer3) { shadowdom.appendChild(style); valTimer3 = true; } 
+                       exStyle.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }';
                    }
                    if (!annosa && mediain)
                    {
-                       style.innerHTML = '#ft-floating-toolbar { bottom: 50px !important; }';
-                       if (!valTimer2) { shadowdom.appendChild(style); valTimer2 = true; } 
+                       exStyle.innerHTML = '#ft-floating-toolbar { bottom: 50px !important; }';
                    }
 
                    if (regMessageInfo) {
@@ -521,12 +518,9 @@ function outscale()
                    {
                        regMenu.style.setProperty('box-shadow', '', 'important');
                        regMenu.style.setProperty('background', 'white', 'important');
-                       if (!annosa) { 
-                       if (!fctl) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 12px !important; }'; fctl = true; } } 
-                       if (annosa && annosa.clientWidth > 100) { 
-                       if (!fctb) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 12px !important; }'; fctb = true; fctc = false; } } 
-                       if (annosa && annosa.clientWidth < 100) { 
-                       if (!fctc) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 12px !important; }'; fctc = true; fctb = false; } } 
+                       if (!annosa) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 10px !important; }'; }
+                       if (annosa && annosa.clientWidth > 100) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 10px !important; }'; }
+                       if (annosa && annosa.clientWidth < 100) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 10px !important; }'; }
                        regMenu.style.setProperty('border-radius', '65px', 'important');
                        ftsize = "window-resized";
                    }
@@ -609,9 +603,9 @@ function outscale()
                    if (annosa) { const firstChild = annosa.firstElementChild;
                    firstChild.removeEventListener('click', hideA); fctwo = false; annosa.remove(); }
                    if (hostElement.shadowRoot && mediaout) { hostElement.shadowRoot.innerHTML = ''; // blank shadow 
-                   hostElement.shadowRoot.host.remove(); } if (mediaout && !valTimer4) { setTimeout(() => {
-                   doso(); console.log("doso called"); valTimer4 = true; }, 1000); }
-               }   else { valTimer4 = false; }
+                   hostElement.shadowRoot.host.remove(); } if (mediaout && !valTimer2) { setTimeout(() => {
+                   doso(); console.log("doso called"); valTimer2 = true; }, 1000); }
+               }   else { valTimer2 = false; }
            }
 
            if (annosa && mediain && (sizedetection !== "desk")) 
