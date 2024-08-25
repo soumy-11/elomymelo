@@ -474,7 +474,6 @@ function outscale()
                    var leftPosH = rectParentH.left + 410; var leftPosS = rectParentH.left + 60;
                    var parentLeftH = ''+leftPosH+'px'; var parentLeftL = ''+leftPosL+'px';
                    var parentLeftS = ''+leftPosS+'px'; style.id = 'dy-style';
-                   var exStyle = shadowdom.getElementById('dy-style');
 
                    if (annosa && mediain) 
                    {
