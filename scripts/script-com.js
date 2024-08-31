@@ -645,7 +645,7 @@ function outscale()
                }
                if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
                {
-                   hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove();
+                   if (hostElement.shadowRoot) { hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove(); }
                    if (!valTimer1) { setInterval(afterftclose, 1000); valTimer1 = true; }
                }
            }
