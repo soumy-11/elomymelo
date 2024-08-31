@@ -430,6 +430,7 @@ function outscale()
             topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
             if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
             topArrow.style.stroke = ''; topButton.style.background = ''; }
+	    console.log("after ft close");
         }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
