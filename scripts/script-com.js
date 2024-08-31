@@ -544,7 +544,7 @@ function outscale()
                }
 
                if (ftstyle1 === "reg-message" && ftstyle2 === "reg-bubble" && ftstyle3 === "reg-icon" 
-               && ftstyle4 === "reg-button" && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
+               && ftstyle4 === "reg-button" && (sizedetection !== "desk") && regMessageInfo) { topButton.style.boxShadow = 'none';
                topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; }
                if (ftsize === "window-resized" && (sizedetection === "desk")) { topButton.style.boxShadow = '';
                topButton.style.background = ''; topArrow.style.stroke = ''; }
