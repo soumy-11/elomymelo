@@ -641,6 +641,7 @@ function outscale()
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
                    topButton.style.bottom = "15px";
+		   console.log(ftstyle1);
                }
                if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
                {
