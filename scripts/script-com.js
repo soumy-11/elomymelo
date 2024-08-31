@@ -478,9 +478,15 @@ function outscale()
                    var exStyle = shadowdom.getElementById('dy-style');
 
                    if (annosa && mediain && !valTimer3) 
-                   { style.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; valTimer3 = true; }
-                   if (!annosa && mediain && !valTimer2)
-                   { style.innerHTML = '#ft-floating-toolbar { bottom: 50px !important; }'; valTimer2 = true; }
+                   {
+                       exStyle.innerHTML = '#ft-floating-toolbar { bottom: 75px !important; }'; 
+                       valTimer3 = true; valTimer2 = false; 
+                   }
+                   if (!annosa && mediain && !valTimer2) 
+                   {
+                       exStyle.innerHTML = '#ft-floating-toolbar { bottom: 50px !important; }'; 
+                       valTimer2 = true; valTimer3 = false; 
+                   }
 
                    if (regMessageInfo) {
                        regMessageInfo.style.setProperty('display', 'none', 'important');
@@ -514,9 +520,9 @@ function outscale()
                    {
                        regMenu.style.setProperty('box-shadow', '', 'important');
                        regMenu.style.setProperty('background', 'white', 'important');
-                       if (!annosa && !fctl) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 12px !important; }'; fctl = true; }
-                       if (annosa && annosa.clientWidth > 100 && !fctb) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 12px !important; }'; fctb = true; fctc = false; }
-                       if (annosa && annosa.clientWidth < 100 && !fctc) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 12px !important; }'; fctc = true; fctb = false; }
+                       if (!annosa && !fctl) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftL+' !important; bottom: 11px !important; }'; fctl = true; fctb = false; fctc = false; }
+                       if (annosa && annosa.clientWidth > 100 && !fctb) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftH+' !important; bottom: 11px !important; }'; fctb = true; fctc = false; fctl = false; }
+                       if (annosa && annosa.clientWidth < 100 && !fctc) { exStyle.innerHTML = '#ft-floating-toolbar { left: '+parentLeftS+' !important; bottom: 11px !important; }'; fctc = true; fctb = false; fctl = false; }
                        regMenu.style.setProperty('border-radius', '65px', 'important');
                        ftsize = "window-resized";
                    }
@@ -662,7 +668,7 @@ function outscale()
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
-    // const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
+    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
 }
 outscale();
 
