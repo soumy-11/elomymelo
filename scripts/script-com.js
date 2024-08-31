@@ -662,7 +662,7 @@ function outscale()
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
-    const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
+    // const ftinterval = setInterval(() => scaleMe2(initialWidth), 1000);
 }
 outscale();
 
