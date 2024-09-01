@@ -370,10 +370,10 @@ function outscale()
      const viewportWidth = window.innerWidth;
      let fctb = false, fctc = false, fctl = false, fctm = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     let ftstyle1, ftsize; var initialWidth = viewportWidth;
+     var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
      {
-        // detecting the google-consent container 
+        let ftstyle1, ftsize; 
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
