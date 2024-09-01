@@ -370,10 +370,10 @@ function outscale()
      const viewportWidth = window.innerWidth;
      let fctb = false, fctc = false, fctl = false, fctm = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     var initialWidth = viewportWidth;
+     let ftstyle1, ftsize; var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
      {
-        let ftstyle1, ftsize; 
+        // detecting the google-consent container 
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -506,8 +506,6 @@ function outscale()
                        // ftstyle2 = "reg-bubble";
                    }
                    if (regBubbleCloseIcon) {
-                       regBubbleCloseIcon.onclick = function() { 
-                       setInterval(afterftclose, 1000); valTimer1 = true; }
                        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -644,8 +642,8 @@ function outscale()
                }
                if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
                {
-                   if (hostElement.shadowRoot) { hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove(); }
-                   if (!valTimer1) { setInterval(afterftclose, 1000); valTimer1 = true; }
+                   if (hostElement.shadowRoot) { hostElement.shadowRoot.innerHTML = ""; 
+                   hostElement.shadowRoot.host.remove(); }
                }
            }
 
