@@ -367,13 +367,12 @@ function outscale()
 {
      let sizedetection, visHide;
      let fcone = false, fctwo = false;
-     const viewportWidth = window.innerWidth;
+     let valTimer2 = false, valTimer3 = false, valTimer4 = false;
+     const viewportWidth = window.innerWidth; var initialWidth = viewportWidth;
      let fctb = false, fctc = false, fctl = false, fctm = false;
-     let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
      {
-        let ftstyle1, ftsize; // detecting consent container 
+        let ftstyle1, ftsize; // declaring variables 
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -403,7 +402,7 @@ function outscale()
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
+            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2000); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
         }
@@ -421,17 +420,6 @@ function outscale()
         tran1.style.visibility = "hidden"; tran2.style.visibility = "hidden"; 
         tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
         tran5.style.visibility = "hidden"; }
-
-        function afterftclose() 
-        {
-            const documentHeight = document.documentElement.scrollHeight;
-            const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
-            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
-            topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
-            topArrow.style.stroke = ''; topButton.style.background = ''; }
-            console.log("after ft close");
-        }
 
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
@@ -473,7 +461,7 @@ function outscale()
                    var style = document.createElement('style');
                    var parentH = document.querySelector('.articles-container');
                    var rectParentH = parentH.getBoundingClientRect(); var leftPosL = rectParentH.left + 410 - 410;
-                   var leftPosH = rectParentH.left + 410; var leftPosS = rectParentH.left + 60;
+                   var leftPosH = rectParentH.left + 415; var leftPosS = rectParentH.left + 65;
                    var parentLeftH = ''+leftPosH+'px'; var parentLeftL = ''+leftPosL+'px';
                    var parentLeftS = ''+leftPosS+'px'; style.id = 'dy-style';
                    if (!fctm) { shadowdom.appendChild(style); fctm = true; }
@@ -506,6 +494,8 @@ function outscale()
                        // ftstyle2 = "reg-bubble";
                    }
                    if (regBubbleCloseIcon) {
+                       regBubbleCloseIcon.onclick = function() {
+                       shadowdom.innerHTML = ''; shadowdom.host.remove(); }
                        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
@@ -542,8 +532,8 @@ function outscale()
                    }
                }
 
-               if (ftstyle1 === "reg-message" && (sizedetection !== "desk") && regMessageInfo) { 
-               topButton.style.boxShadow = 'none'; topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; console.log("white here"); }
+               if (ftstyle1 === "reg-message" && (sizedetection !== "desk") && regMessageInfo) {
+               topButton.style.boxShadow = 'none'; topButton.style.background = 'white'; topArrow.style.stroke = '#5c5c5c'; }
                if (ftsize === "window-resized" && (sizedetection === "desk")) { topButton.style.boxShadow = '';
                topButton.style.background = ''; topArrow.style.stroke = ''; }
 
@@ -577,7 +567,7 @@ function outscale()
                const firstChild = annosa.firstElementChild; 
                document.body.style.removeProperty('padding-bottom');
                parent = document.querySelector('.articles-container');
-               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left;
+               rectParent = parent.getBoundingClientRect(); leftPos = rectParent.left + 5;
                parentLeft = ''+leftPos+'px'; // getting left value
                document.body.style.height = adjustTopPos + "px";
                const viewportWidth = window.innerWidth;
@@ -663,11 +653,10 @@ function outscale()
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if (!annosa && mediain && (sizedetection !== "desk")) { topButton.style.bottom = ""; }
+        if ((!annosa && mediain && (sizedetection !== "desk")) || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
-        topArrow.style.stroke = ''; topButton.style.background = '';
-        console.log("reg-message check"); }
+        topArrow.style.stroke = ''; topButton.style.background = ''; }
     }
     const ftinterval = setInterval(() => {
     scaleMe2(initialWidth); }, 1000);
