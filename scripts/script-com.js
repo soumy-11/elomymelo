@@ -367,10 +367,10 @@ function outscale()
 {
      let sizedetection, visHide;
      let fcone = false, fctwo = false;
+     const viewportWidth = window.innerWidth;
      let fctb = false, fctc = false, fctl = false, fctm = false;
      let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     const viewportWidth = window.innerWidth; var initialWidth = viewportWidth;
-     let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
+     let ftstyle1, ftsize; var initialWidth = viewportWidth;
      function scaleMe2(initialWidth)
      {
         // detecting the google-consent container 
@@ -403,7 +403,7 @@ function outscale()
         {
             document.body.style.overflow = "visible"; 
             tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 1000); fcone = true; } 
+            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2500); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
         }
@@ -449,8 +449,7 @@ function outscale()
 
         function alldynamic(hostElement, annosa, initialWidth)
         {
-           console.log("alldynamic here");
-	   if (hostElement.shadowRoot) 
+           if (hostElement.shadowRoot) 
            {
                const shadowdom = hostElement.shadowRoot;
                const toolbar = shadowdom.getElementById('ft-floating-toolbar'); 
@@ -504,7 +503,7 @@ function outscale()
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
                        regBubble.style.setProperty('max-height', '32px', 'important');
-                       ftstyle2 = "reg-bubble";
+                       // ftstyle2 = "reg-bubble";
                    }
                    if (regBubbleCloseIcon) {
                        regBubbleCloseIcon.onclick = function() { 
@@ -512,11 +511,11 @@ function outscale()
                        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-                       ftstyle3 = "reg-icon";
+                       // ftstyle3 = "reg-icon";
                    }
                    if (regButton) {
                        regButton.style.setProperty('border-radius', '55px', 'important');
-                       ftstyle4 = "reg-button";
+                       // ftstyle4 = "reg-button";
                    }
 
                    if (window.matchMedia("(min-width: 615px)").matches) 
@@ -669,7 +668,8 @@ function outscale()
         if (!annosa && mediain && (sizedetection !== "desk")) { topButton.style.bottom = ""; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
-        topArrow.style.stroke = ''; topButton.style.background = ''; }
+        topArrow.style.stroke = ''; topButton.style.background = '';
+        console.log("reg-message check"); }
     }
     const ftinterval = setInterval(() => {
     scaleMe2(initialWidth); }, 1000);
