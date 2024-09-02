@@ -367,12 +367,13 @@ function outscale()
 {
      let sizedetection, visHide;
      let fcone = false, fctwo = false;
-     let valTimer2 = false, valTimer3 = false, valTimer4 = false;
-     const viewportWidth = window.innerWidth; var initialWidth = viewportWidth;
      let fctb = false, fctc = false, fctl = false, fctm = false;
+     let valTimer1 = false, valTimer2 = false, valTimer3 = false, valTimer4 = false;
+     const viewportWidth = window.innerWidth; var initialWidth = viewportWidth;
+     let ftstyle1, ftstyle2, ftstyle3, ftstyle4, ftsize;
      function scaleMe2(initialWidth)
      {
-        let ftstyle1, ftsize; // declaring variables 
+        // detecting the google-consent container 
         const parentElementNew = document.querySelector('.fc-consent-root');
         const bodyOverflow = window.getComputedStyle(document.body).overflow;
         const footerDiv = document.querySelector('.fc-footer.fc-dialog-restricted-content');
@@ -421,11 +422,21 @@ function outscale()
         tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
         tran5.style.visibility = "hidden"; }
 
+        function afterftclose() 
+        {
+            const documentHeight = document.documentElement.scrollHeight;
+            const viewportHeight = window.innerHeight; const scrollPosition = window.scrollY;
+            if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) && (sizedetection !== "desk")) { 
+            topButton.style.boxShadow = 'none'; topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
+            if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) && (sizedetection !== "desk")) { 
+            topButton.style.boxShadow = ''; topArrow.style.stroke = ''; topButton.style.background = ''; }
+            // console.log("after ft close");
+        }
+
         if (window.matchMedia("(min-width: 615px)").matches) { 
         sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { shadow = window.innerWidth * 0.05;
-        buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = '';
-        topButton.style.boxShadow = '0px 0px '+shadow+'px #ff7777bf'; }
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { 
+        buttonfxd(); topButton.style.boxShadow = ''; topButton.style.background = ''; topArrow.style.stroke = ''; }
 
         const chromeEle = Array.from(document.querySelectorAll('div[style*="color-scheme: initial"][style*="forced-color-adjust: initial"][style*="mask: initial"][style*="math-depth: initial"]'));
         const edgeEle = Array.from(document.querySelectorAll('div[style*="animation-delay: 0s !important"][style*="animation-direction: normal !important"][style*="animation-duration: 0s !important"][style*="animation-fill-mode: none !important"]'));
@@ -492,19 +503,19 @@ function outscale()
                        regBubble.style.setProperty('width', '220px', 'important');
                        regBubble.style.setProperty('border-radius', '50px', 'important');
                        regBubble.style.setProperty('max-height', '32px', 'important');
-                       // ftstyle2 = "reg-bubble";
+                       ftstyle2 = "reg-bubble";
                    }
                    if (regBubbleCloseIcon) {
-                       regBubbleCloseIcon.onclick = function() {
-                       shadowdom.innerHTML = ''; shadowdom.host.remove(); }
+                       regBubbleCloseIcon.onclick = function() { 
+                       setInterval(afterftclose, 1000); valTimer1 = true; }
                        regBubbleCloseIcon.style.setProperty('right', '15px', 'important');
                        regBubbleCloseIcon.style.setProperty('position', 'absolute', 'important');
                        regBubbleCloseIcon.style.setProperty('top', '13px', 'important');
-                       // ftstyle3 = "reg-icon";
+                       ftstyle3 = "reg-icon";
                    }
                    if (regButton) {
                        regButton.style.setProperty('border-radius', '55px', 'important');
-                       // ftstyle4 = "reg-button";
+                       ftstyle4 = "reg-button";
                    }
 
                    if (window.matchMedia("(min-width: 615px)").matches) 
@@ -633,8 +644,8 @@ function outscale()
                }
                if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
                {
-                   if (hostElement.shadowRoot) { hostElement.shadowRoot.innerHTML = ""; 
-                   hostElement.shadowRoot.host.remove(); }
+                   if (hostElement.shadowRoot) { hostElement.shadowRoot.innerHTML = ''; hostElement.shadowRoot.host.remove(); }
+                   if (!valTimer1) { setInterval(afterftclose, 1000); valTimer1 = true; }
                }
            }
 
@@ -654,7 +665,7 @@ function outscale()
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if ((!annosa && mediain && (sizedetection !== "desk")) || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
+        if (!annosa && mediain && (sizedetection !== "desk")) { topButton.style.bottom = ""; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
