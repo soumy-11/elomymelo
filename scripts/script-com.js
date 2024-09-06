@@ -421,9 +421,9 @@ function outscale()
         tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
         tran5.style.visibility = "hidden"; }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { 
+        if (window.matchMedia("(min-width: 615px)").matches) {
         sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { shadow = window.innerWidth * 0.05;
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { var shadow = window.innerWidth * 0.05;
         buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = '';
         topButton.style.boxShadow = '0px 0px '+shadow+'px #ff7777bf'; }
 
@@ -582,8 +582,10 @@ function outscale()
                firstChild.addEventListener('click', hideA); }
 
                if ((scrollPosition + viewportHeight) > (documentHeight - 60)) {
-               annosa.style.setProperty('filter', 'opacity(0)', 'important'); }
+               annosa.style.setProperty('filter', 'opacity(0)', 'important');
+               annosa.style.setProperty('z-index', '-999999', 'important'); }
                if ((scrollPosition + viewportHeight) < (documentHeight - 60)) {
+               annosa.style.setProperty('z-index', '999999', 'important');
                annosa.style.setProperty('filter', '', 'important'); }
            }
 
@@ -655,7 +657,7 @@ function outscale()
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if ((!annosa && mediain && (sizedetection !== "desk")) || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
+        if ((!annosa && sizedetection !== "desk") || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }
