@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Shatter and Reconstruct Animations</title>
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -34,6 +35,15 @@
             border-radius: 20px;
         }
 
+        .image-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+    
         .image-piece {
             position: absolute;
             transition: transform 0.8s ease, opacity 0.8s ease;
@@ -43,6 +53,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-left: -12px;
         }
 
         .control-container .indicator-container {
@@ -56,7 +67,6 @@
             border: 3px solid #ddd;
             background-color: white;
             border-radius: 33px;
-            cursor: pointer;
         }
 
         .control-container .indicator.active {
@@ -77,6 +87,7 @@
         button:hover {
             background-color: #0056b3;
         }
+
     </style>
 </head>
 <body>
@@ -98,23 +109,39 @@
         'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg'
     ];
 
-    let currentIndex = 0; // Start with the first image
+    const pageUrls = [
+        'https://elomymelo.com/jbl-xtreme-4-vs-xtreme-3.html',
+        'https://elomymelo.com/boom-2-vs-xtreme-4.html',
+        'https://elomymelo.com/soundcore-space-one-vs-sony-wh-ch720n.html',
+        'https://elomymelo.com/boom-2-vs-motion-boom-plus.html'
+    ];
+
+    let currentIndex = 0;
     const imageBox = document.querySelector('.image-box');
     const indicatorContainer = document.querySelector('.indicator-container');
     let indicators = [];
 
-    function loadImage(index) {
+   function loadImage(index) {
         const image = new Image();
         image.src = imageUrls[index];
         image.onload = () => {
             imageBox.style.backgroundImage = `url(${image.src})`;
+            insertLink(imageBox, pageUrls[index]); 
             updateIndicators();
         };
+    }
+
+   function insertLink(container, url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.classList.add('image-link');
+        container.appendChild(link);
     }
 
     function createShatterEffect(currentImage, nextImage, container) {
         container.innerHTML = '';
         container.style.backgroundImage = `url(${nextImage.src})`;
+        insertLink(container, pageUrls[currentIndex]);
 
         const cols = 4;
         const rows = 4;
@@ -142,7 +169,7 @@
                 container.appendChild(piece);
 
                 const pieceIndex = row * cols + col;
-                const delay = 50 + (pieceIndex / totalPieces) * 200; // Gradual decreasing delay
+                const delay = 50 + (pieceIndex / totalPieces) * 200;
 
                 setTimeout(() => {
                     piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
@@ -154,6 +181,7 @@
 
     function createReconstructEffect(prevImage, currentImage, container) {
         container.innerHTML = '';
+        insertLink(container, pageUrls[currentIndex]);
         container.style.backgroundImage = `url(${currentImage.src})`;
 
         const cols = 4;
@@ -192,15 +220,31 @@
     function nextImage() {
         const currentImage = new Image();
         currentImage.src = imageUrls[currentIndex];
-
+    
         // Move to the next image (wrap around to 0 if at the end)
         currentIndex = (currentIndex + 1) % imageUrls.length;
-
+    
         const nextImage = new Image();
         nextImage.src = imageUrls[currentIndex];
-
+    
         nextImage.onload = () => {
             createShatterEffect(currentImage, nextImage, imageBox);
+            updateIndicators();
+        };
+    }
+
+    function nextImage2() {
+        const currentImage = new Image();
+        currentImage.src = imageUrls[currentIndex];
+    
+        // Move to the next image (wrap around to 0 if at the end)
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+    
+        const nextImage = new Image();
+        nextImage.src = imageUrls[currentIndex];
+    
+        nextImage.onload = () => {
+            createReconstructEffect(nextImage, currentImage, imageBox);
             updateIndicators();
         };
     }
@@ -208,7 +252,9 @@
     function prevImage() {
         const currentImage = new Image();
         currentImage.src = imageUrls[currentIndex];
+
         currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+
         const prevImage = new Image();
         prevImage.src = imageUrls[currentIndex];
 
@@ -235,27 +281,46 @@
         });
     }
 
-let autoNextInterval;
-function startAutoNext() 
-{
-    autoNextInterval = setInterval(nextImage, 5000); // 5000 ms = 5 seconds
-}
+    let autoNextInterval;
+    let resetTimeout;
 
-// Function to stop the auto-next image feature (if needed)
-function stopAutoNext() 
-{
-    clearInterval(autoNextInterval);
-}
+    function startAutoNext() {
+        const animationFunctions = [nextImage, nextImage2];
+        let lastSelectedIndex = null;
 
-// Start the auto-next function when the page loads
-startAutoNext();
+        autoNextInterval = setInterval(() => {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * animationFunctions.length);
+            } while (randomIndex === lastSelectedIndex);
 
-// Optionally, stop the auto-next feature if needed (e.g., when user clicks on a control button)
-document.getElementById('forward').addEventListener('click', () => 
-{ stopAutoNext(); });
+            lastSelectedIndex = randomIndex;
+            const selectedFunction = animationFunctions[randomIndex];
+            selectedFunction();
+        }, 5000);
+    }
 
-document.getElementById('backward').addEventListener('click', () => 
-{ stopAutoNext(); });
+    function stopAutoNext() {
+        clearInterval(autoNextInterval);
+        clearTimeout(resetTimeout);
+    }
+
+    function restartAutoNext() {
+        resetTimeout = setTimeout(() => {
+            startAutoNext();
+        }, 500);
+    }
+    startAutoNext();
+
+    document.getElementById('forward').addEventListener('click', () => {
+        stopAutoNext();
+        restartAutoNext();
+    });
+
+    document.getElementById('backward').addEventListener('click', () => {
+        stopAutoNext();
+        restartAutoNext();
+    });
 
     document.getElementById('forward').addEventListener('click', nextImage);
     document.getElementById('backward').addEventListener('click', prevImage);
