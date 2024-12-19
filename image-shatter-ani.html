@@ -31,6 +31,7 @@
             overflow: hidden;
             margin-bottom: 20px;
             background-size: cover;
+            background-color: rgba(112,112,112,0.15); 
             background-position: center;
             border-radius: 20px;
         }
@@ -88,6 +89,9 @@
             background-color: #0056b3;
         }
 
+        @media only screen and (max-width: 615px) { 
+        .indicator-container { display: none !important; } }
+
     </style>
 </head>
 <body>
@@ -119,19 +123,52 @@
     let currentIndex = 0;
     const imageBox = document.querySelector('.image-box');
     const indicatorContainer = document.querySelector('.indicator-container');
+    const preloadedImages = [];
     let indicators = [];
 
-   function loadImage(index) {
-        const image = new Image();
-        image.src = imageUrls[index];
-        image.onload = () => {
-            imageBox.style.backgroundImage = `url(${image.src})`;
-            insertLink(imageBox, pageUrls[index]); 
-            updateIndicators();
-        };
+    function loadImage(index) {
+    // Load images only once when the page is loaded
+    if (preloadedImages.length === 0) {
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+            preloadedImages.push(img);
+        });
+    }
+        const image = preloadedImages[index];
+        imageBox.style.backgroundImage = `url(${image.src})`;
+        insertLink(imageBox, pageUrls[index]); 
+        updateIndicators();
     }
 
-   function insertLink(container, url) {
+    function nextImage() {
+        const currentImage = preloadedImages[currentIndex];
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        const nextImage = preloadedImages[currentIndex];
+
+        createShatterEffect(currentImage, nextImage, imageBox);
+        updateIndicators();
+    }
+
+    function nextImage2() {
+        const currentImage = preloadedImages[currentIndex];
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        const nextImage = preloadedImages[currentIndex];
+
+        createReconstructEffect(nextImage, currentImage, imageBox);
+        updateIndicators();
+    }
+
+    function prevImage() {
+        const currentImage = preloadedImages[currentIndex];
+        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+        const prevImage = preloadedImages[currentIndex];
+
+        createReconstructEffect(prevImage, currentImage, imageBox);
+        updateIndicators();
+    }
+
+    function insertLink(container, url) {
         const link = document.createElement('a');
         link.href = url;
         link.classList.add('image-link');
@@ -215,53 +252,6 @@
                 }, 50);
             }
         }
-    }
-
-    function nextImage() {
-        const currentImage = new Image();
-        currentImage.src = imageUrls[currentIndex];
-    
-        // Move to the next image (wrap around to 0 if at the end)
-        currentIndex = (currentIndex + 1) % imageUrls.length;
-    
-        const nextImage = new Image();
-        nextImage.src = imageUrls[currentIndex];
-    
-        nextImage.onload = () => {
-            createShatterEffect(currentImage, nextImage, imageBox);
-            updateIndicators();
-        };
-    }
-
-    function nextImage2() {
-        const currentImage = new Image();
-        currentImage.src = imageUrls[currentIndex];
-    
-        // Move to the next image (wrap around to 0 if at the end)
-        currentIndex = (currentIndex + 1) % imageUrls.length;
-    
-        const nextImage = new Image();
-        nextImage.src = imageUrls[currentIndex];
-    
-        nextImage.onload = () => {
-            createReconstructEffect(nextImage, currentImage, imageBox);
-            updateIndicators();
-        };
-    }
-
-    function prevImage() {
-        const currentImage = new Image();
-        currentImage.src = imageUrls[currentIndex];
-
-        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
-
-        const prevImage = new Image();
-        prevImage.src = imageUrls[currentIndex];
-
-        prevImage.onload = () => {
-            createReconstructEffect(prevImage, currentImage, imageBox);
-            updateIndicators();
-        };
     }
 
     function createIndicators() {
