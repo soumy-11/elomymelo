@@ -2,202 +2,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Shatter and Reconstruct Animations</title>
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Shatter and Reconstruct Animations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-  }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
 
-  .image-box {
-    position: relative;
-    width: 72vw;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-  }
+        .image-box {
+            position: relative;
+            width: 72vw;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+        }
 
-  .image-piece {
-    position: absolute;
-    transition: transform 0.8s ease, opacity 0.8s ease;
-  }
+        .image-piece {
+            position: absolute;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
 
-  .control-container {
-    display: flex;
-    gap: 10px;
-  }
+        .control-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+        .control-container .indicator-container {
+            display: flex;
+            gap: 5px;
+        }
 
-  button:hover {
-    background-color: #0056b3;
-  }
-</style>
+        .control-container .indicator {
+            width: 35px;
+            height: 35px;
+            border: 3px solid #ddd;
+            background-color: white;
+            border-radius: 33px;
+            cursor: pointer;
+        }
+
+        .control-container .indicator.active {
+            background-color: #e59866;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 45px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
 <div class="image-box"></div>
 
 <div class="control-container">
-  <button id="backward">Backward</button>
-  <button id="forward">Forward</button>
+    <button id="backward">Backward</button>
+    <div class="indicator-container"></div>
+    <button id="forward">Forward</button>
 </div>
 
 <script>
-const imageUrls = [
-    'https://elomymelo.com/docs-images/x4-vs-x3-main.jpg',
-    'https://elomymelo.com/images/boom-2-vs-x4-main.jpg',
-    'https://elomymelo.com/images/space-one-main.png',
-    'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg'
-];
 
-let currentIndex = 0;
-const imageBox = document.querySelector('.image-box');
+    const imageUrls = [
+        'https://elomymelo.com/docs-images/x4-vs-x3-main.jpg',
+        'https://elomymelo.com/images/boom-2-vs-x4-main.jpg',
+        'https://elomymelo.com/images/space-one-main.png',
+        'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg'
+    ];
 
-function createShatterEffect(currentImage, nextImage, container) {
-    container.innerHTML = '';
-    container.style.backgroundImage = `url(${nextImage.src})`;
-    
-    const cols = 4;
-    const rows = 4;
-    const pieceWidth = container.offsetWidth / cols;
-    const pieceHeight = container.offsetHeight / rows;
-    const totalPieces = cols * rows;
+    let currentIndex = 0; // Start with the first image
+    const imageBox = document.querySelector('.image-box');
+    const indicatorContainer = document.querySelector('.indicator-container');
+    let indicators = [];
 
+    function loadImage(index) {
+        const image = new Image();
+        image.src = imageUrls[index];
+        image.onload = () => {
+            imageBox.style.backgroundImage = `url(${image.src})`;
+            updateIndicators();
+        };
+    }
 
-    for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-            const piece = document.createElement('div');
-            piece.classList.add('image-piece');
-            piece.style.width = `${pieceWidth}px`;
-            piece.style.height = `${pieceHeight}px`;
-            piece.style.backgroundImage = `url(${currentImage.src})`;
-            piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
-            piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
-            piece.style.left = `${col * pieceWidth}px`;
-            piece.style.top = `${row * pieceHeight}px`;
+    function createShatterEffect(currentImage, nextImage, container) {
+        container.innerHTML = '';
+        container.style.backgroundImage = `url(${nextImage.src})`;
 
-            const randomX = (Math.random() - 0.5) * 400;
-            const randomY = (Math.random() - 0.5) * 400;
-            const randomRotation = (Math.random() - 0.5) * 360;
-            piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
+        const cols = 4;
+        const rows = 4;
+        const pieceWidth = container.offsetWidth / cols;
+        const pieceHeight = container.offsetHeight / rows;
+        const totalPieces = cols * rows;
 
-            container.appendChild(piece);
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const piece = document.createElement('div');
+                piece.classList.add('image-piece');
+                piece.style.width = `${pieceWidth}px`;
+                piece.style.height = `${pieceHeight}px`;
+                piece.style.backgroundImage = `url(${currentImage.src})`;
+                piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
+                piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+                piece.style.left = `${col * pieceWidth}px`;
+                piece.style.top = `${row * pieceHeight}px`;
 
-            const pieceIndex = row * cols + col;
-            const delay = 50 + (pieceIndex / totalPieces) * 200; // Gradual decreasing delay
+                const randomX = (Math.random() - 0.5) * 400;
+                const randomY = (Math.random() - 0.5) * 400;
+                const randomRotation = (Math.random() - 0.5) * 360;
+                piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
 
-            setTimeout(() => {
-                piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
-                piece.style.opacity = '0';
-            }, delay);
+                container.appendChild(piece);
+
+                const pieceIndex = row * cols + col;
+                const delay = 50 + (pieceIndex / totalPieces) * 200; // Gradual decreasing delay
+
+                setTimeout(() => {
+                    piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
+                    piece.style.opacity = '0';
+                }, delay);
+            }
         }
     }
+
+    function createReconstructEffect(prevImage, currentImage, container) {
+        container.innerHTML = '';
+        container.style.backgroundImage = `url(${currentImage.src})`;
+
+        const cols = 4;
+        const rows = 4;
+        const pieceWidth = container.offsetWidth / cols;
+        const pieceHeight = container.offsetHeight / rows;
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const piece = document.createElement('div');
+                piece.classList.add('image-piece');
+                piece.style.width = `${pieceWidth}px`;
+                piece.style.height = `${pieceHeight}px`;
+                piece.style.backgroundImage = `url(${prevImage.src})`;
+                piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
+                piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+                piece.style.left = `${col * pieceWidth}px`;
+                piece.style.top = `${row * pieceHeight}px`;
+
+                const randomX = (Math.random() - 0.5) * 400;
+                const randomY = (Math.random() - 0.5) * 400;
+                const randomRotation = (Math.random() - 0.5) * 360;
+
+                piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
+                piece.style.opacity = '0';
+                container.appendChild(piece);
+
+                setTimeout(() => {
+                    piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
+                    piece.style.opacity = '1';
+                }, 50);
+            }
+        }
+    }
+
+    function nextImage() {
+        const currentImage = new Image();
+        currentImage.src = imageUrls[currentIndex];
+
+        // Move to the next image (wrap around to 0 if at the end)
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+
+        const nextImage = new Image();
+        nextImage.src = imageUrls[currentIndex];
+
+        nextImage.onload = () => {
+            createShatterEffect(currentImage, nextImage, imageBox);
+            updateIndicators();
+        };
+    }
+
+    function prevImage() {
+        const currentImage = new Image();
+        currentImage.src = imageUrls[currentIndex];
+        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+        const prevImage = new Image();
+        prevImage.src = imageUrls[currentIndex];
+
+        prevImage.onload = () => {
+            createReconstructEffect(prevImage, currentImage, imageBox);
+            updateIndicators();
+        };
+    }
+
+    function createIndicators() {
+        for (let i = 0; i < imageUrls.length; i++) {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            indicator.dataset.index = i;
+
+            indicatorContainer.appendChild(indicator);
+            indicators.push(indicator);
+        }
+    }
+
+    function updateIndicators() {
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+let autoNextInterval;
+function startAutoNext() 
+{
+    autoNextInterval = setInterval(nextImage, 5000); // 5000 ms = 5 seconds
 }
 
-function createReconstructEffect(currentImage, prevImage, container) {
-    
-      const cols = 4;
-      const rows = 4;
-      const pieceWidth = container.offsetWidth / cols;
-      const pieceHeight = container.offsetHeight / rows;
-  
-      for (let row = 0; row < rows; row++) {
-          for (let col = 0; col < cols; col++) {
-             const piece = document.createElement('div');
-              piece.classList.add('image-piece');
-              piece.style.width = `${pieceWidth}px`;
-              piece.style.height = `${pieceHeight}px`;
-              piece.style.backgroundImage = `url(${currentImage.src})`;
-              piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
-              piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
-              piece.style.left = `${col * pieceWidth}px`;
-              piece.style.top = `${row * pieceHeight}px`;
-  
-              const randomX = (Math.random() - 0.5) * 400;
-              const randomY = (Math.random() - 0.5) * 400;
-              const randomRotation = (Math.random() - 0.5) * 360;
-  
-  
-              piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
-              piece.style.opacity = '0';
-             container.appendChild(piece);
-  
-  
-              setTimeout(() => {
-                  piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
-                  piece.style.opacity = '1';
-             }, 50);
-  
-          }
-      }
-  }
-
-function loadImage(index) {
-    const image = new Image();
-    image.src = imageUrls[index];
-    image.onload = () => {
-        imageBox.style.backgroundImage = `url(${image.src})`;
-    };
+// Function to stop the auto-next image feature (if needed)
+function stopAutoNext() 
+{
+    clearInterval(autoNextInterval);
 }
 
-function nextImage() {
-    const currentImage = new Image();
-    currentImage.src = imageUrls[currentIndex];
-    
-    currentIndex = (currentIndex + 1) % imageUrls.length;
-    const nextImage = new Image();
-    nextImage.src = imageUrls[currentIndex];
-    
-    nextImage.onload = () => {
-        createShatterEffect(currentImage, nextImage, imageBox);
-    };
-}
-    
-function prevImage(){
-      const currentImage = new Image();
-       currentImage.src = imageUrls[currentIndex];
-    
-     currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
-     const prevImage = new Image();
-    prevImage.src = imageUrls[currentIndex];
+// Start the auto-next function when the page loads
+startAutoNext();
 
+// Optionally, stop the auto-next feature if needed (e.g., when user clicks on a control button)
+document.getElementById('forward').addEventListener('click', () => 
+{ stopAutoNext(); });
 
-     prevImage.onload = () => {
-         createReconstructEffect(currentImage, prevImage, imageBox);
-     };
-}
+document.getElementById('backward').addEventListener('click', () => 
+{ stopAutoNext(); });
 
-document.getElementById('forward').addEventListener('click', nextImage);
-document.getElementById('backward').addEventListener('click', prevImage);
+    document.getElementById('forward').addEventListener('click', nextImage);
+    document.getElementById('backward').addEventListener('click', prevImage);
 
-loadImage(currentIndex);
+    createIndicators();
+    loadImage(currentIndex);
+
 </script>
 
 </body>
