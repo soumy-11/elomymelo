@@ -20,7 +20,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #f4f4f9;
+            background-color: black;
         }
 
         .image-box {
@@ -60,19 +60,19 @@
 
         .control-container .indicator-container {
             display: flex;
-            gap: 5px;
+            gap: 7px;
         }
 
         .control-container .indicator {
             width: 35px;
             height: 35px;
-            border: 3px solid #ddd;
-            background-color: white;
+            border: 4px solid grey;
+            background-color: black;
             border-radius: 33px;
         }
 
         .control-container .indicator.active {
-            background-color: #e59866;
+            background-color: rgba(255,255,255,0.8);
         }
 
         button {
@@ -91,7 +91,7 @@
         }
 
         @media only screen and (max-width: 615px) { .indicator-container { display: none !important; }
-        button { padding: 6px 20px; font-size: 12px; } .image-box {
+        button { padding: 6px 20px; font-size: 6px; } .image-box {
         width: 95vw; margin-bottom: 10px; border-radius: 10px; } }
 
     </style>
