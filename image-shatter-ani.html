@@ -90,8 +90,9 @@
             background-color: #0056b3;
         }
 
-        @media only screen and (max-width: 615px) { 
-        .indicator-container { display: none !important; } }
+        @media only screen and (max-width: 615px) { .indicator-container { display: none !important; }
+        button { padding: 6px 20px; font-size: 6px; } .image-box {
+        width: 95vw; margin-bottom: 10px; border-radius: 10px; } }
 
     </style>
 </head>
@@ -109,16 +110,16 @@
 
     const imageUrls = [
         'https://elomymelo.com/docs-images/x4-vs-x3-main.jpg',
-        'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg',
         'https://elomymelo.com/images/boom-2-vs-x4-main.jpg',
-        'https://elomymelo.com/images/space-one-main.png'
+        'https://elomymelo.com/images/space-one-main.png',
+        'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg'
     ];
 
     const pageUrls = [
         'https://elomymelo.com/jbl-xtreme-4-vs-xtreme-3.html',
-        'https://elomymelo.com/boom-2-vs-motion-boom-plus.html',
         'https://elomymelo.com/boom-2-vs-xtreme-4.html',
-        'https://elomymelo.com/soundcore-space-one-vs-sony-wh-ch720n.html'
+        'https://elomymelo.com/soundcore-space-one-vs-sony-wh-ch720n.html',
+        'https://elomymelo.com/boom-2-vs-motion-boom-plus.html'
     ];
 
     let currentIndex = 0;
@@ -207,7 +208,7 @@
 
                 container.appendChild(piece);
                 const pieceIndex = row * cols + col;
-                const delay = 50 + (pieceIndex / totalPieces) * 200;
+                const delay = 30 + (pieceIndex / totalPieces) * 200;
 
                 setTimeout(() => {
                     piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
@@ -245,7 +246,7 @@
                 const randomY = (Math.random() - 0.5) * 400;
                 const randomRotation = (Math.random() - 0.5) * 360;
 
-                piece.style.transition = 'transform 0.5s ease, opacity 0.5s ease';
+                piece.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
                 piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
 
                 piece.style.opacity = '0';
@@ -257,11 +258,6 @@
                     piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
                     piece.style.opacity = '1';
                 }, delay);
-
-                piece.addEventListener('transitionend', () => {
-                piecesRemaining--; if (piecesRemaining === 0) {
-                    container.style.backgroundImage = `url(${prevImage.src})`; container.innerHTML = '';
-                    insertLink(container, pageUrls[currentIndex]); } });
             }
         }
     }
