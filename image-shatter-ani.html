@@ -189,6 +189,10 @@
         const pieceHeight = container.offsetHeight / rows;
         const totalPieces = cols * rows;
 
+        let delayValues = []; // Array to store all delay values
+        let maxDelay = 0;
+        let pieceWithMaxDelay = null; // Variable to track the piece with the maximum delay
+
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 const piece = document.createElement('div');
@@ -209,12 +213,27 @@
                 container.appendChild(piece);
                 const pieceIndex = row * cols + col;
                 const delay = 30 + (pieceIndex / totalPieces) * 200;
+                delayValues.push(delay); // Store the delay value
+
+                // Update maxDelay and pieceWithMaxDelay
+                if (delay > maxDelay) {
+                    maxDelay = delay;
+                    pieceWithMaxDelay = piece;
+                }
 
                 setTimeout(() => {
                     piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
                     piece.style.opacity = '0';
                 }, delay);
             }
+        }
+
+        // Add transitionend event listener to the piece with the maximum delay
+        if (pieceWithMaxDelay) {
+            pieceWithMaxDelay.addEventListener('transitionend', () => {
+                container.innerHTML = '';
+                insertLink(container, pageUrls[currentIndex]);
+            });
         }
     }
 
@@ -229,7 +248,10 @@
         const pieceHeight = container.offsetHeight / rows;
         const totalPieces = cols * rows;
 
-        let piecesRemaining = totalPieces;
+        let delayValues = []; // Array to store all delay values
+        let maxDelay = 0;
+        let pieceWithMaxDelay = null; // Variable to track the piece with the maximum delay
+
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 const piece = document.createElement('div');
@@ -248,17 +270,33 @@
 
                 piece.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
                 piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
-
                 piece.style.opacity = '0';
                 container.appendChild(piece);
+
                 const pieceIndex = row * cols + col;
                 const delay = 15 + (pieceIndex / totalPieces) * 200;
+                delayValues.push(delay); // Store the delay value
+
+                // Update maxDelay and pieceWithMaxDelay
+                if (delay > maxDelay) {
+                    maxDelay = delay;
+                    pieceWithMaxDelay = piece;
+                }
 
                 setTimeout(() => {
                     piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
                     piece.style.opacity = '1';
                 }, delay);
             }
+        }
+
+        // Add transitionend event listener to the piece with the maximum delay
+        if (pieceWithMaxDelay) {
+            pieceWithMaxDelay.addEventListener('transitionend', () => {
+                container.style.backgroundImage = `url(${prevImage.src})`;
+                container.innerHTML = '';
+                insertLink(container, pageUrls[currentIndex]);
+            });
         }
     }
 
