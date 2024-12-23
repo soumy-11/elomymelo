@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,7 +92,7 @@
         }
 
         @media only screen and (max-width: 615px) { .indicator-container { display: none !important; }
-        button { padding: 6px 20px; font-size: 6px; } .image-box {
+        button { padding: 6px 20px; font-size: 10px; } .image-box {
         width: 95vw; margin-bottom: 10px; border-radius: 10px; } }
 
     </style>
@@ -108,14 +109,17 @@
 
 <script>
 
-    const imageUrls = [
+    // array of urls here 
+    const imageUrls = 
+    [
         'https://elomymelo.com/docs-images/x4-vs-x3-main.jpg',
         'https://elomymelo.com/docs-images/boom-2-vs-boom-plus-main.jpg',
         'https://elomymelo.com/images/boom-2-vs-x4-main.jpg',
         'https://elomymelo.com/images/space-one-main.png'
     ];
 
-    const pageUrls = [
+    const pageUrls = 
+    [
         'https://elomymelo.com/jbl-xtreme-4-vs-xtreme-3.html',
         'https://elomymelo.com/boom-2-vs-motion-boom-plus.html',
         'https://elomymelo.com/boom-2-vs-xtreme-4.html',
@@ -129,14 +133,11 @@
     let indicators = [];
 
     function loadImage(index) {
-    // Load images only once when the page is loaded
-    if (preloadedImages.length === 0) {
-        imageUrls.forEach(url => {
-            const img = new Image();
-            img.fetchPriority = 'high';
-            img.src = url;
-            preloadedImages.push(img);
-        });
+    if (preloadedImages.length === 0) 
+    {
+        imageUrls.forEach(url => { const img = new Image();
+        img.fetchPriority = 'high'; img.src = url;
+        preloadedImages.push(img); });
     }
         const image = preloadedImages[index];
         imageBox.style.backgroundImage = `url(${image.src})`;
@@ -172,15 +173,14 @@
     }
 
     function insertLink(container, url) {
-        const link = document.createElement('a');
-        link.href = url;
+        const link = document.createElement('a'); link.href = url;
         link.classList.add('image-link');
         container.appendChild(link);
     }
 
-    function createShatterEffect(currentImage, nextImage, container) {
+    function createShatterEffect(currentImage, nextImage, container) 
+    {
         container.innerHTML = '';
-        container.style.backgroundImage = `url(${nextImage.src})`;
         insertLink(container, pageUrls[currentIndex]);
 
         const cols = 4;
@@ -189,55 +189,52 @@
         const pieceHeight = container.offsetHeight / rows;
         const totalPieces = cols * rows;
 
-        let delayValues = []; // Array to store all delay values
-        let maxDelay = 0;
-        let pieceWithMaxDelay = null; // Variable to track the piece with the maximum delay
+        let delayValues = [];
+        let maxDelay = 0; let pieceWithMaxDelay = null;
 
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                const piece = document.createElement('div');
-                piece.classList.add('image-piece');
-                piece.style.width = `${pieceWidth}px`;
-                piece.style.height = `${pieceHeight}px`;
-                piece.style.backgroundImage = `url(${currentImage.src})`;
-                piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
-                piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
-                piece.style.left = `${col * pieceWidth}px`;
-                piece.style.top = `${row * pieceHeight}px`;
+        for (let i = 0; i < totalPieces; i++) 
+        {
+            const piece = document.createElement('div');
+            piece.classList.add('image-piece');
+            const row = Math.floor(i / cols);
+            const col = i % cols;
 
-                const randomX = (Math.random() - 0.5) * 400;
-                const randomY = (Math.random() - 0.5) * 400;
-                const randomRotation = (Math.random() - 0.5) * 360;
-                piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
+            piece.style.width = `${pieceWidth}px`;
+            piece.style.height = `${pieceHeight}px`;
+            piece.style.backgroundImage = `url(${currentImage.src})`;
+            piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
+            piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+            piece.style.left = `${col * pieceWidth}px`;
+            piece.style.top = `${row * pieceHeight}px`;
 
-                container.appendChild(piece);
-                const pieceIndex = row * cols + col;
-                const delay = 30 + (pieceIndex / totalPieces) * 200;
-                delayValues.push(delay); // Store the delay value
+            const randomX = (Math.random() - 0.5) * 400;
+            const randomY = (Math.random() - 0.5) * 400;
+            const randomRotation = (Math.random() - 0.5) * 360;
+            piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
 
-                // Update maxDelay and pieceWithMaxDelay
-                if (delay > maxDelay) {
-                    maxDelay = delay;
-                    pieceWithMaxDelay = piece;
-                }
+            container.appendChild(piece);
+            const delay = 30 + (i / totalPieces) * 200;
+            delayValues.push(delay); // Store the delay value
 
-                setTimeout(() => {
-                    piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
-                    piece.style.opacity = '0';
-                }, delay);
+            // Update maxDelay and pieceWithMaxDelay
+            if (delay > maxDelay) {
+                maxDelay = delay;
+                pieceWithMaxDelay = piece;
             }
+
+            setTimeout(() => {
+                piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
+                piece.style.opacity = '0';
+            }, delay);
         }
 
-        // Add transitionend event listener to the piece with the maximum delay
-        if (pieceWithMaxDelay) {
-            pieceWithMaxDelay.addEventListener('transitionend', () => {
-                container.innerHTML = '';
-                insertLink(container, pageUrls[currentIndex]);
-            });
-        }
+        container.style.backgroundImage = `url(${nextImage.src})`;
+        if (pieceWithMaxDelay) { pieceWithMaxDelay.addEventListener('transitionend', () => {
+        container.innerHTML = ''; insertLink(container, pageUrls[currentIndex]); }); }
     }
 
-    function createReconstructEffect(prevImage, currentImage, container) {
+    function createReconstructEffect(prevImage, currentImage, container) 
+    {
         container.innerHTML = '';
         insertLink(container, pageUrls[currentIndex]);
         container.style.backgroundImage = `url(${currentImage.src})`;
@@ -248,55 +245,53 @@
         const pieceHeight = container.offsetHeight / rows;
         const totalPieces = cols * rows;
 
-        let delayValues = []; // Array to store all delay values
-        let maxDelay = 0;
-        let pieceWithMaxDelay = null; // Variable to track the piece with the maximum delay
+        let delayValues = [];
+        let maxDelay = 0; let pieceWithMaxDelay = null;
 
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                const piece = document.createElement('div');
-                piece.classList.add('image-piece');
-                piece.style.width = `${pieceWidth}px`;
-                piece.style.height = `${pieceHeight}px`;
-                piece.style.backgroundImage = `url(${prevImage.src})`;
-                piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
-                piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
-                piece.style.left = `${col * pieceWidth}px`;
-                piece.style.top = `${row * pieceHeight}px`;
+        for (let i = 0; i < totalPieces; i++) 
+        {
+            const piece = document.createElement('div');
+            piece.classList.add('image-piece');
+            const row = Math.floor(i / cols);
+            const col = i % cols;
 
-                const randomX = (Math.random() - 0.5) * 400;
-                const randomY = (Math.random() - 0.5) * 400;
-                const randomRotation = (Math.random() - 0.5) * 360;
+            piece.style.width = `${pieceWidth}px`;
+            piece.style.height = `${pieceHeight}px`;
+            piece.style.backgroundImage = `url(${prevImage.src})`;
+            piece.style.backgroundSize = `${container.offsetWidth}px ${container.offsetHeight}px`;
+            piece.style.backgroundPosition = `-${col * pieceWidth}px -${row * pieceHeight}px`;
+            piece.style.left = `${col * pieceWidth}px`;
+            piece.style.top = `${row * pieceHeight}px`;
 
-                piece.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
-                piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
-                piece.style.opacity = '0';
-                container.appendChild(piece);
+            const randomX = (Math.random() - 0.5) * 400;
+            const randomY = (Math.random() - 0.5) * 400;
+            const randomRotation = (Math.random() - 0.5) * 360;
 
-                const pieceIndex = row * cols + col;
-                const delay = 15 + (pieceIndex / totalPieces) * 200;
-                delayValues.push(delay); // Store the delay value
+            piece.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+            piece.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg) scale(0)`;
+            piece.style.opacity = '0';
+            container.appendChild(piece);
 
-                // Update maxDelay and pieceWithMaxDelay
-                if (delay > maxDelay) {
-                    maxDelay = delay;
-                    pieceWithMaxDelay = piece;
-                }
+            const delay = 15 + (i / totalPieces) * 200;
+            delayValues.push(delay);
 
-                setTimeout(() => {
-                    piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
-                    piece.style.opacity = '1';
-                }, delay);
+            if (delay > maxDelay) { 
+                maxDelay = delay; 
+                pieceWithMaxDelay = piece; 
             }
+
+            setTimeout(() => {
+                piece.style.transform = `translate(0, 0) rotate(0deg) scale(1)`;
+                piece.style.opacity = '1'; 
+            }, delay);
         }
 
-        // Add transitionend event listener to the piece with the maximum delay
-        if (pieceWithMaxDelay) {
+        // listener to the piece with max delay
+        if (pieceWithMaxDelay) 
+        {
             pieceWithMaxDelay.addEventListener('transitionend', () => {
-                container.style.backgroundImage = `url(${prevImage.src})`;
-                container.innerHTML = '';
-                insertLink(container, pageUrls[currentIndex]);
-            });
+            container.style.backgroundImage = `url(${prevImage.src})`; container.innerHTML = '';
+            insertLink(container, pageUrls[currentIndex]); });
         }
     }
 
@@ -313,8 +308,7 @@
 
     function updateIndicators() {
         indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
-        });
+        indicator.classList.toggle('active', index === currentIndex); });
     }
 
     let autoNextInterval;
@@ -325,15 +319,13 @@
         let lastSelectedIndex = null;
 
         autoNextInterval = setInterval(() => {
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * animationFunctions.length);
-            } while (randomIndex === lastSelectedIndex);
+        let randomIndex; do {
+        randomIndex = Math.floor(Math.random() * animationFunctions.length); } 
+        while (randomIndex === lastSelectedIndex);
 
-            lastSelectedIndex = randomIndex;
-            const selectedFunction = animationFunctions[randomIndex];
-            selectedFunction();
-        }, 5000);
+        lastSelectedIndex = randomIndex;
+        const selectedFunction = animationFunctions[randomIndex];
+        selectedFunction(); }, 5000);
     }
 
     function stopAutoNext() {
@@ -343,25 +335,17 @@
 
     function restartAutoNext() {
         resetTimeout = setTimeout(() => {
-            startAutoNext();
-        }, 500);
+        startAutoNext(); }, 500);
     }
     startAutoNext();
 
     document.getElementById('forward').addEventListener('click', () => {
-        stopAutoNext();
-        restartAutoNext();
-    });
+    nextImage(); stopAutoNext(); restartAutoNext(); });
 
     document.getElementById('backward').addEventListener('click', () => {
-        stopAutoNext();
-        restartAutoNext();
-    });
+    prevImage(); stopAutoNext(); restartAutoNext(); });
 
-    document.getElementById('forward').addEventListener('click', nextImage);
-    document.getElementById('backward').addEventListener('click', prevImage);
-
-    createIndicators();
+    createIndicators(); // before loadImage 
     loadImage(currentIndex);
 
 </script>
