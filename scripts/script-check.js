@@ -271,53 +271,67 @@ function updateLogo()
 }   
 updateLogo(); 
 
-function detectCharacter() 
+function insertAndMeasureSpan(paraTag) 
+{
+    const spanElement = document.createElement('span');
+    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '68px';
+    spanElement.style.letterSpacing = '10px'; paraTag.appendChild(spanElement);
+
+    const spanRect = spanElement.getBoundingClientRect();
+    const leftCoordinate = spanRect.left + window.pageXOffset; const spanWidth = spanRect.width;
+    paraTag.removeChild(spanElement); // Clean up after measurement
+    return { leftCoordinate, spanWidth };
+}
+
+// Function to handle the first condition (leftCoordinate < comparewidth)
+function handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner) 
+{
+    const calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier;
+    const spanElement = document.createElement('span'); spanElement.setAttribute('class', 'last-extend');
+    const charNum = Math.floor(calwidth / (spanWidth * multiplier));
+
+    spanElement.style.width = calwidth + 'px'; spanElement.style.display = 'inline-block';
+    spanElement.innerHTML = '\\'.repeat(charNum); paraTag.appendChild(spanElement);
+}
+
+function handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner) 
+{
+    const calwidth = comparewidth * multiplier;
+    const spanElement = document.createElement('span'); spanElement.setAttribute('class', 'last-extend');
+    const charNum = Math.floor(calwidth / (spanWidth * multiplier));
+
+    spanElement.style.width = calwidth + 'px'; spanElement.style.display = 'inline-block';
+    spanElement.innerHTML = '\\'.repeat(charNum); spanElement.style.marginLeft = "0px";
+    paraTag.appendChild(spanElement);
+}
+
+// Main function to detect and handle characters
+function detectCharacter(specificParaTag = null) 
 {
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
         const divElement = document.getElementById("article-text-div");
-        const pTags = divElement.querySelectorAll("p");
-        console.log("inside-detect-char"); 
+        const pTags = specificParaTag ? [specificParaTag] : divElement.querySelectorAll("p"); // Use specific `paraTag` if provided
 
-        // Loop through all the p tags and change span element's style using forEach method
+        console.log("inside-detect-char");
         pTags.forEach((paraTag) => {
+            const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
+            const widthinner = window.innerWidth;
+            const multiplier = 2358 / widthinner;
+            const comparewidth = widthinner / 2;
+            const comparewidthtwo = widthinner - widthinner * 0.278;
 
-        // var lastCharacter = paraTag.textContent.trim().slice(-1);
-        var spanElement = document.createElement('span');
-        paraTag.appendChild(spanElement);
-
-        var spanRect = spanElement.getBoundingClientRect();
-        var leftCoordinate = spanRect.left + window.pageXOffset;
-        paraTag.removeChild(spanElement);
-
-        widthinner = window.innerWidth;
-        multiplier = 2358/widthinner;
-        comparewidth = widthinner/2;
-        comparewidthtwo = widthinner - (widthinner * 0.278); 
-
-        if(leftCoordinate < comparewidth)
-        {
-            var calwidth = (comparewidth - leftCoordinate + (widthinner * 0.1)) * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            // change some properties of each span element in loop
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";  
-        }
-        if(leftCoordinate > comparewidthtwo)
-        {
-            var calwidth = comparewidth * multiplier; 
-            var spanElement = document.createElement('span');
-            spanElement.setAttribute("class", "last-extend");
-            paraTag.appendChild(spanElement);
-
-            spanElement.style.width = calwidth + "px";
-            spanElement.style.display = "inline-block";
-            spanElement.style.marginLeft = "0px";
-            
-        } });
+            // Check first condition
+            if (leftCoordinate < comparewidth) 
+            {
+                handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner);
+            }
+            // Handle second condition
+            else if (leftCoordinate > comparewidthtwo) 
+            {
+                handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
+            }
+        });
     }
 }
 
