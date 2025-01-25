@@ -306,32 +306,67 @@ function handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth
 }
 
 // Main function to detect and handle characters
-function detectCharacter(specificParaTag = null) 
+function detectCharacter() 
 {
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
         const divElement = document.getElementById("article-text-div");
-        const pTags = specificParaTag ? [specificParaTag] : divElement.querySelectorAll("p"); // Use specific `paraTag` if provided
+        const pTags = divElement.querySelectorAll("p");
 
         console.log("inside-detect-char");
         pTags.forEach((paraTag) => {
-            const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
-            const widthinner = window.innerWidth;
-            const multiplier = 2358 / widthinner;
-            const comparewidth = widthinner / 2;
-            const comparewidthtwo = widthinner - widthinner * 0.278;
+        const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
+        const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
+        const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
 
-            // Check first condition
-            if (leftCoordinate < comparewidth) 
+        if (leftCoordinate < comparewidth) {
+        handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
+        if (leftCoordinate > comparewidthtwo) 
+        {
+          const words = paraTag.textContent.trim().split(/\s+/);
+          let lastLeftPos; let lastLineTop = null;
+          let highlightIndex = null; let wrappedWordIndices = []; 
+          // console.log("left of span:", leftCoordinate);
+
+          // Iterate backwards from the end of the paragraph
+          for (let i = words.length - 1; i >= 0; i--) 
+          {
+               wrappedWordIndices.push(i); // Store the index of the word to be wrapped
+               paraTag.innerHTML = words.map((word, index) => {
+               if (wrappedWordIndices.includes(index)) {
+               return `<span>${word}</span>`; } else {
+               return word; } }).join(' ');
+
+             // Get the last wrapped span
+             const span = paraTag.querySelector('span:first-child');
+             const rect = span.getBoundingClientRect();
+
+               if (lastLineTop === null) {
+               lastLineTop = rect.top; } else if (rect.top < lastLineTop) {
+               lastLeftPos = rect.right; highlightIndex = i; break; }
+          }
+
+          // Rebuild the paragraph with only the highlighted word wrapped
+          if (highlightIndex !== null) 
+          {
+            paraTag.innerHTML = ''; // Clear the paragraph
+            for (let i = 0; i < words.length; i++) 
             {
-                handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner);
+               if (i === highlightIndex) {
+               paraTag.innerHTML += `<span class="highlight">${words[i]}</span>`;
+               const span = paraTag.querySelector('span.highlight');
+               const rect = span.getBoundingClientRect(); // console.log("right of span:", rect.right);
+               if (i + 1 < words.length) { words[i + 1] = ' ' + words[i + 1]; } } else { 
+               paraTag.innerHTML += words[i] + (i === words.length - 1 ? '' : ' '); }
             }
-            // Handle second condition
-            else if (leftCoordinate > comparewidthtwo) 
-            {
-                handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
-            }
-        });
+          }
+
+          if ((lastLeftPos - leftCoordinate) < 42) 
+          {
+              handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
+          }
+          if ((lastLeftPos - leftCoordinate) > 42) {
+          paraTag.style.hyphens = ""; } } });
     }
 }
 
