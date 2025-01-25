@@ -493,10 +493,13 @@
     .last-extend
     {
         position: relative;
-        height: 50px;
-        border: 0px transparent solid;
-        background: linear-gradient(to right, rgba(112,112,112,1), rgba(112,112,112,0.4));
-        border-radius: 40px;
+        font-size: 68px;
+        background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 10px;
         margin-left: 30px;
         display: none;
     }
