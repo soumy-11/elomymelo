@@ -305,6 +305,17 @@ function handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth
     paraTag.appendChild(spanElement);
 }
 
+function handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner) 
+{
+    const calwidth = ((comparewidth + (widthinner * 0.07)) * multiplier);
+    const spanElement = document.createElement('span'); spanElement.setAttribute('class', 'last-extend');
+    const charNum = Math.floor(calwidth / (spanWidth * multiplier));
+
+    spanElement.style.width = calwidth + 'px'; spanElement.style.display = 'inline-block';
+    spanElement.innerHTML = '\\'.repeat(charNum); spanElement.style.marginLeft = "0px";
+    paraTag.appendChild(spanElement);
+}
+
 // Main function to detect and handle characters
 function detectCharacter() 
 {
@@ -323,10 +334,11 @@ function detectCharacter()
         handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
         if (leftCoordinate > comparewidthtwo) 
         {
+          const originalHTML = paraTag.innerHTML;
           const words = paraTag.textContent.trim().split(/\s+/);
           let lastLeftPos; let lastLineTop = null;
           let highlightIndex = null; let wrappedWordIndices = []; 
-          // console.log("left of span:", leftCoordinate);
+          // console.log("left span ", leftCoordinate);
 
           // Iterate backwards from the end of the paragraph
           for (let i = words.length - 1; i >= 0; i--) 
@@ -343,29 +355,20 @@ function detectCharacter()
 
                if (lastLineTop === null) {
                lastLineTop = rect.top; } else if (rect.top < lastLineTop) {
-               lastLeftPos = rect.right; highlightIndex = i; break; }
+               lastLeftPos = rect.right; console.log("first span ", rect.right);
+               highlightIndex = i; break; }
           }
+          paraTag.innerHTML = originalHTML;
 
-          // Rebuild the paragraph with only the highlighted word wrapped
-          if (highlightIndex !== null) 
+          if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
           {
-            paraTag.innerHTML = ''; // Clear the paragraph
-            for (let i = 0; i < words.length; i++) 
-            {
-               if (i === highlightIndex) {
-               paraTag.innerHTML += `<span class="highlight">${words[i]}</span>`;
-               const span = paraTag.querySelector('span.highlight');
-               const rect = span.getBoundingClientRect(); // console.log("right of span:", rect.right);
-               if (i + 1 < words.length) { words[i + 1] = ' ' + words[i + 1]; } } else { 
-               paraTag.innerHTML += words[i] + (i === words.length - 1 ? '' : ' '); }
-            }
+              handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
           }
-
-          if ((lastLeftPos - leftCoordinate) < 42) 
+          if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
           {
               handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
           }
-          if ((lastLeftPos - leftCoordinate) > 42) {
+          if ((lastLeftPos - leftCoordinate) > (widthinner * 0.08)) {
           paraTag.style.hyphens = ""; } } });
     }
 }
