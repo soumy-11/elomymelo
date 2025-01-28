@@ -1,4 +1,5 @@
 
+let deskT = false;
 let fontload = false;
 console.log("defer-script-check"); 
 function updateAdsAttributes() 
@@ -147,7 +148,6 @@ function updateLogo()
            el.style.transform = "scale(2.45, 2.45)"; });
            document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
     }
-
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
            document.querySelectorAll(".dis-com").forEach(function(el) {
@@ -157,11 +157,11 @@ function updateLogo()
     }
 
     if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); } 
-    if (window.matchMedia("(max-width: 615px)").matches) 
+    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); deskT = false; } 
+    if (window.matchMedia("(max-width: 615px)").matches && !deskT) 
     { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    clearTimeout(window.resized); window.resized = setTimeout(() => { 
-    if(fontload) { detectCharacter(); } console.log("font load"); }, 1700); } 
+    clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
+    { detectCharacter(); } }, 1700); deskT = true; } 
 
     // Array of IDs
     var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
@@ -270,11 +270,12 @@ function updateLogo()
     getMoreAttributes(); 
 }   
 updateLogo(); 
+// Call the function 
 
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '68px';
+    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '62px';
     spanElement.style.letterSpacing = '10px'; paraTag.appendChild(spanElement);
 
     const spanRect = spanElement.getBoundingClientRect();
@@ -316,6 +317,58 @@ function handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth,
     paraTag.appendChild(spanElement);
 }
 
+function processParagraph(paraTag, filteredPTags, sPTags, pv1)
+{
+    const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
+    const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
+    const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
+    // console.log("pv1 value for each of the paragraph is = ", pv1);
+
+    if (leftCoordinate < (comparewidth - (widthinner * 0.20))) {
+    handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
+    if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
+    {
+      const originalHTML = paraTag.innerHTML;
+      const words = paraTag.textContent.trim().split(/\s+/);
+      let lastLeftPos; let lastLineTop = null; let highlightIndex = null; 
+      let wrappedWordIndices = []; // store indices 
+
+      // Iterate backwards from the end of the paragraph
+      for (let i = words.length - 1; i >= 0; i--) 
+      {
+           wrappedWordIndices.push(i); // Store the index of the word to be wrapped
+           paraTag.innerHTML = words.map((word, index) => {
+           if (wrappedWordIndices.includes(index)) {
+           return `<span>${word}</span>`; } else {
+           return word; } }).join(' ');
+
+         // Get the last wrapped span
+         const span = paraTag.querySelector('span:first-child');
+         const rect = span.getBoundingClientRect();
+
+           if (lastLineTop === null) {
+           lastLineTop = rect.top; } else if (rect.top < lastLineTop) {
+           lastLeftPos = rect.right; console.log("first span ", rect.right);
+           highlightIndex = i; break; }
+      }
+      paraTag.innerHTML = originalHTML;
+
+      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
+      {
+          if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+          filteredPTags.push(paraTag); paraTag.style.hyphens = "auto";
+      }
+      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
+      {
+          handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
+      }
+      if ((lastLeftPos - leftCoordinate) > (widthinner * 0.08)) 
+      {
+          sPTags.push(paraTag); paraTag.style.hyphens = "auto";
+      }
+    }
+}
+
 // Main function to detect and handle characters
 function detectCharacter() 
 {
@@ -323,61 +376,21 @@ function detectCharacter()
     {
         const divElement = document.getElementById("article-text-div");
         const pTags = divElement.querySelectorAll("p");
+        const filteredPTags = []; let pv1 = false;
+        const sPTags = []; // storing PTags 
 
+        // console.log("inside-detect-char");
+        pTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, sPTags, pv1)); pv1 = true;
+        filteredPTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, sPTags, pv1));
+        sPTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, sPTags, pv1));
         console.log("inside-detect-char");
-        pTags.forEach((paraTag) => {
-        const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
-        const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
-        const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
-
-        if (leftCoordinate < (comparewidth - (widthinner * 0.20))) {
-        handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
-        if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
-        {
-          const originalHTML = paraTag.innerHTML;
-          const words = paraTag.textContent.trim().split(/\s+/);
-          let lastLeftPos; let lastLineTop = null;
-          let highlightIndex = null; let wrappedWordIndices = []; 
-          // console.log("left span ", leftCoordinate);
-
-          // Iterate backwards from the end of the paragraph
-          for (let i = words.length - 1; i >= 0; i--) 
-          {
-               wrappedWordIndices.push(i); // Store the index of the word to be wrapped
-               paraTag.innerHTML = words.map((word, index) => {
-               if (wrappedWordIndices.includes(index)) {
-               return `<span>${word}</span>`; } else {
-               return word; } }).join(' ');
-
-             // Get the last wrapped span
-             const span = paraTag.querySelector('span:first-child');
-             const rect = span.getBoundingClientRect();
-
-               if (lastLineTop === null) {
-               lastLineTop = rect.top; } else if (rect.top < lastLineTop) {
-               lastLeftPos = rect.right; console.log("first span ", rect.right);
-               highlightIndex = i; break; }
-          }
-          paraTag.innerHTML = originalHTML;
-
-          if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
-          {
-              handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
-          }
-          if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
-          {
-              handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
-          }
-          if (paraTag.id === "thoughts-para") {
-          const lastExtendSpan = paraTag.querySelector("span.last-extend"); if (lastExtendSpan) {
-          lastExtendSpan.style.fontSize = "60px"; } } } });
     }
 }
 
     document.fonts.load('1em Roboto').then(function() {
     fontload = true; console.log('Roboto font has loaded');
     if (window.matchMedia("(max-width: 615px)").matches) { 
-    setTimeout(detectCharacter, 3700); } }).catch(function(error) {
+    setTimeout(detectCharacter, 150); } }).catch(function(error) {
     console.error('Failed to load Roboto', error); });
 
     function heightcheck() { 
@@ -389,4 +402,3 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
-
