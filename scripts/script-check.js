@@ -275,12 +275,12 @@ updateLogo();
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '65px';
-    spanElement.style.letterSpacing = '10px'; paraTag.appendChild(spanElement);
+    paraTag.appendChild(spanElement); const spanRect = spanElement.getBoundingClientRect();
+    const leftCoordinate = spanRect.left + window.pageXOffset; spanElement.innerHTML = '\\';
+    spanElement.style.fontSize = '62px'; spanElement.style.letterSpacing = '10px';
 
-    const spanRect = spanElement.getBoundingClientRect();
-    const leftCoordinate = spanRect.left + window.pageXOffset; const spanWidth = spanRect.width;
-    paraTag.removeChild(spanElement); // Clean up after measurement
+    const spanRect2 = spanElement.getBoundingClientRect();
+    const spanWidth = spanRect2.width; paraTag.removeChild(spanElement);
     return { leftCoordinate, spanWidth };
 }
 
@@ -348,7 +348,7 @@ function processParagraph(paraTag, filteredPTags, pv1)
 
            if (lastLineTop === null) {
            lastLineTop = rect.top; } else if (rect.top < lastLineTop) {
-           lastLeftPos = rect.right; console.log("first span ", rect.right);
+           lastLeftPos = rect.right; // console.log("first span ", rect.right);
            highlightIndex = i; break; }
       }
       paraTag.innerHTML = originalHTML;
@@ -380,7 +380,7 @@ function detectCharacter()
     document.fonts.load('1em Roboto').then(function() {
     fontload = true; console.log('Roboto font has loaded');
     if (window.matchMedia("(max-width: 615px)").matches) { 
-    setTimeout(detectCharacter, 150); } }).catch(function(error) {
+    setTimeout(detectCharacter, 200); } }).catch(function(error) {
     console.error('Failed to load Roboto', error); });
 
     function heightcheck() { 
