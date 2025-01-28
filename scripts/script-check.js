@@ -324,7 +324,7 @@ function processParagraph(paraTag, filteredPTags, sPTags, pv1)
     const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
     // console.log("pv1 value for each of the paragraph is = ", pv1);
 
-    if (leftCoordinate < (comparewidth - (widthinner * 0.20))) {
+    if (leftCoordinate < comparewidth) {
     handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
     if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
     {
