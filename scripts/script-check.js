@@ -275,11 +275,12 @@ updateLogo();
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    paraTag.appendChild(spanElement); const spanRect = spanElement.getBoundingClientRect();
-    const leftCoordinate = spanRect.left + window.pageXOffset; spanElement.innerHTML = '\\';
-    spanElement.style.fontSize = '62px'; spanElement.style.letterSpacing = '10px';
+    paraTag.appendChild(spanElement);
 
-    const spanRect2 = spanElement.getBoundingClientRect();
+    const spanRect = spanElement.getBoundingClientRect();
+    const leftCoordinate = spanRect.left + window.pageXOffset;
+    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '62px';
+    spanElement.style.letterSpacing = '10px'; const spanRect2 = spanElement.getBoundingClientRect();
     const spanWidth = spanRect2.width; paraTag.removeChild(spanElement);
     return { leftCoordinate, spanWidth };
 }
@@ -317,12 +318,13 @@ function handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth,
     paraTag.appendChild(spanElement);
 }
 
-function processParagraph(paraTag, filteredPTags, pv1)
+function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, sPTags, pv1, pv2)
 {
     const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
     const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
     const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
     // console.log("pv1 value for each of the paragraph is = ", pv1);
+    console.log("leftCoordinate ", leftCoordinate);
 
     if (leftCoordinate < (comparewidth - (widthinner * 0.07))) {
     handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
@@ -353,11 +355,23 @@ function processParagraph(paraTag, filteredPTags, pv1)
       }
       paraTag.innerHTML = originalHTML;
 
-      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) {
-      handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) {
-      if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-      filteredPTags.push(paraTag); paraTag.style.hyphens = "auto"; }
+      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
+      {
+          if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+          filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); if (!pv1) { paraTag.style.hyphens = "auto"; }
+          if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) 
+          { paraTag.style.hyphens = ""; }
+      }
+      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
+      {
+          handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
+      }
+      if ((lastLeftPos - leftCoordinate) > (widthinner * 0.08)) 
+      {
+          sPTags.push(paraTag); sLCoordinates.push(leftCoordinate);
+          if (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.hyphens = ""; }
+          if (!pv2) { paraTag.style.hyphens = "auto"; }
+      }
     }
 }
 
@@ -368,12 +382,15 @@ function detectCharacter()
     {
         const divElement = document.getElementById("article-text-div");
         const pTags = divElement.querySelectorAll("p");
-        const filteredPTags = []; let pv1 = false;
+        const filteredPTags = []; const fLCoordinates = [];
+        const sLCoordinates = []; const sPTags = []; 
+        let pv1 = false; let pv2 = false;
 
         // console.log("inside-detect-char");
-        pTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, pv1)); pv1 = true;
-        filteredPTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, pv1));
-        console.log("inside-detect-char");
+        pTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, sPTags, pv1, pv2)); pv1 = true;
+        filteredPTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, sPTags, pv1, pv2)); pv2 = true;
+        sPTags.forEach((paraTag) => processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, sPTags, pv1, pv2));
+        console.log("inside-detect-character");
     }
 }
 
