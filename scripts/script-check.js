@@ -324,7 +324,7 @@ function processParagraph(paraTag, filteredPTags, pv1)
     const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
     // console.log("pv1 value for each of the paragraph is = ", pv1);
 
-    if (leftCoordinate < (comparewidth - (widthinner * 0.20))) {
+    if (leftCoordinate < (comparewidth - (widthinner * 0.07))) {
     handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
     if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
     {
@@ -353,13 +353,11 @@ function processParagraph(paraTag, filteredPTags, pv1)
       }
       paraTag.innerHTML = originalHTML;
 
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
-      {
-          if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          filteredPTags.push(paraTag); paraTag.style.hyphens = "auto";
-      }
       if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) {
       handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) {
+      if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+      filteredPTags.push(paraTag); paraTag.style.hyphens = "auto"; }
     }
 }
 
