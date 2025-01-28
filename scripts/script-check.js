@@ -275,7 +275,7 @@ updateLogo();
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '62px';
+    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '65px';
     spanElement.style.letterSpacing = '10px'; paraTag.appendChild(spanElement);
 
     const spanRect = spanElement.getBoundingClientRect();
