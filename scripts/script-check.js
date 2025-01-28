@@ -330,9 +330,9 @@ function detectCharacter()
         const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
         const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
 
-        if (leftCoordinate < comparewidth) {
+        if (leftCoordinate < (comparewidth - (widthinner * 0.20))) {
         handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
-        if (leftCoordinate > comparewidthtwo) 
+        if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
         {
           const originalHTML = paraTag.innerHTML;
           const words = paraTag.textContent.trim().split(/\s+/);
@@ -368,8 +368,9 @@ function detectCharacter()
           {
               handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
           }
-          if ((lastLeftPos - leftCoordinate) > (widthinner * 0.08)) {
-          paraTag.style.hyphens = ""; } } });
+          if (paraTag.id === "thoughts-para") {
+          const lastExtendSpan = paraTag.querySelector("span.last-extend"); if (lastExtendSpan) {
+          lastExtendSpan.style.fontSize = "60px"; } } } });
     }
 }
 
