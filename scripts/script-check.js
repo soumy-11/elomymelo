@@ -364,7 +364,9 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
           if (!pv1) { paraTag.style.hyphens = "auto"; }
       }
       if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && (lastLeftPos - leftCoordinate) > 0) {
-      handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+      handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
+      if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend"); 
+      if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } }
       if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) && (lastLeftPos - leftCoordinate) > 0) {
       handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
       if ((lastLeftPos - leftCoordinate) < 0 && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))))
