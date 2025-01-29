@@ -367,14 +367,11 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
       if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend"); 
       if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } } // span tag font-size modify
-      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) && (lastLeftPos - leftCoordinate) > 0) {
-      handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-      if ((lastLeftPos - leftCoordinate) < 0 && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))))
+      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.12) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
       {
-          sPTags.push(paraTag); sLCoordinates.push(leftCoordinate);
-          if (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.hyphens = "";
+          sPTags.push(paraTag); sLCoordinates.push(leftCoordinate); if (pv2) {
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv2) { paraTag.style.hyphens = "auto"; }
+          if (!pv2) { paraTag.style.width = "96%"; }
       }
     }
 }
