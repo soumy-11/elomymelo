@@ -275,12 +275,11 @@ updateLogo();
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    paraTag.appendChild(spanElement);
+    paraTag.appendChild(spanElement); const spanRect = spanElement.getBoundingClientRect();
+    const leftCoordinate = spanRect.left + window.pageXOffset; spanElement.innerHTML = '\\';
+    spanElement.style.fontSize = '62px'; spanElement.style.letterSpacing = '10px';
 
-    const spanRect = spanElement.getBoundingClientRect();
-    const leftCoordinate = spanRect.left + window.pageXOffset;
-    spanElement.innerHTML = '\\'; spanElement.style.fontSize = '62px';
-    spanElement.style.letterSpacing = '10px'; const spanRect2 = spanElement.getBoundingClientRect();
+    const spanRect2 = spanElement.getBoundingClientRect();
     const spanWidth = spanRect2.width; paraTag.removeChild(spanElement);
     return { leftCoordinate, spanWidth };
 }
@@ -296,6 +295,7 @@ function handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, 
     spanElement.innerHTML = '\\'.repeat(charNum); paraTag.appendChild(spanElement);
 }
 
+// Function to handle the second condition for paragraph processing scenarios 
 function handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner) 
 {
     const calwidth = comparewidth * multiplier;
@@ -307,6 +307,7 @@ function handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth
     paraTag.appendChild(spanElement);
 }
 
+// Function to handle the third additional condition for paragraph processing case 
 function handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner) 
 {
     const calwidth = ((comparewidth + (widthinner * 0.07)) * multiplier);
@@ -318,17 +319,23 @@ function handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth,
     paraTag.appendChild(spanElement);
 }
 
+// Function to parse words in paragraphs in article section 
 function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, sPTags, pv1, pv2)
 {
     const { leftCoordinate, spanWidth } = insertAndMeasureSpan(paraTag);
     const widthinner = window.innerWidth; const multiplier = 2358 / widthinner;
     const comparewidth = widthinner / 2; const comparewidthtwo = widthinner - widthinner * 0.278;
     // console.log("pv1 value for each of the paragraph is = ", pv1);
-    console.log("leftCoordinate ", leftCoordinate);
 
     if (leftCoordinate < (comparewidth - (widthinner * 0.07))) {
     handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
-    if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
+    if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) {
+    if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+    filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); if (!pv1) { paraTag.style.hyphens = "auto"; }
+    if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.hyphens = ""; } }
+
+    if (!(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) && 
+    leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
     {
       const originalHTML = paraTag.innerHTML;
       const words = paraTag.textContent.trim().split(/\s+/);
@@ -355,18 +362,9 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       }
       paraTag.innerHTML = originalHTML;
 
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
-      {
-          if (pv1) { handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); if (!pv1) { paraTag.style.hyphens = "auto"; }
-          if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) 
-          { paraTag.style.hyphens = ""; }
-      }
-      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
-      {
-          handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
-      }
-      if ((lastLeftPos - leftCoordinate) > (widthinner * 0.08)) 
+      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.08) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) && (lastLeftPos - leftCoordinate) > 0) {
+      handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+      if ((lastLeftPos - leftCoordinate) < 0 && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))))
       {
           sPTags.push(paraTag); sLCoordinates.push(leftCoordinate);
           if (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.hyphens = ""; }
