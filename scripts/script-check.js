@@ -364,7 +364,8 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
           handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
           if ((pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) || (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate)) { paraTag.style.paddingRight = ""; paraTag.classList.remove('mod-para');
           handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv1) { paraTag.style.paddingRight = "64px"; paraTag.setAttribute('class', 'mod-para'); }
+          if (!pv1) { paraTag.style.paddingRight = "64px"; if (paraTag.id !== "thoughts-para") {
+          paraTag.setAttribute('class', 'mod-para'); } }
       }
       if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && 
       paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) > 0) {
@@ -379,7 +380,8 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
           if ((pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) || (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate)) { paraTag.style.paddingRight = ""; paraTag.classList.remove('mod-para');
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv1) { paraTag.style.paddingRight = "88px"; paraTag.setAttribute('class', 'mod-para'); }
+          if (!pv1) { paraTag.style.paddingRight = "88px"; if (paraTag.id !== "thoughts-para") {
+          paraTag.setAttribute('class', 'mod-para'); } }
       }
     }
 }
