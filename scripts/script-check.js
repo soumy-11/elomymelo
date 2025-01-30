@@ -356,22 +356,30 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       }
       paraTag.innerHTML = originalHTML;
 
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && (lastLeftPos - leftCoordinate) < 0)
+      if (paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) < 0 && 
+      leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
       {
-          filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate);
-          if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.hyphens = "";
+          if (!pv1) { filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); }
+          if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] !== leftCoordinate) {
           handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv1) { paraTag.style.hyphens = "auto"; }
+          if (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.width = ""; paraTag.classList.remove('mod-para');
+          handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+          if (!pv1) { paraTag.style.width = "97%"; paraTag.setAttribute('class', 'mod-para'); }
       }
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && (lastLeftPos - leftCoordinate) > 0) {
+      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && 
+      paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) > 0) {
       handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
       if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend"); 
       if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } } // span tag font-size modify
-      if ((lastLeftPos - leftCoordinate) < (widthinner * 0.12) && !(leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))) 
+      if (paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) < (widthinner * 0.12) && 
+      leftCoordinate < ((widthinner * 0.95) - (widthinner * 0.08))) 
       {
-          sPTags.push(paraTag); sLCoordinates.push(leftCoordinate); if (pv2) {
+          if (!pv1) { sPTags.push(paraTag); sLCoordinates.push(leftCoordinate); }
+          if (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] !== leftCoordinate) {
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv2) { paraTag.style.width = "96%"; }
+          if (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) { paraTag.style.width = ""; paraTag.classList.remove('mod-para');
+          handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
+          if (!pv2) { paraTag.style.width = "96%"; paraTag.setAttribute('class', 'mod-para'); }
       }
     }
 }
