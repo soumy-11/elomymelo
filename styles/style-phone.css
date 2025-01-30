@@ -454,7 +454,7 @@
         border-radius: 50px; padding: 10px; 
         background: linear-gradient(to left, rgba(146,155,212,0.5) 10%, transparent 20%); 
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
-        -webkit-mask-composite: xor; width: 103%; 
+        -webkit-mask-composite: xor; width: 98.5%; 
         margin-top: -65px; margin-bottom: 55px; 
         mask-composite: exclude;
         z-index: -10;
