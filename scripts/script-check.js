@@ -328,7 +328,9 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
     // console.log("pv1 value for each of the paragraph is = ", pv1);
 
     if (leftCoordinate < (comparewidth - (widthinner * 0.07))) {
-    handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner); }
+    handleFirstCondition(paraTag, leftCoordinate, spanWidth, comparewidth, multiplier, widthinner);
+    if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend");
+    if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } }
     if (leftCoordinate > (comparewidthtwo + (widthinner * 0.06))) 
     {
       const originalHTML = paraTag.innerHTML;
@@ -356,7 +358,7 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       }
       paraTag.innerHTML = originalHTML;
 
-      if (paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) < 0 && 
+      if ((lastLeftPos - leftCoordinate) < 0 && 
       leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
       {
           if (!pv1) { filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); }
@@ -364,23 +366,22 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
           handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
           if ((pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate) || (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate)) { paraTag.style.paddingRight = ""; paraTag.classList.remove('mod-para');
           handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv1) { paraTag.style.paddingRight = "64px"; if (paraTag.id !== "thoughts-para") {
+          if (!pv1) { paraTag.style.paddingRight = "68px"; if (paraTag.id !== "thoughts-para" && paraTag.id !== "intro-para") {
           paraTag.setAttribute('class', 'mod-para'); } }
       }
-      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && 
-      paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) > 0) {
+      if (leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)) && (lastLeftPos - leftCoordinate) > 0) {
       handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
       if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend"); 
       if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } } // span tag font-size modify
-      if (paraTag.id !== "intro-para" && (lastLeftPos - leftCoordinate) < (widthinner * 0.12) && 
-      leftCoordinate < ((widthinner * 0.95) - (widthinner * 0.08))) 
+      if (leftCoordinate < ((widthinner * 0.95) - (widthinner * 0.08)) &&
+      (lastLeftPos - leftCoordinate) < (widthinner * 0.12)) 
       {
           if (!pv1) { sPTags.push(paraTag); sLCoordinates.push(leftCoordinate); }
           if ((pv2 && sLCoordinates[sPTags.indexOf(paraTag)] !== leftCoordinate) || (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] !== undefined)) {
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
           if ((pv2 && sLCoordinates[sPTags.indexOf(paraTag)] === leftCoordinate) || (pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] === leftCoordinate)) { paraTag.style.paddingRight = ""; paraTag.classList.remove('mod-para');
           handleSecondCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner); }
-          if (!pv1) { paraTag.style.paddingRight = "88px"; if (paraTag.id !== "thoughts-para") {
+          if (!pv1) { paraTag.style.paddingRight = "88px"; if (paraTag.id !== "thoughts-para" && paraTag.id !== "intro-para") {
           paraTag.setAttribute('class', 'mod-para'); } }
       }
     }
