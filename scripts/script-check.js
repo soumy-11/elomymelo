@@ -92,7 +92,7 @@ function updateAdsAttributes()
                     fids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; } 
-                    if(idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white, rgba(112,112,112,0.3), rgba(112,112,112,0.3), rgba(112,112,112,0.3))"; } 
+                    if(idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white 20%, #8080808a 50%)"; } 
                     if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
 
                     dids.forEach(function(id) { 
