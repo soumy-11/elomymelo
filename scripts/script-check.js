@@ -359,7 +359,7 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       paraTag.innerHTML = originalHTML;
 
       if ((lastLeftPos - leftCoordinate) < 0 && 
-      leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08)))
+      leftCoordinate > ((widthinner * 0.95) - (widthinner * 0.08))) 
       {
           if (!pv1) { filteredPTags.push(paraTag); fLCoordinates.push(leftCoordinate); }
           if ((pv1 && fLCoordinates[filteredPTags.indexOf(paraTag)] !== leftCoordinate) || (pv2 && sLCoordinates[sPTags.indexOf(paraTag)] !== undefined)) {
@@ -373,7 +373,7 @@ function processParagraph(paraTag, filteredPTags, fLCoordinates, sLCoordinates, 
       handleThirdCondition(paraTag, comparewidth, comparewidthtwo, spanWidth, multiplier, widthinner);
       if (paraTag.id === "thoughts-para") { const lastExtendSpan = paraTag.querySelector("span.last-extend"); 
       if (lastExtendSpan) { lastExtendSpan.style.fontSize = "60px"; } } } // span tag font-size modify
-      if (leftCoordinate < ((widthinner * 0.95) - (widthinner * 0.08)) &&
+      if (leftCoordinate < ((widthinner * 0.95) - (widthinner * 0.08)) && 
       (lastLeftPos - leftCoordinate) < (widthinner * 0.12)) 
       {
           if (!pv1) { sPTags.push(paraTag); sLCoordinates.push(leftCoordinate); }
