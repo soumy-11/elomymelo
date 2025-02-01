@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slideshow with Color Extraction</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background-color 0.5s ease;
+      font-family: Arial, sans-serif;
+    }
+    #slideshow {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      height: 400px;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="slideshow">
+    <canvas id="colorCanvas" style="display: none;"></canvas>
+    <img id="slideshow-image" src="https://elomymelo.com/docs-images/x4-vs-x3-main.jpg" alt="Slideshow Image">
+  </div>
+
+  <script>
+    const images = [
+      "https://docs.elomymelo.com/images/a14-main.jpg",
+      "https://docs.elomymelo.com/images/a14-latest.jpg",
+      "https://docs.elomymelo.com/images/a14-inside.jpg",
+      "https://docs.elomymelo.com/images/a14-hardware.jpg",
+      "https://docs.elomymelo.com/images/a14-display.jpg"
+    ];
+
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById('slideshow-image');
+    const colorCanvas = document.getElementById('colorCanvas');
+    const ctx = colorCanvas.getContext('2d');
+
+    function getDominantColor(image) {
+      colorCanvas.width = image.naturalWidth;
+      colorCanvas.height = image.naturalHeight;
+      ctx.drawImage(image, 0, 0);
+
+      const imageData = ctx.getImageData(0, 0, colorCanvas.width, colorCanvas.height);
+      const colorCounts = {};
+      let maxColor = null;
+      let maxCount = 0;
+
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        const r = imageData.data[i];
+        const g = imageData.data[i + 1];
+        const b = imageData.data[i + 2];
+        const color = `rgb(${r},${g},${b})`;
+
+        colorCounts[color] = (colorCounts[color] || 0) + 1;
+
+        if (colorCounts[color] > maxCount) {
+          maxCount = colorCounts[color];
+          maxColor = color;
+        }
+      }
+
+      return maxColor;
+    }
+
+    function updateImage() {
+      slideshowImage.src = images[currentIndex];
+      slideshowImage.onload = () => {
+        const dominantColor = getDominantColor(slideshowImage);
+        document.body.style.backgroundColor = dominantColor || '#ffffff';
+      };
+
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    setInterval(updateImage, 3000);
+  </script>
+</body>
+</html>
