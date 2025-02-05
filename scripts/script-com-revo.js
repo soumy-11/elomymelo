@@ -1,5 +1,5 @@
 
-let checkscale, sizedetection;
+let sizedetection;
 function scaleMe2()
 {
     // for consent message detection and mod 
@@ -12,29 +12,8 @@ function scaleMe2()
         if (parentElementNew) { window.scrollTo(0, 0); }
         document.body.style.overflow = "hidden";
         document.body.style.transform = "none";
-        checkscale = "present"; // assigned
     }
-    else { document.body.style.overflow = "visible";
-
-        if (checkscale === "present" || (bodyOverflow !== "hidden" && 
-        checkscale !== "absent")) 
-        {
-            const width = window.innerWidth;
-            if (width <= 615) {
-                document.body.style.transform = "none";
-            } else if (width <= 1040.99) {
-                document.body.style.transform = "scale(1.0)";
-            } else if (width <= 1241.99) {
-                document.body.style.transform = "scale(0.920)";
-            } else if (width <= 1500.99) {
-                document.body.style.transform = "scale(0.860)";
-            } else {
-                document.body.style.transform = "scale(0.80)";
-            }
-        }
-        checkscale = "absent";
-        document.body.style.transform = "";
-    }
+    else { document.body.style.overflow = "visible"; document.body.style.transform = ""; }
 
     if (footerDiv) {
         const secondPTag = footerDiv.querySelector('p:nth-child(2)');
