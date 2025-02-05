@@ -16,7 +16,8 @@ function scaleMe2()
     }
     else { document.body.style.overflow = "visible";
 
-        if (checkscale === "present" || bodyOverflow !== "hidden") 
+        if (checkscale === "present" || (bodyOverflow !== "hidden" && 
+        checkscale !== "absent")) 
         {
             const width = window.innerWidth;
             if (width <= 615) {
@@ -32,7 +33,7 @@ function scaleMe2()
             }
         }
         checkscale = "absent";
-        // document.body.style.transform = "";
+        document.body.style.transform = "";
     }
 
     if (footerDiv) {
