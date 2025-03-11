@@ -77,16 +77,16 @@
             padding: 10px;
             text-align: center;
             font-size: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
         }
         .h1-box
         {
             position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 94%;
         }
         .top-banner
         {
@@ -95,7 +95,9 @@
             left: 15px; 
             background: black;
             padding: 5px 5px 5px 15px;
-            width: 220px;
+            border-radius: 5px;
+            font-size: 15px;
+            width: 190px;
         }
 
     </style>
@@ -180,7 +182,8 @@
                 <amp-img src="https://elomymelo.com/old-images/clear-crop.jpg" width="720" height="1280" layout="responsive"></amp-img>
             </amp-story-grid-layer>
             <amp-story-grid-layer template="vertical">
-                <h1>Motion Plus Better Clarity EQ</h1>
+                <div class="h1-box" style="bottom: 33px"><h1>This EQ makes Motion+ sound more detailed and sparkly</h1></div>
+                <div class="top-banner">Soundcore Motion+</div>
             </amp-story-grid-layer>
         </amp-story-page>
 
