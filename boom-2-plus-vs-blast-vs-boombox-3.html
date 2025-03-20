@@ -235,7 +235,7 @@ as="style" onload="this.rel='stylesheet'">
 }).then(function(subscription) {
     console.log('User is subscribed:', subscription);
     console.log('Endpoint:', subscription.endpoint);
-        // Use subscription.toJSON() to get the keys
+    // Use subscription.toJSON() to get the keys
     const subscriptionJSON = subscription.toJSON();
     console.log('Keys:', subscriptionJSON.keys);  // Access keys (auth and p256dh)
 
