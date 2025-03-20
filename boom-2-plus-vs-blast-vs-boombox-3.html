@@ -266,11 +266,10 @@ as="style" onload="this.rel='stylesheet'">
 // Send subscription to Google Apps Script (to store it in the Google Sheet)
 function sendSubscriptionToServer(subscription) {
   const bbdy = JSON.stringify(subscription);
-
-  fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', { 
+  fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', {
     method: 'POST',
-    mode: "no-cors",
-    body: bbdy, 
+    mode: "cors",
+    body: bbdy,
     headers: {
       "Content-Type": "application/json"
     }
