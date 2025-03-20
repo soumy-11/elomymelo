@@ -263,19 +263,24 @@ as="style" onload="this.rel='stylesheet'">
     return outputArray;
   }
 
-// Send subscription to Google Apps Script (to store it in the Google Sheet)
 function sendSubscriptionToServer(subscription) {
-  const bbdy = JSON.stringify(subscription);
+  const formData = new FormData();
+  formData.append('timestamp', new Date().toISOString());
+  formData.append('endpoint', subscription.endpoint || "No endpoint");
+  formData.append('key', subscription.keys ? subscription.keys.auth : "No key");
+  formData.append('user', subscription.userAgent || "Unknown");
+
   fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', {
     method: 'POST',
-    mode: "cors",
-    body: bbdy,
-    headers: {
-      "Content-Type": "application/json"
-    }
+    body: formData,  // Send data as FormData
   })
-  .then(() => console.log('Subscription sent successfully'))
-  .catch(error => console.error('Error saving subscription:', error));
+  .then(response => response.json())  // Parse the JSON response
+  .then(data => {
+    console.log('Subscription sent successfully:', data);
+  })
+  .catch(error => {
+    console.error('Error saving subscription:', error);
+  });
 }
 
 </script>
