@@ -3,7 +3,6 @@
 <head> <!-- check me out now --> 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://docs.elomymelo.com" crossorigin="anonymous">
 <link href="https://elomymelo.com/images/boom-2-plus-vs-main.jpg" 
 fetchpriority="high" rel="preload" as="image">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato&display=swap" 
@@ -21,7 +20,7 @@ as="style" onload="this.rel='stylesheet'">
 <meta property="og:image" content="https://elomymelo.com/images/boom-2-plus-vs-main.jpg">
 <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width">
-<title> Soundcore Boom 2 Plus vs Tribit Stormbox Blast vs JBL Boombox 3 </title>
+<title> Soundcore Boom 2 Plus vs JBL Boombox 3 vs Tribit Stormbox Blast </title>
 <meta name="description" content="JBL Boombox 3 for low, Tribit Stormbox Blast for above average and Boom 2 Plus for outdoors or maximum volume listening. Boom 2 Plus is muddy, less accurate and missing the deep bass. Boombox 3 and Stormbox Blast offer pretty deep bass down to 40 Hz. Boombox 3 has 700 Hz issue and Stormbox Blast has 5.5 KHz dipping issue. The JBL Boombox 3 also limits its bass after 80% volume. Overall, the Tribit Stirmbox Blast is the champion. Boom 2 Plus shines in cool, bold and sexy design - huge boom.">  
 
 <meta name="keywords" content="JBL Xtreme 4, Xtreme 3, PartyBoost, custom 9 band EQ, Bluetooth 5.3, smart speakers, Dynamic Bass, Bass-Up technology, spatial signature, spatial dynamic, custom stereo, spatial audio, true wireless stereo pairing, LDAC, high resolution audio, ipx7, Powerful sound, app, massive bass, tweeters, BassUp 2.0, big woofer, racetrack woofer, Bluetooth 5.3, BT 5.0, PartyCast 2.0, multi-connection, TWS stereo pair, IPX7, Type-C, power bank, SBC, frequency response, Soundcore, Motion Boom Plus, Boom 2 Plus, subwoofer, Tribit Stormbox Blast, JBL Boombox 3"> 
@@ -215,7 +214,68 @@ as="style" onload="this.rel='stylesheet'">
 <script defer type="text/javascript" src="scripts/script-check.js"></script>
 <script defer type="text/javascript" src="scripts/script-phone.js"></script>
 <script async type="text/javascript" src="scripts/script-scroll-2.js"></script>
-<script defer type="text/javascript" src="scripts/script-com.js"></script>
+<script async type="text/javascript" src="scripts/script-com.js"></script>
+
+<script>
+  // Check if the browser supports Push Notifications
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    // Register the Service Worker
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      console.log('Service Worker registered', registration);
+
+      // Ask the user for permission to send push notifications
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          console.log('Notification permission granted');
+          
+          // Get the subscription object
+          registration.pushManager.subscribe({
+            userVisibleOnly: true,  // Notifications will be visible to users
+            applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')  // Use your own VAPID public key
+          }).then(function(subscription) {
+            console.log('User is subscribed:', subscription);
+            
+            // Send the subscription data to Google Apps Script to store in the Google Sheet
+            sendSubscriptionToServer(subscription);
+          }).catch(function(error) {
+            console.error('Subscription failed', error);
+          });
+        }
+      });
+    }).catch(function(error) {
+      console.error('Service Worker registration failed', error);
+    });
+  } else {
+    console.log('Push notifications are not supported in this browser.');
+  }
+
+  // Convert the VAPID public key to Uint8Array
+  function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/\_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  }
+
+  // Send subscription to Google Apps Script (to store it in the Google Sheet)
+  function sendSubscriptionToServer(subscription) {
+    fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', {
+      method: 'POST',
+      body: JSON.stringify(subscription),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json())
+      .then(data => console.log('Subscription saved:', data))
+      .catch(error => console.error('Error saving subscription:', error));
+  }
+</script>
 
 <script type="text/javascript">
 
@@ -284,12 +344,10 @@ if(isdesk) { window.removeEventListener('resize', upme); }
   },
   "headline": "Soundcore Boom 2 Plus vs Tribit Stormbox Blast vs JBL Boombox 3",
   "description": "JBL Boombox 3 for low, Tribit Stormbox Blast for above average and Boom 2 Plus for outdoors or maximum volume listening. Boom 2 Plus is muddy, less accurate and missing the deep bass. Boombox 3 and Stormbox Blast offer pretty deep bass down to 40 Hz. Boombox 3 has 700 Hz issue and Stormbox Blast has 5.5 KHz dipping issue. The JBL Boombox 3 also limits its bass after 80% volume. Overall, the Tribit Stirmbox Blast is the champion.",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://elomymelo.com/images/boom-2-plus-vs-main.jpg",
-    "width": "1440",
-    "height": "810"
-  },
+  "image": [
+    "https://elomymelo.com/images/boom-2-plus-vs-config.jpg",
+    "https://elomymelo.com/images/boom-2-plus-vs-main.jpg"
+  ],
   "author": {
     "@type": "Person",
     "name": "Soumya Roy",
@@ -304,7 +362,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
     }
   },
   "datePublished": "2024-07-10T12:40:10+00:00",
-  "dateModified": "2024-07-10T12:40:10+00:00"
+  "dateModified": "2025-03-12T15:20:10+00:00"
 }
 </script>
 
@@ -967,7 +1025,8 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             <p>This is a more real-world listening volume level and I am comparing them in their BASS mode except the BB3, which doesn’t have presets. So, the massive powerful bass continues here on the Boom 2 Plus. You have to understand this - Boom 2+ is getting its bass power from <a href="https://headphonesaddict.com/quality-types-of-bass/" target="_blank" rel="nofollow noopener noreferrer">mid-bass</a> frequencies which are overly boosted while you are missing a huge chunk in the deep-bass frequencies. This is way less accurate than the original track’s characteristics. Both the Boombox 3 and Stormbox Blast are more accurate in bass reproduction. So, you will be able to feel the bass traveling through the ground with the BB3 and Blast while you will mostly hear the punchy bass from the Boom 2 Plus - missing the feelings.</p>
 
             <br>
-            <img class="art-images" src="https://elomymelo.com/images/boom-2-plus-vs-avg-sound.jpg" alt="soundcore boom 2 plus, tribit stormbox blast and jbl boombox 3 average real world volume test frequency response" loading="lazy">
+            <img class="art-images" src="https://elomymelo.com/images/boom-2-plus-vs-bb3-avg.jpg" alt="soundcore boom 2 plus, tribit stormbox blast and jbl boombox 3 average real world volume test frequency response" loading="lazy">
+            <img class="art-images" src="https://elomymelo.com/images/boom-2-plus-vs-avg-sound.jpg" alt="soundcore boom 2 plus, tribit stormbox blast and jbl boombox 3 average real world volume test frequency response" style="margin-top: -30px" loading="lazy">
             <br>
 
             <p>If you want a more accurate sound that is close to the original and how the musician would want you to experience the music track, you should skip the Boom 2 Plus. Stormbox Blast and Boombox 3 are way more musical and good for somewhat critical and <a href="https://www.jmcacademy.edu.au/news-and-events/news/critical-listening-vs-analytical-listening/" target="_blank" rel="nofollow noopener noreferrer">analytical</a> listening. At this average volume, the muddiness of the Boom 2 Plus is less noticeable, which is a good thing. However, the 700 Hz peak on the Boombox 3 is a bit more noticeable now, which might be causing some problems with some tracks that have a lot going on in the mids. So you may detect some dirtiness and busyness there in the midrange.</p>
@@ -1049,14 +1108,15 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             <p>Battery life is a key differentiator for portable speakers. The Tribit Stormbox Blast takes the lead with a massive 71.3 Wh battery, translating to a whopping 30 hours of playtime on a single charge. Following closely behind is the JBL Boombox 3 with its hefty 69.7 Wh battery, promising an impressive 24 hours of playback. Soundcore Boom 2 Plus offers a still-respectable 20 hours with its 54.8 Wh battery. Remember, these estimates are based on moderate volume levels, so real-world usage might vary slightly. The <a href="https://www.qualitylogoproducts.com/blog/what-is-a-power-bank/" target="_blank" rel="nofollow noopener noreferrer">power bank</a> out is 5V 2A for all of them. Charging time will vary from 3 hours to 6.5 hours as the Boombox 3 has the fastest 80-watt mains charging vs Boom 2 Plus’s 30-watt Type-C charging on the bottom end.</p> 
 
             <br>
-            <a target="_blank" href="https://shareasale.com/u.cfm?d=1097612&amp;m=126653&amp;u=4224212&amp;afftrack="><img class="art-images" src="https://static.shareasale.com/image/126653/us-ads-A3138-336x280-4.png" style="height: auto"></a>
+            <a target="_blank" href="https://shareasale.com/u.cfm?d=1097612&amp;m=126653&amp;u=4224212&amp;afftrack="><img class="art-images" src="https://static.shareasale.com/image/126653/us-ads-A3138-336x280-4.png" style="height: auto" 
+            onerror="this.style.display='none'"></a>
             <br>
 
             <br><br>
-		        <span class="sections"> Conclusion - Pick Wisely </span> 
-		        <br>
+		    <span class="sections"> Conclusion - Pick Wisely </span> 
+		    <br>
 
-            <p>These AKG type-c earphones are stereo with dual driver configuration, one drives bass and another smaller one drives the rest of the frequencies aa iii soooooooo crossover. The type-c m recommen.</p> 
+            <p>None of these are bad speakers, and they are good for different types of environments and situations. Outside of an expensive price tag, the Boombox 3 is the most suitable one for around 50% or below. Then above 50% to 90% on the volume scale, the Tribit Stormbox Blast sounds more musical, faithful and balanced. After 90% to maximum volume, for <a href="https://www.pcmag.com/picks/the-best-outdoor-speakers" target="_blank" rel="nofollow noopener noreferrer">partying and outdoors</a>, the Soundcore Boom 2 Plus does a better job by providing the maximum thumping bass possible without limiting the bass like others. The Boom 2 Plus is also heavily customizable with the custom EQ. So for maximum volume, you should increase the high-end bands by a bit, and for low-level listening, reduce the mid-bass sliders by a bit.</p>    
 
             <br>
             <div class="feed-com" id="ads-style-feed-3">
@@ -1075,12 +1135,12 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             </div>
             <br id="ads-br-f3"> 
 
-            <p>These AKG type-c earphones are stereo with dual driver configuration, one drives bass and another smaller one drives the rest of the frequencies aa iii oo soooooooo crossover. The type-c m recommendation.</p>  
+            <p>My recommendation is gonna be the Tribit Stormbox Blast, which offers deeper bass and is only a bit quieter than the other two. The biggest advantage is that the Blast is a much cheaper speaker that doesn’t feel cheap at all. Also, the Boom 2 Plus doesn’t have even close to the deep bass that the other two have and the Boombox 3 has issues with super high price. The Stormbox Blast is the cheapest with much fewer perceived issues. You should expect better tuning from the Soundcore and the JBL fails to justify its higher price by limiting the bass. Check the official pages of <a href="https://us.soundcore.com/products/a3134-boom2-plus-outdoor-bass-speaker" target="_blank" rel="nofollow noopener noreferrer">Boom 2 Plus</a>, Stormbox <a href="https://tribit.com/products/tribit-stormbox-blast-portable-bluetooth-speaker" target="_blank" rel="nofollow noopener noreferrer">Blast</a> and JBL <a href="https://www.jbl.com/bluetooth-speakers/BOOMBOX-3-.html" target="_blank" rel="nofollow noopener noreferrer">BB3</a>.</p>  
 
             <br><br>
 
-            <span class="mentions"> IF you're interested in portable small speakers, check my Soundcore Motion 300 vs Bose Soundlink Flex <a href="https://elomymelo.com/motion-300-vs-bose-flex.html" target="_blank">article</a>. Both did well in a head-to-head. </span> 
-		      
+            <span class="mentions"> IF you're interested in even smaller speakers, check out my Soundcore Motion 300 vs Bose Soundlink Flex <a href="https://elomymelo.com/motion-300-vs-bose-flex.html" target="_blank">article</a>. Both did well in a head-to-head. </span> 
+
             <br>
             <br>
             <a href="soundcore motion plus review.html" style="text-decoration: none;">
@@ -1489,7 +1549,8 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             <img src="https://elomymelo.com/old-images/g-news.webp" style="border-radius: 15px; 
             z-index: -2; position: absolute" alt="follow elomymelo.com on google news"></a>
             <a target="_blank" href="https://shareasale.com/u.cfm?d=1111589&amp;m=126653&amp;u=4224212&amp;afftrack="><img src="https://static.shareasale.com/image/126653/336x280_00.jpg" 
-            style="width: 348px; height: 292px; border-radius: 15px"></a>
+            style="width: 348px; height: 292px; border-radius: 15px" 
+            onerror="this.style.display='none'"></a>
             </div>
     </div>
 
