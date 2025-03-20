@@ -217,81 +217,73 @@ as="style" onload="this.rel='stylesheet'">
 <script async type="text/javascript" src="scripts/script-com.js"></script>
 
 <script type="text/javascript">
-    // Check if the browser supports Push Notifications
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-        // Register the Service Worker
-        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-            console.log('✅ Service Worker registered:', registration);
+  // Check if the browser supports Push Notifications
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    // Register the Service Worker
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      console.log('Service Worker registered', registration);
 
-            // Ask the user for permission to send push notifications
-            Notification.requestPermission().then(function(permission) {
-                if (permission === 'granted') {
-                    console.log('✅ Notification permission granted');
-
-                    // Subscribe the user to push notifications
-                    registration.pushManager.subscribe({
-                        userVisibleOnly: true,  // Notifications will be visible to users
-                        applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')  // Replace with your VAPID public key
-                    }).then(function(subscription) {
-                        console.log('✅ User is subscribed:', subscription);
-
-                        // Send subscription data to the server
-                        sendSubscriptionToServer(subscription);
-                    }).catch(function(error) {
-                        console.error('❌ Subscription failed:', error);
-                    });
-                } else {
-                    console.warn('⚠️ Notification permission denied');
-                }
-            });
-        }).catch(function(error) {
-            console.error('❌ Service Worker registration failed:', error);
-        });
-    } else {
-        console.warn('⚠️ Push notifications are not supported in this browser.');
-    }
-
-    // Convert VAPID public key from Base64 to Uint8Array
-    function urlBase64ToUint8Array(base64String) {
-        const padding = '='.repeat((4 - base64String.length % 4) % 4);
-        const base64 = (base64String + padding)
-            .replace(/\-/g, '+')
-            .replace(/\_/g, '/');
-        const rawData = window.atob(base64);
-        const outputArray = new Uint8Array(rawData.length);
-        for (let i = 0; i < rawData.length; ++i) {
-            outputArray[i] = rawData.charCodeAt(i);
+      // Ask the user for permission to send push notifications
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          console.log('Notification permission granted');
+          
+          // Get the subscription object
+          registration.pushManager.subscribe({
+            userVisibleOnly: true,  // Notifications will be visible to users
+            applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')  // Use your own VAPID public key
+          }).then(function(subscription) {
+            console.log('User is subscribed:', subscription);
+            
+            // Send the subscription data to Google Apps Script to store in the Google Sheet
+            sendSubscriptionToServer(subscription);
+          }).catch(function(error) {
+            console.error('Subscription failed', error);
+          });
         }
-        return outputArray;
+      });
+    }).catch(function(error) {
+      console.error('Service Worker registration failed', error);
+    });
+  } else {
+    console.log('Push notifications are not supported in this browser.');
+  }
+
+  // Convert the VAPID public key to Uint8Array
+  function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/\_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
     }
+    return outputArray;
+  }
 
-    function sendSubscriptionToServer(subscription) {
-        if (!subscription || !subscription.endpoint) {
-            console.error('❌ Invalid subscription object:', subscription);
-            return;
-        }
+function sendSubscriptionToServer(subscription) {
+  const formData = new FormData();
+  // formData.append('timestamp', new Date().toISOString());
+  formData.append('endpoint', subscription.endpoint || "No endpoint");
+  formData.append('auth', subscription.keys?.auth || "No auth key");
+  formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
+  formData.append('user', subscription.userAgent || "Unknown");
 
-        const formData = new FormData();
-        formData.append('endpoint', subscription.endpoint);
-        formData.append('auth', subscription.keys?.auth || "No auth key");
-        formData.append('p256dh', subscription.keys?.p256dh || "No p256dh key");
-        formData.append('userAgent', navigator.userAgent || "Unknown");
+  fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
+    method: 'POST',
+    body: formData,  // Send data as FormData
+  })
+  .then(response => response.json())  // Parse the JSON response
+  .then(data => {
+    console.log('Subscription sent successfully:', data);
+  })
+  .catch(error => {
+    console.error('Error saving subscription:', error);
+  });
+}
 
-        // Debugging: Log the values before sending
-        console.log('🚀 Sending Subscription Data:', Object.fromEntries(formData.entries()));
-
-        fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {  // Replace with your actual Google Apps Script URL
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())  // Parse the JSON response
-        .then(data => {
-            console.log('✅ Subscription sent successfully:', data);
-        })
-        .catch(error => {
-            console.error('❌ Error saving subscription:', error);
-        });
-    }
 </script>
 
 <script type="text/javascript">
