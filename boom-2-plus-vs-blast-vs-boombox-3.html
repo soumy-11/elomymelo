@@ -280,7 +280,7 @@ as="style" onload="this.rel='stylesheet'">
         // Debugging: Log the values before sending
         console.log('🚀 Sending Subscription Data:', Object.fromEntries(formData.entries()));
 
-        fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {  // Replace with your actual Google Apps Script URL
+        fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {  // Replace with your actual Google Apps Script URL
             method: 'POST',
             body: formData,
         })
