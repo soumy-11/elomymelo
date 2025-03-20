@@ -235,8 +235,19 @@ as="style" onload="this.rel='stylesheet'">
 }).then(function(subscription) {
     console.log('User is subscribed:', subscription);
     console.log('Endpoint:', subscription.endpoint);
-    console.log('Keys:', subscription.keys); // Convert subscription object to JSON
-    sendSubscriptionToServer(subscription);
+        // Use subscription.toJSON() to get the keys
+    const subscriptionJSON = subscription.toJSON();
+    console.log('Keys:', subscriptionJSON.keys);  // Access keys (auth and p256dh)
+
+    // Send the subscription data to your server (e.g., using FormData)
+    const formData = new FormData();
+    formData.append('endpoint', subscription.endpoint || "No endpoint");
+    formData.append('auth', subscriptionJSON.keys.auth || "No auth key");
+    formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
+    formData.append('userAgent', navigator.userAgent || "Unknown");
+
+    // Send FormData to server (example)
+    sendSubscriptionToServer(formData);
 }).catch(function(error) {
     console.error('Subscription failed', error);
 });
@@ -263,13 +274,7 @@ as="style" onload="this.rel='stylesheet'">
     return outputArray;
   }
 
-function sendSubscriptionToServer(subscription) {
-  const formData = new FormData();
-  // formData.append('timestamp', new Date().toISOString());
-  formData.append('endpoint', subscription.endpoint || "No endpoint");
-    formData.append('p256dh', subscription.keys.p256dh);
-    formData.append('auth', subscription.keys.auth);
-  formData.append('user', navigator.userAgent || "Unknown");
+function sendSubscriptionToServer(formData) {
 
   fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
     method: 'POST',
