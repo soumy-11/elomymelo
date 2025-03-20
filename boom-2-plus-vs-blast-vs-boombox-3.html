@@ -271,7 +271,7 @@ function sendSubscriptionToServer(subscription) {
   formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
   formData.append('user', subscription.userAgent || "Unknown");
 
-  fetch('https://script.google.com/macros/s/AKfycbwlV9OfKIy8K9QOdnDqdPvZ_fl_Sk4K0kO7JUHecATerxkNxfY7mOFhetTaVZcm0nz_PQ/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
     method: 'POST',
     body: formData,  // Send data as FormData
   })
