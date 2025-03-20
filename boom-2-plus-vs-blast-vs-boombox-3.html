@@ -269,7 +269,7 @@ function sendSubscriptionToServer(subscription) {
   formData.append('endpoint', subscription.endpoint || "No endpoint");
   formData.append('auth', subscription.keys?.auth || "No auth key");
   formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
-  formData.append('user', subscription.userAgent || "Unknown");
+  formData.append('user', navigator.userAgent || "Unknown");
 
   fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
     method: 'POST',
