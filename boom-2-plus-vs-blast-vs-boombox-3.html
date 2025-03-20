@@ -265,7 +265,7 @@ as="style" onload="this.rel='stylesheet'">
 
 function sendSubscriptionToServer(subscription) {
   const formData = new FormData();
-  formData.append('timestamp', new Date().toISOString());
+  // formData.append('timestamp', new Date().toISOString());
   formData.append('endpoint', subscription.endpoint || "No endpoint");
   formData.append('key', subscription.keys ? subscription.keys.auth : "No key");
   formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
