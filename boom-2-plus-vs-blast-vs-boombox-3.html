@@ -268,6 +268,7 @@ function sendSubscriptionToServer(subscription) {
   formData.append('timestamp', new Date().toISOString());
   formData.append('endpoint', subscription.endpoint || "No endpoint");
   formData.append('key', subscription.keys ? subscription.keys.auth : "No key");
+  formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
   formData.append('user', subscription.userAgent || "Unknown");
 
   fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', {
