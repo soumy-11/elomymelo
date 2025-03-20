@@ -244,7 +244,7 @@ as="style" onload="this.rel='stylesheet'">
     formData.append('endpoint', subscription.endpoint || "No endpoint");
     formData.append('auth', subscriptionJSON.keys.auth || "No auth key");
     formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
-    formData.append('userAgent', navigator.userAgent || "Unknown");
+    formData.append('user', navigator.userAgent || "Unknown");
 
     // Send FormData to server (example)
     sendSubscriptionToServer(formData);
