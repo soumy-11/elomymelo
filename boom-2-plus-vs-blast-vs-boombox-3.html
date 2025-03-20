@@ -268,11 +268,12 @@ as="style" onload="this.rel='stylesheet'">
     fetch('https://script.google.com/macros/s/AKfycbyjjhZx7tVdbIZ6lv2etZfKA3RV4BosJJ9bY7Q1h6chVd4alHxI4JiD19VTungvfZut/exec', {
       method: 'POST',
       mode: "no-cors",
+      body: JSON.stringify(subscription),
       headers: {
       "Content-Type": "application/json",
       "Content-Length": body.length,
       "Host": "script.google.com"
-      }, body: JSON.stringify(subscription)
+      }
     }).then(response => response.json())
       .then(data => console.log('Subscription saved:', data))
       .catch(error => console.error('Error saving subscription:', error));
