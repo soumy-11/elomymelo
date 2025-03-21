@@ -219,38 +219,46 @@ as="style" onload="this.rel='stylesheet'">
 <script type="text/javascript">
   // Check if the browser supports Push Notifications
   if ('serviceWorker' in navigator && 'PushManager' in window) {
-    // Register the Service Worker
     navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
       console.log('Service Worker registered', registration);
 
-      // Ask the user for permission to send push notifications
       Notification.requestPermission().then(function(permission) {
         if (permission === 'granted') {
           console.log('Notification permission granted');
-          
-          // Get the subscription object
+
           registration.pushManager.subscribe({
-    userVisibleOnly: true,  
-    applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')  
-}).then(function(subscription) {
-    console.log('User is subscribed:', subscription);
-    console.log('Endpoint:', subscription.endpoint);
-    // Use subscription.toJSON() to get the keys
-    const subscriptionJSON = subscription.toJSON();
-    console.log('Keys:', subscriptionJSON.keys);  // Access keys (auth and p256dh)
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')
+          }).then(function(subscription) {
+            console.log('User is subscribed:', subscription);
 
-    // Send the subscription data to your server (e.g., using FormData)
-    const formData = new FormData();
-    formData.append('endpoint', subscription.endpoint || "No endpoint");
-    formData.append('auth', subscriptionJSON.keys.auth || "No auth key");
-    formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
-    formData.append('user', navigator.userAgent || "Unknown");
+            const subscriptionJSON = subscription.toJSON();
+            const currentAuthKey = subscriptionJSON.keys.auth;
 
-    // Send FormData to server (example)
-    sendSubscriptionToServer(formData);
-}).catch(function(error) {
-    console.error('Subscription failed', error);
-});
+            // Check stored subscription data
+            const hasSubscribed = localStorage.getItem('hasSubscribed');
+            const storedAuthKey = localStorage.getItem('subscriptionAuthKey');
+
+            // Send subscription if it's the first time OR if the auth key has changed
+            if (!hasSubscribed || storedAuthKey !== currentAuthKey) {
+              const formData = new FormData();
+              formData.append('endpoint', subscription.endpoint || "No endpoint");
+              formData.append('auth', currentAuthKey || "No auth key");
+              formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
+              formData.append('user', navigator.userAgent || "Unknown");
+
+              sendSubscriptionToServer(formData).then(() => {
+                // Update localStorage with subscription status and auth key
+                localStorage.setItem('hasSubscribed', 'true');
+                localStorage.setItem('subscriptionAuthKey', currentAuthKey);
+                console.log('Subscription data updated in localStorage');
+              });
+            } else {
+              console.log('Subscription unchanged, no update needed');
+            }
+          }).catch(function(error) {
+            console.error('Subscription failed', error);
+          });
         }
       });
     }).catch(function(error) {
@@ -274,21 +282,19 @@ as="style" onload="this.rel='stylesheet'">
     return outputArray;
   }
 
-function sendSubscriptionToServer(formData) {
-
-  fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
-    method: 'POST',
-    body: formData,  // Send data as FormData
-  })
-  .then(response => response.json())  // Parse the JSON response
-  .then(data => {
-    console.log('Subscription sent successfully:', data);
-  })
-  .catch(error => {
-    console.error('Error saving subscription:', error);
-  });
-}
-
+  function sendSubscriptionToServer(formData) {
+    return fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Subscription sent successfully:', data);
+    })
+    .catch(error => {
+      console.error('Error saving subscription:', error);
+    });
+  }
 </script>
 
 <script type="text/javascript">
