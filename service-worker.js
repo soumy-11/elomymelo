@@ -11,9 +11,9 @@ self.addEventListener('push', event => {
   // Use custom Flip 7 data as fallback if no valid payload
   const options = {
     body: data.body || "Discover the JBL Flip 7 with its high-quality build, Pushlock accessory system, detachable wrist strap, and dedicated Auracast button",
-    image: data.image || "https://elomymelo.com/story-images/jbl-flip-7/flip-7-05.jpg",
+    image: data.image || "https://elomymelo.com/images/boom-2-plus-vs-main.jpg",
     icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png", // Added logo image
-    data: { url: data.url || "https://elomymelo.com/web-stories/flip-7-story.html" }
+    data: { url: data.url || "https://docs.elomymelo.com/boom-2-plus-vs-blast-vs-boombox-3.html" }
   };
 
   // Title falls back to Flip 7 article if not provided
