@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigger Push Notifications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <button id="triggerBtn">Send Notifications to All</button>
+  <div id="status">Status: Ready</div>
+
+  <script>
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzzedgKSV5MgGH5ckNQomO75TocfOu2JM3rXT_2BhsmLedPzjTVr13ZkDmkynGy2C1WNA/exec'; // Replace with your Web App URL
+
+    async function triggerPush() {
+      try {
+        document.getElementById('status').textContent = 'Status: Sending notifications...';
+        const response = await fetch(WEB_APP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'trigger' })
+        });
+        const result = await response.text();
+        document.getElementById('status').textContent = `Status: ${result}`;
+      } catch (error) {
+        console.error('Trigger failed:', error);
+        document.getElementById('status').textContent = 'Status: Error triggering notifications';
+      }
+    }
+
+    document.getElementById('triggerBtn').addEventListener('click', triggerPush);
+  </script>
+</body>
+</html>
