@@ -14,10 +14,10 @@ self.addEventListener('push', event => {
 
   // Use custom Flip 7 data as fallback if no valid payload
   const options = {
-    body: data.body || "Discover the JBL Flip 7 with its high-quality build, Pushlock accessory system, detachable wrist strap, and dedicated Auracast button",
-    image: data.image || "https://elomymelo.com/images/boom-2-plus-vs-config.jpg",
+    body: data.body || "The design and build is pretty good in my opinion. The default sound signature is a little too bright for my taste, it can cause irritation when listening to",
+    image: data.image || "https://elomymelo.com/images/samsung-akg-main.jpg",
     icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
-    data: { url: data.url || "https://docs.elomymelo.com/boom-2-plus-vs-blast-vs-boombox-3.html" }
+    data: { url: data.url || "https://elomymelo.com/samsung-akg-type-c-earphones-review.html" }
   };
 
   // Trigger update and show notification
