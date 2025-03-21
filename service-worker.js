@@ -1,31 +1,15 @@
-
-self.addEventListener('push', function(event) {
-  if (!event.data) {
-    console.error("Push event has no data");
-    return;
-  }
-
-  const pushData = event.data.json(); // Parse JSON data
-
+self.addEventListener('push', event => {
+  // No payload from server, use static data
+  const title = "Top 5 features of the new JBL Flip 7 bluetooth speaker";
   const options = {
-    body: pushData.body || 'Click to read more!',
-    icon: pushData.icon || 'https://example.com/default-icon.png', // Small icon
-    badge: pushData.badge || 'https://example.com/default-badge.png',
-    image: pushData.image || 'https://example.com/default-thumbnail.jpg', // Large image
-    data: { url: pushData.url || '/' } // Store the URL in the notification
+    body: "Discover the JBL Flip 7 with its high-quality build, Pushlock accessory system, detachable wrist strap, and dedicated Auracast button",
+    image: "https://elomymelo.com/story-images/jbl-flip-7/flip-7-05.jpg",
+    data: { url: "https://elomymelo.com/web-stories/flip-7-story.html" }
   };
-
-  event.waitUntil(
-    self.registration.showNotification(pushData.title || 'New Article', options)
-  );
+  event.waitUntil(self.registration.showNotification(title, options));
 });
 
-// Handle notification click
-self.addEventListener('notificationclick', function(event) {
+self.addEventListener('notificationclick', event => {
   event.notification.close();
-  
-  event.waitUntil(
-    clients.openWindow(event.notification.data.url) // Open the article link
-  );
+  event.waitUntil(clients.openWindow(event.notification.data.url));
 });
-
