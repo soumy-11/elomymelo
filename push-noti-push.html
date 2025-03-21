@@ -33,32 +33,49 @@
       font-size: 16px;
       color: #333;
     }
+    /* Hide the form visually */
+    #triggerForm {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <button id="triggerBtn">Send Notifications to All</button>
   <div id="status">Status: Ready</div>
 
-  <script>
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzzedgKSV5MgGH5ckNQomO75TocfOu2JM3rXT_2BhsmLedPzjTVr13ZkDmkynGy2C1WNA/exec'; // Replace with your Web App URL
+  <!-- Hidden form to submit the trigger -->
+  <form id="triggerForm" action="https://script.google.com/macros/s/AKfycbzzedgKSV5MgGH5ckNQomO75TocfOu2JM3rXT_2BhsmLedPzjTVr13ZkDmkynGy2C1WNA/exec" method="POST" target="hiddenFrame">
+    <input type="hidden" name="action" value="trigger">
+  </form>
+  <!-- Hidden iframe to handle the response without page reload -->
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
 
-    async function triggerPush() {
-      try {
-        document.getElementById('status').textContent = 'Status: Sending notifications...';
-        const response = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: 'trigger' })
-        });
-        const result = await response.text();
-        document.getElementById('status').textContent = `Status: ${result}`;
-      } catch (error) {
-        console.error('Trigger failed:', error);
-        document.getElementById('status').textContent = 'Status: Error triggering notifications';
-      }
+  <script>
+    const triggerBtn = document.getElementById('triggerBtn');
+    const triggerForm = document.getElementById('triggerForm');
+    const status = document.getElementById('status');
+
+    function triggerPush() {
+      status.textContent = 'Status: Sending notifications...';
+      
+      // Submit the form programmatically
+      triggerForm.submit();
+
+      // Since we can't easily read the response from the iframe in a local file context,
+      // we'll assume success after a short delay and suggest checking logs.
+      setTimeout(() => {
+        status.textContent = 'Status: Trigger sent (check Apps Script logs for confirmation)';
+      }, 2000); // Adjust delay as needed
     }
 
-    document.getElementById('triggerBtn').addEventListener('click', triggerPush);
+    triggerBtn.addEventListener('click', triggerPush);
+
+    // Optional: Handle iframe load to confirm response (limited functionality from file://)
+    const iframe = document.querySelector('iframe[name="hiddenFrame"]');
+    iframe.addEventListener('load', () => {
+      console.log('Iframe loaded, request likely completed');
+      // Note: Accessing iframe content from file:// may be restricted due to security
+    });
   </script>
 </body>
 </html>
