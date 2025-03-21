@@ -14,7 +14,7 @@ self.addEventListener('push', event => {
 
   // Use custom Flip 7 data as fallback if no valid payload
   const options = {
-    body: data.body || "",
+    body: data.body || "The design and build is pretty good in my opinion. The default sound signature is a little too bright for my taste, it can cause irritation when listening to some particularly bright songs that have high-frequency instruments. So, if you are going to use the default sound signature and you also like a bit of powerful bass, then I am not recommending these earphones to you. However, if you are an audio-enthusiast or tech-savvy, then these earphones are gonna be a great choice for you.",
     image: data.image || "https://elomymelo.com/images/samsung-akg-main.jpg",
     icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
     data: { url: data.url || "https://elomymelo.com/samsung-akg-type-c-earphones-review.html" }
