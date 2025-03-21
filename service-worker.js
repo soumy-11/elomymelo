@@ -14,7 +14,7 @@ self.addEventListener('push', event => {
 
   // Use custom Flip 7 data as fallback if no valid payload
   const options = {
-    body: data.body || "The design and build is pretty good in my opinion. The default sound signature is a little too bright for my taste, it can cause irritation when listening to",
+    body: data.body || "",
     image: data.image || "https://elomymelo.com/images/samsung-akg-main.jpg",
     icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
     data: { url: data.url || "https://elomymelo.com/samsung-akg-type-c-earphones-review.html" }
