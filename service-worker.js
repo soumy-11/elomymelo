@@ -12,6 +12,7 @@ self.addEventListener('push', event => {
   const options = {
     body: data.body || "Discover the JBL Flip 7 with its high-quality build, Pushlock accessory system, detachable wrist strap, and dedicated Auracast button",
     image: data.image || "https://elomymelo.com/story-images/jbl-flip-7/flip-7-05.jpg",
+    icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png", // Added logo image
     data: { url: data.url || "https://elomymelo.com/web-stories/flip-7-story.html" }
   };
 
