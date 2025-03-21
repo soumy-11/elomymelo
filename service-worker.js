@@ -25,7 +25,7 @@ self.addEventListener('push', event => {
     Promise.all([
       self.registration.update(), // Check and install new sw.js in the background
       self.registration.showNotification(
-        data.title || "Top 5 features of the new JBL Flip 7 bluetooth speaker",
+        data.title || "Samsung AKG Type-C Earphones review | needed to tweak with EQ",
         options
       )
     ])
