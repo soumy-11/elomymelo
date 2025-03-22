@@ -1,12 +1,19 @@
 
 // console.log("defer-script-phone"); 
+var notitimer = null; let hasTriggered = false;
 function scrollmethod() 
 {
 	mybutton = document.getElementById("scroll-top-button"); 
 	const mediain = window.matchMedia("(max-width: 615px)").matches; 
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
-    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }  
+    if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }
+
+    console.log('Scrolled 2000px');
+    if(notitimer !== null) { clearTimeout(notitimer); }
+    notitimer = setTimeout(function() { if(window.scrollY >= 2000 && !hasTriggered) 
+    { initPushSubscription(); hasTriggered = true;
+    console.log('Scrolled 2000px'); } }, 2000);
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
