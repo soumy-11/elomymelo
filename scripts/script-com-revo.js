@@ -173,7 +173,7 @@ const ftinterval = setInterval(scaleMe2, 1000); scaleMe2();
   }
 
   function sendSubscriptionToServer(formData) {
-    return fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
+    return fetch('https://script.google.com/macros/s/AKfycbzH7EmI8Gq3Oa4SAsekK_7zoKomslcbBwQ1xaynFg_fRlpKSsV2ZTeloWpXhzmJ_OSx/exec', {
       method: 'POST',
       body: formData,
     })
