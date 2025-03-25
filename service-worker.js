@@ -15,10 +15,10 @@ self.addEventListener('push', event => {
 
   // Use custom Flip 7 data as fallback if no valid payload
   const options = {
-    body: data.body || "Dive into the ultimate showdown between JBL Flip 7 and Flip 6 with 10 essential highlights that reveal their differences and upgrades. The Flip 6 introduced the iconic big, bold JBL logo, setting a cool, stylish tone, while the Flip 7 builds on this with a similar striking design.",
-    image: data.image || "https://elomymelo.com/story-images/jbl-flip-7v6/flip-7v6-01.jpg",
+    body: data.body || "Discover the JBL Flip 7 with its high-quality build, Pushlock accessory system, detachable wrist strap, and dedicated Auracast button. Explore its IP68 water and dust resistance, powerful sound with a woofer and tweeter, and the new 7-band EQ for a customized audio experience. Available in 6 stunning colors!",
+    image: data.image || "https://elomymelo.com/story-images/jbl-flip-7/flip-7-05.jpg",
     icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
-    data: { url: data.url || "https://elomymelo.com/web-stories/flip-7v6-story.html" }
+    data: { url: data.url || "https://elomymelo.com/web-stories/flip-7-story.html" }
   };
 
   // Trigger update and show notification
@@ -26,7 +26,7 @@ self.addEventListener('push', event => {
     Promise.all([
       self.registration.update(), // Check and install new sw.js in the background
       self.registration.showNotification(
-        data.title || "JBL Flip 7 vs Flip 6 | 10 Essential Highlights",
+        data.title || "Top 5 features of the new JBL Flip 7 bluetooth speaker",
         options
       )
     ])
