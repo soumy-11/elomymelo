@@ -19,11 +19,10 @@ self.addEventListener('push', event => {
 
   const options = {
     body: data.body || "Dive into the ultimate showdown between JBL Flip 7 and Flip 6 with 10 essential highlights that reveal their differences and upgrades. The Flip 6 introduced the iconic big, bold JBL logo, setting a cool, stylish tone, while the Flip 7 builds on this with a similar striking design.",
-    vibrate: [200, 100, 200], requireInteraction: true, // for pop up feature 
+    vibrate: [200, 100, 200], requireInteraction: true, tag: Date.now().toString(),
     image: data.image || "https://elomymelo.com/story-images/jbl-charge-6/charge-6-06.jpg",
-    icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
     data: { url: data.url || "https://elomymelo.com/web-stories/charge-6vf7-story.html" },
-    tag: Date.now().toString() // Unique tag for each noti 
+    icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png"
   };
 
   event.waitUntil(
