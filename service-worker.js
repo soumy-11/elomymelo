@@ -1,39 +1,31 @@
-self.addEventListener('install', event => {
-  event.waitUntil(self.skipWaiting()); // Activate immediately after install
-});
 
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim()); // Take control of clients immediately
-});
-
-self.addEventListener('push', event => {
-  let data = {};
-  if (event.data) {
-    try {
-      data = event.data.json(); // Try to parse encrypted payload
-    } catch (e) {
-      console.log('Failed to parse push data:', e);
+  // immediate install and take control 
+  self.addEventListener('install', event => { event.waitUntil(self.skipWaiting()); });
+  self.addEventListener('activate', event => { event.waitUntil(self.clients.claim()); });
+  self.addEventListener('push', event => {
+    let data = {};
+    if (event.data) 
+    {
+      try {
+        data = event.data.json(); // Try to parse encrypted payload
+      } catch (e) {
+        console.log('Failed to parse push data:', e);
+      }
     }
-  }
 
-  const options = {
-    body: data.body || "Dive into the ultimate showdown between JBL Flip 7 and Flip 6 with 10 essential highlights that reveal their differences and upgrades. The Flip 6 introduced the iconic big, bold JBL logo, setting a cool, stylish tone, while the Flip 7 builds on this with a similar striking design.",
-    requireInteraction: true, 
-    tag: Date.now().toString(),
-    image: data.image || "https://elomymelo.com/story-images/jbl-flip-7v6/flip-7v6-01.jpg",
-    data: { url: data.url || "https://elomymelo.com/web-stories/charge-6vf7-story.html" },
-    icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png"
-  };
+    const options = {
+    body: data.body || "From my passion and love for technology, I built this website to share my opinion with the world. My website is unique and special in its own way. You will get a clean, refined and modern user experience while visiting this website.",
+    image: data.image || "https://elomymelo.com/docs-images/x4-vs-x3-main.jpg",
+    icon: data.icon || "https://elomymelo.com/old-images/circle-trans.png",
+    requireInteraction: true, tag: Date.now().toString(), // unique 
+    data: { url: data.url || "https://elomymelo.com" } };
 
-  event.waitUntil(
+    event.waitUntil(
     self.registration.showNotification(
-      data.title || "JBL Flip 7 vs Flip 6 | 10 Essential Highlights",
-      options
-    )
-  );
-});
+    data.title || "Elo My Melo | Tech & Education",
+    options )); }); // main noTi 
 
-self.addEventListener('notificationclick', event => {
-  event.notification.close();
-  event.waitUntil(clients.openWindow(event.notification.data.url));
-});
+  self.addEventListener('notificationclick', event => { event.notification.close();
+  event.waitUntil(clients.openWindow(event.notification.data.url)); });
+  // end of simple service worker code 
+
