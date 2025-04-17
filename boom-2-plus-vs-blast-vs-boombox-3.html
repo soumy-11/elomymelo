@@ -28,7 +28,7 @@ as="style" onload="this.rel='stylesheet'">
 
 <link rel="stylesheet" href="styles/style-phone.css" media="screen and (max-width: 615px)">
 <link rel="stylesheet" href="styles/style-desk-3.css" media="screen and (min-width: 615px)"> 
-<link rel="preload" href="scripts/script-check.js" as="script"> 
+<link rel="preload" href="scripts/script-check-2.js" as="script"> 
 <link rel="preload" href="scripts/script-phone.js" as="script" media="screen and (max-width: 615px)"> 
 <link rel="preload" href="scripts/script-com.js" as="script" media="screen and (min-width: 615px)"> 
 <link rel="preload" href="styles/style-com.css" as="style" media="screen and (min-width: 615px)">
@@ -211,10 +211,80 @@ as="style" onload="this.rel='stylesheet'">
 
 </style>
 
-<script defer type="text/javascript" src="scripts/script-check.js"></script>
+<script defer type="text/javascript" src="scripts/script-check-2.js"></script>
 <script defer type="text/javascript" src="scripts/script-phone.js"></script>
 <script async type="text/javascript" src="scripts/script-scroll-2.js"></script>
 <script async type="text/javascript" src="scripts/script-com.js"></script>
+
+<script type="text/javascript">
+  // Check if the browser supports Push Notifications
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    // Register the Service Worker
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      console.log('Service Worker registered', registration);
+
+      // Ask the user for permission to send push notifications
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          console.log('Notification permission granted');
+          
+          // Get the subscription object
+          registration.pushManager.subscribe({
+            userVisibleOnly: true,  // Notifications will be visible to users
+            applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')  // Use your own VAPID public key
+          }).then(function(subscription) {
+            console.log('User is subscribed:', subscription);
+            
+            // Send the subscription data to Google Apps Script to store in the Google Sheet
+            sendSubscriptionToServer(subscription);
+          }).catch(function(error) {
+            console.error('Subscription failed', error);
+          });
+        }
+      });
+    }).catch(function(error) {
+      console.error('Service Worker registration failed', error);
+    });
+  } else {
+    console.log('Push notifications are not supported in this browser.');
+  }
+
+  // Convert the VAPID public key to Uint8Array
+  function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/\_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+  }
+
+function sendSubscriptionToServer(subscription) {
+  const formData = new FormData();
+  // formData.append('timestamp', new Date().toISOString());
+  formData.append('endpoint', subscription.endpoint || "No endpoint");
+  formData.append('auth', subscription.keys?.auth || "No auth key");
+  formData.append('p256dh', subscription.keys ? subscription.keys.p256dh : "No p256dh key");
+  formData.append('user', subscription.userAgent || "Unknown");
+
+  fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
+    method: 'POST',
+    body: formData,  // Send data as FormData
+  })
+  .then(response => response.json())  // Parse the JSON response
+  .then(data => {
+    console.log('Subscription sent successfully:', data);
+  })
+  .catch(error => {
+    console.error('Error saving subscription:', error);
+  });
+}
+
+</script>
 
 <script type="text/javascript">
 
@@ -270,6 +340,8 @@ function upme()
 if(isdesk) { window.removeEventListener('resize', upme); } 
 
 </script>
+
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> -->
 
 <script type="application/ld+json">
 {
@@ -841,7 +913,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
 
             <div id="pros-cons"> 
                 <h2 id="thoughts"> Overall Thoughts </h2> 
-                <p id="thoughts-para">JBL Boombox 3 for low, Tribit Stormbox Blast for above average and Boom 2 Plus for outdoors or maximum volume listening. Boom 2 Plus is muddy, less accurate and missing the deep bass. Boombox 3 and Stormbox Blast offer pretty deep bass down to 40 Hz. Boombox 3 has 700 Hz issue and Stormbox Blast has 5.5 KHz dipping issue. The JBL Boombox 3 also limits its bass after 80% volume. Overall, the Tribit Stirmbox Blast is the champion. Boom 2 Plus shines in cool, bold and sexy design - huge boom.</p>
+                <p id="thoughts-para">JBL Boombox 3 for low, Tribit Stormbox Blast for above average and Boom 2 Plus for outdoors or maximum volume listening. Boom 2 Plus is muddy, less accurate and missing the deep bass. Boombox 3 and Stormbox Blast offer pretty deep bass down to 40 Hz. Boombox 3 has 700 Hz issue and Stormbox Blast has 5.5 KHz dipping issue. The JBL Boombox 3 also limits its bass after 80% volume. Overall, the Tribit Stirmbox Blast is the champion. Boom 2 Plus shines in cool, bold and sexy design - huge boom. So that's it USD</p>
             </div> <br><br>
 
 		        <span class="sections"> Inside-the-box Comparison </span>
@@ -1042,7 +1114,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
             <a target="_blank" href="jbl-xtreme-4-vs-xtreme-3.html"><img class="art-images" src="https://elomymelo.com/docs-images/x4-vs-x3-main.jpg" alt="jbl xtreme 4 vs xtreme 3"></a>
             <br>
 
-            <p>Battery life is a key differentiator for portable speakers. The Tribit Stormbox Blast takes the lead with a massive 71.3 Wh battery, translating to a whopping 30 hours of playtime on a single charge. Following closely behind is the JBL Boombox 3 with its hefty 69.7 Wh battery, promising an impressive 24 hours of playback. Soundcore Boom 2 Plus offers a still-respectable 20 hours with its 54.8 Wh battery. Remember, these estimates are based on moderate volume levels, so real-world usage might vary slightly. The <a href="https://www.qualitylogoproducts.com/blog/what-is-a-power-bank/" target="_blank" rel="nofollow noopener noreferrer">power bank</a> out is 5V 2A for all of them. Charging time will vary from 3 hours to 6.5 hours as the Boombox 3 has the fastest 80-watt mains charging vs Boom 2 Plus’s 30-watt Type-C charging on the bottom end.</p> 
+            <p>Battery life is a key differentiator for portable speakers. The Tribit Stormbox Blast takes the lead with a massive 71.3 Wh battery, translating to a whopping 30 hours of playtime on a single charge. Following closely behind is the JBL Boombox 3 with its hefty 69.7 Wh battery, promising an impressive 24 hours of playback. Soundcore Boom 2 Plus offers a still-respectable 20 hours with its 54.8 Wh battery. Remember, these estimates are based on moderate volume levels, so real-world usage might vary slightly. The <a href="https://www.qualitylogoproducts.com/blog/what-is-a-power-bank/" target="_blank" rel="nofollow noopener noreferrer">power bank</a> out is 5V 2A for all of them. Charging time will vary from 3 hours to 6.5 hours as the Boombox 3 has the fastest 80-watt mains charging vs Boom 2 Plus’s 30-watt Type-C charging on the bottom end USD.</p> 
 
             <br>
             <a target="_blank" href="https://shareasale.com/u.cfm?d=1097612&amp;m=126653&amp;u=4224212&amp;afftrack="><img class="art-images" src="https://static.shareasale.com/image/126653/us-ads-A3138-336x280-4.png" style="height: auto" 
@@ -1495,7 +1567,7 @@ if(isdesk) { window.removeEventListener('resize', upme); }
     <div class="comment-sec" id="comnt-sctn">
     	<span class="header-comment">COMMENT SECTION</span>
 
-    	<form id="comments" class="gform" action="https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec" method="post" target="iframe-com">
+    	<form id="comments" class="gform" action="https://script.google.com/macros/s/AKfycbzhtASnOTedp0KgYnzZrrb0ekHbgC7yDTilSUdrkyVswTjmXAbvz-hB5s_7N0hM81Nq/exec" method="post" target="iframe-com">
             <div class="com-name">
                 
                 <input style="height: 100px; width: 786px; border: 0px red solid; font-size: 45px; padding-left: 35px; padding-right: 35px; position: absolute; top: 9px; left: 10px; font-family: roboto, cus-roboto; color: rgba(112,112,112,1);" id="name" name="name" type="text" class="form-control" placeholder="write name" autocomplete="off">
