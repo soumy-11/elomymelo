@@ -63,10 +63,10 @@
         border-radius: 50%;
         border: 0px rgba(171,229,99,0.45) solid;
         z-index: 999;
-        box-shadow: 0 0 20px rgba(255,119,119,0.75);
-        background: rgba(0,0,0,1);
-        display: none;
-        animation: fadein 2s;
+        box-shadow: 0 0 30px rgba(255,119,119,0.75);
+		background: rgba(0,0,0,1);
+		display: none;
+		animation: fadein 2s;
         --set-size: 0px;
     }
 
@@ -434,7 +434,7 @@
     }
     #intro-para::before
     {
-    	content: ""; 
+    	content: "";
         position: absolute; inset: 0; 
         border-radius: 50px; padding: 10px; 
     	background: linear-gradient(to left, rgba(146,155,212,0.5), transparent); 
@@ -456,7 +456,7 @@
         background: linear-gradient(to left, #606060bf 10%, transparent 20%); 
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
         -webkit-mask-composite: xor; width: 98.5%; 
-        margin-top: -35px; margin-bottom: -35px; 
+        margin-top: -65px; margin-bottom: 55px; 
         mask-composite: exclude;
         z-index: -10;
     }
@@ -510,21 +510,14 @@
     .last-extend
     {
         position: relative;
-        font-size: 65px;
-        background: linear-gradient(to right, #c4c4c4, #4f4f4f);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-        letter-spacing: 10px;
-        margin-left: 30px;
-        display: none;
+        background-size: contain;
+        background-repeat: repeat;
+        background-image: url('../old-images/span-check.png'), 
+        linear-gradient(to right, #b7b7b7, #808080);
+        margin-left: 30px; height: 100px;
+        top: 25px; display: none;
     }
 
-    .scroll-clk-button
-    {
-        display: none;
-    }
     .aff-link-text
     {
         display: none;
@@ -535,8 +528,8 @@
     }
     
     #ads-br-f1 {display: none;} #ads-br-f2 {display: none;} #ads-br-f3 {display: none;} 
-    #ads-br-f4 {display: none;} #ads-br-d1 {display: none;} #ads-br-d2 {display: none;} 
-    #ads-br-d3 {display: none;} #ads-br-d4 {display: none;} 
+    #ads-br-f4 {display: none;} #ads-br-d1 {display: none;} 
+    #ads-br-d2 {display: none;} #ads-br-d3 {display: none;}
 
     .ad-details-4
     {
@@ -601,9 +594,8 @@
         width: 306px;
         height: auto;
         min-height: 200px;
-        padding: 10px 0px 10px 0px;
         border: 3px rgba(112,112,112,0.45) solid;
-        border-radius: 6px;
+        border-radius: 5px;
         margin-bottom: calc(var(--set-margin)*3.7);
         margin-top: calc(var(--set-margin)*3.7);
         --set-margin: 195px;
@@ -615,9 +607,9 @@
         width: 500px;
         height: auto;
         min-height: 256px;
-        padding: 15px 4px 15px 4px;
+        padding: 4px;
         background: #2A2A2A;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-bottom: calc(var(--set-margin)*2.05);
         margin-top: calc(var(--set-margin)*2.05);
         --set-margin: 256px;
@@ -626,7 +618,7 @@
     {
         display: inline-block; 
         margin-top: 16px; 
-        margin-bottom: 110px; 
+        margin-bottom: 85px; 
         padding-top: 23px; 
         padding-bottom: 25px; 
         padding-left: 72px; 
@@ -642,8 +634,8 @@
         border-left: 15px rgba(184,130,53,0.70) solid;
         border-right: 15px rgba(112,112,112,0.75) solid; 
         display: inline-block; 
-        margin-top: 66px; 
-        margin-bottom: 110px; 
+        margin-top: 16px; 
+        margin-bottom: 60px; 
         padding-left: 72px; 
         padding-right: 65px; 
         font-size: 95px; 
