@@ -39,7 +39,7 @@
   formData.append('notificationurl', baseUrl || '');
 
   event.waitUntil(
-    fetch('https://script.google.com/macros/s/AKfycbxLZFMMwYw_4jpmYWUJWGBAmE-DXvCrOZ9qDcz2VvbD3_jKuIYl3pHERSSPwla-0DFCPg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbz5_cu4YWF1G4Vq3Q0iYHYEHEVBmK7nlUrME_VEcx-Yi1t_9TUIIYsLclGf96erbV2jIg/exec', {
       method: 'POST',
       body: formData,
     }).catch(error => {
