@@ -33,9 +33,15 @@
   const baseUrl = notificationData.url || "https://elomymelo.com";
   const timestamp = new Date().toISOString();
 
-  // Send to Apps Scripts
-  event.waitUntil(fetch('https://script.google.com/macros/s/AKfycbxLZFMMwYw_4jpmYWUJWGBAmE-DXvCrOZ9qDcz2VvbD3_jKuIYl3pHERSSPwla-0DFCPg/exec', {
-  method: 'POST', headers: { 'Content-Type': 'application/json', },
-  body: JSON.stringify({ timestamp: timestamp, notificationurl: baseUrl, }),
-  }).catch(error => { console.error('Failed to send tracking data', error);
-  throw error; })); }); // end of simple service worker code 
+  // Send to Apps Script using FormData
+  const formData = new FormData();
+  formData.append('timestamp', timestamp || '');
+  formData.append('notificationurl', baseUrl || '');
+
+  event.waitUntil(
+    fetch('https://script.google.com/macros/s/AKfycbxLZFMMwYw_4jpmYWUJWGBAmE-DXvCrOZ9qDcz2VvbD3_jKuIYl3pHERSSPwla-0DFCPg/exec', {
+      method: 'POST',
+      body: formData,
+    }).catch(error => {
+      console.error('Failed to send tracking data:', error);
+      throw error; })); }); // end of simple service worker code 
