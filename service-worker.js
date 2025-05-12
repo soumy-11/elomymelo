@@ -34,14 +34,9 @@
   const timestamp = new Date().toISOString();
 
   // Send to Apps Script using FormData
-  const formData = new FormData();
-  formData.append('timestamp', timestamp || '');
+  const formData = new FormData(); formData.append('timestamp', timestamp || '');
   formData.append('notificationurl', baseUrl || '');
 
-  event.waitUntil(
-    fetch('https://script.google.com/macros/s/AKfycbz5_cu4YWF1G4Vq3Q0iYHYEHEVBmK7nlUrME_VEcx-Yi1t_9TUIIYsLclGf96erbV2jIg/exec', {
-      method: 'POST',
-      body: formData,
-    }).catch(error => {
-      console.error('Failed to send tracking data:', error);
-      throw error; })); }); // end of simple service worker code 
+  event.waitUntil(fetch('https://script.google.com/macros/s/AKfycbz5_cu4YWF1G4Vq3Q0iYHYEHEVBmK7nlUrME_VEcx-Yi1t_9TUIIYsLclGf96erbV2jIg/exec', {
+  method: 'POST', body: formData, }).catch(error => { console.error('Failed to send tracking data:', error);
+  throw error; })); }); // end of service worker
