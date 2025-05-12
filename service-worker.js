@@ -25,7 +25,17 @@
     data.title || "Elo My Melo | Tech & Education",
     options )); }); // main noTi 
 
-  self.addEventListener('notificationclick', event => { event.notification.close();
-  event.waitUntil(clients.openWindow(event.notification.data.url)); });
-  // end of simple service worker code 
+  // Handle notification click
+  self.addEventListener('notificationclick', event => {
+  event.notification.close(); event.waitUntil(clients.openWindow(event.notification.data.url));
 
+  const notificationData = event.notification.data || {};
+  const baseUrl = notificationData.url || "https://elomymelo.com";
+  const timestamp = new Date().toISOString();
+
+  // Send to Apps Scripts
+  event.waitUntil(fetch('https://script.google.com/macros/s/AKfycbxLZFMMwYw_4jpmYWUJWGBAmE-DXvCrOZ9qDcz2VvbD3_jKuIYl3pHERSSPwla-0DFCPg/exec', {
+  method: 'POST', headers: { 'Content-Type': 'application/json', },
+  body: JSON.stringify({ timestamp: timestamp, notificationurl: baseUrl, }),
+  }).catch(error => { console.error('Failed to send tracking data', error);
+  throw error; })); }); // end of simple service worker code 
