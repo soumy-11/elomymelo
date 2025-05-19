@@ -157,10 +157,9 @@ function updateLogo()
     }
 
     if (window.matchMedia("(min-width: 615px)").matches) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "none"; }); deskT = false; } 
+    { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; } 
     if (window.matchMedia("(max-width: 615px)").matches && !deskT) 
-    { document.querySelectorAll(".last-extend").forEach(function(el) { el.style.display = "inline-block"; }); 
-    clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
+    { clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
     { detectCharacter(); } }, 1700); deskT = true; } 
 
     // Array of IDs
@@ -272,12 +271,11 @@ function updateLogo()
 updateLogo(); 
 // Call the function 
 
+// for last-line balance
 function insertAndMeasureSpan(paraTag) 
 {
     const spanElement = document.createElement('span');
-    paraTag.appendChild(spanElement);
-
-    const spanRect = spanElement.getBoundingClientRect();
+    paraTag.appendChild(spanElement); const spanRect = spanElement.getBoundingClientRect();
     const leftCoordinate = spanRect.left + window.pageXOffset;
 
     paraTag.removeChild(spanElement);
@@ -286,13 +284,11 @@ function insertAndMeasureSpan(paraTag)
 
 function handleFirstCondition(paraTag, comparewidth, widthinner) 
 {
-    let index = 0; let leftCoordinate;
-    const paddings = ["80px", "120px", "160px", "200px", "240px"];
-
-    paraTag.style.paddingRight = paddings[index];
+    let padding = 80; let leftCoordinate;
+    paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag));
     while (leftCoordinate < (comparewidth - (widthinner * 0.07)) && 
-    index < paddings.length - 1) { index++; paraTag.style.paddingRight = paddings[index];
+    padding <= 240) { padding += 20; paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag)); }
 }
 
@@ -307,10 +303,15 @@ function processParagraph(paraTag)
 
 function detectCharacter() 
 {
-    if (window.matchMedia("(max-width: 615px)").matches) {
+    // the main function called first 
     const divElement = document.getElementById("article-text-div");
-    const pTags = divElement.querySelectorAll("p");
-    pTags.forEach(processParagraph); }
+    const pTags = divElement.querySelectorAll("p"); // selects all p-tags 
+    if (window.matchMedia("(max-width: 615px)").matches) {
+    pTags.forEach(processParagraph); /* process */ }
+
+    console.log("Here Detect Character");
+    if (window.matchMedia("(min-width: 615px)").matches) { pTags.forEach(pTag => {
+    pTag.style.paddingRight = ""; }); }
 }
 
     document.fonts.load('1em Roboto').then(function() {
@@ -328,4 +329,3 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
-
