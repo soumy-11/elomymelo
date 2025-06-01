@@ -109,6 +109,57 @@ br
     width: 2235px;
     border: 0px grey solid;
 }
+#article-header
+{
+    position: relative;
+    font-family: roboto, cus-roboto, sans-serif; 
+    padding: 0px 34px 0px 34px; 
+    text-align: center;
+}
+#h1-header
+{
+    display: inline;
+    color: rgba(28,117,121,0.8);
+    font-family: cus-roboto-medium, cus-roboto, sans-serif; 
+    padding-bottom: 40px;
+    font-weight: normal;
+    font-size: 80px; 
+}
+#short-verdicts
+{
+    font-size: 57px; 
+    margin-top: 10px;
+    color: rgba(0,0,0,0.57); 
+    padding: 0px 34px 0px 34px; 
+    display: inline-block;
+}
+#publication-details
+{
+    font-size: 52px; 
+    margin-top: 15px;
+    color: rgba(0,0,0,0.57);
+    border-inline: 15px rgba(0,0,0,0.1) solid;
+    padding: 0px 34px 0px 34px; 
+    display: inline-block;
+}
+.first-para
+{
+    width: 99.5%;
+    padding: 0px 45px 40px 0px; 
+    position: relative;
+    z-index: 15;
+}
+.first-para::before
+{
+    content: "";
+    position: absolute; inset: 0; 
+    border-radius: 50px; padding: 6px; 
+    background: linear-gradient(to left, rgba(146,155,212,0.5), transparent 50%); 
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); 
+    -webkit-mask-composite: xor; 
+    mask-composite: exclude; 
+    z-index: -10;
+}
 #main-art-header
 {
     position: relative;
