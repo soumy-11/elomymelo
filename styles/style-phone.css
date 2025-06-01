@@ -396,6 +396,8 @@
     {
         font-size: 74px; 
         color: rgba(255,255,255,0.57); 
+        display: inline-block;
+        margin-top: -20px;
     }
     #publication-details
     {
