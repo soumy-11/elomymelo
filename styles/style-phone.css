@@ -709,6 +709,58 @@
     .inside-article-div
     {
     	display: none;
+        position: relative;
+        margin: 400px 46px 0px 46px;
+        padding-top: 100px;
+        width: 2156px;
+        height: auto;
+    }
+    .latest_articles
+    {
+        position: absolute;
+        left: 520px; top: -175px;
+        border-radius: 110px; font-size: 60px;
+        font-family: cus-roboto-light, sans-serif;
+        filter: drop-shadow(0px 15px 40px rgba(255,119,119,0.60));
+        padding: 56px 112px 52px 140px; letter-spacing: 30px;
+        color: rgba(255,255,255,0.65);
+        background: rgba(0,0,0,1);
+    }
+    .latest-art-pic-common
+    {
+        width: 2156px; height: auto;
+        border-radius: 50px;
+    } 
+    .art-head-common
+    {
+        width: 90%;
+        text-align: center;
+        margin: 40px 5% 100px 5%;
+        font-family: cus-roboto-medium, sans-serif;
+        border: 15px rgba(112,112,112,0.7) solid;
+        border-radius: 40px 40px 90px 90px;
+        font-size: 95px;
+        padding: 50px;
+    }
+    .art-head-common a
+    {
+        color: #929bd4 !important;
+    }
+    .art-description-common
+    {
+        display: none;
+    }
+    .articles-common-lt-style
+    {
+        height: auto;
+    }
+    #more-info-after-2
+    {
+        display: none;
+    }
+    #more-info-after
+    {
+        display: none;
     }
 
     #big-intro-char
@@ -1207,9 +1259,9 @@
     }
     #after-ft-phone
     {
+        border: 1px black solid;
         position: relative;
         width: 2058px;
-        border: 1px white solid;
     }
     #footer-phone
     {
