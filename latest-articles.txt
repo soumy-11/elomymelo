@@ -1,0 +1,18 @@
+<div class="latest-article">
+  <img src="article1.jpg" alt="Article 1 Image">
+  <h3>Title of Article 1</h3>
+  <p>Brief description of article 1. This article discusses some interesting topics and provides valuable insights.</p>
+  <a href="#">Read More</a>
+</div>
+<div class="latest-article">
+  <img src="article2.jpg" alt="Article 2 Image">
+  <h3>Another Interesting Article</h3>
+  <p>Summary of the second latest article. It covers a different perspective on a related subject.</p>
+  <a href="#">View Article</a>
+</div>
+<div class="latest-article">
+  <img src="article3.jpg" alt="Article 3 Image">
+  <h3>The Latest News</h3>
+  <p>A quick update on the most recent happenings. Stay informed with our latest news.</p>
+  <a href="#">See Details</a>
+</div>
