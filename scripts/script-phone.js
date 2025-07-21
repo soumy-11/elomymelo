@@ -9,11 +9,10 @@ function scrollmethod()
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }
 
-    console.log('Scrolled 2000px');
+    console.log('Scrolled 4000px');
     if(notitimer !== null) { clearTimeout(notitimer); }
-    notitimer = setTimeout(function() { if(window.scrollY >= 2000 && !hasTriggered) 
-    { initPushSubscription(); hasTriggered = true;
-    console.log('Scrolled 2000px'); } }, 2000);
+    notitimer = setTimeout(function() { if(window.scrollY >= 4000 && !hasTriggered) 
+    { notiOverlay(); hasTriggered = true; console.log('4000px'); } }, 2000);
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
