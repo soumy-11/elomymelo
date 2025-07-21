@@ -85,7 +85,7 @@
     if (Notification.permission !== 'granted') 
     {
         const notidiv = document.createElement('div');
-        notidiv.className = 'noti-overlay'; notidiv.innerHTML = '<div class="noti-main"><div class="top-img"><img style="width:75px;height:75px" src="old-images/circle-trans.png" alt="my profile picture"></div><div class="mid-text">I assure you that you are not going to get spammy notifications from my website. You will get a lot of valuable information from my content. Please kindly turn on the notification so that my hard work can reach to people like you.</div><div class="act-buttons"><button class="noti-button" style="background:#929bd4;color:black" onclick="notiButtonClick()">Turn Noti On</button><br><button class="noti-button" style="margin-top:0px" onclick="removeNotiOverlay()">Not Now</button></div></div>';
+        notidiv.className = 'noti-overlay'; notidiv.innerHTML = '<div class="noti-main"><div class="top-img"><img style="width:75px;height:75px" src="old-images/circle-trans.png" alt="my profile picture"></div><div class="mid-text">I assure you that you are not going to get spammy notifications from my website. You will get a lot of valuable information from my articles. <br><br> Please kindly turn on the notification so that my hard work can reach to people like you.</div><div class="act-buttons"><button class="noti-button" style="background:#929bd4;color:black" onclick="notiButtonClick()">Turn Noti On</button><br><button class="noti-button" style="margin-top:0px" onclick="removeNotiOverlay()">Not Now</button></div></div>';
         document.body.appendChild(notidiv); 
     }
   }
