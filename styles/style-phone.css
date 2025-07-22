@@ -92,7 +92,7 @@
         text-align: center;
         color: rgba(255,255,255,0.5);
         font-family: roboto, sans-serif;
-        border-radius: 30px;
+        border-radius: 20px;
         background: black;
     }
     .top-img
@@ -144,8 +144,9 @@
         position: relative;
         padding: 15px 25px 15px 25px;
         background: #464646;
-        color: #d0d0d0;
+        color: #b0b0b0;
         border-radius: 40px;
+        font-size: 14px;
         margin: 15px;
         cursor: pointer;
     }
