@@ -79,14 +79,21 @@
     });
   }
 
+  // local storage set up for noti counts 
+  let noticounter = parseInt(localStorage.getItem('pageLoadCount')) || 0; 
+  noticounter += 1; localStorage.setItem('pageLoadCount', noticounter);
+  console.log("Page Load Counter = ", noticounter);
+
   function notiOverlay()
   {
     console.log("Current Notification Permission:", Notification.permission);
-    if (Notification.permission !== 'granted') 
+    if ((Notification.permission !== 'granted' && noticounter <= 1) 
+    || (Notification.permission !== 'granted' && noticounter > 5)) 
     {
         const notidiv = document.createElement('div');
         notidiv.className = 'noti-overlay'; notidiv.innerHTML = '<div class="noti-main"><div class="top-img"><img style="width:75px;height:75px" src="old-images/circle-trans.png" alt="my profile picture"></div><div class="mid-text">I assure you that you are not going to get spammy notifications from my website. You will get a lot of valuable information from my articles. <br><br> Please kindly turn on the notification so that my hard work can reach to people like you.</div><div class="act-buttons"><button class="noti-button" style="background:#929bd4;color:black" onclick="notiButtonClick()">Turn Noti On</button><br><button class="noti-button" style="margin-top:0px" onclick="removeNotiOverlay()">Not Now</button></div></div>';
-        document.body.appendChild(notidiv); 
+        document.body.appendChild(notidiv); if (noticounter > 5) { let resetValue = 1;
+        localStorage.setItem('pageLoadCount', resetValue); }
     }
   }
 
