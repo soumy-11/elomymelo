@@ -1,55 +1,74 @@
 
-  // Function to handle the subscription logic
-  function initPushSubscription() {
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-        console.log('Service Worker registered', registration);
+function initPushSubscription() {
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        console.log('Notification permission granted');
 
-        Notification.requestPermission().then(function(permission) {
-          if (permission === 'granted') {
-            console.log('Notification permission granted');
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered:', registration);
 
-            registration.pushManager.subscribe({
-              userVisibleOnly: true,
-              applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')
-            }).then(function(subscription) {
-              console.log('User is subscribed:', subscription);
-
-              const subscriptionJSON = subscription.toJSON();
-              const currentAuthKey = subscriptionJSON.keys.auth;
-
-              // Check stored subscription data
-              const hasSubscribed = localStorage.getItem('hasSubscribed');
-              const storedAuthKey = localStorage.getItem('subscriptionAuthKey');
-
-              // Send subscription if it's the first time OR if the auth key has changed
-              if (!hasSubscribed || storedAuthKey !== currentAuthKey) {
-                const formData = new FormData();
-                formData.append('endpoint', subscription.endpoint || "No endpoint");
-                formData.append('auth', currentAuthKey || "No auth key");
-                formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
-                formData.append('user', navigator.userAgent || "Unknown");
-
-                sendSubscriptionToServer(formData).then(() => {
-                  localStorage.setItem('hasSubscribed', 'true');
-                  localStorage.setItem('subscriptionAuthKey', currentAuthKey);
-                  console.log('Subscription data updated in localStorage');
+            // Wait for service worker to be active before subscribing
+            if (registration.active) {
+              subscribeToPush(registration);
+            } else {
+              const serviceWorker = registration.installing || registration.waiting;
+              if (serviceWorker) {
+                serviceWorker.addEventListener('statechange', (e) => {
+                  if (e.target.state === 'activated') {
+                    subscribeToPush(registration);
+                  }
                 });
-              } else {
-                console.log('Subscription unchanged, no update needed');
               }
-            }).catch(function(error) {
-              console.error('Subscription failed', error);
-            });
-          }
-        });
-      }).catch(function(error) {
-        console.error('Service Worker registration failed', error);
+            }
+          })
+          .catch(error => {
+            console.error('Service Worker registration failed', error);
+          });
+      } else {
+        console.warn('Notification permission denied');
+      }
+    });
+  } else {
+    console.log('Push notifications are not supported in this browser.');
+  }
+}
+
+function subscribeToPush(registration) {
+  registration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: urlBase64ToUint8Array(
+      'BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE'
+    )
+  }).then(subscription => {
+    console.log('User is subscribed:', subscription);
+
+    const subscriptionJSON = subscription.toJSON();
+    const currentAuthKey = subscriptionJSON.keys.auth;
+
+    const hasSubscribed = localStorage.getItem('hasSubscribed');
+    const storedAuthKey = localStorage.getItem('subscriptionAuthKey');
+
+    if (!hasSubscribed || storedAuthKey !== currentAuthKey) {
+      const formData = new FormData();
+      formData.append('endpoint', subscription.endpoint || 'No endpoint');
+      formData.append('auth', currentAuthKey || 'No auth key');
+      formData.append('p256dh', subscriptionJSON.keys.p256dh || 'No p256dh key');
+      formData.append('user', navigator.userAgent || 'Unknown');
+
+      sendSubscriptionToServer(formData).then(() => {
+        localStorage.setItem('hasSubscribed', 'true');
+        localStorage.setItem('subscriptionAuthKey', currentAuthKey);
+        console.log('Subscription data updated in localStorage');
       });
     } else {
-      console.log('Push notifications are not supported in this browser.');
+      console.log('Subscription unchanged, no update needed');
     }
-  }
+  }).catch(error => {
+    console.error('Subscription failed', error);
+  });
+}
 
   // Convert the VAPID public key to Uint8Array
   function urlBase64ToUint8Array(base64String) {
