@@ -88,7 +88,7 @@
 
   function notiOverlay()
   {
-    console.log("Current Notification Permission:", Notification.permission);
+    console.log("Noti Permission = ", Notification.permission);
     if ((Notification.permission === 'default' && noticounter <= 1) 
     || (Notification.permission === 'default' && noticounter > 5)) 
     {
