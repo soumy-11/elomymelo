@@ -11,10 +11,13 @@ function scrollmethod()
 
     const element = document.querySelector('.art-text-div');
     const anelement = document.querySelector('#publication-detail-phone');
-    const rect = element.getBoundingClientRect(); // console.log('bottom article-div', rect.height);
+    const rect = element.getBoundingClientRect(); const inner = window.innerHeight;
     anelement.innerHTML = rect.height; if(notitimer !== null) { clearTimeout(notitimer); }
-    notitimer = setTimeout(function() { if(rect.bottom <= window.innerHeight && !hasTriggered) 
-    { notiOverlay(); hasTriggered = true; console.log('4000px'); } }, 2000);
+    notitimer = setTimeout(function() { if(rect.height < 8500 && rect.bottom <= (inner * 3) && !hasTriggered || 
+    rect.height > 8500 && rect.height < 12500 && rect.bottom <= (inner * 5) && !hasTriggered || 
+    rect.height > 12500 && rect.height < 16500 && rect.bottom <= (inner * 6) && !hasTriggered || 
+    rect.height > 16500 && rect.bottom <= (inner * 7) && !hasTriggered) { notiOverlay(); 
+    hasTriggered = true; console.log('4000px'); } }, 2000);
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
