@@ -3,21 +3,20 @@
 var notitimer = null; let hasTriggered = false;
 function scrollmethod() 
 {
-	mybutton = document.getElementById("scroll-top-button"); 
-	const mediain = window.matchMedia("(max-width: 615px)").matches; 
+    mybutton = document.getElementById("scroll-top-button"); 
+    const mediain = window.matchMedia("(max-width: 615px)").matches; 
     if (document.documentElement.scrollTop > 200 && mediain) { mybutton.style.display = "block"; } 
     if (window.matchMedia("(max-height: 496px)").matches) { mybutton.style.display = "none"; } 
     if (document.documentElement.scrollTop < 200 && mediain) { mybutton.style.display = "none"; }
 
     const element = document.querySelector('.art-text-div');
-    const anelement = document.querySelector('#publication-detail-phone');
     const rect = element.getBoundingClientRect(); const inner = window.innerHeight;
-    anelement.innerHTML = rect.height; if(notitimer !== null) { clearTimeout(notitimer); }
-    notitimer = setTimeout(function() { if(rect.height < 8500 && rect.bottom <= (inner * 3) && !hasTriggered || 
-    rect.height > 8500 && rect.height < 12500 && rect.bottom <= (inner * 5) && !hasTriggered || 
-    rect.height > 12500 && rect.height < 16500 && rect.bottom <= (inner * 6) && !hasTriggered || 
-    rect.height > 16500 && rect.bottom <= (inner * 7) && !hasTriggered) { notiOverlay(); 
-    hasTriggered = true; console.log('4000px'); } }, 2000);
+    const eH = rect.height; if(notitimer !== null) { clearTimeout(notitimer); }
+    notitimer = setTimeout(function() { if (!hasTriggered) { let trig;
+
+    if (eH < 8500) { trig = 3; } else if (eH < 12500) { trig = 5; } else if (eH < 16500) { trig = 6; } else {
+    trig = 7; console.log('Trig 7 here'); } if (rect.bottom <= (inner * trig)) { notiOverlay(); 
+    hasTriggered = true; console.log('Pop Up Trigger'); } } }, 2000);
 }
 function scrolltotop() { window.scrollTo({ top: 0, behavior: 'smooth' }); } 
 
