@@ -99,7 +99,7 @@ function subscribeToPush(registration) {
   }
 
   // tied to google-consent pop 
-  let notiDesk = false; let pop2 = false;
+  let notiDesk = false; let pop1, pop2, pop3;
   if (window.matchMedia("(min-width: 615px)").matches) { 
   setTimeout(() => { if (!pop1) { notiOverlay(); pop2 = true; } }, 25000); notiDesk = true; }
 
@@ -547,7 +547,7 @@ function outscale()
             if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2000); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
-	    if (pop1 && !pop2) { setTimeout(notiOverlay, 20000); }
+	    if (pop1 && !pop2 && !pop3) { setTimeout(notiOverlay, 20000); pop3 = true; }
         }
 
         if (footerDiv) 
