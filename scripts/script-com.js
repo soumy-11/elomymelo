@@ -504,7 +504,6 @@ function scrolldown()
 function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
-let pop1 = false;
 function outscale()
 {
      let sizedetection, visHide;
