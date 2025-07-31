@@ -98,6 +98,11 @@ function subscribeToPush(registration) {
     });
   }
 
+  // tied to google-consent pop 
+  let notiDesk = false; let pop2 = false;
+  if (window.matchMedia("(min-width: 615px)").matches) { 
+  setTimeout(() => { if (!pop1) { notiOverlay(); pop2 = true; } }, 25000); notiDesk = true; }
+
   // local storage set up for noti counts 
   let countcheck = parseInt(localStorage.getItem('checkView')) || 0; 
   let noticounter = parseInt(localStorage.getItem('pageLoadCount')) || 0; 
@@ -499,6 +504,7 @@ function scrolldown()
 function scrltipon() { document.querySelector(".scroll-here-tip").style.visibility = "visible"; }
 function scrltipout() { document.querySelector(".scroll-here-tip").style.visibility = ""; }
 
+let pop1 = false;
 function outscale()
 {
      let sizedetection, visHide;
@@ -531,7 +537,7 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden"; if (fcone) {
+            document.body.style.overflow = "hidden"; pop1 = true; if (fcone) {
             clearTimeout(visHide); fcone = false; }
         }
         else 
@@ -541,6 +547,7 @@ function outscale()
             if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2000); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
+	    if (pop1 && !pop2) { setTimeout(notiOverlay, 20000); }
         }
 
         if (footerDiv) 
