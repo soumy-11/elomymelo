@@ -667,7 +667,7 @@
         font-weight: normal; max-width: 90%;
         border-inline: 15px rgba(236,96,202,0.55) solid;
         font-family: cus-roboto-medium, sans-serif;
-        padding: 20px 65px 20px 65px;
+        padding: 20px 65px 20px 58px;
         color: rgba(146,155,212,1);
         margin: 16px auto 0 auto;
         text-align: center;
@@ -700,9 +700,10 @@
     }
     .mentions-new
     {
-        border-inline: 15px #707070bf solid;
+        border-radius: 50px;
+        border: 12px #606060bf solid;
+        padding: 20px 72px 20px 72px;
         display: inline-block;
-        padding: 0 72px 0 72px;
         text-align: center;
     }
     .mentions
