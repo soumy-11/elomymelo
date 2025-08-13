@@ -144,9 +144,9 @@ function updateLogo()
     {
            document.querySelectorAll(".dis-com").forEach(function(el) {
            el.style.left = "617px"; el.style.transform = "scale(2.25, 2.25)"; });
+           document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)";
            document.querySelectorAll(".feed-com").forEach(function(el) {
            el.style.transform = "scale(2.45, 2.45)"; });
-           document.getElementById("ads-v1-in").style.transform = "scale(2.72, 2.72)"; 
     }
     if (window.matchMedia("(max-width: 615px)").matches) 
     {
@@ -156,7 +156,12 @@ function updateLogo()
            el.style.transform = "scale(4.34, 4.34)"; });
     }
 
-    if (window.matchMedia("(min-width: 615px)").matches) 
+    // for changing the cross icon and pointer element's color
+    const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
+    const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
+    pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
+
+    if (window.matchMedia("(min-width: 615px)").matches && deskT) 
     { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; } 
     if (window.matchMedia("(max-width: 615px)").matches && !deskT) 
     { clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
@@ -271,6 +276,10 @@ function updateLogo()
 updateLogo(); 
 // Call the function 
 
+const artCon = document.querySelector('.articles-container');
+const secNew = document.querySelector('.sections-new'); if(secNew) {
+console.log("secNew here =", secNew); }
+
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
 {
@@ -282,42 +291,43 @@ function insertAndMeasureSpan(paraTag)
     return { leftCoordinate };
 }
 
-function handleFirstCondition(paraTag, comparewidth, widthinner) 
+function handleFirstCondition(paraTag, comparewidth, modWidth) 
 {
     let padding = 80; let leftCoordinate;
     paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag));
-    while (leftCoordinate < (comparewidth - (widthinner * 0.07)) && 
-    padding <= 240) { padding += 20; paraTag.style.paddingRight = padding + "px";
+    while (leftCoordinate < (comparewidth - modWidth) && padding <= 240) { 
+    padding += 20; paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag)); }
 }
 
-function processParagraph(paraTag) 
+function processParagraph(paraTag, rectAC) 
 {
-    const { leftCoordinate } = insertAndMeasureSpan(paraTag);
-    const widthinner = window.innerWidth; const comparewidth = widthinner / 2;
+    let modWidth, comparewidth; paraTag.style.paddingRight = "";
+    const { leftCoordinate } = insertAndMeasureSpan(paraTag); var widthIn = window.innerWidth;
+    if (widthIn <= 615) { modWidth = widthIn * 0.07; comparewidth = widthIn / 2; }
+    if (widthIn > 615 && secNew) { modWidth = rectAC.width * 0.22; 
+    comparewidth = (rectAC.width / 2) + rectAC.left; }
 
-    if (leftCoordinate < (comparewidth - (widthinner * 0.07))) {
-    handleFirstCondition(paraTag, comparewidth, widthinner); }
+    if (leftCoordinate < (comparewidth - modWidth)) {
+    handleFirstCondition(paraTag, comparewidth, modWidth); }
 }
 
 function detectCharacter() 
 {
     // the main function called first 
+    const rectAC = artCon.getBoundingClientRect();
     const divElement = document.getElementById("article-text-div");
-    const pTags = divElement.querySelectorAll("p"); // selects all p-tags 
-    if (window.matchMedia("(max-width: 615px)").matches) {
-    pTags.forEach(processParagraph); /* process */ }
+    const pTags = divElement.querySelectorAll("p"); pTags.forEach(p => { if (secNew) { 
+    p.classList.add("art-para-new"); } processParagraph(p, rectAC); });
 
-    console.log("Here Detect Character");
-    if (window.matchMedia("(min-width: 615px)").matches) { pTags.forEach(pTag => {
+    if (!secNew && window.innerWidth > 615) { pTags.forEach(pTag => {
     pTag.style.paddingRight = ""; }); }
 }
 
     document.fonts.load('1em Roboto').then(function() {
     fontload = true; console.log('Roboto font has loaded');
-    if (window.matchMedia("(max-width: 615px)").matches) { 
-    setTimeout(detectCharacter, 200); } }).catch(function(error) {
+    setTimeout(detectCharacter, 200); }).catch(function(error) {
     console.error('Failed to load Roboto', error); });
 
     function heightcheck() { 
@@ -329,3 +339,4 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
