@@ -700,9 +700,10 @@
     }
     .mentions-new
     {
+        width: 99.5%;
         border-radius: 50px;
-        border: 12px #606060bf solid;
-        padding: 20px 72px 20px 72px;
+        border: 10px #606060bf solid;
+        padding: 35px 72px 35px 72px;
         display: inline-block;
         text-align: center;
     }
