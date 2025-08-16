@@ -12,7 +12,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="jbl-flip-7-vs-flip-6.html"> JBL Flip 7 vs JBL Flip 6 - Twice Louder </a> </span>
+		<span> <a href="jbl-flip-7-vs-flip-6.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> JBL Flip 7 vs JBL Flip 6 - Twice Louder </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -28,7 +28,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="jbl-charge-6-vs-charge-5.html"> JBL Charge 6 vs JBL Charge 5 | don't upgrade </a> </span>
+		<span> <a href="jbl-charge-6-vs-charge-5.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> JBL Charge 6 vs JBL Charge 5 | don't upgrade </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -44,7 +44,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="motion-boom-vs-boom-2.html"> Soundcore Boom 2 vs the Motion Boom </a> </span>
+		<span> <a href="motion-boom-vs-boom-2.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> Soundcore Boom 2 vs the Motion Boom </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -141,3 +141,4 @@
    <div id="more-info-after-2">
        <span> For any suggestion you should submit feedback using the comment section. Thank you so much for visiting my website. </span>
    </div><br>
+
