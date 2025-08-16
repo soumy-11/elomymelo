@@ -1,74 +1,55 @@
 
-function initPushSubscription() {
-  if ('serviceWorker' in navigator && 'PushManager' in window) {
-    Notification.requestPermission().then(permission => {
-      if (permission === 'granted') {
-        console.log('Notification permission granted');
+  // Function to handle the subscription logic
+  function initPushSubscription() {
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+        console.log('Service Worker registered', registration);
 
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(registration => {
-            console.log('Service Worker registered:', registration);
+        Notification.requestPermission().then(function(permission) {
+          if (permission === 'granted') {
+            console.log('Notification permission granted');
 
-            // Wait for service worker to be active before subscribing
-            if (registration.active) {
-              subscribeToPush(registration);
-            } else {
-              const serviceWorker = registration.installing || registration.waiting;
-              if (serviceWorker) {
-                serviceWorker.addEventListener('statechange', (e) => {
-                  if (e.target.state === 'activated') {
-                    subscribeToPush(registration);
-                  }
+            registration.pushManager.subscribe({
+              userVisibleOnly: true,
+              applicationServerKey: urlBase64ToUint8Array('BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE')
+            }).then(function(subscription) {
+              console.log('User is subscribed:', subscription);
+
+              const subscriptionJSON = subscription.toJSON();
+              const currentAuthKey = subscriptionJSON.keys.auth;
+
+              // Check stored subscription data
+              const hasSubscribed = localStorage.getItem('hasSubscribed');
+              const storedAuthKey = localStorage.getItem('subscriptionAuthKey');
+
+              // Send subscription if it's the first time OR if the auth key has changed
+              if (!hasSubscribed || storedAuthKey !== currentAuthKey) {
+                const formData = new FormData();
+                formData.append('endpoint', subscription.endpoint || "No endpoint");
+                formData.append('auth', currentAuthKey || "No auth key");
+                formData.append('p256dh', subscriptionJSON.keys.p256dh || "No p256dh key");
+                formData.append('user', navigator.userAgent || "Unknown");
+
+                sendSubscriptionToServer(formData).then(() => {
+                  localStorage.setItem('hasSubscribed', 'true');
+                  localStorage.setItem('subscriptionAuthKey', currentAuthKey);
+                  console.log('Subscription data updated in localStorage');
                 });
+              } else {
+                console.log('Subscription unchanged, no update needed');
               }
-            }
-          })
-          .catch(error => {
-            console.error('Service Worker registration failed', error);
-          });
-      } else {
-        console.warn('Notification permission denied');
-      }
-    });
-  } else {
-    console.log('Push notifications are not supported in this browser.');
-  }
-}
-
-function subscribeToPush(registration) {
-  registration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(
-      'BC3EtR6wSN_ps84dibghU0B0U-tLMozTW8s2AHlY7Dj8oQSXtaNeddfqESD5jnUMNA2BsSymbibq9q1U4EyMmjE'
-    )
-  }).then(subscription => {
-    console.log('User is subscribed:', subscription);
-
-    const subscriptionJSON = subscription.toJSON();
-    const currentAuthKey = subscriptionJSON.keys.auth;
-
-    const hasSubscribed = localStorage.getItem('hasSubscribed');
-    const storedAuthKey = localStorage.getItem('subscriptionAuthKey');
-
-    if (!hasSubscribed || storedAuthKey !== currentAuthKey) {
-      const formData = new FormData();
-      formData.append('endpoint', subscription.endpoint || 'No endpoint');
-      formData.append('auth', currentAuthKey || 'No auth key');
-      formData.append('p256dh', subscriptionJSON.keys.p256dh || 'No p256dh key');
-      formData.append('user', navigator.userAgent || 'Unknown');
-
-      sendSubscriptionToServer(formData).then(() => {
-        localStorage.setItem('hasSubscribed', 'true');
-        localStorage.setItem('subscriptionAuthKey', currentAuthKey);
-        console.log('Subscription data updated in localStorage');
+            }).catch(function(error) {
+              console.error('Subscription failed', error);
+            });
+          }
+        });
+      }).catch(function(error) {
+        console.error('Service Worker registration failed', error);
       });
     } else {
-      console.log('Subscription unchanged, no update needed');
+      console.log('Push notifications are not supported in this browser.');
     }
-  }).catch(error => {
-    console.error('Subscription failed', error);
-  });
-}
+  }
 
   // Convert the VAPID public key to Uint8Array
   function urlBase64ToUint8Array(base64String) {
@@ -85,7 +66,7 @@ function subscribeToPush(registration) {
   }
 
   function sendSubscriptionToServer(formData) {
-    return fetch('https://script.google.com/macros/s/AKfycbzH7EmI8Gq3Oa4SAsekK_7zoKomslcbBwQ1xaynFg_fRlpKSsV2ZTeloWpXhzmJ_OSx/exec', {
+    return fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
       method: 'POST',
       body: formData,
     })
@@ -98,29 +79,45 @@ function subscribeToPush(registration) {
     });
   }
 
-  // tied to google-consent pop 
-  let notiDesk = false; let pop1, pop2, pop3;
-  if (window.matchMedia("(min-width: 615px)").matches) { 
-  setTimeout(() => { if (!pop1) { notiOverlay(); pop2 = true; } }, 25000); notiDesk = true; }
+  var divTmr = null; 
+  let hasTr = false; let eleDiv = null; let com2 = false;
+  function artDivNoti() 
+  { 
+    if (divTmr !== null) { clearTimeout(divTmr); }
+    divTmr = setTimeout(function() { const element = document.querySelector('.art-text-div');
+    const rect = element.getBoundingClientRect(); const inner = window.innerHeight;
+    const eH = rect.height; if (!hasTr) { let trig;
+
+    if (eH < 8500) { trig = 3; } else if (eH < 12500) { trig = 5; } else if (eH < 16500) { 
+    trig = 6; } else { trig = 7; } if (rect.bottom <= (inner * trig)) { notiOverlay(); hasTr = true; console.log('Pop Up Trigger');
+    eleDiv.removeEventListener('scroll', artDivNoti, false); } } }, 2000); 
+  }
+
+  function articleDiv()
+  {
+    eleDiv = document.querySelector('.articles-container');
+    if (window.matchMedia("(min-width: 615px)").matches && !isdesk && Notification.permission === 'default' && (noticounter <= 1 || noticounter > 5)) { com2 = true; 
+    eleDiv.addEventListener('scroll', artDivNoti, false); }
+  }
+  setTimeout(articleDiv, 3500);
 
   // local storage set up for noti counts 
   let countcheck = parseInt(localStorage.getItem('checkView')) || 0; 
   let noticounter = parseInt(localStorage.getItem('pageLoadCount')) || 0; 
   noticounter += 1; if (countcheck === 1) { localStorage.setItem('pageLoadCount', noticounter); }
-  console.log("Page Load Counter = ", noticounter);
-  console.log("Counter check = ", countcheck);
+  console.log("Page Load Counter =", noticounter);
 
   function notiOverlay()
   {
-    console.log("Noti Permission = ", Notification.permission);
+    console.log("Noti Permission =", Notification.permission);
     if ((Notification.permission === 'default' && noticounter <= 1) 
     || (Notification.permission === 'default' && noticounter > 5)) 
     {
         if (noticounter <= 1) { let rstValue = 1; 
         localStorage.setItem('checkView', rstValue); 
         localStorage.setItem('pageLoadCount', noticounter); }
-        const notistyle = document.createElement('style'); notistyle.type = 'text/css';
-        notistyle.innerHTML = '.noti-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;overflow:scroll}.noti-main{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;width:75%;height:max-content;text-align:center;color:rgba(255,255,255,0.5);font-family:roboto,sans-serif;border-radius:20px;background:black}.top-img{position:relative;margin-top:40px;width:105px;margin-bottom:25px;border:4px #545454 solid;border-radius:90px;left:0;right:0;margin-left:auto;margin-right:auto;padding:10px 10px 6px 10px}.middle-text{position:relative;margin-top:5px;width:90%;margin-bottom:5px;border:3px #545454 solid;border-radius:15px;color:#b9b9b9;font-size:14px;line-height:20px;left:0;right:0;margin-left:auto;margin-right:auto;padding:16px}.act-buttons{position:relative;margin-top:10px;width:200px;margin-bottom:30px;border-radius:40px;left:0;right:0;margin-left:auto;margin-right:auto;text-align:center}.noti-button{position:relative;padding:15px 25px 15px 25px;background:#464646;color:#b0b0b0;border-radius:40px;font-size:14px;margin:15px;cursor:pointer}@media only screen and (min-width:615px){.noti-main{width:580px;background:white}.middle-text{color:#565656;border:3px #cdcdcd solid;font-size:18px;line-height:25px}.top-img{border:4px #cdcdcd solid}.noti-button:nth-of-type(1){background:#393939 !important;color:#cfcfcf !important;font-size:17px}.noti-button:nth-of-type(2){background:#e6e6e6;color:#5b5b5b;font-size:17px}.act-buttons{width:250px}}';
+        const notistyle = document.createElement('style'); notistyle.type = 'text/css'; notistyle.id = 'dynamic-style';
+        notistyle.innerHTML = '.noti-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;overflow:auto}.noti-main{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;width:75%;height:max-content;text-align:center;color:rgba(255,255,255,0.5);font-family:roboto,sans-serif;border-radius:20px;background:black}.top-img{position:relative;width:105px;border:4px #545454 solid;border-radius:90px;left:0;right:0;margin:40px auto 25px auto;padding:10px 10px 6px 10px}.middle-text{position:relative;width:90%;border:3px #545454 solid;border-radius:15px;color:#b9b9b9;font-size:14px;line-height:20px;left:0;right:0;margin:5px auto 5px auto;padding:16px}.act-buttons{position:relative;width:200px;border-radius:40px;left:0;right:0;margin:10px auto 30px auto;text-align:center}.noti-button{position:relative;padding:15px 25px 15px 25px;font-family:roboto,sans-serif;background:#464646;color:#b0b0b0;border-radius:40px;font-size:14px;margin:15px;cursor:pointer}@media only screen and (min-width:615px){.noti-main{width:580px;background:white}.middle-text{color:#565656;border:3px #cdcdcd solid;font-size:18px;line-height:25px}.top-img{border:4px #cdcdcd solid}.noti-button:nth-of-type(1){background:#393939 !important;color:#cfcfcf !important;font-size:17px}.noti-button:nth-of-type(2){background:#e6e6e6;color:#5b5b5b;font-size:17px}.act-buttons{width:250px}}';
         document.head.appendChild(notistyle); // style tag insertion 
 
         const notidiv = document.createElement('div');
@@ -131,12 +128,13 @@ function subscribeToPush(registration) {
   }
 
   function notiButtonClick() { initPushSubscription(); 
-  setTimeout(removeNotiOverlay, 1000); }
+  setTimeout(removeNotiOverlay, 500); }
 
   function removeNotiOverlay() 
   {
-    const findnotidiv = document.querySelector('.noti-overlay');
-    if (findnotidiv) { findnotidiv.remove(); }
+    const fstyle = document.getElementById('dynamic-style'); const findnotidiv = document.querySelector('.noti-overlay');
+    if (findnotidiv) { findnotidiv.remove(); fstyle.remove();
+    document.body.style.overflow = ""; }
   }
 
 
@@ -536,7 +534,7 @@ function outscale()
         if (parentElementNew || bodyOverflow === "hidden") 
         {
             if (parentElementNew) { window.scrollTo(0, 0); }
-            document.body.style.overflow = "hidden"; pop1 = true; if (fcone) {
+            document.body.style.overflow = "hidden"; if (fcone) {
             clearTimeout(visHide); fcone = false; }
         }
         else 
@@ -546,7 +544,6 @@ function outscale()
             if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2000); fcone = true; } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
             if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
-	    if (pop1 && !pop2 && !pop3) { setTimeout(notiOverlay, 20000); pop3 = true; }
         }
 
         if (footerDiv) 
@@ -563,9 +560,9 @@ function outscale()
         tran3.style.visibility = "hidden"; tran4.style.display = "none"; 
         tran5.style.visibility = "hidden"; }
 
-        if (window.matchMedia("(min-width: 615px)").matches) { 
+        if (window.matchMedia("(min-width: 615px)").matches) {
         sizedetection = "desk"; topButton.style.display = 'none'; }
-        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { shadow = window.innerWidth * 0.05;
+        if (window.matchMedia("(max-width: 615px)").matches && sizedetection === "desk") { var shadow = window.innerWidth * 0.05;
         buttonfxd(); topButton.style.background = ''; topArrow.style.stroke = '';
         topButton.style.boxShadow = '0px 0px '+shadow+'px #ff7777bf'; }
 
@@ -662,8 +659,10 @@ function outscale()
                    }
 
                    if ((scrollPosition + viewportHeight) > (documentHeight - 60) && mediaout) {
-                   toolbar.style.setProperty('filter', 'opacity(0)', 'important'); }
+                   toolbar.style.setProperty('filter', 'opacity(0)', 'important');
+                   toolbar.style.setProperty('z-index', '-999999', 'important'); }
                    if ((scrollPosition + viewportHeight) < (documentHeight - 60) && mediaout) {
+                   toolbar.style.setProperty('z-index', '999999', 'important');
                    toolbar.style.setProperty('filter', '', 'important'); }
 
                    if (window.matchMedia("(max-width: 340px)").matches) {
@@ -724,8 +723,10 @@ function outscale()
                firstChild.addEventListener('click', hideA); }
 
                if ((scrollPosition + viewportHeight) > (documentHeight - 60)) {
-               annosa.style.setProperty('filter', 'opacity(0)', 'important'); }
+               annosa.style.setProperty('filter', 'opacity(0)', 'important');
+               annosa.style.setProperty('z-index', '-999999', 'important'); }
                if ((scrollPosition + viewportHeight) < (documentHeight - 60)) {
+               annosa.style.setProperty('z-index', '999999', 'important');
                annosa.style.setProperty('filter', '', 'important'); }
            }
 
@@ -763,16 +764,16 @@ function outscale()
                    annosa.style.removeProperty('width');
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('width', sawidth, 'important');
-                   annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '15px', 'important');
+                   annosa.style.setProperty('left', '15px', 'important');
                }
                if (annowidth < 100 && annowidth > 10) 
                {
+                   topButton.style.bottom = "15px";
                    annosa.style.removeProperty('left');
                    annosa.style.removeProperty('border-radius');
                    annosa.style.setProperty('left', '15px', 'important');
                    annosa.style.setProperty('border-radius', '55px', 'important');
-                   topButton.style.bottom = "15px";
                }
                if (annowidth < 100 && annowidth > 10 && ftstyle1 === "reg-message") 
                {
@@ -797,7 +798,7 @@ function outscale()
         if (mediain && ((scrollPosition + viewportHeight) > (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = 'none';
         topArrow.style.stroke = '#5c5c5c'; topButton.style.background = 'white'; }
-        if ((!annosa && mediain && (sizedetection !== "desk")) || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
+        if ((!annosa && sizedetection !== "desk") || (!annosa && mediaout)) { topButton.style.bottom = ""; document.body.style.height = ""; }
         if (mediain && ((scrollPosition + viewportHeight) < (documentHeight - 400)) 
         && (ftstyle1 !== "reg-message") && (sizedetection !== "desk")) { topButton.style.boxShadow = '';
         topArrow.style.stroke = ''; topButton.style.background = ''; }

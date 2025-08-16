@@ -276,9 +276,9 @@ function updateLogo()
 updateLogo(); 
 // Call the function 
 
+// for detecting new news articles, h2 tags 
 const artCon = document.querySelector('.articles-container');
-const secNew = document.querySelector('.sections-new'); if(secNew) {
-console.log("secNew here =", secNew); }
+const secNew = document.querySelector('.sections-new');
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -297,7 +297,7 @@ function handleFirstCondition(paraTag, comparewidth, modWidth)
     paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag));
     while (leftCoordinate < (comparewidth - modWidth) && padding <= 240) { 
-    padding += 20; paraTag.style.paddingRight = padding + "px";
+    padding += 10; paraTag.style.paddingRight = padding + "px";
     ({ leftCoordinate } = insertAndMeasureSpan(paraTag)); }
 }
 
