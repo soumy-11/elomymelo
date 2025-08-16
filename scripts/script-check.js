@@ -294,6 +294,17 @@ function replaceInsideArticleDiv()
     .then(data => {
       if (insideArticleDiv) {
         insideArticleDiv.innerHTML = data;
+        const fixedDisEls = document.querySelectorAll(".fixed-dis-phone, .fixed-dis-desk");
+        fixedDisEls.forEach(el => {
+          const script = document.createElement("script");
+          script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+
+          if (window.innerWidth <= 615 && el.classList.contains("fixed-dis-phone")) {
+            el.appendChild(script);
+          } else if (window.innerWidth > 615 && el.classList.contains("fixed-dis-desk")) {
+            el.appendChild(script);
+          }
+        });
       } else {
         console.error("Div with class 'inside-article-div' not found");
       }
@@ -363,5 +374,6 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
