@@ -1,0 +1,143 @@
+
+    <div class="latest_articles">
+        <span> LATEST ARTICLES </span>
+    </div><br>
+
+    <div id="before-article-01"></div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="jbl-flip-7-vs-flip-6.html">
+	<img class="latest-art-pic-common" src="https://elomymelo.com/story-images/jbl-flip-7/flip-7-05.jpg" style="object-fit: cover" alt="photo of jbl flip 7 vs flip 6 speaker comparison" loading="lazy">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="jbl-flip-7-vs-flip-6.html"> JBL Flip 7 vs JBL Flip 6 - Twice Louder </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		The new JBL Flip 7 gets 2 times louder than the old JBL Flip 6 at max volume. So, in terms of absolute loudness, the Flip 7 might feel like an upgrade. However, overall, the sound quality <a href="jbl-flip-7-vs-flip-6.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="jbl-charge-6-vs-charge-5.html">
+	<img class="latest-art-pic-common" src="https://elomymelo.com/images/charge-6-vs-main.jpg" style="object-fit: cover" alt="photo of jbl charge 6 and charge 5 comparison" loading="lazy">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="jbl-charge-6-vs-charge-5.html"> JBL Charge 6 vs JBL Charge 5 | don't upgrade </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		There're definitely some upgrades on the new Charge 6 when compared to the JBL Charge 5. The new handle strap, refined design, more beefy and curvy-looking passive radiators <a href="jbl-charge-6-vs-charge-5.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="motion-boom-vs-boom-2.html">
+	<img class="latest-art-pic-common" src="https://elomymelo.com/scaled-down/boom-2-vs-mb-low.webp" alt="photo of soundcore boom 2 vs motion boom" loading="lazy">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="motion-boom-vs-boom-2.html"> Soundcore Boom 2 vs the Motion Boom </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		The Boom 2 can sound very bass-heavy at lower volumes. But the boosted bass helps at higher vol­umes. The power is massive over the old Motion Boom. New Boom 2 is signi­ficantly louder <a href="motion-boom-vs-boom-2.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
+
+    <div class="fixed-dis-phone">
+         <div class="ad-details-5"> <span> AD </span> </div>
+         <!-- Display F phone -->
+         <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-3654432220074510"
+             data-ad-slot="2279364505">                         
+         </ins>
+         <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+    </div>
+    <div class="fixed-dis-desk">
+         <div class="ad-details-5"> <span> AD </span> </div>
+         <!-- display-Fixed-3 -->
+         <ins class="adsbygoogle"
+              style="display:inline-block;width:970px;height:250px"
+              data-ad-client="ca-pub-3654432220074510"
+              data-ad-slot="4754904823">                        
+         </ins>
+         <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+    </div><br>
+
+   <div class="articles-common-lt-style">
+    
+    <a href="pixel-buds-A-series.html">
+    <img class="latest-art-pic-common" src="images/pixel-buds-a-crop.jpg" srcset="images/pixel-buds-a-crop.jpg 1x" loading="lazy">
+    </a>
+
+    <div class="art-head-common">
+        <span> <a href="pixel-buds-A-series.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> Pixel Buds A-series look very attractive </a> </span>
+    </div>
+
+    <div class="art-description-common">    
+        As the earbuds have a really small form factor, they feel really light and comfortable, which is what everybody wants. The nice contour of the buds that goes into your ear canal seems <a href="pixel-buds-A-series.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>
+    </div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+    
+    <a href="mpow-m30-earbuds.html">
+    <img class="latest-art-pic-common" src="images/mpow-m30-crop.jpg" srcset="images/mpow-m30-crop.jpg 1x" loading="lazy">
+    </a>
+
+    <div class="art-head-common">
+        <span> <a href="mpow-m30-earbuds.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> MPOW M30 Earbuds are the budget champ </a> </span>
+    </div>
+
+    <div class="art-description-common">    
+        Mpow M30 is true wireless stereo but you get two modes here called mono and shared. So that means you can use both earbuds or either of them for music and call while the other one <a href="mpow-m30-earbuds.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>
+    </div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+    
+    <a href="google-pixel-6a.html">
+    <img class="latest-art-pic-common" src="images/pixel-6a-crop.jpg" srcset="images/pixel-6a-crop.jpg 1x" loading="lazy">
+    </a>
+
+    <div class="art-head-common">
+        <span> <a href="google-pixel-6a.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> Google Pixel 6a is exceptional and unique </a> </span>
+    </div>
+
+    <div class="art-description-common">    
+        Google pixel a series smartphones always offer in­credible value in the midrange category and they are so special to tech enthusiasts. I am really excited about the upcoming Google Pixel 6a <a href="google-pixel-6a.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>
+    </div>
+
+   </div><br>
+
+   <div class="articles-common-lt-style">
+    
+    <a href="soundcore-motion-boom-plus.html">
+    <img class="latest-art-pic-common" src="images/boom-plus-crop.jpg" srcset="images/boom-plus-crop.jpg 1x" loading="lazy">
+    </a>
+
+    <div class="art-head-common">
+        <span> <a href="soundcore-motion-boom-plus.html" style="text-decoration: none; color: rgba(28,117,121,0.92);"> Soundcore Motion Boom Plus is insane </a> </span>
+    </div>
+
+    <div class="art-description-common">    
+        Motion Boom Plus is the big brother of Motion Boom which was killing similar sized portable BT speakers from big brands like JBL, SONY and also beating some much bigger expensive <a href="soundcore-motion-boom-plus.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>
+    </div>
+
+   </div><br>
+
+   <div id="more-info-after-2">
+       <span> For any suggestion you should submit feedback using the comment section. Thank you so much for visiting my website. </span>
+   </div><br>
