@@ -278,7 +278,31 @@ updateLogo();
 
 // for detecting new news articles, h2 tags 
 const artCon = document.querySelector('.articles-container');
+const insideArticleDiv = document.querySelector(".inside-article-div");
 const secNew = document.querySelector('.sections-new');
+
+function replaceInsideArticleDiv() 
+{
+  console.log("fetch has started");
+  fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (insideArticleDiv) {
+        insideArticleDiv.innerHTML = data;
+      } else {
+        console.error("Div with class 'inside-article-div' not found");
+      }
+    })
+    .catch(error => console.error("Fetch error:", error));
+}
+
+// Run the function after 5 seconds
+setTimeout(replaceInsideArticleDiv, 5000);
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -339,4 +363,5 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
