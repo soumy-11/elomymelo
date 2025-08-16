@@ -389,7 +389,7 @@
         font-family: cus-roboto-medium, cus-roboto, sans-serif; 
         padding-bottom: 40px;
         font-weight: normal;
-        line-height: 170px;
+        line-height: 160px;
         font-size: 122px; 
     }
     #short-verdicts
@@ -659,6 +659,21 @@
         margin-bottom: calc(var(--set-margin)*2.05);
         margin-top: calc(var(--set-margin)*2.05);
         --set-margin: 256px;
+    }
+    .fixed-dis-phone
+    {
+        position: relative;
+        width: 306px; height: 276px;
+        border: 3px transparent solid;
+        border-radius: 5px; left: 923px;
+        transform: scale(7.1, 7.1);
+        margin: 850px 0 950px 0;
+        padding: 10px 0 10px 0;
+        background: #4D4D4D;
+    }
+    .fixed-dis-desk
+    {
+        display: none;
     }
     .sections-new
     {
