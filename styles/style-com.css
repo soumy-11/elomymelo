@@ -542,6 +542,11 @@
         color: rgba(112,112,112,1);
         border: 0px grey solid;
     }
+    .art-head-common a
+    {
+        text-decoration: none;
+        color: rgba(28,117,121,0.92);
+    }
     .art-description-common
     {
         position: absolute;
