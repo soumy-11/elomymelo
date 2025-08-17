@@ -120,10 +120,6 @@
 
    </div><br>
 
-   <div id="more-info-after">
-   	   <span> To explore more articles and reviews, please use the navigation menus. The navigation I created on my website is easy, simple and clean to offer you a better user experience. </span>
-   </div><br>
-
    <div class="articles-common-lt-style">
 
 	<a href="galaxy-a14-5g-review.html">
