@@ -308,7 +308,8 @@ function replaceInsideArticleDiv()
 }
 
 // Run the function after 5 seconds
-setTimeout(replaceInsideArticleDiv, 5000);
+if (secNew || (!secNew && window.innerWidth > 615)) {
+setTimeout(replaceInsideArticleDiv, 5000); }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -369,7 +370,4 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
-
-
-
 
