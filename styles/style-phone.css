@@ -569,14 +569,14 @@
     {
         position: relative; 
         font-weight: normal; font-size: 90px;
-        border-radius: 15px 15px 135px 135px; top: -40px;
+        border-radius: 15px 15px 135px 135px; top: -35px;
         padding: 15px 110px 30px 120px; background: #2c2c2c; 
         color: #949fe6e8; display: inline-block;
         font-family: cus-roboto-medium;
     }
     .specs-para
     {
-        padding: 0 60px 0 60px; font-size: 80px;
+        padding: 0 60px 0 60px; font-size: 85px;
     }
     .spec-vs
     {

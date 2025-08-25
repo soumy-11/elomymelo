@@ -397,7 +397,7 @@ br
 .phone-specs
 {
     height: auto; text-align: center;
-    width: 2215px; border: 10px #EAEAEA solid;
+    width: 2215px; border: 8px #EAEAEA solid;
     border-radius: 45px; margin-block: 30px;
     padding: 50px 0 60px 0; 
 }
