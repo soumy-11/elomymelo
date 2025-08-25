@@ -284,7 +284,7 @@ const secNew = document.querySelector('.sections-new');
 function replaceInsideArticleDiv() 
 {
   console.log("fetch has started");
-  fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
+  fetch("https://elomymelo.com/text-files/inside-article-div.txt")
     .then(response => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
@@ -335,9 +335,9 @@ function handleFirstCondition(paraTag, comparewidth, modWidth)
 function processParagraph(paraTag, rectAC) 
 {
     let modWidth, comparewidth; paraTag.style.paddingRight = "";
-    const { leftCoordinate } = insertAndMeasureSpan(paraTag); var widthIn = window.innerWidth;
-    if (widthIn <= 615) { modWidth = widthIn * 0.07; comparewidth = widthIn / 2; }
-    if (widthIn > 615 && secNew) { modWidth = rectAC.width * 0.22; 
+    const { leftCoordinate } = insertAndMeasureSpan(paraTag); var widthIn = window.matchMedia("(max-width: 615px)").matches;
+    if (widthIn) { modWidth = window.innerWidth * 0.07; comparewidth = window.innerWidth / 2; }
+    if (!widthIn && secNew) { modWidth = rectAC.width * 0.22; 
     comparewidth = (rectAC.width / 2) + rectAC.left; }
 
     if (leftCoordinate < (comparewidth - modWidth)) {
@@ -349,14 +349,14 @@ function detectCharacter()
     // the main function called first 
     const rectAC = artCon.getBoundingClientRect();
     const divElement = document.getElementById("article-text-div");
-    const pTags = divElement.querySelectorAll("p"); pTags.forEach(p => { if (secNew) { 
+    const pTags = divElement.querySelectorAll(":scope > p"); pTags.forEach(p => { if (secNew) { 
     p.classList.add("art-para-new"); } processParagraph(p, rectAC); });
 
-    if (!secNew && window.innerWidth > 615) { pTags.forEach(pTag => {
+    if (!secNew && window.matchMedia("(min-width: 615px)").matches) { pTags.forEach(pTag => {
     pTag.style.paddingRight = ""; }); }
 }
 
-    document.fonts.load('1em Roboto').then(function() {
+    document.fonts.load('1em cus-roboto').then(function() {
     fontload = true; console.log('Roboto font has loaded');
     setTimeout(detectCharacter, 200); }).catch(function(error) {
     console.error('Failed to load Roboto', error); });
