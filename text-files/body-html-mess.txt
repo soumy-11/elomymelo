@@ -1,0 +1,339 @@
+
+	<div id="top-check"></div>
+    <div id="top-left-line"></div>
+    <div id="top-right-line"></div>
+
+    <svg class="Rectangle_2">
+		<rect id="Rectangle_2" rx="45" ry="45" x="0" y="0" width="789" height="223">
+		</rect>
+	</svg>
+	<svg class="Rectangle_3">
+		<rect id="Rectangle_3" rx="45" ry="45" x="0" y="0" width="1701" height="288">
+		</rect>
+	</svg>
+	<svg class="Rectangle_5">
+		<rect id="Rectangle_5" rx="35" ry="35" x="0" y="0" width="898" height="171">
+		</rect>
+	</svg>
+	
+	<svg class="Ellipse_1">
+        <a href="https://www.youtube.com/channel/UCwohg1L-t9Webw7IhHcRcnw">
+        <ellipse id="Ellipse_1" rx="80" ry="80" cx="80" cy="80">
+        </ellipse>
+    </a>
+    </svg>
+    <svg class="Ellipse_2">
+        <a href="https://www.messenger.com/t/100022991028680/">
+        <ellipse id="Ellipse_2" rx="80" ry="80" cx="80" cy="80">
+        </ellipse>
+    </a>
+    </svg>
+    <svg class="Ellipse_3">
+        <a href="https://www.instagram.com/soumya_roy_69/">
+        <ellipse id="Ellipse_3" rx="80" ry="80" cx="80" cy="80">
+        </ellipse>
+    </a>
+    </svg>
+    <svg class="Ellipse_4">
+        <a href="https://www.facebook.com/profile.php?id=100022991028680">
+        <ellipse id="Ellipse_4" rx="80" ry="80" cx="80" cy="80">
+        </ellipse>
+    </a>
+    </svg>
+    <svg class="Ellipse_5">
+        <a href="mailto:roysoumya2305@gmail.com">
+        <ellipse id="Ellipse_5" rx="80" ry="80" cx="80" cy="80">
+        </ellipse>
+    </a>
+    </svg>
+
+    <a href="https://www.messenger.com/t/100022991028680/">
+    <img id="ID1930489_logo_media_reddit_so" src="old-images/messenger_icon.png" srcset="old-images/messenger_icon.png 1x">
+    </a>
+    
+    <a href="mailto:roysoumya2305@gmail.com">
+    <img id="ID7101527_gmail_email_mail_ico" src="old-images/ID7101527_gmail_email_mail_ico.png" srcset="old-images/ID7101527_gmail_email_mail_ico.png 1x">
+    </a>
+
+    <a href="https://www.youtube.com/channel/UCwohg1L-t9Webw7IhHcRcnw"> 
+    <img id="ID6214533_logo_youtube_icon" src="old-images/ID6214533_logo_youtube_icon.png" srcset="old-images/ID6214533_logo_youtube_icon.png 1x">
+    </a>
+    
+    <a href="https://www.facebook.com/profile.php?id=100022991028680">  
+    <img id="ID2878032_facebook_media_netwo" src="old-images/facebook_socialnetwork_icon.png" srcset="old-images/facebook_socialnetwork_icon.png 1x">
+    </a>
+    
+    <a href="https://www.instagram.com/soumya_roy_69/">
+    <img id="ID6863782_instagram_media_soci" src="old-images/instagram_icon.png" srcset="old-images/instagram_icon.png 1x">
+    </a>	
+	
+	<a href="https://www.facebook.com/profile.php?id=100022991028680">	
+	<img id="circle-trans" src="old-images/circle-trans.png" srcset="old-images/circle-trans.png 1x">
+    </a>
+
+	<a href="https://www.facebook.com/profile.php?id=100022991028680">	
+	<div class="profilepic-border">
+		
+	</div>
+	</a>	
+	<div id="Soumya_Roy">
+		<a style="text-decoration: none; color: rgba(112,112,112,1);" href="https://www.facebook.com/profile.php?id=100022991028680">
+		<span>Soumya Roy</span>
+		</a>
+	</div>
+	<img id="ID3380378_exploration_zoom_mag" src="old-images/ID3380378_exploration_zoom_mag.png" srcset="old-images/ID3380378_exploration_zoom_mag.png 1x" onclick="searchtips()">
+		
+	<svg class="Rectangle_6">
+		<a href="index.html">
+		<rect id="Rectangle_6" rx="77.5" ry="77.5" x="0" y="0" width="198" height="155">
+		</rect>
+	    </a>
+	</svg>
+	<svg class="Rectangle_7">
+		<rect id="Rectangle_7" rx="75" ry="75" x="0" y="0" width="338" height="150">
+		</rect>
+	</svg>
+	<svg class="Rectangle_8">
+		<rect id="Rectangle_8" rx="75" ry="75" x="0" y="0" width="338" height="150">
+		</rect>
+	</svg>
+	<svg class="Rectangle_9">
+		<rect id="Rectangle_9" rx="75" ry="75" x="0" y="0" width="338" height="150">
+		</rect>
+	</svg>
+	<svg class="Rectangle_10">
+        <a href="top-picks.html">
+		<rect id="Rectangle_10" rx="77.5" ry="77.5" x="0" y="0" width="197" height="155" onmouseover="toppickson()" onmouseout="toppicksout()">
+		</rect>
+        </a>
+	</svg>
+	<svg class="Rectangle_11">
+		<a href="https://twitter.com/soumya_roy_69">
+		<rect id="Rectangle_11" rx="73.5" ry="73.5" x="0" y="0" width="428" height="147">
+		</rect>
+	</a>
+	</svg>
+	<div id="Follow_Me">
+		<a style="text-decoration: none; color: rgba(112,112,112,1);" href="https://twitter.com/soumya_roy_69">
+		<span>Follow Me</span>
+	    </a>
+	</div>
+
+	<a href="index.html">
+	<img id="ID2191535_back_home_homepage_h" src="old-images/ID2191535_back_home_homepage_h.png" srcset="old-images/ID2191535_back_home_homepage_h.png 1x">
+	</a>
+	
+    <a href="top-picks.html">	
+	<img id="ID3522159_business_finance_per" src="old-images/ID3522159_business_finance_per.png" srcset="old-images/ID3522159_business_finance_per.png 1x" onmouseover="toppickson()" onmouseout="toppicksout()">
+    </a>
+
+	<div id="top-picks-text"> Top Picks </div>
+
+	<div id="search-tip-text"> press enter to search </div>
+
+	<div id="article-links"> Article links in every sub-menu </div>
+		
+	<div id="cat-hover" onmouseover="changeover()" onmouseout="changeout()" onclick="catclickmainappear()">
+	 
+    </div>
+
+    <div id="cat-cross" onmouseover="popcrosstipon()" onmouseout="popcrosstipout()">
+    	
+        <svg height="50px" id="cross-icon" viewBox="0 0 32 32" width="50px">
+  <path d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z" fill="#FF7777" stroke-width="2px" stroke="#FF7777">
+        </svg>
+
+    </div>
+
+    <div id="menu-pointer"></div>
+    <div id="menu-pointer-review"></div>
+    <div id="menu-pointer-about"></div>
+
+	<div id="cat-menu"> 
+
+		<br>
+		<span id="phones-style" onmouseover="changephoneon()" onmouseout="changephoneout()" onclick="subphoneclickappear()">Smartphones</span> 
+		<img id="next-icon" style="position: absolute; left: 670px; top: 60px; height: 100px; width: 100px;" src="old-images/svg-next-icon.jpg" srcset="old-images/svg-next-icon.jpg 1x">
+		<br><br>
+		<span id="speakers-style" onmouseover="changespeakeron()" onmouseout="changespeakerout()">Portable speakers</span>
+		<img id="next-icon" style="position: absolute; left: 670px; top: 188px; height: 100px; width: 100px;" src="old-images/svg-next-icon.jpg" srcset="old-images/svg-next-icon.jpg 1x">
+		<br><br>
+		<span id="earbuds-style" onmouseover="changeearbudon()" onmouseout="changeearbudout()">TWS earbuds</span>
+		<img id="next-icon" style="position: absolute; left: 670px; top: 315px; height: 100px; width: 100px;" src="old-images/svg-next-icon.jpg" srcset="old-images/svg-next-icon.jpg 1x">
+		<br><br>
+		<span id="accessories-style" onmouseover="changeaccessoryon()" onmouseout="changeaccessoryout()">Accessories</span>
+		<img id="next-icon" style="position: absolute; left: 670px; top: 442px; height: 100px; width: 100px;" src="old-images/svg-next-icon.jpg" srcset="old-images/svg-next-icon.jpg 1x">
+		<br><br>
+	</div>
+	<div id="submenu-phones">
+        <br>
+        <a href="google-pixel-6a.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="phone-one">Pixel 6a</span> 
+        </a>
+        <br><br>
+        <a href="oneplus nord review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="phone-two">OnePlus Nord</span>
+        </a>
+        <br><br>
+        <a href="nothing-phone-1.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="phone-three">Nothing Phone 1</span>
+        </a>
+        <br><br>
+        <a href="iphone-14-article.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="phone-four">iPhone 14</span>
+        </a>
+        <br><br>
+    </div>
+    <div id="submenu-speakers">
+        <br>
+        <a href="jbl flip 6 meaningful upgrade.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="speaker-one">JBL Flip 6</span> 
+        </a>
+        <br><br>
+        <a href="soundcore motion plus review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="speaker-two">Soundcore Motion+</span>
+        </a>
+        <br><br>
+        <a href="soundcore-boost-review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="speaker-three">Soundcore Boost Gen 1</span>
+        </a>
+        <br><br>
+        <a href="soundcore-motion-boom-plus.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="speaker-four">Motion Boom+</span>
+        </a>
+        <br><br>
+    </div>
+    <div id="submenu-earbuds">
+        <br>
+        <a href="mpow-m30-earbuds.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="earbud-one">Mpow M30</span> 
+        </a>
+        <br><br>
+        <a href="apple-airpods-pro.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="earbud-two">Apple Airpods pro</span>
+        </a>
+        <br><br>
+        <a href="soundbuds-slim-plus-review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="earbud-three">Anker Soundbuds slim+</span>
+        </a>
+        <br><br>
+        <a href="pixel-buds-A-series.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="earbud-four">Pixel Buds A</span>
+        </a>
+        <br><br>
+    </div>
+    <div id="submenu-accessories">
+        <br>
+        <a href="nillkin frosted case review for nord.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="accessory-one">Nillkin case</span> 
+        </a>
+        <br><br>
+        <a href="nillkin cp+ pro tempered glass review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="accessory-two"> Nillkin tempered glass </span>
+        </a>
+        <br><br>
+        <a href="bloody-j90s-mouse-review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="accessory-three">Bloody J90s mouse</span>
+        </a>
+        <br><br>
+        <a href="rgb-led-strip-review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="accessory-four"> RGB led strip </span>
+        </a>
+        <br><br>
+    </div>
+        
+    <div id="CATEGORIES">
+        <span><span style="font-family: cus-arial, arial;">C</span>ATEGORIE<span style="font-family: cus-arial, arial;">S</span></span>
+    </div>
+    <div  id="REVIEWS">
+        <span>REVIEW<span style="font-family: cus-arial, arial;">S</span></span>
+    </div>
+
+    <div id="reviews-hover" onmouseover="changereviewon()" onmouseout="changereviewout()" onclick="reviewclickmainappear()">
+        
+    </div>
+
+    <div id="reviews-cross" onmouseover="popcrosstipon()" onmouseout="popcrosstipout()">
+        
+       <svg height="50px" id="cross-icon" viewBox="0 0 32 32" width="50px">
+  <path d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z" fill="#FF7777" stroke-width="2px" stroke="#FF7777">
+        </svg>
+
+    </div>
+
+    <div id="cross-tip-text"> click outside to close </div>
+    <div id="review-one-tip-text"><span> OnePlus Nord review - balance is the key </span></div>
+    <div id="review-two-tip-text"><span> Anker soundcore motion+ detailed review </span></div>
+    <div id="review-three-tip-text"><span> Anker soundcore boost speaker review </span></div>
+    <div id="review-four-tip-text"><span> Nillkin super frosted matte case review </span></div>
+    <div id="reviews-all-tip-text"><span> All Reviews </span></div>
+
+    <div id="reviews-main">
+
+        <br>
+        <a href="oneplus nord review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="review-one" onmouseover="reviewoneon()" onmouseout="reviewoneout()">OnePlus Nord ...</span> 
+        </a>    
+        <br><br>
+        <a href="soundcore motion plus review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="review-two" onmouseover="reviewtwoon()" onmouseout="reviewtwoout()">Soundcore Motion+ ...</span>
+        </a>
+        <br><br>
+        <a href="soundcore-boost-review.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="review-three" onmouseover="reviewthreeon()" onmouseout="reviewthreeout()">Soundcore Boost ...</span>
+        </a>
+        <br><br>
+        <a href="nillkin frosted case review for nord.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="review-four" onmouseover="reviewfouron()" onmouseout="reviewfourout()">Nillkin Case ...</span>
+        </a>
+        <br><br>
+        
+        <a href="all-reviews.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="reviews-all" onmouseover="reviewsallon()" onmouseout="reviewsallout()">All</span>
+        </a>
+
+    </div>
+
+    <div id="about-me-hover" onmouseover="changefirst()" onmouseout="changesecond()" onclick="aboutclickmainappear()">
+
+    </div>
+
+    <div id="about-cross" onmouseover="popcrosstipon()" onmouseout="popcrosstipout()">
+        
+        <svg height="50px" id="cross-icon" viewBox="0 0 32 32" width="50px">
+  <path d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z" fill="#FF7777" stroke-width="2px" stroke="#FF7777">
+        </svg>
+
+    </div>
+
+    <div id="ABOUT_ME">
+    <span><span style="font-family: cus-roboto-round, cus-roboto, roboto; font-size: 42px; opacity: 0.7;">+</span> ABOUT <span style="font-family: cus-roboto-round, cus-roboto, roboto; font-size: 42px; opacity: 0.7;">+</span></span>
+    </div>
+
+    <div id="about-me-main">
+
+        <br>
+        <a href="about-me.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="about-me" onmouseover="changeabouton()" onmouseout="changeaboutout()">About Me</span>
+        </a>
+        <br><br>
+        <a href="about-the-website.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="about-site" onmouseover="changesiteon()" onmouseout="changesiteout()">About The Website</span>
+        </a>
+        <br><br>
+        <a href="privacy-policy.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="privacy-policy" onmouseover="changeprivacyon()" onmouseout="changeprivacyout()">Privacy Policy</span>
+        </a>
+        <br><br>
+        <a href="contact page.html" style="text-decoration: none; color: rgba(0,0,0,0.60);">
+        <span id="contact" onmouseover="changecontacton()" onmouseout="changecontactout()">Contact Me</span>
+        </a>
+        <br><br>
+
+    </div>
+
+    <form action="search-results.html" method="get" role="search">
+	<div id="Search_the_site">
+		<input type="text" name="q" id="Search" placeholder="Type to search ...">
+	</div>
+	</form>
