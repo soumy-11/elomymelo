@@ -307,6 +307,32 @@ function replaceInsideArticleDiv()
     .catch(error => console.error("Fetch error:", error));
 }
 
+// for inserting more html inside 
+const subMenuSP = document.getElementById('submenu-speakers');
+const div1920 = document.getElementById('Web_1920__1');
+
+function messyEles() 
+{
+  console.log("messy html fetch has started");
+  fetch("https://docs.elomymelo.com/text-files/body-html-mess.txt")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (div1920) {
+        div1920.insertAdjacentHTML("beforeend", data);
+      } else {
+        console.error("Div with id div1920 not found");
+      }
+    })
+    .catch(error => console.error("Fetch error:", error));
+}
+
+if (!subMenuSP) { setTimeout(messyEles, 2500); }
+
 // Run the function after 5 seconds
 if (secNew || (!secNew && window.innerWidth > 615)) {
 setTimeout(replaceInsideArticleDiv, 5000); }
@@ -370,4 +396,5 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
