@@ -288,7 +288,7 @@ function replaceInsideArticleDiv() {
       if (insideArticleDiv) {
         insideArticleDiv.innerHTML = data;
 
-        const fixedDisEls = document.querySelectorAll(
+        const fixedDisEls = insideArticleDiv.querySelectorAll(
           ".fixed-dis-phone, .fixed-dis-desk"
         );
 
@@ -382,6 +382,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
