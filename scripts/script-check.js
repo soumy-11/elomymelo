@@ -321,7 +321,7 @@ function messEles() {
 }
 
 // Run conditionally
-if (!subMenuSP) { messEles(); }
+if (!subMenuSP && window.innerWidth > 615) { messEles(); }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -382,6 +382,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
