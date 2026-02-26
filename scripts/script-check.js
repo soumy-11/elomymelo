@@ -281,31 +281,31 @@ const artCon = document.querySelector('.articles-container');
 const insideArticleDiv = document.querySelector(".inside-article-div");
 const secNew = document.querySelector('.sections-new');
 
-function replaceInsideArticleDiv() 
-{
-  console.log("fetch has started");
+function replaceInsideArticleDiv() {
   fetch("https://elomymelo.com/text-files/inside-article-div.txt")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.text();
-    })
+    .then(response => response.text())
     .then(data => {
       if (insideArticleDiv) {
         insideArticleDiv.innerHTML = data;
-        const fixedDisEls = document.querySelectorAll(".fixed-dis-phone, .fixed-dis-desk");
+
+        const fixedDisEls = document.querySelectorAll(
+          ".fixed-dis-phone, .fixed-dis-desk"
+        );
+
         fixedDisEls.forEach(el => {
           const script = document.createElement("script");
-          script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+          script.innerHTML =
+            "(adsbygoogle = window.adsbygoogle || []).push({});";
+
           el.appendChild(script);
         });
-      } else {
-        console.error("Div with class 'inside-article-div' not found");
       }
-    })
-    .catch(error => console.error("Fetch error:", error));
+    });
 }
+
+// Run the function after 5 seconds
+if (secNew || (!secNew && window.innerWidth > 615)) {
+setTimeout(replaceInsideArticleDiv, 5000); }
 
 // Elements
 const subMenuSP = document.getElementById("submenu-speakers");
@@ -322,10 +322,6 @@ function messEles() {
 
 // Run conditionally
 if (!subMenuSP) { messEles(); }
-
-// Run the function after 5 seconds
-if (secNew || (!secNew && window.innerWidth > 615)) {
-setTimeout(replaceInsideArticleDiv, 5000); }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -386,6 +382,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
