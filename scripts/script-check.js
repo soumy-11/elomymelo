@@ -162,7 +162,7 @@ function updateLogo()
     pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
 
     if (window.matchMedia("(min-width: 615px)").matches && deskT) 
-    { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; } 
+    { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; messEles(); } 
     if (window.matchMedia("(max-width: 615px)").matches && !deskT) 
     { clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
     { detectCharacter(); } }, 1700); deskT = true; } 
@@ -382,6 +382,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
