@@ -1,8 +1,4 @@
 
-	<div id="top-check"></div>
-    <div id="top-left-line"></div>
-    <div id="top-right-line"></div>
-
     <svg class="Rectangle_2">
 		<rect id="Rectangle_2" rx="45" ry="45" x="0" y="0" width="789" height="223">
 		</rect>
@@ -15,7 +11,7 @@
 		<rect id="Rectangle_5" rx="35" ry="35" x="0" y="0" width="898" height="171">
 		</rect>
 	</svg>
-	
+
 	<svg class="Ellipse_1">
         <a href="https://www.youtube.com/channel/UCwohg1L-t9Webw7IhHcRcnw">
         <ellipse id="Ellipse_1" rx="80" ry="80" cx="80" cy="80">
