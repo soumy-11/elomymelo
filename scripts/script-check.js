@@ -307,15 +307,21 @@ function replaceInsideArticleDiv()
     .catch(error => console.error("Fetch error:", error));
 }
 
-// for inserting more html inside 
-const subMenuSP = document.getElementById('submenu-speakers');
-const div1920 = document.getElementById('Web_1920__1');
+// Elements
+const subMenuSP = document.getElementById("submenu-speakers");
+const div1920 = document.getElementById("Web_1920__1");
 
-if (!subMenuSP) {
-    fetch("https://docs.elomymelo.com/text-files/body-html-mess.txt")
-      .then(r => r.text())
-      .then(h => div1920.insertAdjacentHTML("beforeend", h));
+// Reusable function
+function messEles() {
+  fetch("https://docs.elomymelo.com/text-files/body-html-mess.txt")
+    .then(response => response.text())
+    .then(html => {
+      div1920.insertAdjacentHTML("beforeend", html);
+    });
 }
+
+// Run conditionally
+if (!subMenuSP) { messEles(); }
 
 // Run the function after 5 seconds
 if (secNew || (!secNew && window.innerWidth > 615)) {
@@ -380,6 +386,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
