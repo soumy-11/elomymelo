@@ -141,6 +141,7 @@ function changeCrossColor()
     const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
     const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
     pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
+    console.log("in color function");
 }
 
 // setTimeout(updateLogo, 500); 
@@ -164,7 +165,7 @@ function updateLogo()
     }
 
     // change cross & pointer color
-    changeCrossColor();
+    // changeCrossColor();
 
     if (window.matchMedia("(min-width: 615px)").matches && deskT) 
     { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; if(!subMenuSP && !htmlMess) { messEles(); htmlMess = true; changeCrossColor(); } } 
@@ -387,6 +388,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
