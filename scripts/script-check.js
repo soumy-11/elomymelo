@@ -141,6 +141,7 @@ function changeCrossColor()
     const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
     const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
     pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
+    console.log(crossEle); console.log(pointerEle);
     console.log("in color function");
 }
 
@@ -388,6 +389,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
