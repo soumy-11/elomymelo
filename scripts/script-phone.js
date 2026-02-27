@@ -33,8 +33,8 @@ setTimeout(articleDivPhn, 5500);
 
 function buttonfxd()
 { 	   
-   	document.getElementById("Web_1920__1").style.visibility = "visible";
-   	document.getElementById("top-check").style.visibility = "hidden";
+   	const tpck = document.getElementById("top-check"); if(tpck) { tpck.style.visibility = "hidden"; }
+	document.getElementById("Web_1920__1").style.visibility = "visible";
    	if (window.matchMedia("(max-width: 615px)").matches) 
    	{
         const mypage = window.innerWidth * 0.12;
@@ -102,4 +102,5 @@ function buttonfxd()
     setTimeout(() => { clearInterval(timer3); }, 5000);
     setTimeout(() => { setInterval(() => { adsheights(); /* buttonfxd(); */ }, 1000); }, 5000); 
     // window.addEventListener('scroll', adsheights, false); 
+
 
