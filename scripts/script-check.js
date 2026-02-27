@@ -141,8 +141,6 @@ function changeCrossColor()
     const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
     const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
     pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
-    console.log(crossEle); console.log(pointerEle);
-    console.log("in color function");
 }
 
 // setTimeout(updateLogo, 500); 
@@ -324,11 +322,12 @@ function messEles() {
     .then(response => response.text())
     .then(html => {
       div1920.insertAdjacentHTML("beforeend", html);
+      changeCrossColor();
     });
 }
 
 // Run conditionally
-if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; changeCrossColor(); console.log("After function"); }
+if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -389,6 +388,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
