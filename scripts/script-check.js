@@ -326,7 +326,7 @@ function messEles() {
 }
 
 // Run conditionally
-if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; changeCrossColor(); }
+if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; changeCrossColor(); console.log("After function"); }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -387,6 +387,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
