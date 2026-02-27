@@ -136,6 +136,13 @@ function updateAdsAttributes()
 }
 updateAdsAttributes(); 
 
+function changeCrossColor()
+{
+    const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
+    const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
+    pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
+}
+
 // setTimeout(updateLogo, 500); 
 window.addEventListener('resize', updateLogo); 
 function updateLogo() 
@@ -156,13 +163,11 @@ function updateLogo()
            el.style.transform = "scale(4.34, 4.34)"; });
     }
 
-    // for changing the cross icon and pointer element's color
-    const crossEle = document.querySelectorAll('[stroke="#FF7777"]'); crossEle.forEach(el => { el.setAttribute('stroke', '#A27A7A'); });
-    const pointerEle = document.querySelectorAll('#menu-pointer, #menu-pointer-review, #menu-pointer-about');
-    pointerEle.forEach(el => { el.style.backgroundColor = '#a27a7ad1'; });
+    // change cross & pointer color
+    changeCrossColor();
 
     if (window.matchMedia("(min-width: 615px)").matches && deskT) 
-    { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; if(!subMenuSP && !htmlMess) { messEles(); htmlMess = true; } } 
+    { clearTimeout(window.resized); window.resized = setTimeout(detectCharacter, 1700); deskT = false; if(!subMenuSP && !htmlMess) { messEles(); htmlMess = true; changeCrossColor(); } } 
     if (window.matchMedia("(max-width: 615px)").matches && !deskT) 
     { clearTimeout(window.resized); window.resized = setTimeout(() => { if(fontload) 
     { detectCharacter(); } }, 1700); deskT = true; } 
@@ -321,7 +326,7 @@ function messEles() {
 }
 
 // Run conditionally
-if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; }
+if (!subMenuSP && window.innerWidth > 615) { messEles(); htmlMess = true; changeCrossColor(); }
 
 // for last-line balance
 function insertAndMeasureSpan(paraTag) 
@@ -382,6 +387,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
