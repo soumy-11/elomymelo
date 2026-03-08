@@ -286,26 +286,14 @@ const artCon = document.querySelector('.articles-container');
 const insideArticleDiv = document.querySelector(".inside-article-div");
 const secNew = document.querySelector('.sections-new');
 
-function replaceInsideArticleDiv() {
-  fetch("https://elomymelo.com/text-files/inside-article-div.txt")
-    .then(response => response.text())
-    .then(data => {
-      if (insideArticleDiv) {
-        insideArticleDiv.innerHTML = data;
-
-        const fixedDisEls = insideArticleDiv.querySelectorAll(
-          ".fixed-dis-phone, .fixed-dis-desk"
-        );
-
-        fixedDisEls.forEach(el => {
-          const script = document.createElement("script");
-          script.innerHTML =
-            "(adsbygoogle = window.adsbygoogle || []).push({});";
-
-          el.appendChild(script);
-        });
-      }
-    });
+function replaceInsideArticleDiv() 
+{
+    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
+    .then(response => response.text()).then(data => { if(insideArticleDiv) { insideArticleDiv.innerHTML = data; const w = window.innerWidth; 
+    const fixedDisEls = insideArticleDiv.querySelectorAll(".fixed-dis-phone, .fixed-dis-desk");
+    fixedDisEls.forEach(el => { if (el.classList.contains("fixed-dis-phone") ? w < 615 : w > 615) { const script = document.createElement("script");
+    script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+    el.appendChild(script); } }); } });
 }
 
 // Run the function after 5 seconds
@@ -388,6 +376,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
