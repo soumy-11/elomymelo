@@ -66,7 +66,7 @@
   }
 
   function sendSubscriptionToServer(formData) {
-    return fetch('https://script.google.com/macros/s/AKfycbzH7EmI8Gq3Oa4SAsekK_7zoKomslcbBwQ1xaynFg_fRlpKSsV2ZTeloWpXhzmJ_OSx/exec', {
+    return fetch('https://script.google.com/macros/s/AKfycbxdNE69cgEQIJwnuWMDThp1VWvtZI3vdNyuL_L4_pMo_YSc2GWV3MmjAshikvBk9nic/exec', {
       method: 'POST',
       body: formData,
     })
@@ -540,10 +540,11 @@ function outscale()
         else 
         {
             document.body.style.overflow = "visible"; 
-            tran1.style.visibility = "visible"; tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; 
-            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); tran5.style.visibility = "visible"; }, 2000); fcone = true; } 
+            if (tran1 && tran2 && tran3) { tran1.style.visibility = "visible"; 
+            tran2.style.visibility = "visible"; tran3.style.visibility = "visible"; }
+            if (!fcone && isdesk) { visHide = setTimeout(() => { doso(); if(tran5) { tran5.style.visibility = "visible"; } }, 2000); fcone = true; } 
+            if (mediain && isdesk) { tran4.style.display = "none"; if(tran6) { tran6.style.display = "none"; } } 
             if (mediaout && isdesk) { tran4.style.display = "block"; tran6.style.display = "block"; } 
-            if (mediain && isdesk) { tran4.style.display = "none"; tran6.style.display = "none"; } 
         }
 
         function hideA() {
@@ -800,6 +801,4 @@ function outscale()
 outscale();
 
 // document ends here --- 
-
-
 
