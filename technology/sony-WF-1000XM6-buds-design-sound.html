@@ -191,15 +191,16 @@ function upme()
     } 
     if(window.matchMedia("(max-width: 615px)").matches) 
     {
+        const ftDesk = document.getElementById("footer-id");
         document.getElementById("arts-con-id").style.overflow = "visible";
-        document.getElementById("footer-id").style.display = "none";
+        if (ftDesk) { ftDesk.style.display = "none"; }
     }
 }
 if(isdesk) { window.removeEventListener('resize', upme); } 
 
 </script>
 
-<!-- <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script> -->
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3654432220074510" crossorigin="anonymous"></script>
 
 <script type="application/ld+json">
 {
