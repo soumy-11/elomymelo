@@ -288,22 +288,12 @@ const secNew = document.querySelector('.sections-new');
 
 function replaceInsideArticleDiv() 
 {
-    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
-    .then(response => response.text()).then(data => { if(insideArticleDiv) { insideArticleDiv.innerHTML = data; 
-    const w = window.innerWidth; const phoneAd = insideArticleDiv.querySelector(".fixed-dis-phone");
-    const deskAd  = insideArticleDiv.querySelector(".fixed-dis-desk");
-    const script = document.createElement("script");
-            script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
-
-            if (w < 615) {
-                deskAd?.querySelector("ins.adsbygoogle")?.remove();
-                phoneAd?.appendChild(script);
-
-            } else {
-                phoneAd?.querySelector("ins.adsbygoogle")?.remove();
-                deskAd?.appendChild(script);
-
-            } } });
+    fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
+    .then(response => response.text()).then(data => { if(insideArticleDiv) { insideArticleDiv.innerHTML = data; const w = window.innerWidth;
+    const phoneAd = insideArticleDiv.querySelector(".fixed-dis-phone"); const deskAd = insideArticleDiv.querySelector(".fixed-dis-desk");
+    const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+    if (w < 615) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
+    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } } });
 }
 
 // Run the function after 5 seconds
@@ -386,6 +376,7 @@ function detectCharacter()
 
     setTimeout(heightcheck, 1000); setTimeout(heightcheck, 3000); 
     // document ends here ---------
+
 
 
 
