@@ -73,7 +73,7 @@
         }
 
         function inObs() {
-        if (!isios) { const target = document.getElementById("check-inter");
+        if (isios) { const target = document.getElementById("check-inter");
         if (target) { const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => { if (entry.isIntersecting) {
         iosView(); obs.disconnect(); } }); }, { threshold: 0.1 });
