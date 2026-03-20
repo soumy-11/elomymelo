@@ -91,14 +91,14 @@ function updateAdsAttributes()
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; } 
                     if(idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white 20%, #4f76b4 50%)"; } 
-                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } });
+                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; } });
 
                     dids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; 
                     var childDivs = parentDiv.querySelectorAll('div'); } 
                     if(idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
-                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; parentDiv.nextElementSibling.style.display = "block"; } }); 
+                    if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; } });
                   } 
 
                   // desktop 
