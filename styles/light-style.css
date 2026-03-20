@@ -155,10 +155,9 @@
 	}
 	.first-para
 	{
-	    width: auto;
 	    padding: 7px 15px 10px 0px;
-	    position: relative;
-	    z-index: 15;
+	    position: relative; margin: 0px auto 20px auto;
+	    z-index: 15; width: auto;
 	}
 	.first-para::before
 	{
@@ -228,8 +227,8 @@
 	{
 	    border-radius: 10px; text-align: center;
 	    border: 3px #EAEAEA solid; margin: 10px 0;
+	    display: block; line-height: 25px;
 	    padding: 20px 22px 20px 22px;
-	    display: block;
 	}
 	.end-links-con
 	{
@@ -383,5 +382,13 @@
 	#img-1
 	{
 		width: 99%; border-radius: 10px;
+	}
+	.end-links-con
+	{
+	    padding: 0 10px 0 10px;
+	}
+	.end-links
+	{
+	    padding: 0 10px 0 10px;
 	}
     }
