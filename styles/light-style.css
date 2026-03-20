@@ -6,7 +6,7 @@
 	#big-out
 	{ 
 		position: relative;
-		width: auto; margin: 20px;
+		width: max-content; margin: 20px;
 		height: auto;
 	}
 	.top-sec
