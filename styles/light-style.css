@@ -177,7 +177,7 @@
 	    font-size: 25px;
 	    width: max-content; color: #6487ab;
 	    font-weight: bold; max-width: 90%; text-align: center;
-	    border-inline: 10px #ec60ca6e solid;
+	    border-inline: 10px #ec60ca40 solid;
 	    padding: 0px 15px 0px 15px;
 	    margin: 40px auto 0 auto;
 	}
@@ -315,6 +315,11 @@
 	{
 		font-size: 23px;
 	}
+	.first-para::before
+	{
+		border-radius: 10px;
+	    padding: 2.5px;
+	}
 	#art-text
 	{
 		padding: 0px; width: 99%;
@@ -324,6 +329,10 @@
 	{
 		line-height: 25px;
 	}
+    #pros-cons
+    {
+        border-radius: 10px;
+    }
 	#thoughts
 	{
 		font-size: 15px;
@@ -335,10 +344,10 @@
 	}
 	.art-images
 	{
-		width: 99%;
+		width: 99%; border-radius: 10px;
 	}
 	#img-1
 	{
-		width: 99%;
+		width: 99%; border-radius: 10px;
 	}
     }
