@@ -52,7 +52,7 @@
 	}
 	.art-out
 	{
-		position: relative;
+		position: relative; z-index: 2;
 		width: 75%; max-width: 1000px;
 		min-width: 500px; height: auto;
 		margin: 20px auto 20px auto;
@@ -113,9 +113,29 @@
 	}
 	#art-text
 	{
-		width: 97%; position: relative; margin: auto;
+		width: 98%; position: relative; margin: auto;
 		padding: 10px; display: block; color: #6f6f6f;
 		font-family: sans-serif; font-size: 20px;
+		z-index: 4;
+	}
+	.art-para-new
+	{
+	    position: relative;
+	    display: inline-block;
+	    padding-right: 15px;
+	}
+	.art-para-new:nth-of-type(n+2)::before
+	{
+	    position: absolute;
+        content: ""; inset: 0; width: 99%;
+        display: var(--before-display, block);
+        background: linear-gradient(to left, #EAEAEA 10%, transparent 15%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        margin-top: -5px; margin-bottom: -5px;
+        border-radius: 10px; padding: 3px;
+        mask-composite: exclude;
+        z-index: -1;
 	}
 
 	#art-text p { line-height: 30px; }
@@ -325,9 +345,23 @@
 		padding: 0px; width: 99%;
 		font-size: 16px;
 	}
+    #art-text > p:nth-of-type(n+2)::before
+    {
+        position: absolute;
+        content: ""; inset: 0; width: 99%;
+        display: var(--before-display, block);
+        background: linear-gradient(to left, #EAEAEA 10%, transparent 15%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        margin-top: -5px; margin-bottom: -5px;
+        border-radius: 10px; padding: 2px;
+        mask-composite: exclude;
+    }
 	#art-text p
 	{
 		line-height: 25px;
+		position: relative;
+        display: inline-block;
+        padding-right: 10px;
 	}
     #pros-cons
     {
