@@ -96,8 +96,8 @@ function updateAdsAttributes()
                     dids.forEach(function(id) { 
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; 
-                    var childDivs = parentDiv.querySelectorAll('div'); } 
-                    if(idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; parentDiv.style.background = "#4D4D4D"; parentDiv.style.border = "3px transparent solid"; } 
+                    var lbDiv = parentDiv.querySelector('.ad-details-5'); } 
+                    if(idname === id && attrvalue === "filled") { lbDiv.style.display = "none"; parentDiv.style.background = "#EAEAEA"; } 
                     if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; } });
                   } 
 
@@ -116,9 +116,7 @@ function updateAdsAttributes()
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; } 
                     if(idname === id && attrvalue === "unfilled") 
-                    { parentDiv.style.display = "none"; } }); 
-                    if(attrvalue === 'filled' && record.target.id === 'ins-dis-v1')
-                    { document.getElementById("ads-v1-in").style.background = "#F7F7F7"; }  
+                    { parentDiv.style.display = "none"; } });
                   }   
                 } 
             });
