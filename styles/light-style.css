@@ -293,7 +293,7 @@
 	}
     .top-sec
 	{
-		max-width: 615px;
+		max-width: 615px; width: 85%;
 		min-width: 200px;
 	}
 	.art-out
@@ -304,7 +304,7 @@
 	.nav-out
 	{
 		max-width: 85%;
-		padding: 25px 30px 25px 30px;
+		padding: 20px 20px 17px 20px;
 	}
 	.nav-out a
 	{
