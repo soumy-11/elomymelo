@@ -107,8 +107,8 @@ function updateAdsAttributes()
                     fids.forEach(function(id) {  
                     var element = document.getElementById(id); 
                     if(element) { var parentDiv = element.parentNode; 
-                    var childDivs = parentDiv.querySelectorAll('div'); } 
-                    if(idname === id && attrvalue === "filled") { childDivs[1].style.display = "none"; } 
+                    var lbDiv = parentDiv.querySelector('.ad-details-5'); } 
+                    if(idname === id && attrvalue === "filled") { lbDiv.style.display = "none"; } 
                     if(idname === id && attrvalue === "unfilled") 
                     { parentDiv.style.display = "none"; } }); 
 
@@ -131,6 +131,39 @@ function updateAdsAttributes()
     updatemute(); 
 }
 updateAdsAttributes(); 
+
+// for detecting new news articles, h2 tags 
+const rplsSec = document.getElementById('lt-art-sec');
+const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" class="spinner-anim">
+<circle cx="50" cy="50" r="8" fill="#D1D1D1"/><path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(10 50 50)"/>
+<path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(130 50 50)"/>
+<path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(250 50 50)"/>
+</svg></div>` // for loader html insertion 
+
+function ltrplsSec() 
+{
+    const loaderStyle = document.createElement('style');
+    loaderStyle.id = 'loader-style'; loaderStyle.textContent = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;inset:0;margin:auto}.spinner-anim{animation:spin 0.6s linear infinite;transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}';
+    document.head.appendChild(loaderStyle);
+
+    if (rplsSec) { rplsSec.innerHTML = loadersvg; }
+/*
+    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
+    .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data; const w = window.innerWidth;
+    const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
+    const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+    if (w < 615) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
+    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } } }); */
+}
+
+// Run the function before intersection 
+if (window.innerWidth < 615) 
+{
+    const intObserver = new IntersectionObserver((entries) => { entries.forEach(entry => {
+    if (entry.isIntersecting) { ltrplsSec(); intObserver.disconnect(); } }); },
+    { rootMargin: '0px 0px 500px 0px', threshold: 0 } );
+    intObserver.observe(rplsSec);
+}
 
 // for last-line balance
 const artCon = document.querySelector('.art-out');
