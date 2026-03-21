@@ -6,7 +6,7 @@
 	#big-out
 	{ 
 		position: relative; width: 100%; height: auto;
-		padding-bottom: 30px;
+		padding-bottom: 92px;
 	}
 	.top-sec
 	{
@@ -207,7 +207,7 @@
 	}
 	.feed-com
 	{
-	    position: relative;
+	    position: relative; padding: 10px 0px;
 	    height: auto; min-height: 200px;
 	    border: 4px #EAEAEA solid;
 	    border-radius: 10px;
@@ -296,6 +296,26 @@
 		max-width: 615px; width: 85%;
 		min-width: 200px;
 	}
+	.fxd-eles
+	{
+		display: flex; gap: 7px;
+		width: max-content; padding: 10px 15px;
+		bottom: 30px; background-color: white;
+		border-radius: 10px; inset-inline: 0;
+		position: fixed; z-index: 5;
+		margin-inline: auto;
+	}
+	.icn-con
+	{
+		width: 20px; height: 20px;
+		padding: 10px 5px 7px 7px; color: #434343;
+		background-color: #f0f4f8;
+		border-radius: 7px;
+	}
+	.icn-diff
+	{
+		padding: 7px 2px 10px 10px;
+	}
 	.art-out
 	{
 		max-width: 615px; width: 88.5%;
@@ -304,7 +324,7 @@
 	.nav-out
 	{
 		max-width: 85%;
-		padding: 20px 20px 17px 20px;
+		padding: 25px 30px 23px 30px;
 	}
 	.nav-out a
 	{
