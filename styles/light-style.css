@@ -8,7 +8,7 @@
 	{
 		inset-inline: 0; width: max-content;
 		position: relative; margin: 0px auto; top: 30px;
-		padding: 15px 25px; font-family: monospace; font-size: 15px;
+		padding: 15px 35px; font-family: monospace; font-size: 15px;
 		border-radius: 55px; background-color: #f0f4f8;
 		color: #567ea7; font-weight: bolder;
 	}
@@ -44,16 +44,11 @@
 	{
 	    position: relative;
 	    height: auto; min-height: 200px;
+	    display: flex; justify-content: center;
 	    padding: 12px 4px; background: #EAEAEA;
 	    border-radius: 10px; width: auto;
 	    margin: 0px 20px;
-
 	}
-	.fixed-dis-phone > ins 
-	{
-		position: absolute;
-		inset: 0; margin: auto;
-    }
     #more-info-after-2
     {
     	border: 3px #EAEAEA solid;
