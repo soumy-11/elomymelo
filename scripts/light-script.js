@@ -144,16 +144,14 @@ function ltrplsSec()
 {
     const loaderStyle = document.createElement('style');
     loaderStyle.id = 'loader-style'; loaderStyle.textContent = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;inset:0;margin:auto}.spinner-anim{animation:spin 0.6s linear infinite;transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}';
-    document.head.appendChild(loaderStyle);
+    document.head.appendChild(loaderStyle); if (rplsSec) { rplsSec.innerHTML = loadersvg; }
 
-    if (rplsSec) { rplsSec.innerHTML = loadersvg; }
-/*
     fetch("https://elomymelo.com/text-files/inside-article-div.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data; const w = window.innerWidth;
     const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
     const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
     if (w < 615) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
-    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } } }); */
+    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } } });
 }
 
 // Run the function before intersection 
@@ -164,6 +162,10 @@ if (window.innerWidth < 615)
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } );
     intObserver.observe(rplsSec);
 }
+
+// for go to top or bottom
+function goDown() { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); }
+function goUp() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
 // for last-line balance
 const artCon = document.querySelector('.art-out');
