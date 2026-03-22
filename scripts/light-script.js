@@ -82,9 +82,6 @@ function updateAdsAttributes()
                   var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four']; 
                   var dids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four']; 
 
-                  // console.log(attrname);
-                  // console.log(attrvalue);
-
                   if(window.matchMedia("(max-width: 615px)").matches)
                   {
                     fids.forEach(function(id) { 
@@ -130,7 +127,18 @@ function updateAdsAttributes()
     { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
     updatemute(); 
 }
-updateAdsAttributes(); 
+updateAdsAttributes();
+// call the important function
+
+// for sidebar ads loading process
+if (window.innerWidth > 940)
+{
+    const sideAds = document.querySelectorAll('.sidebar-ads');
+    const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
+    sideAds.forEach(el => { el.innerHTML = adsCode; const script = document.createElement('script');
+    script.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
+    el.appendChild(script); }); // ads name Thin-bar-ads
+}
 
 // for detecting new news articles, h2 tags 
 const rplsSec = document.getElementById('lt-art-sec');
@@ -147,7 +155,7 @@ function ltrplsSec()
     document.head.appendChild(loaderStyle); if (rplsSec) { rplsSec.innerHTML = loadersvg; }
 
     const ltArtSec = document.createElement('style'); ltArtSec.id = 'ltart-style';
-    ltArtSec.textContent = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:15px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto;padding:0 20px}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:10px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:16px}.art-head-common a{color:#6487ab!important;text-decoration:none}.fixed-dis-phone{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto;margin:0 20px}#more-info-after-2{border:3px #EAEAEA solid;padding:20px 25px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:17px;border-radius:20px}.art-description-common{display:none}.fixed-dis-desk{display:none}';
+    ltArtSec.textContent = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:16px 35px 14px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto;padding:0 20px}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:10px 20px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:16px}.art-head-common a{color:#6487ab!important;text-decoration:none}.fixed-dis-phone{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto;margin:0 20px}#more-info-after-2{border:3px #EAEAEA solid;padding:20px 25px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:17px;border-radius:14px}.art-description-common{display:none}.fixed-dis-desk{display:none}';
     document.head.appendChild(ltArtSec); // for the latest article sec
 
     fetch("https://elomymelo.com/text-files/inside-article-div.txt")
