@@ -81,15 +81,15 @@
 	}
 	#bars-rows
     {
-    	display: flex;
+    	display: flex; width: 100%;
     	gap: 20px; justify-content: center;
     	padding-bottom: 20px;
     }
 	.side-bars
     {
-    	width: 150px; max-width: 310px;
+    	min-width: 126px; max-width: 310px;
     	padding: 10px 3px; background-color: white;
-    	border-radius: 20px;
+    	border-radius: 20px; width: 20%;
     }
 	.art-out
 	{
@@ -304,12 +304,16 @@
 	}
     }
 
-	@media only screen and (max-width: 615px)
+    @media only screen and (max-width: 940px)
     {
     .side-bars
     {
     	display: none;
     }
+    }
+
+	@media only screen and (max-width: 615px)
+    {
     #dlabel
     {
     	display: none;
