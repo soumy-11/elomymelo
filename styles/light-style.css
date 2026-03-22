@@ -82,14 +82,14 @@
 	#bars-rows
     {
     	display: flex;
-    	gap: 15px; justify-content: center;
+    	gap: 20px; justify-content: center;
     	padding-bottom: 20px;
     }
 	.side-bars
     {
     	width: 150px; max-width: 310px;
     	padding: 10px 3px; background-color: white;
-    	border-radius: 15px;
+    	border-radius: 20px;
     }
 	.art-out
 	{
