@@ -36,6 +36,7 @@
 	}
 	#add-article-html
 	{
+		padding: 0px 20px;
 		width: auto; flex: 1;
 		min-height: 300px; position: relative;
 		min-width: 250px; height: auto;
@@ -383,7 +384,7 @@
 	}
 	#lt-art-sec
 	{
-		min-width: 200px; width: 95.5%;
+		min-width: 200px; width: 100%;
 		margin: 20px auto 0px auto;
 	}
 	#bars-rows
@@ -411,16 +412,16 @@
 	}
 	#short-verdicts
 	{
-	    font-size: 18px;
+	    font-size: 17px;
 	}
 	#publication-details
 	{
 		padding: 0px 5px 0px 5px; border: none;
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.mk-cen
 	{
-		inset-inline: 0; margin: 3px auto;
+		inset-inline: 0; margin: 5px auto;
 		max-width: 70%;
 	}
 	#art-h1
@@ -454,6 +455,10 @@
 		position: relative;
         display: inline-block;
         padding-right: 10px;
+	}
+	#add-article-html
+	{
+		width: 88.5%; flex: none;
 	}
     #pros-cons
     {
