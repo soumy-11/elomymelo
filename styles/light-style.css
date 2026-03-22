@@ -295,6 +295,7 @@
 	.ft-out
 	{
 		padding: 25px 50px 20px 50px;
+		max-width: 45%;
 	}
 
 	@media only screen and (min-width: 615px)
@@ -384,6 +385,7 @@
 	.ft-out
 	{
 		padding: 17px 20px 15px 20px;
+		max-width: 75%;
 	}
 	#short-verdicts
 	{
