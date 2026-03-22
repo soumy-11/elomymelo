@@ -30,10 +30,15 @@
 	}
 	#lt-art-sec
 	{
-		width: auto; max-width: 1000px;
+		display: flex; width: 65%; margin: auto;
+    	gap: 17px; justify-content: center;
+    	padding-bottom: 20px;
+	}
+	#add-article-html
+	{
+		width: auto; flex: 1;
 		min-height: 300px; position: relative;
-		min-width: 500px; height: auto;
-		margin: 20px auto 20px auto;
+		min-width: 250px; height: auto;
 		background-color: white;
 		border-radius: 20px;
 	}
@@ -95,6 +100,10 @@
     	position: sticky; top: 20px; padding: 20px 3px;
     	margin: 10px 3px; background-color: white; min-height: 604px;
     	border-radius: 20px; width: auto; height: auto;
+    }
+    .bar-smack
+    {
+    	height: auto; margin: -10px 0 0px 0;
     }
 	.art-out
 	{
@@ -304,10 +313,6 @@
     {
     	display: none;
     }
-    #lt-art-sec
-	{
-		display: none;
-	}
     }
 
     @media only screen and (max-width: 940px)
@@ -316,10 +321,26 @@
     {
     	display: none;
     }
+    .bar-smack
+    {
+    	display: block;
+    }
+    #lt-art-sec
+	{
+		width: 80%;
+	}
     }
 
 	@media only screen and (max-width: 615px)
     {
+    .sidebar-ads
+    {
+    	display: none;
+    }
+    .bar-smack
+    {
+    	display: none;
+    }
     #dlabel
     {
     	display: none;
@@ -362,7 +383,8 @@
 	}
 	#lt-art-sec
 	{
-		min-width: 200px; width: 97%;
+		min-width: 200px; width: 95.5%;
+		margin: 20px auto 0px auto;
 	}
 	#bars-rows
     {
