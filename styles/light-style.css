@@ -91,13 +91,13 @@
     }
 	.side-bars
     {
-    	min-width: 126px; max-width: 310px; margin: -10px 0 500px 0;
-    	border-radius: 20px; width: 20%; max-height: 3000px;
+    	min-width: 130px; max-width: 310px; margin: -10px 0 500px 0;
+    	border-radius: 20px; width: 20%; max-height: 4000px;
     }
     .sidebar-ads
     {
     	position: sticky; top: 20px; padding: 20px 3px;
-    	margin: 10px 3px; background-color: white; min-height: 610px;
+    	margin: 10px 3px; background-color: white; min-height: 210px;
     	border-radius: 14px; width: auto; height: auto;
     }
     .bar-smack
