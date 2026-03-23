@@ -131,13 +131,15 @@ updateAdsAttributes();
 // call the important function
 
 // for sidebar ads loading process
+let sAdsOne = false; let sAdsTwo = false;
 function loadSideBars()
 {
-    const allAds = document.querySelectorAll('.sidebar-ads, .sidebar-ads.bar-color');
+    const sideAds = document.querySelectorAll('.sidebar-ads');
+    const sAdsLate = document.querySelectorAll('.sidebar-ads.bar-color');
     const adsCode = `<ins class="adsbygoogle" style="display:block;min-height:500px" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
-    allAds.forEach(el => { if (el.dataset.adsLoaded) return; el.innerHTML = adsCode; const script = document.createElement('script');
-    script.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
-    el.appendChild(script); el.dataset.adsLoaded = 'true'; });
+    if(!sAdsOne && sideAds) { sideAds.forEach(el => { el.innerHTML = adsCode; const script = document.createElement('script'); script.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});'; el.appendChild(script); }); sAdsOne = true; }
+    if(!sAdsTwo && sAdsLate) { sAdsLate.forEach(el => { el.innerHTML = adsCode; const script = document.createElement('script'); script.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
+    el.appendChild(script); }); sAdsTwo = true; }
 }
 loadSideBars();
 
