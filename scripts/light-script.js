@@ -181,11 +181,10 @@ function ltrplsSec()
 let storeInterval;
 if (rplsSec) 
 {
-    const intObserver = new IntersectionObserver((entries) => { entries.forEach(entry => {
-    if (entry.isIntersecting) { ltrplsSec(); notiOverlay(); storeInterval = setInterval(removeTool, 2000);
-    if (adsLock) { adsLock = false; } intObserver.disconnect(); } }); },
-    { rootMargin: '0px 0px 500px 0px', threshold: 0 } );
-    intObserver.observe(rplsSec);
+    const intObserver = new IntersectionObserver((entries) => { 
+	entries.forEach(entry => { if (entry.isIntersecting) { ltrplsSec(); if(typeof notiOverlay === "function") { notiOverlay(); } 
+	storeInterval = setInterval(removeTool, 2000); if (adsLock) { adsLock = false; } intObserver.disconnect(); } }); },
+    { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
 
 function removeTool()
