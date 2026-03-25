@@ -166,7 +166,8 @@ function ltrplsSec()
     ltArtSec.textContent = ltArtStyle; document.head.appendChild(ltArtSec);
 
     fetch("https://elomymelo.com/text-files/inside-article-div.txt")
-    .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
+    .then(response => { if (!response.ok) { throw new Error("HTTP error, status = " + response.status); } 
+	return response.text(); }).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
     document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
 
     const child = parent.querySelector(':scope > div'); if (child) {
@@ -175,7 +176,7 @@ function ltrplsSec()
     const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
     if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
     phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
-    if (bgmd) { loadSideBars(); } }); // late call ok 
+    if (bgmd) { loadSideBars(); } }).catch(error => { console.error("Fetch failed = ", error); ltrplsSec(); });
 }
 
 let storeInterval;
