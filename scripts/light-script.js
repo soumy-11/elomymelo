@@ -165,18 +165,23 @@ function ltrplsSec()
     const ltArtSec = document.createElement('style'); ltArtSec.id = 'ltart-style';
     ltArtSec.textContent = ltArtStyle; document.head.appendChild(ltArtSec);
 
-    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
-    .then(response => { if (!response.ok) { throw new Error("HTTP error, status = " + response.status); } 
-	return response.text(); }).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
-    document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
-
-    const child = parent.querySelector(':scope > div'); if (child) {
-    child.classList.add('bar-color'); } }); document.getElementById('loader-style')?.remove();
-    const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
-    const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
-    if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
-    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
-    if (bgmd) { loadSideBars(); } }).catch(error => { console.error("Fetch failed = ", error); ltrplsSec(); });
+	function fetchSec() 
+	{
+	    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
+	    .then(response => { if (!response.ok) { throw new Error("HTTP error, status = " + response.status); } 
+		return response.text(); }).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
+	    document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
+	
+	    const child = parent.querySelector(':scope > div'); if (child) {
+	    child.classList.add('bar-color'); } }); document.getElementById('loader-style')?.remove();
+	    const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
+	    const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+	    if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
+	    phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
+	    if (bgmd) { loadSideBars(); } }).catch(error => { console.error("Fetch failed = ", error); 
+		fetchSec(); }); // fetch called many times on error 
+	}
+	fetchSec();
 }
 
 let storeInterval;
