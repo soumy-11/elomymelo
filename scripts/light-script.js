@@ -278,7 +278,7 @@ function trigPad()
     const nowWidth = window.innerWidth;
     if (nowWidth > 615) { rzszck = 'desk'; } else { rzszck = 'phone'; }
 
-    if (nowWidth < loadWidth && Math.abs(nowWidth - loadWidth) > 20 && !adlk1 || nowWidth > loadWidth && szck !== rzszck && !adlk1) {
+    if (!adlk1 && ((nowWidth < loadWidth && Math.abs(nowWidth - loadWidth) > 20) || (nowWidth > loadWidth && szck !== rzszck))) {
     const adsdtp1 = document.querySelectorAll('.dis-com, .sidebar-ads, .fixed-dis-phone'); adsdtp1.forEach(el => { el.style.display = 'none'; });
     const leftel = document.querySelector('.fixed-dis-desk'); if (leftel) { const next = leftel.nextElementSibling;
     leftel.style.display = 'none'; if (next && next.tagName === 'BR') {
