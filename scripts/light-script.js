@@ -187,9 +187,9 @@ function ltrplsSec()
 let storeInterval;
 if (rplsSec) 
 {
-    const intObserver = new IntersectionObserver((entries) => { 
-	entries.forEach(entry => { if (entry.isIntersecting) { ltrplsSec(); if(typeof notiOverlay === "function") { notiOverlay(); } 
-	storeInterval = setInterval(removeTool, 2000); if (adsLock) { adsLock = false; } intObserver.disconnect(); } }); },
+    const intObserver = new IntersectionObserver((entries) => { entries.forEach(entry => {
+    if (entry.isIntersecting) { ltrplsSec(); notiOverlay(); storeInterval = setInterval(removeTool, 2000);
+    if (adlk1) { adlk1 = false; } if (adlkk2) { adlkk2 = false; } intObserver.disconnect(); } }); },
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
 
@@ -266,18 +266,27 @@ function detectCharacter()
 detectCharacter();
 // to add dynamic paddings
 
-let adsLock = false;
-const loadWidth = window.innerWidth;
+let adlk1 = false, adlkk2 = false;
+const loadWidth = window.innerWidth; let szck, rzszck;
+if (loadWidth > 615) { szck = 'desk'; } else { szck = 'phone'; }
 window.addEventListener('resize', trigPad); 
 function trigPad()
 {
 	clearTimeout(window.resized); window.resized = setTimeout(() => {
 	detectCharacter(); }, 1700);
 
-    if (adsLock) return;
-    const nowWidth = window.innerWidth; if (Math.abs(nowWidth - loadWidth) > 20) {
-    const adsdtp1 = document.querySelectorAll('.dis-com, .fixed-dis-phone'); adsdtp1.forEach(el => { el.remove(); });
+    const nowWidth = window.innerWidth;
+    if (nowWidth > 615) { rzszck = 'desk'; } else { rzszck = 'phone'; }
+
+    if (nowWidth < loadWidth && Math.abs(nowWidth - loadWidth) > 20 && !adlk1 || nowWidth > loadWidth && szck !== rzszck && !adlk1) {
+    const adsdtp1 = document.querySelectorAll('.dis-com, .sidebar-ads, .fixed-dis-phone'); adsdtp1.forEach(el => { el.style.display = 'none'; });
     const leftel = document.querySelector('.fixed-dis-desk'); if (leftel) { const next = leftel.nextElementSibling;
-    leftel.remove(); if (next && next.tagName === 'BR') {
-    next.remove(); } } adsLock = true; }
+    leftel.style.display = 'none'; if (next && next.tagName === 'BR') {
+    next.style.display = 'none'; } } adlk1 = true; adlkk2 = false; }
+
+    if (nowWidth >= loadWidth && szck === rzszck && !adlkk2) {
+    const adsdtp1 = document.querySelectorAll('.dis-com, .sidebar-ads, .fixed-dis-phone'); adsdtp1.forEach(el => { el.style.display = ''; });
+    const leftel = document.querySelector('.fixed-dis-desk'); if (leftel) { const next = leftel.nextElementSibling;
+    leftel.style.display = ''; if (next && next.tagName === 'BR') {
+    next.style.display = ''; } } adlkk2 = true; adlk1 = false; }
 }
