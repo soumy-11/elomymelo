@@ -12,11 +12,11 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="https://elomymelo.com/tech/sony-WF-1000XM6-vs-WF-1000XM5-buds.html"> Sony WF-1000XM6 vs WF-1000XM5 buds, not worth upgrading </a> </span>
+		<span> <a href="https://elomymelo.com/tech/sony-WF-1000XM6-vs-WF-1000XM5-buds.html"> Sony WF-1000XM6 vs WF-1000XM5 buds </a> </span>
 	</div>
 
 	<div class="art-description-common">		
-		There are slight improvements in terms of sound quality, ANC, transparency and call quality. The old WF-1000XM5 buds were already good enough and these slight improvements don't make <a href="https://elomymelo.com/tech/sony-WF-1000XM6-vs-WF-1000XM5-buds.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+		There are slight improvements in terms of sound quality, ANC, transparency and call quality. The old WF-1000XM5 buds were already good enough and these slight <a href="https://elomymelo.com/tech/sony-WF-1000XM6-vs-WF-1000XM5-buds.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
 	</div>
 
    </div><br>
@@ -28,7 +28,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="https://elomymelo.com/tech/jbl-flip-7-vs-bose-soundlink-flex-gen-2.html"> JBL Flip 7 vs Bose SoundLink Flex Gen 2 speaker </a> </span>
+		<span> <a href="https://elomymelo.com/tech/jbl-flip-7-vs-bose-soundlink-flex-gen-2.html"> JBL Flip 7 vs Bose Flex Gen 2 speaker </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -44,7 +44,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="https://elomymelo.com/tech/jbl-boombox-4-vs-boombox-3.html"> JBL Boombox 4 vs Boombox 3, crazy louder Boombox 4 </a> </span>
+		<span> <a href="https://elomymelo.com/tech/jbl-boombox-4-vs-boombox-3.html"> JBL Boombox 4 vs Boombox 3, louder BB4 </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -60,7 +60,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="https://elomymelo.com/tech/samsung-galaxy-S26-ultra-camera-design.html"> Galaxy S26 Ultra Camera Plateau Design comparison, better this time </a> </span>
+		<span> <a href="https://elomymelo.com/tech/samsung-galaxy-S26-ultra-camera-design.html"> Galaxy S26 Ultra's New Camera Plateau Design </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -96,7 +96,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="https://elomymelo.com/tech/jbl-flip-7-vs-xiaomi-sound-outdoor-30W.html"> JBL Flip 7 vs Xiaomi Sound Outdoor 30W, same league way cheaper </a> </span>
+		<span> <a href="https://elomymelo.com/tech/jbl-flip-7-vs-xiaomi-sound-outdoor-30W.html"> JBL Flip 7 vs Xiaomi Sound Outdoor 30W </a> </span>
 	</div>
 
 	<div class="art-description-common">		
@@ -107,16 +107,16 @@
 
    <div class="articles-common-lt-style">
 
-	<a href="jbl-flip-7-vs-flip-6.html">
-	<img class="latest-art-pic-common" src="https://elomymelo.com/images/flip-7-vs-design.jpg" style="object-fit: cover" alt="photo of jbl flip 7 vs flip 6 speaker comparison" loading="lazy">
+	<a href="https://elomymelo.com/tech/apple-airpods-pro-3-vs-pro-2.html">
+	<img class="latest-art-pic-common" src="https://elomymelo.com/images/airpods-pro-3-vs-2-main.jpg" style="object-fit: cover" alt="" loading="lazy">
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="jbl-flip-7-vs-flip-6.html"> JBL Flip 7 vs JBL Flip 6 - Twice Louder </a> </span>
+		<span> <a href="https://elomymelo.com/tech/apple-airpods-pro-3-vs-pro-2.html"> AirPods Pro 3 vs Pro 2, downgraded sound </a> </span>
 	</div>
 
 	<div class="art-description-common">		
-		The new JBL Flip 7 gets 2 times louder than the old JBL Flip 6 at max volume. So, in terms of absolute loudness, the Flip 7 might feel like an upgrade. However, overall, the sound quality <a href="jbl-flip-7-vs-flip-6.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+		The over-cooked v-shaped sound signature makes the AirPods Pro 3 sounding more artificial and processed than natural and tasteful. They still sound good but the AirPods Pro 2 sounded <a href="https://elomymelo.com/tech/apple-airpods-pro-3-vs-pro-2.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
 	</div>
 
    </div><br>
