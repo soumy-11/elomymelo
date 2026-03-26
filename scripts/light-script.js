@@ -167,7 +167,7 @@ function ltrplsSec()
 
 	function fetchSec() 
 	{
-	    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
+	    fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
 	    .then(response => { if (!response.ok) { throw new Error("HTTP error, status = " + response.status); } 
 		return response.text(); }).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
 	    document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
