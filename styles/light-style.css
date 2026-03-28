@@ -21,7 +21,7 @@
 	{
 		border-radius: 7px;
 		width: 20px; height: 20px; cursor: pointer;
-		padding: 10px 5px 7px 9px; color: #434343;
+		padding: 10px 5px 7px 9px; color: #6487ab;
 		background-color: #f0f4f8;
 	}
 	.icn-diff
@@ -37,7 +37,7 @@
 	{
 		width: auto; flex: 1;
 		min-height: 300px; position: relative;
-		min-width: 250px; height: auto;
+		min-width: 200px; height: auto;
 		background-color: white;
 		border-radius: 20px;
 	}
@@ -75,7 +75,7 @@
 	.nav-out a 
 	{
 		text-decoration: none; padding-inline: 6px; font-size: 18px;
-		color: #434343; position: relative;
+		color: #595959; position: relative;
 		white-space: nowrap;
 	}
 	.nav-out a:not(:last-child)::after 
@@ -91,8 +91,8 @@
     }
 	.side-bars
     {
-    	min-width: 130px; max-width: 320px; margin: -10px 0 500px 0;
-    	border-radius: 20px; width: 25%; max-height: 4000px;
+    	min-width: 136px; max-width: 320px; margin: -10px 0 500px 0;
+    	border-radius: 20px; width: 20%; max-height: 4000px;
     }
     .sidebar-ads
     {
@@ -112,7 +112,7 @@
 	{
 		z-index: 2;
 		position: relative;
-		width: 55%; max-width: 1000px;
+		width: 75%; max-width: 1000px;
 		min-width: 540px; height: auto;
 		padding: 20px 20px 0px 20px;
 		background-color: white;
@@ -174,7 +174,6 @@
 		width: 98%; position: relative; margin: auto;
 		padding: 10px; display: block; color: #6f6f6f;
 		font-family: sans-serif; font-size: 20px;
-		z-index: 4;
 	}
 	.art-para-new
 	{
@@ -184,7 +183,7 @@
 	}
 	.art-para-new:nth-of-type(n+2)::before
 	{
-	    position: absolute; z-index: -1;
+	    position: absolute; z-index: -2;
         content: ""; inset: 0; width: 99.5%;
         display: var(--before-display, block);
         background: linear-gradient(to left, #EAEAEA 10%, transparent 15%);
@@ -211,9 +210,8 @@
 	}
 	.first-para
 	{
-	    padding: 7px 15px 10px 0px;
 	    position: relative; margin: 0px auto 20px auto;
-	    z-index: 15; width: auto;
+	    width: auto; padding: 7px 15px 10px 0px;
 	}
 	.first-para::before
 	{
@@ -222,7 +220,7 @@
 	    border-radius: 17px; padding: 3px;
 	    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 	    background: linear-gradient(to left, #ec60ca4d, transparent 50%);
-	    mask-composite: exclude; z-index: -10;
+	    mask-composite: exclude; z-index: -2;
 	}
     #pros-cons
     {
@@ -358,7 +356,7 @@
 	}
 	#site-logo
 	{
-		font-size: 20px;
+		font-size: 20px; margin: 40px auto 10px;
 		border-radius: 15px;
 	}
     .label-text
@@ -377,8 +375,8 @@
 	}
     .top-sec
 	{
+		min-width: 200px; margin: 20px auto 10px;
 		max-width: 615px; width: 85%;
-		min-width: 200px;
 	}
 	#lt-art-sec
 	{
@@ -391,8 +389,9 @@
     }
 	.art-out
 	{
+		padding: 10px 10px 0px;
 		min-width: 200px; margin: 0px 0px 20px;
-		width: 88.5%; max-width: 615px;
+		width: 98.5%; max-width: 615px;
 	}
 	.nav-out
 	{
