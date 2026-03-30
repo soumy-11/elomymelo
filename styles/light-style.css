@@ -112,7 +112,7 @@
 	{
 		z-index: 2;
 		position: relative;
-		width: 75%; max-width: 1000px;
+		width: 75%; max-width: 800px;
 		min-width: 540px; height: auto;
 		padding: 20px 20px 0px 20px;
 		background-color: white;
