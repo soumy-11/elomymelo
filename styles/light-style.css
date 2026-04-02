@@ -145,17 +145,18 @@
 	}
 	.verdict
 	{
+		padding: 0px 5px; display: inline-block;
 		font-size: 22px; margin: 0 0 5px 0;
 	}
 	.date
 	{
-		padding: 0px 14px 0px 14px; display: inline; font-size: 20px;
+		padding: 0px 14px 0px 14px; font-size: 20px;
 		border-inline: 7px #e2e2e2 solid;
 	}
 	.top-cen a
 	{
 		text-decoration: none; color: inherit;
-		border-bottom: 4px #8ba4bf solid;
+		border-bottom: 4px #e7a6b1 solid;
 	}
 	#art-text
 	{
@@ -180,7 +181,7 @@
         mask-composite: exclude;
 	}
 
-	#art-text a { text-decoration: none; border-bottom: 4px #8ba4bf solid; color: inherit; }
+	#art-text a { text-decoration: none; border-bottom: 4px #e7a6b1 solid; color: inherit; }
 	#art-text p { line-height: 30px; display: inline-block; }
 
 	#img-1
@@ -402,22 +403,8 @@
 	}
 	.date
 	{
-		padding: 0px 5px 0px 5px; border: none;
+		padding: 0px 35px; border: none;
 		font-size: 16px;
-	}
-	#short-verdicts
-	{
-	    font-size: 17px;
-	}
-	#publication-details
-	{
-		padding: 0px 5px 0px 5px; border: none;
-		font-size: 16px;
-	}
-	.mk-cen
-	{
-		inset-inline: 0; margin: 5px auto;
-		max-width: 70%;
 	}
 	#art-h1
 	{
