@@ -181,7 +181,7 @@
         mask-composite: exclude;
 	}
 
-	#art-text a { text-decoration: none; border-bottom: 4px #e7a6b1 solid; color: inherit; }
+	#art-text a { text-decoration: none; border-bottom: 3px #e7a6b1 solid; color: inherit; }
 	#art-text p { line-height: 30px; display: inline-block; }
 
 	#img-1
@@ -403,7 +403,7 @@
 	}
 	.date
 	{
-		padding: 0px 35px; border: none;
+		padding: 0px 40px; border: none;
 		font-size: 16px;
 	}
 	#art-h1
