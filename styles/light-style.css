@@ -145,7 +145,7 @@
 	}
 	.verdict
 	{
-		padding: 0px 5px; display: inline-block;
+		padding: 0px 15px; display: inline-block;
 		font-size: 22px; margin: 0 0 5px 0;
 	}
 	.date
@@ -156,7 +156,7 @@
 	.top-cen a
 	{
 		text-decoration: none; color: inherit;
-		border-bottom: 4px #e7a6b1 solid;
+		border-bottom: 3px #e7a6b1 solid;
 	}
 	#art-text
 	{
@@ -403,7 +403,7 @@
 	}
 	.date
 	{
-		padding: 0px 40px; border: none;
+		padding: 0px 55px; border: none;
 		font-size: 16px;
 	}
 	#art-h1
