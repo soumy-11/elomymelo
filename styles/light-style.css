@@ -146,11 +146,11 @@
 	.verdict
 	{
 		padding: 0px 15px; display: inline-block;
-		font-size: 22px; margin: 0 0 5px 0;
+		font-size: 22px; margin: 0;
 	}
 	.date
 	{
-		padding: 0px 14px 0px 14px; font-size: 20px;
+		padding: 0px 14px; font-size: 20px; margin-top: 5px;
 		border-inline: 7px #e2e2e2 solid;
 	}
 	.top-cen a
@@ -403,8 +403,8 @@
 	}
 	.date
 	{
+		font-size: 16px; margin-bottom: 10px;
 		padding: 0px 55px; border: none;
-		font-size: 16px;
 	}
 	#art-h1
 	{
