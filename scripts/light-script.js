@@ -187,7 +187,7 @@ let storeInterval;
 if (rplsSec) 
 {
     const intObserver = new IntersectionObserver((entries) => { entries.forEach(entry => {
-    if (entry.isIntersecting) { addCSS(); window.addEventListener('scroll', scrlDebounce, false); storeInterval = setInterval(removeTool, 2000);
+    if (entry.isIntersecting) { addCSS(); notiOverlay(); storeInterval = setInterval(removeTool, 2000);
     if (adlk1) { adlk1 = false; } if (adlkk2) { adlkk2 = false; } intObserver.disconnect(); } }); },
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
