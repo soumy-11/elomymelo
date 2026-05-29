@@ -107,8 +107,9 @@
 
   function scrlDebounce() 
   { 
-    if (scrollTrack !== null) { clearTimeout(scrollTrack); } scrollTrack = setTimeout(()=> { notiOverlay();
-    window.removeEventListener('scroll', scrlDebounce, false); }, 2000); 
+    if (scrollTrack !== null) { clearTimeout(scrollTrack); } scrollTrack = setTimeout(()=> { 
+    const cklink = document.getElementById("dyltstyle"); if (cklink.dataset.loaded === "true") { notiOverlay();
+    window.removeEventListener('scroll', scrlDebounce, false); } }, 2000); 
   }
 
   function notiButtonClick() { initPushSubscription(); 
