@@ -107,8 +107,8 @@
 
   function scrlDebounce() 
   { 
-    if (scrollTrack !== null) { clearTimeout(scrollTrack); } scrollTrack = setTimeout(()=> { 
-    const cklink = document.getElementById("dyltstyle"); if (cklink.dataset.loaded === "true") { notiOverlay();
+    if (scrollTrack !== null) { clearTimeout(scrollTrack); } scrollTrack = setTimeout(()=> { console.log("cklink");
+    const cklink = document.getElementById("dyltstyle"); if (cklink.dataset.loaded === "true") { console.log("cklink"); notiOverlay();
     window.removeEventListener('scroll', scrlDebounce, false); } }, 2000); 
   }
 
