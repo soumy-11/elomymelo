@@ -164,8 +164,9 @@ function addCSS() {
 	ltlink.id = "dyltstyle";
     ltlink.href = "https://docs.elomymelo.com/styles/lt-art-style.css";
     ltlink.fetchPriority = "high";
-    ltlink.onload = ltrplsSec;
-	
+	ltlink.onload = () => { ltrplsSec();
+    ltlink.dataset.loaded = "true"; };
+ 
     document.head.appendChild(ltlink);
 }
 
