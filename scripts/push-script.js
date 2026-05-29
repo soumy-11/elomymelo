@@ -105,12 +105,6 @@
     }
   }
 
-  function scrlDebounce() 
-  { 
-    if (scrollTrack !== null) { clearTimeout(scrollTrack); } scrollTrack = setTimeout(()=> { notiOverlay();
-    window.removeEventListener('scroll', scrlDebounce, false); }, 2000); 
-  }
-
   function notiButtonClick() { initPushSubscription(); 
   setTimeout(removeNotiOverlay, 500); }
 
