@@ -158,14 +158,15 @@ function addCSS() {
     loaderStyle.id = 'loader-style'; loaderStyle.textContent = ldrStyle;
     document.head.appendChild(loaderStyle); if(rplsSec) { rplsSec.innerHTML = loadersvg; }
 	
-    const link = document.createElement("link");
+    const ltlink = document.createElement("link");
 
-    link.rel = "stylesheet";
-    link.href = "https://docs.elomymelo.com/styles/lt-art-style.css";
-    link.fetchPriority = "high";
-    link.onload = ltrplsSec;
+    ltlink.rel = "stylesheet";
+	ltlink.id = "dyltstyle";
+    ltlink.href = "https://docs.elomymelo.com/styles/lt-art-style.css";
+    ltlink.fetchPriority = "high";
+    ltlink.onload = ltrplsSec;
 	
-    document.head.appendChild(link);
+    document.head.appendChild(ltlink);
 }
 
 function ltrplsSec() 
