@@ -161,7 +161,7 @@ function addCSS() {
     const link = document.createElement("link");
 
     link.rel = "stylesheet";
-    link.href = "https://docs.elomymelo.com/styles/lt-art-style.css";
+    link.href = "https://docs.elomymelo.com/styles/lt-ar-style.css";
     link.fetchPriority = "high";
     link.onload = ltrplsSec;
 	
