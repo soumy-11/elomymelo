@@ -81,6 +81,10 @@
     .fixed-dis-desk {
         display: none;
     }
+    .art-head-common {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
 }
 
 @media only screen and (min-width: 615px) {
