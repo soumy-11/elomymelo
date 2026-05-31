@@ -29,6 +29,7 @@
     height: auto;
     aspect-ratio: auto 16/9;
     border-radius: 14px 14px 5px 5px;
+    background: #f0f4f8;
 }
 
 .art-head-common {
