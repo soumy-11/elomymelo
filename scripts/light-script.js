@@ -170,6 +170,7 @@ function addCSS() {
     document.head.appendChild(ltlink);
 }
 
+let ltrplsRetry;
 function ltrplsSec() 
 {
     fetch("https://elomymelo.com/text-files/inside-article-div.txt").then(response => 
@@ -182,7 +183,8 @@ function ltrplsSec()
     const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
     if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
     phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
-    if (bgmd) { loadSideBars(); } }); // late call ok 
+    if (bgmd) { loadSideBars(); } }).catch(err => { console.error(err);
+    if (!ltrplsRetry) { ltrplsRetry = true; ltrplsSec(); } });
 }
 
 let storeInterval;
