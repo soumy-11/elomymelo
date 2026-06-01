@@ -183,7 +183,7 @@ function ltrplsSec()
     const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
     if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
     phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
-    if (bgmd) { loadSideBars(); } }).catch(err => { console.error(err);
+    if (bgmd) { loadSideBars(); } }).catch(err => { console.error("My Check", err);
     if (!ltrplsRetry) { ltrplsRetry = true; ltrplsSec(); } });
 }
 
