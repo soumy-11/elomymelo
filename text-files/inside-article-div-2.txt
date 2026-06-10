@@ -62,3 +62,19 @@
 	</div>
 
    </div><br>
+
+   <div class="articles-common-lt-style">
+
+	<a href="https://elomymelo.com/tech/samsung-galaxy-S26-ultra-camera-design.html">
+	<img class="latest-art-pic-common" src="https://elomymelo.com/images/galaxy-S26-ultra-vs-plateaus.jpg" style="object-fit: cover" alt="Galaxy S26 Ultra Camera Plateau Design" loading="lazy">
+    </a>
+
+	<div class="art-head-common">
+		<span> <a href="https://elomymelo.com/tech/samsung-galaxy-S26-ultra-camera-design.html"> Galaxy S26 Ultra's New Camera Plateau Design </a> </span>
+	</div>
+
+	<div class="art-description-common">		
+		Samsung Galaxy S26 Ultra's camera island looks very clean, simple and refined. But if you look closely, there are many elements in play, like an architectural approach. The base <a href="https://elomymelo.com/tech/samsung-galaxy-S26-ultra-camera-design.html" style="text-decoration: none; color: rgba(238,99,122,1);"> &nbsp;more ... </a>		
+	</div>
+
+   </div><br>
