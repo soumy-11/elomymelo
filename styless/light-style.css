@@ -159,8 +159,9 @@
 	}
 	.top-label
 	{
-		border: 10px solid #f0f4f8; border-bottom-width: 0;
-		border-radius: 20px 20px 0 0;
+		margin-bottom: 30px;
+		border: 5px solid #f0f4f8; border-bottom-width: 0;
+		border-radius: 20px 20px 0 0; height: 30px;
 	}
 	.label-text
 	{
@@ -168,23 +169,23 @@
 		padding: 10px 50px 10px 50px;
 		inset-inline: 0; margin: auto; color: #567ea7;
 		font-weight: bolder; letter-spacing: 5px;
-		font-family: monospace; font-size: 18px;
+		font-family: monospace; font-size: 16px;
 		background: white; width: max-content;
-        border: 10px solid #f0f4f8;
+        border: 5px solid #f0f4f8;
 	}
 	.sdbar-lb-txt
 	{
-		padding: 10px 30px 10px 30px;
+		padding: 10px 25px 10px 30px;
 	}
 	.art-content
 	{
-		position: relative;
 		width: 100%; margin: 20px auto;
 		border-radius: 20px; min-height: 400px;
+		position: relative; top: 10px;
 	}
 	.lt-top
 	{
-		border-radius: 15px 15px 50px 50px; top: -10px;
+		border-radius: 15px 15px 50px 50px; top: -5px;
 	}
 	#art-h1
 	{
