@@ -38,7 +38,7 @@
     </a>
 
 	<div class="art-head-common">
-		<span> <a href="jbl-charge-6-vs-charge-5.html"> JBL Charge 6 vs JBL Charge 5 | don't upgrade </a> </span>
+		<span> <a href="jbl-charge-6-vs-charge-5.html"> JBL Charge 6 vs JBL Charge 5, don't upgrade </a> </span>
 	</div>
 
 	<div class="art-description-common">		
