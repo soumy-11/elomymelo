@@ -77,7 +77,7 @@
 	}
 	.nv-bar-horzn
 	{
-		background: #ccd8e4; width: 20px;
+		background: #eceff1; width: 20px;
 		height: 4px; border-radius: 0 5px 5px 0;
 	}
 	.horzn-rdus
@@ -87,7 +87,7 @@
 	.nv-bar-vrtcl
 	{
 		height: 25px; border-radius: 5px;
-        background: #ccd8e4; width: 4px;
+        background: #eceff1; width: 4px;
 	}
 	.nav-out
 	{
@@ -106,7 +106,7 @@
 	}
 	.nav-out a 
 	{
-		text-decoration: none; font-size: 18px;
+		text-decoration: none; font-size: 17px;
 		color: #595959; white-space: nowrap;
 	}
 	.nav-out a:not(:last-of-type)::after
@@ -165,12 +165,13 @@
 	}
 	.label-text
 	{
-		position: relative;
 		padding: 10px 50px 10px 50px;
+		overflow-wrap: break-word; max-width: 100%;
 		inset-inline: 0; margin: auto; color: #567ea7;
 		font-weight: bolder; letter-spacing: 5px;
 		font-family: monospace; font-size: 16px;
 		background: white; width: max-content;
+		max-height: 50px; position: relative;
         border: 5px solid #f0f4f8;
 	}
 	.sdbar-lb-txt
@@ -189,8 +190,8 @@
 	}
 	#art-h1
 	{
-	    margin: 0; color: #6487ab;
-	    font-family: sans-serif; font-size: 27px;
+	    margin-bottom: 3px; color: #6487ab;
+	    font-family: sans-serif; font-size: 25px;
 	    font-weight: bolder; padding: 10px;
 	}
 	.verdict
@@ -381,7 +382,7 @@
     }
     }
 
-    @media only screen and (max-width: 1010px)
+    @media only screen and (max-width: 900px)
     {
     .side-bars
     {
