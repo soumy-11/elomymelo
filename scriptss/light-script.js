@@ -216,6 +216,7 @@ async function loadPopular()
 
         if (targetLink)
         {
+            console.log(targetLink);
             const div = targetLink.parentElement;
             const br = div?.nextElementSibling;
 
@@ -284,7 +285,6 @@ async function startLoads()
 
     console.log("Both finished:", performance.now());
 }
-
 startLoads();
 
 let ltrplsRetry;
@@ -292,9 +292,8 @@ function ltrplsSec()
 {
     const loaderStyle = document.createElement('style');
     loaderStyle.id = 'loader-style'; loaderStyle.textContent = ldrStyle;
-    document.head.appendChild(loaderStyle); if(rplsSec) { rplsSec.innerHTML = loadersvg; }
-    const ltArtSec = document.createElement('style'); ltArtSec.id = 'ltart-style';
-    ltArtSec.textContent = ltArtStyle; document.head.appendChild(ltArtSec);
+    document.head.appendChild(loaderStyle); if(rplsSec) 
+    { rplsSec.innerHTML = loadersvg; }
 
     fetch("https://elomymelo.com/text-files/inside-article-div.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
