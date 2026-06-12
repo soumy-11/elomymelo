@@ -165,12 +165,13 @@
 	}
 	.label-text
 	{
+		overflow: hidden;
 		padding: 10px 50px 10px 50px;
+		background: white; width: max-content;
 		overflow-wrap: break-word; max-width: 100%;
 		inset-inline: 0; margin: auto; color: #567ea7;
 		font-weight: bolder; letter-spacing: 5px;
 		font-family: monospace; font-size: 16px;
-		background: white; width: max-content;
 		max-height: 50px; position: relative;
         border: 5px solid #f0f4f8;
 	}
