@@ -10,7 +10,7 @@
 	#big-out
 	{ 
 		position: relative; width: auto;
-		padding: 30px 30px 75px 30px;
+		padding: 20px 20px 75px 20px;
 	}
 	.fxd-eles
 	{
@@ -117,7 +117,7 @@
 	.bnr-img
 	{
 		flex: 1; gap: 20px; background: white;
-		min-height: 150px; border-radius: 15px;
+		min-height: 150px; border-radius: 20px;
 	}
 	#bars-rows
     {
@@ -134,7 +134,7 @@
     .sdbar-contnt, .sidebar-ads
     {
     	margin: 10px 3px; background-color: white; min-height: 210px;
-    	border-radius: 14px; width: auto; height: calc(100% - 10px);
+    	border-radius: 20px; width: auto; height: calc(100% - 10px);
     	position: sticky; top: 20px; padding: 20px 20px;
     }
     .bar-smack
