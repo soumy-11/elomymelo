@@ -155,108 +155,115 @@ const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" clas
 <path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(250 50 50)"/>
 </svg></div>` // for loader html insertion 
 
-async function loadFeatured()
-{
-    console.log("Featured started:", performance.now());
+const URL_FEATURED = "https://docs.elomymelo.com/text-files/inside-article-div-1.txt";
+const URL_POPULAR = "https://docs.elomymelo.com/text-files/inside-article-div-2.txt";
 
-    const featured = document.getElementById("featured");
-    if (!featured) return;
+function cleanHtml(temp)
+{
+    const targetLink = [...temp.getElementsByTagName("a")]
+        .find(a =>
+            a.href.split("/").pop() === location.href.split("/").pop()
+        );
+
+    if (targetLink)
+    {
+        const div = targetLink.parentElement;
+        const br = div?.nextElementSibling;
+
+        if (br?.tagName === "BR") br.remove();
+        div?.remove();
+    }
+    else
+    {
+        const divs = temp.querySelectorAll(":scope > div");
+        const lastDiv = divs[divs.length - 1];
+
+        if (lastDiv)
+        {
+            const br = lastDiv.nextElementSibling;
+            if (br?.tagName === "BR") br.remove();
+            lastDiv.remove();
+        }
+    }
+
+    return temp.innerHTML;
+}
+
+async function run(url, processor, section)
+{
+    const response = await fetch(url);
+
+    if (!response.ok)
+        throw new Error(`HTTP ${response.status}`);
+
+    const html = await response.text();
+
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    const finalHTML = await processor(temp);
+
+    section.innerHTML = finalHTML;
+}
+
+async function loadSection(id, url, processor)
+{
+    console.log(`${id} started:`, performance.now());
+
+    const section = document.getElementById(id);
+    if (!section) return;
 
     const style = document.createElement("style");
     style.textContent = ldrStyle;
-    featured.appendChild(style);
+    section.appendChild(style);
 
-    featured.insertAdjacentHTML("beforeend", loadersvg);
+    section.insertAdjacentHTML("beforeend", loadersvg);
 
-    try
+    for (let i = 0; i < 2; i++)
     {
-        const response = await fetch(
-            "https://docs.elomymelo.com/text-files/inside-article-div-1.txt"
-        );
+        try
+        {
+            return await run(url, processor, section);
+        }
+        catch (err)
+        {
+            console.error(`Attempt ${i + 1} failed:`, err);
 
-        featured.innerHTML = await response.text();
-
-        console.log("Featured finished:", performance.now());
-
-        return "featured";
-    }
-    catch (err)
-    {
-        console.error(err);
-        throw err;
+            if (i === 0)
+            {
+                await new Promise(res => setTimeout(res, 5000));
+            }
+            else
+            {
+                section.innerHTML = `
+                    <div class="error-state" style="text-align:center">
+                        Sorry, content failed to load
+                    </div>
+                `;
+            }
+        }
     }
 }
 
-async function loadPopular()
+function loadFeatured()
 {
-    console.log("Popular started:", performance.now());
-
-    const popular = document.getElementById("popular");
-    if (!popular) return;
-
-    const style = document.createElement("style");
-    style.textContent = ldrStyle;
-    popular.appendChild(style);
-
-    popular.insertAdjacentHTML("beforeend", loadersvg);
-
-    try
-    {
-        const response = await fetch(
-            "https://docs.elomymelo.com/text-files/inside-article-div-2.txt"
-        );
-
-        const html = await response.text();
-
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-
-        const targetLink = [...temp.getElementsByTagName("a")].find(a => 
-            a.href.split("/").pop() === location.href.split("/").pop());
-
-        if (targetLink)
+    return loadSection(
+        "featured",
+        URL_FEATURED,
+        async (temp) =>
         {
-            console.log(targetLink);
-            const div = targetLink.parentElement;
-            const br = div?.nextElementSibling;
-
-            if (br?.tagName === "BR")
-            {
-                br.remove();
-            }
-
-            div?.remove();
+            return temp.innerHTML;
         }
-        else
-        {
-            console.log("else check");
-            const divs = temp.querySelectorAll(":scope > div");
-            const lastDiv = divs[divs.length - 1];
+    );
+}
 
-            if (lastDiv)
-            {
-                const br = lastDiv.nextElementSibling;
-
-                if (br?.tagName === "BR")
-                {
-                    br.remove();
-                }
-
-                lastDiv.remove();
-            }
-        }
-
-        popular.innerHTML = temp.innerHTML;
-
-        console.log("Popular finished:", performance.now());
-
-        return "popular";
-    }
-    catch (err)
-    {
-        console.error(err);
-        throw err;
-    }
+function loadPopular()
+{
+    return loadSection(
+        "popular",
+        URL_POPULAR,
+        cleanHtml
+    );
 }
 
 async function startLoads()
@@ -270,12 +277,12 @@ async function startLoads()
 
     featuredPromise.then(() =>
     {
-        console.log("Featured callback:", performance.now());
+        console.log("Featured finished:", performance.now());
     });
 
     popularPromise.then(() =>
     {
-        console.log("Popular callback:", performance.now());
+        console.log("Popular finished:", performance.now());
     });
 
     await Promise.all([
