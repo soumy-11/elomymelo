@@ -133,18 +133,18 @@
     }
     .sdbar-contnt, .sidebar-ads
     {
+    	top: 20px; padding: 20px 20px;
     	margin: 10px 3px; background-color: white; min-height: 210px;
-    	border-radius: 20px; width: auto; height: calc(100% - 10px);
-    	position: sticky; top: 20px; padding: 20px 20px;
+    	border-radius: 20px; width: auto;
     }
     .bar-smack
     {
-    	height: auto; margin: 74px 0 10px;
+    	height: auto; margin: 74px 0 20px;
     	width: 20%; min-width: 136px;
     }
     .bar-color
     {
-    	background-color: #f0f4f8;
+    	background-color: #f0f4f8; position: sticky;
     }
 	.art-out
 	{
@@ -182,7 +182,7 @@
 	}
 	.art-content
 	{
-		width: 100%; margin: 20px auto;
+		width: 100%; margin: 20px auto -8px auto;
 		border-radius: 20px; min-height: 400px;
 		position: relative; top: 10px;
 	}
