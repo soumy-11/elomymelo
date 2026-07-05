@@ -1,7 +1,9 @@
 
-    <div class="latest_articles">
-        <span> LATEST ARTICLES </span>
-    </div><br>
+	<div class="top-label">
+		<div class="label-text lt-top">
+			<span id="dlabel">LATEST ARTICLES</span>
+		</div>
+	</div><br>
 
     <div id="before-article-01"></div><br>
 
