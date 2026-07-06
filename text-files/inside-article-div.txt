@@ -1,10 +1,4 @@
 
-    <div class="latest_articles" id="">
-        <span> LATEST ARTICLES </span>
-    </div><br>
-
-    <div id="before-article-01"></div><br>
-
    <div class="articles-common-lt-style">
 
 	<a href="https://elomymelo.com/tech/sony-WF-1000XM6-vs-WF-1000XM5-buds.html">
