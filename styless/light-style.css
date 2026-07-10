@@ -152,7 +152,7 @@
     }
 	.side-bars
     {
-    	min-width: 250px; max-width: 370px;
+    	min-width: 230px; max-width: 370px;
     	border-radius: 20px; width: 30%;
     	margin: -10px 0 0px 0;
     }
@@ -175,7 +175,7 @@
 	{
 		padding: 20px 20px 0px 20px;
 		z-index: 2; color: var(--txt-clr); background: var(--bg-clr);
-		min-width: 440px; height: auto; border-radius: 20px;
+		min-width: 400px; height: auto; border-radius: 20px;
 		position: relative; font-family: sans-serif;
 		width: 75%; max-width: 800px;
 	}
@@ -422,6 +422,18 @@
 	{
         border: none;
 	}
+    }
+
+	@media only screen and (max-width: 1010px)
+    {
+    :root 
+	{
+		--base-fnt: 16px;
+	}
+	.art-head-common
+	{
+        font-size: 14px !important;
+    }
     }
 
 	@media only screen and (min-width: 615px)
