@@ -1,9 +1,10 @@
 
 	:root 
 	{
+		--base-fnt: 20px;
+		--bg-ads: #f0f4f8;
 	    --bdy-clr: #f0f4f8;
 	    --bar-clr: #eceff1;
-	    --bg-ads: #f0f4f8;
 	    --txt-clr: #6f6f6f;
 	    --hlt-clr: #e8f1f9;
 	    --hlt-clr2: #cad9e7;
@@ -78,7 +79,7 @@
 		background: var(--bg-clr);
 		color: var(--hdr-clr); border-radius: 15px;
 		font-family: monospace; white-space: nowrap;
-		font-weight: bolder; font-size: 30px;
+		font-weight: bolder; font-size: calc(var(--base-fnt) + 10px);
 		padding: 15px 30px 15px 30px;
 
 	}
@@ -130,7 +131,7 @@
 	}
 	.nav-out a 
 	{
-		text-decoration: none; font-size: 17px;
+		text-decoration: none; font-size: calc(var(--base-fnt) - 3px);
 		color: var(--txt-clr); white-space: nowrap;
 	}
 	.nav-out a:not(:last-of-type)::after
@@ -151,7 +152,7 @@
     }
 	.side-bars
     {
-    	min-width: 270px; max-width: 370px;
+    	min-width: 250px; max-width: 370px;
     	border-radius: 20px; width: 30%;
     	margin: -10px 0 0px 0;
     }
@@ -174,7 +175,7 @@
 	{
 		padding: 20px 20px 0px 20px;
 		z-index: 2; color: var(--txt-clr); background: var(--bg-clr);
-		min-width: 540px; height: auto; border-radius: 20px;
+		min-width: 440px; height: auto; border-radius: 20px;
 		position: relative; font-family: sans-serif;
 		width: 75%; max-width: 800px;
 	}
@@ -196,7 +197,7 @@
 		width: max-content; border: 4px solid var(--lbl-brdr);
 		inset-inline: 0; margin: auto; color: var(--lbl-clr);
 		font-weight: bolder; letter-spacing: 5px;
-		font-family: monospace; font-size: 16px;
+		font-family: monospace; font-size: calc(var(--base-fnt) - 4px);
 		max-height: 50px; position: relative;
 	}
 	.sdbar-lb-txt
@@ -216,17 +217,17 @@
 	#art-h1
 	{
 	    margin-bottom: 3px; color: var(--hdr-clr);
-	    font-family: sans-serif; font-size: 25px;
+	    font-family: sans-serif; font-size: calc(var(--base-fnt) + 5px);
 	    font-weight: bolder; padding: 10px;
 	}
 	.verdict
 	{
 		padding: 0px 15px; display: inline-block;
-		font-size: 22px; margin: 0;
+		font-size: calc(var(--base-fnt) + 2px); margin: 0;
 	}
 	.date
 	{
-		padding: 0px 14px; font-size: 20px; margin-top: 5px;
+		padding: 0px 14px; font-size: var(--base-fnt); margin-top: 5px;
 		border-inline: 7px var(--brdr-dt) solid;
 	}
 	.top-cen a
@@ -236,7 +237,7 @@
 	}
 	#art-text
 	{
-		padding: 10px; font-size: 20px; width: auto;
+		padding: 10px; font-size: var(--base-fnt); width: auto;
 	}
 	.art-para-new
 	{
@@ -294,8 +295,8 @@
     #thoughts
     {
         border: 3.5px var(--bg-clr) solid;
+        inset-inline: 0; background: var(--hdr-bg);
         text-align: center; padding: 10px 40px 12px 40px;
-        font-size: 20px; inset-inline: 0; background: var(--hdr-bg);
         border-radius: 8px 8px 35px 35px; color: var(--hdr-clr);
         position: relative; top: -7px; font-weight: bold;
         margin: 0px auto; width: max-content;
@@ -307,7 +308,7 @@
     }
 	.sections-new
 	{
-	    font-size: 25px;
+	    font-size: calc(var(--base-fnt) + 5px);
 	    width: max-content; color: var(--hdr-clr);
 	    font-weight: bold; max-width: 90%; text-align: center;
 	    border-inline: 10px var(--brdr-dt) solid;
@@ -325,7 +326,7 @@
 	{
 	    position: absolute;
 	    font-family: sans-serif;
-	    font-size: 30px; background: var(--bg-clr);
+	    font-size: calc(var(--base-fnt) + 10px); background: var(--bg-clr);
 	    line-height: 67px; width: 130px; height: 67px;
 	    color: #a1a1a1; border-radius: 5px;
 	    inset: 0; margin: auto;
@@ -382,7 +383,7 @@
 		font-family: roboto, sans-serif;
 		width: 70%; margin: 0 auto 0; display: block;
 		border-radius: 10px; text-align: center;
-		font-size: 17px; color: var(--txt-clr);
+		font-size: calc(var(--base-fnt) - 3px); color: var(--txt-clr);
 		padding: 20px 22px 20px 22px;
 	}
 	.copyright
@@ -395,10 +396,10 @@
 	{
     :root 
     {
+    	--bg-ads: #38434e;
 	    --txt-clr: #afafaf;
 	    --bg-clr: #282a2b;
 	    --bar-clr: #425467;
-	    --bg-ads: #333f4a;
 	    --hlt-clr: #384551;
 	    --hlt-clr2: #56708b;
 	    --lnk-clr: #8d686e;
@@ -410,6 +411,18 @@
 	    --bdy-clr: black;
     }
 	}
+
+	@media only screen and (max-width: 1375px)
+    {
+    :root 
+	{
+		--base-fnt: 18px;
+	}
+	.date
+	{
+        border: none;
+	}
+    }
 
 	@media only screen and (min-width: 615px)
     {
@@ -459,12 +472,12 @@
 	}
 	#site-logo
 	{
-		font-size: 20px; margin: 40px auto 10px;
+		font-size: var(--base-fnt); margin: 40px auto 10px;
 		border-radius: 15px;
 	}
     .label-text
 	{
-		padding: 10px 50px 10px 50px; font-size: 15px;
+		padding: 10px 50px 10px 50px; font-size: calc(var(--base-fnt) - 5px);
 	}
     .top-sec
 	{
@@ -493,7 +506,7 @@
 	}
 	.nav-out a
 	{
-		font-size: 15px;
+		font-size: calc(var(--base-fnt) - 5px);
 	}
 	.ft-out
 	{
@@ -502,16 +515,16 @@
 	}
 	.verdict
 	{
-		font-size: 17px;
+		font-size: calc(var(--base-fnt) - 3px);
 	}
 	.date
 	{
-		font-size: 16px; margin-bottom: 10px;
+		font-size: calc(var(--base-fnt) - 4px); margin-bottom: 10px;
 		padding: 0px 55px; border: none;
 	}
 	#art-h1
 	{
-		font-size: 20px;
+		font-size: var(--base-fnt);
 	}
 	.first-para::before
 	{
@@ -520,7 +533,7 @@
 	}
 	#art-text
 	{
-		padding: 0px; font-size: 16px;
+		padding: 0px; font-size: calc(var(--base-fnt) - 4px);
 	}
     #art-text > p:nth-of-type(n+2)::before
     {
@@ -548,12 +561,12 @@
     }
 	#thoughts
 	{
-		font-size: 15px;
+		font-size: calc(var(--base-fnt) - 5px);
 	}
 	.sections-new
 	{
 		max-width: 74%;
-		font-size: 20px;
+		font-size: calc(var(--base-fnt) - 2px);
 	}
 	.art-images
 	{

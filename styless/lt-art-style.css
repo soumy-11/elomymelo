@@ -36,7 +36,7 @@
     padding: 10px 12px 12px;
     text-align: center;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: calc(var(--base-fnt) - 4px);
     font-weight: bold;
     background: var(--hdr-bg);
     border-radius: 5px 5px 14px 14px;
