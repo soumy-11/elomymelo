@@ -302,7 +302,7 @@ function ltrplsSec()
     document.head.appendChild(loaderStyle); if(rplsSec) 
     { rplsSec.innerHTML = loadersvg; }
 
-    fetch("https://elomymelo.com/text-files/inside-article-div.txt")
+    fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
     document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
 
