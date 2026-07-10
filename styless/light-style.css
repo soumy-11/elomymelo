@@ -434,6 +434,10 @@
 	{
         font-size: 14px !important;
     }
+    .bar-smack
+    {
+    	display: none;
+    }
     }
 
 	@media only screen and (min-width: 615px)
