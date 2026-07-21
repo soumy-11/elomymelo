@@ -325,6 +325,36 @@ if (rplsSec)
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
 
+const footer = document.querySelector("footer");
+footer.style.height = footer.getBoundingClientRect().height + "px";
+const fxFoot = document.querySelector(".top-sec.width-cut");
+const banner = document.getElementById("bnr-img-contnr");
+
+let fxd = false; let bnr = true; let ftr = false;
+function updateFxFoot()
+{
+    const beFxd = !bnr && !ftr;
+    if (beFxd === fxd) return; fxd = beFxd;
+    const s = fxFoot.style;
+
+    if (fxd)
+    {
+        s.width = "auto"; s.insetInline = "30px"; s.paddingBottom = "20px";
+        s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
+        s.animation = "ftpop 320ms cubic-bezier(.22,1,.36,1)";
+    }
+    else
+    {
+        s.paddingBottom = ""; s.animation = ""; s.insetInline = ""; s.position = "";
+        s.zIndex = ""; s.bottom = ""; s.width = "";
+    }
+}
+
+const observer = new IntersectionObserver((entries) => { for (const entry of entries) {
+if (entry.target === banner) bnr = entry.isIntersecting; else if (entry.target === footer)
+ftr = entry.isIntersecting; } updateFxFoot(); }, { threshold: 0 });
+[banner, footer].forEach(el => observer.observe(el));
+
 function removeTool()
 {
     // console.log("checking the pop tool by google");
