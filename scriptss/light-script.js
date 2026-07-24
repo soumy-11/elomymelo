@@ -150,7 +150,7 @@ if (bgmd && window.innerWidth > 1010)
 // for detecting new news articles, h2 tags 
 const rplsSec = document.getElementById('add-article-html');
 const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" class="spinner-anim">
-<circle cx="50" cy="50" r="8" fill="#D1D1D1"/><path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(10 50 50)"/>
+<circle cx="50" cy="50" r="8" fill="var(--lnk-clr)"/><path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(10 50 50)"/>
 <path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(130 50 50)"/>
 <path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(250 50 50)"/>
 </svg></div>` // for loader html insertion 
@@ -160,18 +160,13 @@ const URL_POPULAR = "https://docs.elomymelo.com/text-files/inside-article-div-2.
 
 function cleanHtml(temp)
 {
-    const targetLink = [...temp.getElementsByTagName("a")]
-        .find(a =>
-            a.href.split("/").pop() === location.href.split("/").pop()
-        );
+    const targetLink = [...temp.getElementsByTagName("a")].find(a =>
+    a.href.split("/").pop() === location.href.split("/").pop());
 
     if (targetLink)
     {
-        const div = targetLink.parentElement;
-        const br = div?.nextElementSibling;
-
-        if (br?.tagName === "BR") br.remove();
-        div?.remove();
+        const div = targetLink.parentElement; const br = div?.nextElementSibling;
+        if (br?.tagName === "BR") br.remove(); div?.remove();
     }
     else
     {
@@ -180,43 +175,32 @@ function cleanHtml(temp)
 
         if (lastDiv)
         {
-            const br = lastDiv.nextElementSibling;
-            if (br?.tagName === "BR") br.remove();
-            lastDiv.remove();
+            const br = lastDiv.nextElementSibling; if (br?.tagName === "BR") 
+            br.remove(); lastDiv.remove(); 
         }
     }
-
     return temp.innerHTML;
 }
 
 async function run(url, processor, section)
 {
     const response = await fetch(url);
-
-    if (!response.ok)
-        throw new Error(`HTTP ${response.status}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const html = await response.text();
-
-    const temp = document.createElement("div");
-    temp.innerHTML = html;
-
+    const temp = document.createElement("div"); temp.innerHTML = html;
     const finalHTML = await processor(temp);
-
     section.innerHTML = finalHTML;
 }
 
 async function loadSection(id, url, processor)
 {
     console.log(`${id} started:`, performance.now());
-
     const section = document.getElementById(id);
     if (!section) return;
 
     const style = document.createElement("style");
-    style.textContent = ldrStyle;
-    section.appendChild(style);
-
+    style.textContent = ldrStyle; section.appendChild(style);
     section.insertAdjacentHTML("beforeend", loadersvg);
 
     for (let i = 0; i < 2; i++)
@@ -269,27 +253,16 @@ function loadPopular()
 async function startLoads()
 {
     console.log("startLoads called:", performance.now());
-
-    const featuredPromise = loadFeatured();
-    const popularPromise = loadPopular();
-
+    const featuredPromise = loadFeatured(); const popularPromise = loadPopular();
     console.log("Both functions launched:", performance.now());
 
-    featuredPromise.then(() =>
-    {
-        console.log("Featured finished:", performance.now());
-    });
+    featuredPromise.then(() => {
+    console.log("Featured finished:", performance.now()); });
 
-    popularPromise.then(() =>
-    {
-        console.log("Popular finished:", performance.now());
-    });
+    popularPromise.then(() => {
+    console.log("Popular finished:", performance.now()); });
 
-    await Promise.all([
-        featuredPromise,
-        popularPromise
-    ]);
-
+    await Promise.all([featuredPromise, popularPromise]);
     console.log("Both finished:", performance.now());
 }
 startLoads();
