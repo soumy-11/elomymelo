@@ -612,13 +612,16 @@
 	{
 	    padding: 0 10px 0 10px;
 	}
-	.ft-top-sec
+	.arrow-eles
 	{
-		margin: 10px auto 0;
+		margin-block: 10px;
 	}
 	.width-cut
 	{
-		margin: 0;
-		flex: 1;
+		margin: 0px; flex: 1;
+	}
+	.ft-top-sec
+	{
+		margin: 10px auto 0;
 	}
     }
