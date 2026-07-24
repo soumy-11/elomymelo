@@ -304,7 +304,7 @@
     }
 	.sections-new
 	{
-	    font-size: calc(var(--base-fnt) + 5px);
+	    font-size: calc(var(--base-fnt) + 3px);
 	    width: max-content; color: var(--hdr-clr);
 	    font-weight: bold; max-width: 90%; text-align: center;
 	    border-inline: 10px var(--brdr-dt) solid;
@@ -458,6 +458,18 @@
 
 	@media only screen and (max-width: 615px)
     {
+    :root 
+	{
+		--base-fnt: 16px;
+	}
+	.link-wrap
+	{
+		display: none;
+	}
+	.bnr-img:last-of-type 
+	{
+	    display: none;
+	}
     .sidebar-ads
     {
     	display: none;
@@ -484,17 +496,21 @@
 	}
 	#site-logo
 	{
-		font-size: var(--base-fnt); margin: 40px auto 10px;
-		border-radius: 15px;
+		font-size: calc(var(--base-fnt) + 10px);
+		margin: auto; border-radius: 15px;
 	}
     .label-text
 	{
-		padding: 10px 50px 10px 50px; font-size: calc(var(--base-fnt) - 5px);
+		padding: 10px 50px 10px 50px; font-size: var(--base-fnt);
+	}
+	.width-cut
+	{
+		flex: 1;
 	}
     .top-sec
 	{
 		min-width: 200px; margin: 20px auto 10px;
-		max-width: 615px; width: 85%;
+		max-width: 615px; width: 92%;
 	}
 	#lt-art-sec
 	{
@@ -527,16 +543,16 @@
 	}
 	.verdict
 	{
-		font-size: calc(var(--base-fnt) - 3px);
+		font-size: calc(var(--base-fnt) + 1px);
 	}
 	.date
 	{
-		font-size: calc(var(--base-fnt) - 4px); margin-bottom: 10px;
+		font-size: var(--base-fnt); margin-bottom: 10px;
 		padding: 0px 55px; border: none;
 	}
 	#art-h1
 	{
-		font-size: var(--base-fnt);
+		font-size: calc(var(--base-fnt) + 5px);
 	}
 	.first-para::before
 	{
@@ -545,14 +561,14 @@
 	}
 	#art-text
 	{
-		padding: 0px; font-size: calc(var(--base-fnt) - 4px);
+		padding: 0px; font-size: var(--base-fnt);
 	}
     #art-text > p:nth-of-type(n+2)::before
     {
         position: absolute;
         content: ""; inset: 0; width: 99%;
         display: var(--before-display, block);
-        background: linear-gradient(to left, #EAEAEA 10%, transparent 15%);
+        background: linear-gradient(to left, var(--brdr-dt) 10%, transparent 15%);
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         margin-top: -5px; margin-bottom: -5px;
         border-radius: 10px; padding: 2px;
@@ -573,12 +589,12 @@
     }
 	#thoughts
 	{
-		font-size: calc(var(--base-fnt) - 5px);
+		font-size: var(--base-fnt);
 	}
 	.sections-new
 	{
 		max-width: 74%;
-		font-size: calc(var(--base-fnt) - 2px);
+		font-size: calc(var(--base-fnt) + 3px);
 	}
 	.art-images
 	{
