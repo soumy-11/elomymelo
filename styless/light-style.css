@@ -165,15 +165,28 @@
 	.outline-list 
 	{
 	    list-style: none;
-	    margin: 40px 0 -10px; padding: 0;
+	    margin: 40px 0 -5px; padding: 0;
 	}
 	.outline-item 
 	{
-	    padding: 10px 20px; margin-block: 10px;
+	    padding: 10px 20px; margin-block: 5px;
 	    text-align: center; font: calc(var(--base-fnt) - 3px) sans-serif;
 	    color: var(--txt-clr); border: 3px solid var(--lbl-brdr);
-	    border-radius: 10px; cursor: pointer; white-space: nowrap;
+	    border-radius: 5px; cursor: pointer; white-space: nowrap;
         overflow: hidden; text-overflow: ellipsis;
+	}
+	.outline-item:first-child 
+	{
+	    border-radius: 20px 20px 5px 5px;
+	}
+	.outline-item:last-child 
+	{
+	    border-radius: 5px 5px 20px 20px;
+	}
+	.outline-item:hover
+	{
+	    background: #c4d8ee; color: #404040;
+	    border: 3px solid #c4d8ee;
 	}
     .bar-smack
     {
@@ -429,6 +442,11 @@
 	    --brdr-dt: #445668;
 	    --bdy-clr: black;
     }
+    .outline-item:hover
+	{
+	    background: var(--hdr-clr); color: black;
+	    border: 3px solid var(--hdr-clr);
+	}
 	}
 
 	@media only screen and (max-width: 1375px)
