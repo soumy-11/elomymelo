@@ -131,12 +131,12 @@ const ltArtStyle = '.latest_articles{inset-inline:0;width:max-content;position:r
 const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;top:30px;inset-inline:0;margin:auto}.spinner-anim{animation:spin 0.6s linear infinite;transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}'
 
 // for sidebar ads loading process
-function loadSideBars()
+function loadAd(adDiv)
 {
-    const sAdsLate = document.querySelectorAll('.side-bars.bar-smack > .sidebar-ads');
-    sAdsLate.forEach(el => { el.innerHTML = adsCode; const script = document.createElement('script');
-    script.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
-    el.appendChild(script); }); // ads name Thin-bar-ads
+    if (!adDiv) return; adDiv.innerHTML = adsCode;
+    const script = document.createElement("script");
+    script.textContent = "(adsbygoogle = window.adsbygoogle || []).push({});";
+    adDiv.appendChild(script);
 }
 
 if (bgmd && window.innerWidth > 1010) 
@@ -203,30 +203,15 @@ async function loadSection(id, url, processor)
     style.textContent = ldrStyle; section.appendChild(style);
     section.insertAdjacentHTML("beforeend", loadersvg);
 
-    for (let i = 0; i < 2; i++)
-    {
-        try
-        {
-            return await run(url, processor, section);
-        }
-        catch (err)
-        {
-            console.error(`Attempt ${i + 1} failed:`, err);
+    for (let i = 0; i < 2; i++) {
+    try { return await run(url, processor, section); }
+    catch (err) { console.error(`Attempt ${i + 1} failed:`, err);
 
-            if (i === 0)
-            {
-                await new Promise(res => setTimeout(res, 5000));
-            }
-            else
-            {
-                section.innerHTML = `
-                    <div class="error-state" style="text-align:center">
-                        Sorry, content failed to load
-                    </div>
-                `;
-            }
-        }
-    }
+    if (i === 0) {
+    await new Promise(res => setTimeout(res, 5000)); }
+    else { section.innerHTML = `<div class="error-state" style="text-align:center">
+    Sorry, the content you are looking for has failed to load
+    </div>`; } } }
 }
 
 function loadFeatured()
@@ -252,20 +237,44 @@ function loadPopular()
 
 async function startLoads()
 {
-    console.log("startLoads called:", performance.now());
     const featuredPromise = loadFeatured(); const popularPromise = loadPopular();
-    console.log("Both functions launched:", performance.now());
+    const sideBars = document.querySelectorAll('[class="side-bars"]'); 
+    const sdBar1 = sideBars[0]; const sdBar2 = sideBars[1];
 
-    featuredPromise.then(() => {
-    console.log("Featured finished:", performance.now()); });
+    featuredPromise.then(() => { if (sdBar1) {
+    const adDiv = document.createElement("div"); adDiv.className = "sidebar-ads";
+    sdBar1.appendChild(adDiv); loadAd(adDiv); const guideDiv = document.createElement("div"); 
+    guideDiv.className = "sdbar-contnt sd-sticky"; guideDiv.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt">
+    <span>OUTLINE</span></div></div>`; sdBar1.appendChild(guideDiv);
+    outline(guideDiv); } });
 
-    popularPromise.then(() => {
-    console.log("Popular finished:", performance.now()); });
+    popularPromise.then(() => { if (sdBar2) {
+    const adDiv = document.createElement("div"); adDiv.className = "sidebar-ads";
+    sdBar2.appendChild(adDiv); loadAd(adDiv); } });
 
-    await Promise.all([featuredPromise, popularPromise]);
-    console.log("Both finished:", performance.now());
 }
 startLoads();
+
+function outline(container)
+{
+    const sections = document.querySelectorAll(".sections-new");
+    const nav = document.createElement("nav"); nav.className = "content-outline";
+    nav.setAttribute("aria-label", "Table of contents");
+
+    const list = document.createElement("ul");
+    list.className = "outline-list";
+
+    sections.forEach(section =>
+    {
+        const text = section.innerText.trim();
+        const item = document.createElement("li"); item.className = "outline-item";
+        item.textContent = text; item.title = text;
+        list.appendChild(item);
+    });
+
+    nav.appendChild(list);
+    container.appendChild(nav);
+}
 
 let ltrplsRetry;
 function ltrplsSec() 
