@@ -155,9 +155,26 @@
     .sdbar-contnt, .sidebar-ads
     {
     	top: 20px; padding: 20px 20px;
-    	margin: 10px 3px; background: var(--bg-clr); min-height: 210px;
+    	margin: 10px 3px 20px; background: var(--bg-clr); min-height: 210px;
     	border-radius: 20px; width: auto;
     }
+    .sd-sticky
+    {
+    	position: sticky;
+    }
+	.outline-list 
+	{
+	    list-style: none;
+	    margin: 40px 0 -10px; padding: 0;
+	}
+	.outline-item 
+	{
+	    padding: 10px 20px; margin-block: 10px;
+	    text-align: center; font: calc(var(--base-fnt) - 3px) sans-serif;
+	    color: var(--txt-clr); border: 3px solid var(--lbl-brdr);
+	    border-radius: 10px; cursor: pointer; white-space: nowrap;
+        overflow: hidden; text-overflow: ellipsis;
+	}
     .bar-smack
     {
     	height: auto; width: 20%; min-width: 136px;
@@ -166,6 +183,12 @@
     {
     	background: var(--bg-ads); position: sticky;
     	margin: 10px 3px 20px;
+    }
+    .error-state
+    {
+    	font-family: sans-serif; width: 90%;
+    	font-size: calc(var(--base-fnt) - 4px); margin: 40px auto 0;
+    	color: var(--txt-clr); inset: 0;
     }
 	.art-out
 	{
