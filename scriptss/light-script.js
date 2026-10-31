@@ -133,10 +133,8 @@ const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(3
 // for sidebar ads loading process
 function loadAd(adDiv)
 {
-    if (!adDiv) return; adDiv.innerHTML = adsCode;
-    const script = document.createElement("script");
-    script.textContent = "(adsbygoogle = window.adsbygoogle || []).push({});";
-    adDiv.appendChild(script);
+    if (!adDiv) return; adDiv.innerHTML = '<div class="ad-details-5"><span>AD</span></div>' + adsCode; const script = document.createElement("script");
+    script.textContent = "(adsbygoogle = window.adsbygoogle || []).push({});"; adDiv.appendChild(script);
 }
 
 if (bgmd && window.innerWidth > 1010) 
@@ -235,6 +233,58 @@ function loadPopular()
     );
 }
 
+function loadRelated()
+{
+    return loadSection(
+        "related",
+        URL_POPULAR,
+        cleanHtml
+    );
+}
+
+function createAdDiv(parent) 
+{
+    const adDiv = document.createElement("div");
+    adDiv.className = "sidebar-ads"; parent.appendChild(adDiv);
+    loadAd(adDiv); return adDiv;
+}
+
+function createStickyDiv() 
+{
+    const stickyDiv = document.createElement("div");
+    stickyDiv.className = "sd-sticky";
+    return stickyDiv;
+}
+
+function hotSecDiv(parentDiv) 
+{
+    const div = document.createElement("div");
+    div.className = "sidebar-ads"; div.style.minHeight = "500px";
+    parentDiv.appendChild(div); return div;
+}
+
+function commentDiv(parentDiv) 
+{
+    const div = document.createElement("div");
+    div.className = "sidebar-ads"; div.style.minHeight = "210px";
+    parentDiv.appendChild(div); return div;
+}
+
+function rltdHeight()
+{
+    const artText = document.getElementById("art-text");
+    const rltdOut = document.querySelector(".rltdOut");
+
+    if (rltdOut && artText) {
+    const rltdRect = rltdOut.getBoundingClientRect();
+    const artRect = artText.getBoundingClientRect(); const height = rltdRect.height;
+    const top = rltdRect.top; const bottom = artRect.bottom;
+    const difference = bottom - top;
+
+    if (difference > height) {
+    rltdOut.style.height = difference + "px"; } }
+}
+
 async function startLoads()
 {
     const featuredPromise = loadFeatured(); const popularPromise = loadPopular();
@@ -242,16 +292,17 @@ async function startLoads()
     const sdBar1 = sideBars[0]; const sdBar2 = sideBars[1];
 
     featuredPromise.then(() => { if (sdBar1) {
-    const adDiv = document.createElement("div"); adDiv.className = "sidebar-ads";
-    sdBar1.appendChild(adDiv); loadAd(adDiv); const guideDiv = document.createElement("div"); 
-    guideDiv.className = "sdbar-contnt sd-sticky"; guideDiv.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt">
-    <span>OUTLINE</span></div></div>`; sdBar1.appendChild(guideDiv);
-    outline(guideDiv); } });
+    createAdDiv(sdBar1); const guideDiv = document.createElement("div"); 
+    guideDiv.className = "sdbar-contnt"; guideDiv.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt">
+    <span>OUTLINE</span></div></div>`; const stickyDiv = createStickyDiv(); stickyDiv.appendChild(guideDiv); sdBar1.appendChild(stickyDiv);
+    outline(guideDiv); secFtrObsrvr(); createAdDiv(stickyDiv); } });
 
     popularPromise.then(() => { if (sdBar2) {
-    const adDiv = document.createElement("div"); adDiv.className = "sidebar-ads";
-    sdBar2.appendChild(adDiv); loadAd(adDiv); } });
-
+    createAdDiv(sdBar2); hotSecDiv(sdBar2); const stickyDiv = document.createElement("div");
+    stickyDiv.className = "rltdOut"; sdBar2.appendChild(stickyDiv); const rltdParent = document.createElement("div");
+    rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>RELATED</span></div></div><div class="art-content" id="related"></div>`;
+    stickyDiv.appendChild(rltdParent); loadRelated(); rltdHeight(); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
+    sdBar2.appendChild(stickyDiv2); createAdDiv(stickyDiv2); commentDiv(stickyDiv2); } });
 }
 startLoads();
 
@@ -260,20 +311,93 @@ function outline(container)
     const sections = document.querySelectorAll(".sections-new");
     const nav = document.createElement("nav"); nav.className = "content-outline";
     nav.setAttribute("aria-label", "Table of contents");
-
     const list = document.createElement("ul");
     list.className = "outline-list";
 
-    sections.forEach(section =>
-    {
-        const text = section.innerText.trim();
-        const item = document.createElement("li"); item.className = "outline-item";
-        item.textContent = text; item.title = text;
-        list.appendChild(item);
-    });
+    sections.forEach(section => {
+    const text = section.innerText.trim();
+    const item = document.createElement("li"); item.className = "outline-item";
+    item.onclick = () => scrollToSection(section, item);
+    item.textContent = text; item.title = text;
+    list.appendChild(item); });
 
     nav.appendChild(list);
     container.appendChild(nav);
+}
+
+let previousItem = null;
+function scrollToSection(section, item)
+{
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveItem(item);
+}
+
+function setActiveItem(item)
+{
+    if (!item || previousItem === item) return;
+    if (previousItem)
+    {
+        previousItem.style.background = ""; previousItem.style.color = "";
+        previousItem.style.border = "";
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    item.style.background = "#c4d8ee"; item.style.color = "#404040";
+    item.style.border = "3px solid #c4d8ee"; } else {
+    item.style.background = "var(--hdr-clr)"; item.style.color = "black";
+    item.style.border = "3px solid var(--hdr-clr)"; }
+    previousItem = item;
+}
+
+const footer = document.querySelector("footer");
+footer.style.height = footer.getBoundingClientRect().height + "px";
+const fxFoot = document.querySelector(".top-sec.width-cut");
+const banner = document.getElementById("bnr-img-contnr");
+
+let fxd = false; let bnr = true; let ftr = false;
+function updateFxFoot()
+{
+    const beFxd = !bnr && !ftr;
+    if (beFxd === fxd) return; fxd = beFxd;
+    const s = fxFoot.style;
+
+    if (fxd)
+    {
+        s.width = "auto"; s.insetInline = "30px"; s.paddingBottom = "20px";
+        s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
+        s.animation = "ftpop 320ms cubic-bezier(.22,1,.36,1)";
+    }
+    else
+    {
+        s.paddingBottom = ""; s.animation = ""; s.insetInline = ""; s.position = "";
+        s.zIndex = ""; s.bottom = ""; s.width = "";
+    }
+}
+
+function secFtrObsrvr()
+{
+    const sections = document.querySelectorAll(".sections-new");
+    const items = document.querySelectorAll(".outline-item");
+    const sectionItems = new Map();
+
+    sections.forEach((section, index) => {
+    if (items[index]) sectionItems.set(section, items[index]); });
+
+    const observer = new IntersectionObserver((entries) =>
+    {
+        for (const entry of entries)
+        {
+            if (entry.target === banner) bnr = entry.isIntersecting;
+            else if (entry.target === footer) ftr = entry.isIntersecting;
+            else if (entry.target.matches(".sections-new") && entry.isIntersecting) {
+            setActiveItem(sectionItems.get(entry.target)); }
+        }
+        updateFxFoot();
+
+    }, { threshold: 0 });
+
+    [banner, footer, ...sections].forEach(el => {
+    if (el) observer.observe(el); });
 }
 
 let ltrplsRetry;
@@ -306,36 +430,6 @@ if (rplsSec)
     if (adlk1) { adlk1 = false; } if (adlkk2) { adlkk2 = false; } intObserver.disconnect(); } }); },
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
-
-const footer = document.querySelector("footer");
-footer.style.height = footer.getBoundingClientRect().height + "px";
-const fxFoot = document.querySelector(".top-sec.width-cut");
-const banner = document.getElementById("bnr-img-contnr");
-
-let fxd = false; let bnr = true; let ftr = false;
-function updateFxFoot()
-{
-    const beFxd = !bnr && !ftr;
-    if (beFxd === fxd) return; fxd = beFxd;
-    const s = fxFoot.style;
-
-    if (fxd)
-    {
-        s.width = "auto"; s.insetInline = "30px"; s.paddingBottom = "20px";
-        s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
-        s.animation = "ftpop 320ms cubic-bezier(.22,1,.36,1)";
-    }
-    else
-    {
-        s.paddingBottom = ""; s.animation = ""; s.insetInline = ""; s.position = "";
-        s.zIndex = ""; s.bottom = ""; s.width = "";
-    }
-}
-
-const observer = new IntersectionObserver((entries) => { for (const entry of entries) {
-if (entry.target === banner) bnr = entry.isIntersecting; else if (entry.target === footer)
-ftr = entry.isIntersecting; } updateFxFoot(); }, { threshold: 0 });
-[banner, footer].forEach(el => observer.observe(el));
 
 function removeTool()
 {
