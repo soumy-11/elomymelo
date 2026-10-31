@@ -8,7 +8,7 @@
 	    --txt-clr: #6f6f6f;
 	    --hlt-clr: #e8f1f9;
 	    --hlt-clr2: #cad9e7;
-	    --lnk-clr: #e7a6b1;
+	    --lnk-clr: #d5a3ab;
 	    --hdr-clr: #6487ab;
 	    --lbl-clr: #567ea7;
 	    --lbl-brdr: #f0f4f8;
@@ -132,8 +132,9 @@
 	}
 	.nav-out a:not(:last-of-type)::after
 	{
-		content: "•"; color: #8baac7;
-		margin-inline-start: 10px;
+	    -webkit-text-stroke: 1px rgb(from var(--lnk-clr) r g b / 0.8);
+	    color: rgb(from var(--lnk-clr) r g b / 0.8);
+	    content: "•"; margin-left: 10px;
 	}
 	.bnr-img
 	{
@@ -154,13 +155,13 @@
     }
     .sdbar-contnt, .sidebar-ads
     {
-    	top: 20px; padding: 20px 20px;
+    	position: relative; padding: 20px 20px;
     	margin: 10px 3px 20px; background: var(--bg-clr); min-height: 210px;
     	border-radius: 20px; width: auto;
     }
     .sd-sticky
     {
-    	position: sticky;
+    	position: sticky; top: 20px;
     }
 	.outline-list 
 	{
@@ -340,6 +341,7 @@
     }
 	.sections-new
 	{
+	    scroll-margin-top: 30px;
 	    font-size: calc(var(--base-fnt) + 3px);
 	    width: max-content; color: var(--hdr-clr);
 	    font-weight: bold; max-width: 90%; text-align: center;
