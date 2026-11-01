@@ -293,6 +293,7 @@ function commentDiv(parentDiv)
     parentDiv.appendChild(div); return div;
 }
 
+let initialHeight;
 function rltdHeight()
 {
     const artText = document.getElementById("art-text");
@@ -300,12 +301,13 @@ function rltdHeight()
 
     if (rltdOut && artText) {
     const rltdRect = rltdOut.getBoundingClientRect();
-    const artRect = artText.getBoundingClientRect(); const height = rltdRect.height;
-    const top = rltdRect.top; const bottom = artRect.bottom;
-    const difference = bottom - top;
+    const artRect = artText.getBoundingClientRect(); const rltdTop = rltdRect.top + window.scrollY;
+    const artTop = artRect.top + window.scrollY; const rltdHeight = rltdRect.height;
+    if (initialHeight === undefined) { initialHeight = rltdHeight; }
 
-    if (difference > height) {
-    rltdOut.style.height = difference + "px"; } }
+    const topDiff = rltdTop - artTop + 500; const artHeight = artText.offsetHeight;
+    const newHeight = artHeight - topDiff; if (newHeight > initialHeight) {
+    rltdOut.style.height = newHeight + "px"; } }
 }
 
 async function startLoads()
@@ -324,7 +326,7 @@ async function startLoads()
     createAdDiv(sdBar2); hotSecDiv(sdBar2); const stickyDiv = document.createElement("div");
     stickyDiv.className = "rltdOut"; sdBar2.appendChild(stickyDiv); const rltdParent = document.createElement("div");
     rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>RELATED</span></div></div><div class="art-content" id="related"></div>`;
-    stickyDiv.appendChild(rltdParent); loadRelated(); rltdHeight(); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
+    stickyDiv.appendChild(rltdParent); loadRelated().then(() => { rltdHeight(); }); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
     sdBar2.appendChild(stickyDiv2); createAdDiv(stickyDiv2); commentDiv(stickyDiv2); } });
 
     await Promise.allSettled([featuredDone, popularDone]);
@@ -452,7 +454,7 @@ let storeInterval;
 if (rplsSec) 
 {
     const intObserver = new IntersectionObserver((entries) => { entries.forEach(entry => {
-    if (entry.isIntersecting) { ltrplsSec(); window.addEventListener('scroll', scrlDebounce, false); storeInterval = setInterval(removeTool, 2000);
+    if (entry.isIntersecting) { ltrplsSec(); rltdHeight(); window.addEventListener('scroll', scrlDebounce, false); storeInterval = setInterval(removeTool, 2000);
     if (adlk1) { adlk1 = false; } if (adlkk2) { adlkk2 = false; } intObserver.disconnect(); } }); },
     { rootMargin: '0px 0px 500px 0px', threshold: 0 } ); intObserver.observe(rplsSec);
 }
