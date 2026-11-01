@@ -132,47 +132,22 @@ function observeSidebarAds()
     {
         mutations.forEach(mutation =>
         {
-            if (mutation.type === "attributes")
-            {
+            if (mutation.target.style.minHeight)
                 mutation.target.style.removeProperty("min-height");
-            }
-
-            if (mutation.type === "childList")
-            {
-                mutation.addedNodes.forEach(node =>
-                {
-                    if (node.nodeType !== 1) return;
-
-                    if (node.matches(".sidebar-ads"))
-                        observeSidebar(node);
-
-                    node.querySelectorAll(".sidebar-ads").forEach(observeSidebar);
-                });
-            }
         });
     });
 
-    function observeSidebar(sidebar)
+    document.querySelectorAll(".sidebar-ads").forEach(sidebar =>
     {
         observer.observe(sidebar,
         {
             attributes: true,
             attributeFilter: ["style"]
         });
-
         sidebar.style.removeProperty("min-height");
-    }
-
-    document.querySelectorAll(".side-bars").forEach(sidebar =>
-    {
-        observer.observe(sidebar,
-        {
-            childList: true,
-            subtree: true
-        });
     });
 }
-observeSidebarAds();
+// observeSidebarAds();
 
 const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
 const ltArtStyle = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:16px 35px 14px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9;background:#f0f4f8}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:15px 20px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:18px}.art-head-common a{color:#5881aa!important;text-decoration:none}.fixed-dis-phone,.fixed-dis-desk{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto}#more-info-after-2{border:3px #EAEAEA solid;padding:10px 13px 12px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:15px;line-height:23px;border-radius:14px}.art-description-common{display:none}@media only screen and (max-width:615px){.fixed-dis-desk{display:none}.art-head-common{padding:12px 20px;font-size:16px}}@media only screen and (min-width:615px){#more-info-after-2{width:fit-content;display:inline-block;border:7px #f0f4f8 solid;font-size:17px}.latest_articles{top:20px}#before-article-01{margin:0px;height:0px}.fixed-dis-phone{display:none}}';
@@ -307,14 +282,14 @@ function createStickyDiv()
 function hotSecDiv(parentDiv) 
 {
     const div = document.createElement("div");
-    div.className = "sidebar-ads"; div.style.minHeight = "500px";
+    div.className = "sdbar-contnt"; div.style.minHeight = "500px";
     parentDiv.appendChild(div); return div;
 }
 
 function commentDiv(parentDiv) 
 {
     const div = document.createElement("div");
-    div.className = "sidebar-ads"; div.style.minHeight = "210px";
+    div.className = "sdbar-contnt"; div.style.minHeight = "210px";
     parentDiv.appendChild(div); return div;
 }
 
@@ -339,18 +314,21 @@ async function startLoads()
     const sideBars = document.querySelectorAll('[class="side-bars"]'); 
     const sdBar1 = sideBars[0]; const sdBar2 = sideBars[1];
 
-    featuredPromise.then(() => { if (sdBar1) {
+    const featuredDone = featuredPromise.then(() => { if (sdBar1) {
     createAdDiv(sdBar1); const guideDiv = document.createElement("div"); 
     guideDiv.className = "sdbar-contnt"; guideDiv.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt">
     <span>OUTLINE</span></div></div>`; const stickyDiv = createStickyDiv(); stickyDiv.appendChild(guideDiv); sdBar1.appendChild(stickyDiv);
     outline(guideDiv); secFtrObsrvr(); createAdDiv(stickyDiv); } });
 
-    popularPromise.then(() => { if (sdBar2) {
+    const popularDone = popularPromise.then(() => { if (sdBar2) {
     createAdDiv(sdBar2); hotSecDiv(sdBar2); const stickyDiv = document.createElement("div");
     stickyDiv.className = "rltdOut"; sdBar2.appendChild(stickyDiv); const rltdParent = document.createElement("div");
     rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>RELATED</span></div></div><div class="art-content" id="related"></div>`;
     stickyDiv.appendChild(rltdParent); loadRelated(); rltdHeight(); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
     sdBar2.appendChild(stickyDiv2); createAdDiv(stickyDiv2); commentDiv(stickyDiv2); } });
+
+    await Promise.allSettled([featuredDone, popularDone]);
+    observeSidebarAds();
 }
 startLoads();
 
