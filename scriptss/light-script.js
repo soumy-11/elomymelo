@@ -4,150 +4,48 @@ const bgmd = window.matchMedia("(min-width: 615px)").matches;
 const smmd = window.matchMedia("(max-width: 615px)").matches;
 function updateAdsAttributes() 
 {
-    // Array of IDs 
-    var ids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four'];
-    function updateElementsAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           element.setAttribute('data-ad-layout-key', '-co-n+45-2o+yn');
-           element.setAttribute('data-ad-slot', '5190331789');
-        }
-     });
-    }
-
-    function updateClassOne() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
-
-    // Call function to update all 
-    if (bgmd) { updateElementsAttributes(); }
-    updateClassOne();
-
-    var ids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four', 'ins-dis-five', 'ins-dis-six'];
-    function updateAttributes() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-        {
-           element.removeAttribute('data-ad-format', 'fluid');
-           element.setAttribute('style', 'display:block;width:100%;height:250px');
-           element.setAttribute('data-full-width-responsive', 'null');
-        }
-     });
-    }
-
-    function updateClassTwo() {
-    ids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) { element.setAttribute('class', 'adsbygoogle'); } }); }
-
-    if (bgmd) { updateAttributes(); }
-    updateClassTwo();
-
     // Find all elements with class --- 
-    var elementsWithClassTwo = document.querySelectorAll('.feed-com');
-    var elementsWithClassOne = document.querySelectorAll('.dis-com');
+    const dAdsCode = '<div class="ad-details-5"><span>AD</span></div><!-- Display horizontal --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-format="fluid" data-ad-slot="6958590511" data-full-width-responsive="true"></ins>';
+    const disAds = document.querySelectorAll('.dis-com');
 
-    function addScriptTagToElement(element) {
-    var scriptElement = document.createElement('script');
-    scriptElement.type = 'text/javascript';
+    disAds.forEach((ad) => { 
+    ad.innerHTML = dAdsCode; const element = ad.querySelector('ins');
+    if (element && bgmd) { element.removeAttribute('data-ad-format');
+    element.setAttribute('style', 'display:block;width:100%;height:250px');
+    element.setAttribute('data-full-width-responsive', 'null'); } });
+
+    function addScript(element) {
+    var scriptElement = document.createElement('script'); scriptElement.type = 'text/javascript';
     scriptElement.textContent = '(adsbygoogle = window.adsbygoogle || []).push({});';
     element.appendChild(scriptElement); }
 
-    elementsWithClassOne.forEach(function(element) {
-    addScriptTagToElement(element); });
-
-    elementsWithClassTwo.forEach(function(element) {
-    addScriptTagToElement(element); }); 
+    disAds.forEach(function(element) {
+    addScript(element); });
 
     // mutation observer code
-    const observer = new MutationObserver( mutations => 
-    {
-        mutations.forEach(record => 
-        {
-            if(record.type === 'attributes')
-            {
-              const idname = record.target.id; 
-              const attrname = record.attributeName;
-              const attrvalue = record.target.getAttribute(attrname);
-              var dids = ['ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four', 'ins-dis-five', 'ins-dis-six'];
-              var fids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four'];
+    const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => { const element = mutation.target;
+    if (element.getAttribute('data-ad-status') === 'unfilled') {
+    element.parentElement.style.display = 'none'; } }); });
 
-              if (smmd)
-              {
-                fids.forEach(function(id) { 
-                var element = document.getElementById(id); 
-                if(element) { var parentDiv = element.parentNode; } 
-                if(idname === id && attrvalue === "filled") { parentDiv.style.background = "linear-gradient(to top, white 20%, #4f76b4 50%)"; } 
-                if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; } });
-
-                dids.forEach(function(id) { 
-                var element = document.getElementById(id); 
-                if(element) { var parentDiv = element.parentNode; 
-                var lbDiv = parentDiv.querySelector('.ad-details-5'); } 
-                if(idname === id && attrvalue === "filled") { lbDiv.style.display = "none"; } 
-                if(idname === id && attrvalue === "unfilled") { parentDiv.style.display = "none"; } });
-              } 
-
-              // desk
-              if (bgmd)
-              { 
-                fids.forEach(function(id) {  
-                var element = document.getElementById(id); 
-                if(element) { var parentDiv = element.parentNode; 
-                var lbDiv = parentDiv.querySelector('.ad-details-5'); } 
-                if(idname === id && attrvalue === "filled") { lbDiv.style.display = "none"; } 
-                if(idname === id && attrvalue === "unfilled") 
-                { parentDiv.style.display = "none"; } }); 
-
-                dids.forEach(function(id) { 
-                var element = document.getElementById(id); 
-                if(element) { var parentDiv = element.parentNode; 
-                var lbDiv = parentDiv.querySelector('.ad-details-5'); } 
-                if(idname === id && attrvalue === "filled") { lbDiv.style.display = "none"; } 
-                if(idname === id && attrvalue === "unfilled") 
-                { parentDiv.style.display = "none"; } });
-              }   
-            } 
-        });
-    });
-
-    var aids = ['ins-feed-one', 'ins-feed-two', 'ins-feed-three', 'ins-feed-four', 'ins-dis-one', 'ins-dis-two', 'ins-dis-three', 'ins-dis-four', 'ins-dis-five', 'ins-dis-six', 'ins-dis-v1'];
-    function updatemute() {
-    aids.forEach(function(id) {
-    var element = document.getElementById(id);
-    if (element) 
-    { observer.observe(element, { attributes: true, attributeFilter: ['data-ad-status'] }); } }); }
-    updatemute(); 
+    disAds.forEach((ad) => {
+    const element = ad.querySelector('ins');
+    if (element) { observer.observe(element, { attributes: true, 
+    attributeFilter: ['data-ad-status'] }); } });
 }
 updateAdsAttributes();
 // call the important function
 
 function observeSidebarAds()
 {
-    const observer = new MutationObserver(mutations =>
-    {
-        mutations.forEach(mutation =>
-        {
-            if (mutation.target.style.minHeight)
-                mutation.target.style.removeProperty("min-height");
-        });
-    });
+    const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => { if (mutation.target.style.minHeight) {
+    mutation.target.style.removeProperty("min-height"); } }); });
 
-    document.querySelectorAll(".sidebar-ads").forEach(sidebar =>
-    {
-        observer.observe(sidebar,
-        {
-            attributes: true,
-            attributeFilter: ["style"]
-        });
-        sidebar.style.removeProperty("min-height");
-    });
+    document.querySelectorAll(".sidebar-ads").forEach(sidebar => {
+    observer.observe(sidebar, { attributes: true, attributeFilter: ["style"] });
+    sidebar.style.removeProperty("min-height"); });
 }
-// observeSidebarAds();
 
 const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
 const ltArtStyle = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:16px 35px 14px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9;background:#f0f4f8}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:15px 20px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:18px}.art-head-common a{color:#5881aa!important;text-decoration:none}.fixed-dis-phone,.fixed-dis-desk{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto}#more-info-after-2{border:3px #EAEAEA solid;padding:10px 13px 12px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:15px;line-height:23px;border-radius:14px}.art-description-common{display:none}@media only screen and (max-width:615px){.fixed-dis-desk{display:none}.art-head-common{padding:12px 20px;font-size:16px}}@media only screen and (min-width:615px){#more-info-after-2{width:fit-content;display:inline-block;border:7px #f0f4f8 solid;font-size:17px}.latest_articles{top:20px}#before-article-01{margin:0px;height:0px}.fixed-dis-phone{display:none}}';
