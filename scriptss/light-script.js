@@ -80,7 +80,7 @@ const URL_POPULAR = "https://docs.elomymelo.com/text-files/inside-article-div-2.
 function cleanHtml(temp)
 {
     const targetLink = [...temp.getElementsByTagName("a")].find(a =>
-    a.href.split("/").pop() === location.href.split("/").pop());
+    new URL(a.href).pathname.split("/").pop() === location.pathname.split("/").pop());
 
     if (targetLink)
     {
