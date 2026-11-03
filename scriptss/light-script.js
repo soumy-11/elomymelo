@@ -2,6 +2,23 @@
 console.log("defer-script-check");
 const bgmd = window.matchMedia("(min-width: 615px)").matches;
 const smmd = window.matchMedia("(max-width: 615px)").matches;
+const sdbar = document.querySelectorAll(".sdbar-contnt");
+const navs = document.querySelectorAll("header nav");
+
+if (navs.length >= 2)
+{
+    navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/all-reviews.html">REVIEWS</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">TOP PICKS</a><a href="https://docs.elomymelo.com/#">MORE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
+
+    navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/all-reviews.html">ABOUT</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">PRIVACY</a><a href="https://elomymelo.com/about-me.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
+}
+
+if (sdbar.length >= 2)
+{
+    sdbar[0].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>FEATURED</span></div></div><div class="art-content" id="featured"></div>`;
+
+    sdbar[1].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>POPULAR</span></div></div><div class="art-content" id="popular"></div>`;
+}
+
 function updateAdsAttributes() 
 {
     // Find all elements with class --- 
@@ -66,6 +83,12 @@ if (bgmd && window.innerWidth > 1010)
     el.appendChild(script); }); // ads name Thin-bar-ads
 }
 
+function ltSideBars()
+{
+    document.querySelectorAll(".side-bars.bar-smack").forEach(ele => {
+    ele.innerHTML = '<div class="sidebar-ads bar-color"></div>'; });
+}
+
 // for detecting new news articles, h2 tags 
 const rplsSec = document.getElementById('add-article-html');
 const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" class="spinner-anim">
@@ -76,6 +99,15 @@ const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" clas
 
 const URL_FEATURED = "https://docs.elomymelo.com/text-files/inside-article-div-1.txt";
 const URL_POPULAR = "https://docs.elomymelo.com/text-files/inside-article-div-2.txt";
+
+const dlabel = document.getElementById("label").textContent.toLowerCase();
+const earbud = "https://docs.elomymelo.com/text-files/for-earbuds.txt";
+const other = "https://docs.elomymelo.com/text-files/for-others.txt";
+
+let rltdurl = other;
+if (dlabel.includes("earbud")) rltdurl = earbud;
+else if (dlabel.includes("smartphone")) rltdurl = smartphone;
+else if (dlabel.includes("speaker")) rltdurl = speaker;
 
 function cleanHtml(temp)
 {
@@ -92,7 +124,7 @@ function cleanHtml(temp)
         const divs = temp.querySelectorAll(":scope > div");
         const lastDiv = divs[divs.length - 1];
 
-        if (lastDiv)
+        if (lastDiv && divs.length > 3)
         {
             const br = lastDiv.nextElementSibling; if (br?.tagName === "BR") 
             br.remove(); lastDiv.remove(); 
@@ -114,7 +146,6 @@ async function run(url, processor, section)
 
 async function loadSection(id, url, processor)
 {
-    console.log(`${id} started:`, performance.now());
     const section = document.getElementById(id);
     if (!section) return;
 
@@ -156,9 +187,15 @@ function loadPopular()
 
 function loadRelated()
 {
+    const rltdText = document.getElementById("rltd-text");
+    if (rltdurl === other)
+    {
+        rltdText.textContent = "CONTENT";
+    }
+
     return loadSection(
         "related",
-        URL_POPULAR,
+        rltdurl,
         cleanHtml
     );
 }
@@ -223,7 +260,7 @@ async function startLoads()
     const popularDone = popularPromise.then(() => { if (sdBar2) {
     createAdDiv(sdBar2); hotSecDiv(sdBar2); const stickyDiv = document.createElement("div");
     stickyDiv.className = "rltdOut"; sdBar2.appendChild(stickyDiv); const rltdParent = document.createElement("div");
-    rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>RELATED</span></div></div><div class="art-content" id="related"></div>`;
+    rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span id="rltd-text">RELATED</span></div></div><div class="art-content" id="related"></div>`;
     stickyDiv.appendChild(rltdParent); loadRelated().then(() => { rltdHeight(); }); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
     sdBar2.appendChild(stickyDiv2); createAdDiv(stickyDiv2); commentDiv(stickyDiv2); } });
 
@@ -275,7 +312,18 @@ function setActiveItem(item)
     previousItem = item;
 }
 
+const endLinks = document.querySelector(".end-links-con");
+function endlinks()
+{
+    if (endLinks) { fetch("https://docs.elomymelo.com/text-files/end-links.txt")
+    .then(response => response.text()).then(data => { endLinks.innerHTML = data; })
+    .catch(error => { console.error("end links error:", error);
+    setTimeout(endlinks, 2000); }); }
+}
+endlinks();
+
 const footer = document.querySelector("footer");
+footer.innerHTML = `<div class="top-sec width-cut"><nav class="nav-out nav-rds"><div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/about-the-website.html">ABOUT ME</a><a href="https://elomymelo.com/terms-conditions.html">YOUTUBE</a><a href="https://elomymelo.com/terms-conditions.html">TERMS</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div></nav><div class="arrow-eles"><span class="icn-con" onclick="goDown()">&#9660;</span><span class="icn-con" onclick="goUp()">&#9650;</span></div><nav class="nav-out nav-rvrs nav-rds"><div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/privacy-policy.html">PRIVACY</a><a href="https://elomymelo.com/about-the-website.html">ABOUT SITE</a><a href="https://elomymelo.com/contact%20page.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div></nav></div><div class="copyright"><span class="copyright-text">Copyright © 2026 elomymelo.com - all rights reserved. Unauthorized duplication is strictly prohibited.</span></div>`;
 footer.style.height = footer.getBoundingClientRect().height + "px";
 const fxFoot = document.querySelector(".top-sec.width-cut");
 const banner = document.getElementById("bnr-img-contnr");
@@ -336,15 +384,13 @@ function ltrplsSec()
 
     fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
-    document.querySelectorAll('.side-bars.bar-smack').forEach(parent => {
+    document.getElementById('loader-style')?.remove();
 
-    const child = parent.querySelector(':scope > div'); if (child) {
-    child.classList.add('bar-color'); } }); document.getElementById('loader-style')?.remove();
     const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
     const script = document.createElement("script"); script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
     if (smmd) { deskAd?.querySelector("ins.adsbygoogle")?.remove(); phoneAd?.appendChild(script); } else {
     phoneAd?.querySelector("ins.adsbygoogle")?.remove(); deskAd?.appendChild(script); } }
-    if (bgmd) { loadSideBars(); } }).catch(err => { console.error("My Check", err);
+    if (bgmd) { ltSideBars(); } }).catch(err => { console.error("My Check", err);
     if (!ltrplsRetry) { ltrplsRetry = true; ltrplsSec(); } });
 }
 
@@ -433,7 +479,7 @@ detectCharacter();
 let adlk1 = false, adlkk2 = false;
 const loadWidth = window.innerWidth; let szck, rzszck;
 if (loadWidth > 615) { szck = 'desk'; } else { szck = 'phone'; }
-window.addEventListener('resize', trigPad); 
+// window.addEventListener('resize', trigPad); 
 function trigPad()
 {
 	clearTimeout(window.resized);
