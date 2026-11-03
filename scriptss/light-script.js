@@ -8,15 +8,13 @@ const navs = document.querySelectorAll("header nav");
 if (navs.length >= 2)
 {
     navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/all-reviews.html">REVIEWS</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">TOP PICKS</a><a href="https://docs.elomymelo.com/#">MORE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
-
     navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/all-reviews.html">ABOUT</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">PRIVACY</a><a href="https://elomymelo.com/about-me.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
 }
 
 if (sdbar.length >= 2)
 {
-    sdbar[0].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>FEATURED</span></div></div><div class="art-content" id="featured"></div>`;
-
-    sdbar[1].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>POPULAR</span></div></div><div class="art-content" id="popular"></div>`;
+    sdbar[0].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>FEATURED</span></div></div><div class="art-content" id="featured"></div><div class="error-state" style="text-align:center">Please, view this content on wider screens like laptops and desktops for full features.</div>`;
+    sdbar[1].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>POPULAR</span></div></div><div class="art-content" id="popular"></div><div class="error-state" style="text-align:center">Please, view this content on wider screens like laptops and desktops for full features.</div>`;
 }
 
 function updateAdsAttributes() 
@@ -159,7 +157,7 @@ async function loadSection(id, url, processor)
 
     if (i === 0) {
     await new Promise(res => setTimeout(res, 5000)); }
-    else { section.innerHTML = `<div class="error-state" style="text-align:center">
+    else { section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
     Sorry, the content you are looking for has failed to load
     </div>`; } } }
 }
