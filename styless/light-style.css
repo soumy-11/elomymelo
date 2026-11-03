@@ -208,9 +208,9 @@
     }
     .error-state
     {
-    	font-family: sans-serif; width: 90%;
+    	font-family: sans-serif; width: 90%; display: none;
     	font-size: calc(var(--base-fnt) - 4px); margin: 40px auto 0;
-    	color: var(--txt-clr); inset: 0;
+    	color: var(--txt-clr); inset: 0; line-height: 20px;
     }
 	.art-out
 	{
@@ -481,6 +481,10 @@
     .outline-list
     {
     	margin: -5px 0px;
+    }
+    .error-state
+    {
+    	display: block;
     }
     }
 
