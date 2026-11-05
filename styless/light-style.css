@@ -534,13 +534,17 @@
 	{
 		--base-fnt: 16px;
 	}
-	.link-wrap > a:not(:first-child)
+	.link-wrap
 	{
 		display: none;
 	}
-    .nav-out a:not(:last-of-type)::after 
+    .nv-style-ele, .nv-bar-horzn
     {
-        content: none;
+    	flex: 1;
+    }
+    .horzn-fx
+    {
+    	display: none;
     }
 	.bnr-img:last-of-type 
 	{
