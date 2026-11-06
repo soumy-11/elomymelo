@@ -554,10 +554,6 @@
     {
     	flex: 1;
     }
-    .horzn-fx
-    {
-    	display: none;
-    }
 	.bnr-img:last-of-type 
 	{
 	    display: none;
@@ -593,12 +589,12 @@
 	}
     .label-text
 	{
-		padding: 10px 50px 10px 50px; font-size: calc(var(--base-fnt) - 3px);
+		padding: 10px 45px 10px 50px; font-size: calc(var(--base-fnt) - 3px);
 	}
     .top-sec
 	{
 		min-width: 200px; margin: 30px auto 0px;
-		max-width: 615px; width: 92%;
+		max-width: 615px; width: 92%; gap: 10px;
 	}
 	#bnr-img-contnr
 	{
@@ -621,7 +617,7 @@
 	}
 	.nav-out
 	{
-		padding: 0px 20px;
+		padding: 0px 15px;
 	}
 	.nav-phn
 	{
