@@ -258,7 +258,7 @@ async function startLoads()
     const popularDone = popularPromise.then(() => { if (sdBar2) {
     createAdDiv(sdBar2); hotSecDiv(sdBar2); const stickyDiv = document.createElement("div");
     stickyDiv.className = "rltdOut"; sdBar2.appendChild(stickyDiv); const rltdParent = document.createElement("div");
-    rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span id="rltd-text">RELATED</span></div></div><div class="art-content" id="related"></div>`;
+    rltdParent.className = "sdbar-contnt sd-sticky"; rltdParent.innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span id="rltd-text">RELATED</span></div></div><div class="art-content" id="related"></div><div class="error-state" style="text-align:center">Please, view this content on wider screens like laptops and desktops for full features.</div>`;
     stickyDiv.appendChild(rltdParent); loadRelated().then(() => { rltdHeight(); }); const stickyDiv2 = createStickyDiv(); stickyDiv2.style.marginTop = "-10px";
     sdBar2.appendChild(stickyDiv2); createAdDiv(stickyDiv2); commentDiv(stickyDiv2); } });
 
