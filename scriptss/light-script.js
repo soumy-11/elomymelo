@@ -9,6 +9,19 @@ if (navs.length >= 2)
 {
     navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/all-reviews.html">REVIEWS</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">TOP PICKS</a><a href="https://docs.elomymelo.com/#">MORE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
     navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/all-reviews.html">ABOUT</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">PRIVACY</a><a href="https://elomymelo.com/about-me.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
+    if (smmd) { navs[0].firstElementChild.insertAdjacentHTML("afterend", `<svg width="25" height="auto" viewBox="0 0 89 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="31" y="38" width="27" height="27" rx="7.75" fill="#6487AB" fill-opacity="0.15"/>
+<path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/>
+<path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/>
+</svg>
+`); 
+    navs[1].firstElementChild.insertAdjacentHTML("afterend", `<svg width="27" height="auto" viewBox="0 0 83 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29 16H73" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/>
+<path d="M13 41.5L72 41.5" stroke-width="8" stroke-linecap="round" stroke="#6487AB"/>
+<path d="M39 66H73.0083" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/>
+</svg>`); 
+
+}
 }
 
 if (sdbar.length >= 2)
