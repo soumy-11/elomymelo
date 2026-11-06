@@ -58,7 +58,7 @@
 	{
 		width: auto; flex: 1;
 		min-height: 300px; position: relative;
-		min-width: 200px; height: auto;
+		min-width: 250px; height: auto;
 		background: var(--bg-clr);
 		border-radius: 20px;
 	}
@@ -199,7 +199,7 @@
 	}
     .bar-smack
     {
-    	height: auto; width: 20%; min-width: 136px;
+    	height: auto; width: 20%; min-width: 100px;
     }
     .bar-color
     {
