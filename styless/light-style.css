@@ -486,9 +486,13 @@
     {
     	display: block;
     }
+    .label-text
+    {
+    	padding: 10px 30px 10px 35px;
+    }
     }
 
-	@media only screen and (max-width: 1010px)
+	@media only screen and (max-width: 1040px)
     {
     :root 
 	{
@@ -496,7 +500,7 @@
 	}
 	.art-head-common
 	{
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
     .bar-smack
     {
@@ -525,6 +529,14 @@
     .art-out
     {
     	width: calc(100% - 6px);
+    }
+    }
+
+	@media only screen and (max-width: 725px)
+    {
+    .bar-smack
+    {
+    	display: none;
     }
     }
 
@@ -581,7 +593,7 @@
 	}
     .label-text
 	{
-		padding: 10px 50px 10px 50px; font-size: var(--base-fnt);
+		padding: 10px 50px 10px 50px; font-size: calc(var(--base-fnt) - 3px);
 	}
     .top-sec
 	{
@@ -617,7 +629,7 @@
 	}
 	.nav-out a
 	{
-		font-size: calc(var(--base-fnt) - 0px);
+		font-size: calc(var(--base-fnt) - 2px);
 	}
 	.nav-phn a:not(:last-of-type)::after 
 	{
