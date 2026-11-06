@@ -609,18 +609,31 @@
 	}
 	.nav-out
 	{
-		max-width: 85%;
-		padding: 0px 10px 0px 10px;
+		padding: 0px 20px;
+	}
+	.nav-phn
+	{
+		overflow-wrap: anywhere;
 	}
 	.nav-out a
 	{
-		font-size: calc(var(--base-fnt) - 5px);
+		font-size: calc(var(--base-fnt) - 0px);
 	}
+	.nav-phn a:not(:last-of-type)::after 
+	{
+	    margin-right: 10px;
+	}
+/*
 	.ft-out
 	{
 		padding: 17px 20px 15px 20px;
 		max-width: 75%;
 	}
+*/
+    .copyright-text
+    {
+    	width: auto;
+    }
 	.verdict
 	{
 		font-size: calc(var(--base-fnt) + 1px);
@@ -698,7 +711,7 @@
 	}
 	.width-cut
 	{
-		margin: 0px; flex: 1;
+		margin: 0px; flex: 0 1 100%;
 	}
 	.ft-top-sec
 	{
