@@ -47,7 +47,7 @@
 	}
 	.nv-icon
 	{
-		width: 25px; height: auto; flex-shrink: 0;
+		display: none;
 	}
 	#lt-art-sec
 	{
@@ -512,14 +512,6 @@
     }
     }
 
-	@media only screen and (min-width: 615px)
-    {
-    .plabel
-    {
-    	display: none;
-    }
-    }
-
     @media only screen and (max-width: 850px)
     {
     .side-bars
@@ -536,9 +528,9 @@
     }
     }
 
-	@media only screen and (max-width: 725px)
+	@media only screen and (min-width: 615px)
     {
-    .bar-smack
+    .plabel
     {
     	display: none;
     }
@@ -550,10 +542,19 @@
 	{
 		--base-fnt: 16px;
 	}
+	.nv-icon
+	{
+		width: 25px; height: auto; display: block;
+		flex-shrink: 0; cursor: pointer;
+	}
 	.link-wrap
 	{
 		display: none;
 	}
+	.nv-bar-vrtcl 
+	{
+    	height: 15px;
+    }
     .nv-style-ele, .nv-bar-horzn
     {
     	flex: 1; width: 10px;
@@ -666,6 +667,7 @@
 	#art-h1
 	{
 		font-size: calc(var(--base-fnt) + 5px);
+		margin-top: -10px;
 	}
 	.first-para::before
 	{
