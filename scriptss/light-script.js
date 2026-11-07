@@ -9,25 +9,31 @@ if (navs.length >= 2)
 {
     navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/all-reviews.html">REVIEWS</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">TOP PICKS</a><a href="https://docs.elomymelo.com/#">MORE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
     navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/all-reviews.html">ABOUT</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">PRIVACY</a><a href="https://elomymelo.com/about-me.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
-    if (smmd) { navs[0].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 89 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="31" y="38" width="27" height="27" rx="7.75" fill="#6487AB" fill-opacity="0.15"/>
-<path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/>
-<path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/>
-</svg>
-`);
-    navs[1].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 83 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M29 16H73" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/>
-<path d="M13 41.5L72 41.5" stroke-width="8" stroke-linecap="round" stroke="#6487AB"/>
-<path d="M39 66H73.0083" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/>
-</svg>`); 
-
-}
+    if (smmd) { navs[0].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 89 85" fill="none"><rect x="31" y="38" width="27" height="27" rx="7.75" fill="#6487AB" fill-opacity="0.15"/><path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/><path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/></svg>`);
+    navs[1].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 83 82" fill="none" onclick="popNav()"><path d="M29 16H73" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/><path d="M13 41.5L72 41.5" stroke-width="8" stroke-linecap="round" stroke="#6487AB"/><path d="M39 66H73.0083" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/></svg>`); }
 }
 
 if (sdbar.length >= 2)
 {
     sdbar[0].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>FEATURED</span></div></div><div class="art-content" id="featured"></div><div class="error-state" style="text-align:center">Please, view this content on wider screens like laptops and desktops for full features.</div>`;
     sdbar[1].innerHTML = `<div class="top-label"><div class="label-text lt-top sdbar-lb-txt"><span>POPULAR</span></div></div><div class="art-content" id="popular"></div><div class="error-state" style="text-align:center">Please, view this content on wider screens like laptops and desktops for full features.</div>`;
+}
+
+function popNav()
+{
+    const navstyle = document.createElement('style'); navstyle.type = 'text/css'; navstyle.id = 'nav-style';
+    navstyle.innerHTML = '.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgb(from var(--bg-clr) r g b / 80%);z-index:1000;overflow:auto}.nav-main{position:absolute;inset:0;padding:0 20px;margin:auto;width:75%;height:max-content;min-height:500px;text-align:center;color:rgba(255,255,255,.5);font-family:roboto,sans-serif;border-radius:20px;background:var(--bdy-clr)}.nv-cross{color:var(--txt-clr);background:var(--bg-clr);display:inline-block;padding:9px 15px 7px 16px;border-radius:100px;font-size:30px;margin-top:-20px;border:3px var(--hlt-clr2) solid;cursor:pointer}.content-outline{position:absolute;inset:0;margin:auto;width:75%;height:max-content}.outline-item{background:var(--bg-clr);padding:0;border-color:var(--bg-clr)}.outline-item a{display:block;text-decoration:none;color:var(--txt-clr);font-size:var(--base-fnt);padding:10px 20px}.outline-item:hover a{color:#404040}';
+    document.head.appendChild(navstyle); 
+
+    const navdiv = document.createElement('div');
+    navdiv.className = 'nav-overlay'; navdiv.innerHTML = '<div class="nav-main"><div class="nv-cross" onclick="rmvNavOverlay()"><span>&times;</span></div><nav class="content-outline"><ul class="outline-list"><li class="outline-item"><a href="index.html">Home</a></li><li class="outline-item"><a href="all-reviews.html">Reviews</a></li><li class="outline-item"><a href="top-picks.html">Top Picks</a></li><li class="outline-item"><a href="about-me.html">About Me</a></li><li class="outline-item"><a href="contact page.html">Contact</a></li></ul></nav></div>';
+    document.body.appendChild(navdiv);
+}
+
+function rmvNavOverlay()
+{
+    const getstyle = document.getElementById('nav-style'); const findnavdiv = document.querySelector('.nav-overlay');
+    if (findnavdiv) { findnavdiv.remove(); getstyle.remove(); }
 }
 
 function updateAdsAttributes() 
@@ -278,6 +284,7 @@ async function startLoads()
     await Promise.allSettled([featuredDone, popularDone]);
     observeSidebarAds();
 }
+// if (bgmd) { startLoads(); }
 startLoads();
 
 function outline(container)
