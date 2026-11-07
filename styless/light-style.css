@@ -556,7 +556,7 @@
 	}
     .nv-style-ele, .nv-bar-horzn
     {
-    	flex: 1;
+    	flex: 1; width: 10px;
     }
 	.bnr-img:last-of-type 
 	{
@@ -588,7 +588,7 @@
 	}
 	#mysite-logo
 	{
-		font-size: calc(var(--base-fnt) + 4px);
+		font-size: calc(var(--base-fnt) + 4px); padding: 15px;
 		margin: auto; border-radius: 15px;
 	}
     .label-text
@@ -623,7 +623,7 @@
     }
 	.art-out
 	{
-		padding: 10px 14px 0px;
+		padding: 14px 14px 0px;
 		min-width: 200px; margin: 0px 0px 10px;
 		width: 92%; max-width: 615px;
 	}
