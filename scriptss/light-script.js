@@ -14,7 +14,7 @@ if (navs.length >= 2)
 <path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/>
 <path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/>
 </svg>
-`); 
+`);
     navs[1].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 83 82" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M29 16H73" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/>
 <path d="M13 41.5L72 41.5" stroke-width="8" stroke-linecap="round" stroke="#6487AB"/>
@@ -351,7 +351,7 @@ function updateFxFoot()
 
     if (fxd)
     {
-        s.width = "auto"; s.insetInline = "30px"; s.paddingBottom = "20px";
+        s.width = "auto"; s.insetInline = "25px"; s.paddingBottom = "20px";
         s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
         s.animation = "ftpop 320ms cubic-bezier(.22,1,.36,1)";
     }
