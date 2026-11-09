@@ -703,6 +703,10 @@
 	{
 		width: 100%; flex: none;
 	}
+	#add-article-html br:last-of-type
+	{
+		display: none;
+	}
     #pros-cons
     {
         border-radius: 10px;
