@@ -2,14 +2,15 @@
 console.log("defer-script-check");
 const bgmd = window.matchMedia("(min-width: 615px)").matches;
 const smmd = window.matchMedia("(max-width: 615px)").matches;
+const tbmd = window.matchMedia("(max-width: 850px)").matches;
 const sdbar = document.querySelectorAll(".sdbar-contnt");
 const navs = document.querySelectorAll("header nav");
 
 if (navs.length >= 2)
 {
-    navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/all-reviews.html">REVIEWS</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">TOP PICKS</a><a href="https://docs.elomymelo.com/#">MORE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
-    navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/all-reviews.html">ABOUT</a><a href="https://elomymelo.com/top-picks.html" id="tpicks">PRIVACY</a><a href="https://elomymelo.com/about-me.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
-    if (smmd) { navs[0].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 89 85" fill="none" onclick="window.location.href='index.html'" style="width:23px"><rect x="31" y="38" width="27" height="27" rx="7.75" fill="#6487AB" fill-opacity="0.15"/><path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/><path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/></svg>`);
+    navs[0].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="index.html">HOME</a><a href="all-reviews.html">REVIEWS</a><a href="top-picks.html" id="tpicks">TOP PICKS</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div>`;
+    navs[1].innerHTML = `<div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://www.youtube.com/channel/UCwohg1L-t9Webw7IhHcRcnw" id="youtube">YOUTUBE</a><a href="about-me.html">ABOUT ME</a><a href="contact page.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div>`;
+    if (tbmd) { navs[0].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 89 85" fill="none" onclick="window.location.href='index.html'" style="width:23px"><rect x="31" y="38" width="27" height="27" rx="7.75" fill="#6487AB" fill-opacity="0.15"/><path d="M13.5 52V70C13.5 76.6274 18.8726 82 25.5 82H63C69.6274 82 75 76.6274 75 70V52" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.65"/><path d="M3 41.5L33.3938 10.7356C39.241 4.81702 48.7881 4.7881 54.6711 10.6711L85.5 41.5" stroke-width="6" stroke-linecap="round" stroke="#6487AB"/></svg>`);
     navs[1].firstElementChild.insertAdjacentHTML("afterend", `<svg class="nv-icon" viewBox="0 0 83 82" fill="none" onclick="popNav()"><path d="M29 16H73" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/><path d="M13 41.5L72 41.5" stroke-width="8" stroke-linecap="round" stroke="#6487AB"/><path d="M39 66H73.0083" stroke-width="6" stroke-linecap="round" stroke="#6487AB" stroke-opacity="0.5"/></svg>`); }
 }
 
@@ -341,9 +342,11 @@ endlinks();
 
 const footer = document.querySelector("footer");
 const aftrftr = document.querySelector(".top-sec.width-cut");
-aftrftr.innerHTML = `<nav class="nav-out nav-rds"><div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/about-the-website.html">ABOUT ME</a><a href="https://elomymelo.com/terms-conditions.html">YOUTUBE</a><a href="https://elomymelo.com/terms-conditions.html">TERMS</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div></nav><div class="arrow-eles"><span class="icn-con" onclick="goDown()">&#9660;</span><span class="icn-con" onclick="goUp()">&#9650;</span></div><nav class="nav-out nav-rvrs nav-rds"><div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="https://elomymelo.com/privacy-policy.html">PRIVACY</a><a href="https://elomymelo.com/about-the-website.html">ABOUT SITE</a><a href="https://elomymelo.com/contact%20page.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div></nav>`;
-if (smmd) { aftrftr.insertAdjacentHTML("afterend", `<div class="top-sec width-cut" style="border-radius:4px"><div class="nav-out nav-rds nav-phn"><div class="link-wrap" style="display:block;text-align:center;margin:15px auto"><a href="https://elomymelo.com/index.html">HOME</a><a href="https://elomymelo.com/about-the-website.html">ABOUT SITE</a><a href="https://elomymelo.com/privacy-policy.html">PRIVACY POLICY</a><a href="https://elomymelo.com/contact%20page.html">CONTACT</a><a href="https://elomymelo.com/terms-conditions.html">TERMS</a></div></div></div>`);
-aftrftr.querySelectorAll(".link-wrap").forEach(ele => { ele.remove(); }); }
+
+function ftInsert() { aftrftr.innerHTML = `<nav class="nav-out nav-rds"><div class="nv-style-ele"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn"></span></div><div class="link-wrap"><a href="index.html">HOME</a><a href="about-the-website.html">ABOUT SITE</a><a href="https://www.youtube.com/channel/UCwohg1L-t9Webw7IhHcRcnw">YOUTUBE</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-horzn horzn-fx horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div></nav><div class="arrow-eles"><span class="icn-con" onclick="goDown()">&#9660;</span><span class="icn-con" onclick="goUp()">&#9650;</span></div><nav class="nav-out nav-rvrs nav-rds"><div class="nv-style-ele"><span class="nv-bar-horzn horzn-rdus"></span><span class="nv-bar-vrtcl"></span></div><div class="link-wrap"><a href="terms-conditions.html">TERMS</a><a href="privacy-policy.html">PRIVACY</a><a href="contact page.html">CONTACT</a></div><div class="nv-style-ele horzn-fx"><span class="nv-bar-vrtcl"></span><span class="nv-bar-horzn horzn-fx"></span></div></nav>`;
+if (tbmd) { aftrftr.insertAdjacentHTML("afterend", `<div class="top-sec width-cut" style="border-radius:4px"><nav class="nav-out nav-rds nav-phn"><div class="link-wrap" style="display:block;text-align:center;margin:15px auto"><a href="index.html">HOME</a><a href="about-the-website.html">ABOUT SITE</a><a href="privacy-policy.html">PRIVACY POLICY</a><a href="contact page.html">CONTACT</a><a href="terms-conditions.html">TERMS</a></div></nav></div>`);
+aftrftr.querySelectorAll(".link-wrap").forEach(ele => { ele.remove(); }); } } ftInsert();
+
 footer.style.height = footer.getBoundingClientRect().height + "px";
 const fxFoot = document.querySelector(".top-sec.width-cut");
 const banner = document.getElementById("bnr-img-contnr");
@@ -357,8 +360,8 @@ function updateFxFoot()
 
     if (fxd)
     {
-        s.width = "auto"; s.insetInline = "25px"; s.paddingBottom = "20px";
-        s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
+        s.width = fxFoot.getBoundingClientRect().width + "px"; s.insetInline = "0";
+        s.paddingBottom = "20px"; s.position = "fixed"; s.zIndex = "10"; s.bottom = "-20px";
         s.animation = "ftpop 320ms cubic-bezier(.22,1,.36,1)";
     }
     else
@@ -500,12 +503,16 @@ detectCharacter();
 let adlk1 = false, adlkk2 = false;
 const loadWidth = window.innerWidth; let szck, rzszck;
 if (loadWidth > 615) { szck = 'desk'; } else { szck = 'phone'; }
-// window.addEventListener('resize', trigPad); 
+window.addEventListener('resize', trigPad);
+
 function trigPad()
 {
 	clearTimeout(window.resized);
-    window.resized = setTimeout(() => { detectCharacter(); }, 1700);
+    window.resized = setTimeout(() => { detectCharacter(); adsNone(); }, 1700);
+}
 
+function adsNone()
+{
     const nowWidth = window.innerWidth;
     if (nowWidth > 615) { rzszck = 'desk'; } else { rzszck = 'phone'; }
 
