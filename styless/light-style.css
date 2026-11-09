@@ -51,7 +51,7 @@
 	}
 	#lt-art-sec
 	{
-		flex-direction: column; gap: 10px; padding-inline: 10px;
+		flex-direction: column; gap: 10px;
 		display: flex; width: auto; margin: 80px auto 0px;
 	}
 	.lt-art-contnr
