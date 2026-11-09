@@ -62,7 +62,7 @@
 	{
 		width: auto; flex: 1;
 		min-height: 300px; position: relative;
-		min-width: 250px; height: auto;
+		min-width: 200px; height: auto;
 		background: var(--bg-clr);
 		border-radius: 20px;
 	}
@@ -496,7 +496,7 @@
     }
     }
 
-	@media only screen and (max-width: 1040px)
+	@media only screen and (max-width: 1095px)
     {
     :root 
 	{
@@ -507,6 +507,14 @@
         font-size: 16px !important;
     }
     .bar-smack
+    {
+    	display: none;
+    }
+    header .nav-out:not(.nav-rvrs) a:nth-of-type(2)::after
+    {
+    	content: none;
+    }
+    #tpicks, #youtube
     {
     	display: none;
     }
@@ -526,6 +534,31 @@
     {
     	width: calc(100% - 6px);
     }
+    .link-wrap
+    {
+    	display: none;
+    }
+    header .nv-style-ele:not(.horzn-fx) 
+	{
+		display: none;
+	}
+    .nv-icon
+	{
+		width: 25px; height: auto; display: block;
+		flex-shrink: 0; cursor: pointer;
+	}
+	.nv-style-ele, .nv-bar-horzn
+    {
+    	flex: 1; width: 10px;
+    }
+    .nav-phn a:not(:last-of-type)::after 
+	{
+	    margin-right: 10px;
+	}
+	footer .horzn-fx
+	{
+		display: none;
+	}
     }
 
 	@media only screen and (min-width: 615px)
@@ -542,22 +575,9 @@
 	{
 		--base-fnt: 16px;
 	}
-	.nv-icon
-	{
-		width: 25px; height: auto; display: block;
-		flex-shrink: 0; cursor: pointer;
-	}
-	.link-wrap
-	{
-		display: none;
-	}
 	.nv-bar-vrtcl 
 	{
     	height: 15px;
-    }
-    .nv-style-ele, .nv-bar-horzn
-    {
-    	flex: 1; width: 10px;
     }
 	.bnr-img:last-of-type 
 	{
@@ -585,7 +605,7 @@
     }
     #big-out
 	{ 
-		padding: 0px 0px 30px 0px;
+		padding: 20px 5px 30px; min-width: 250px;
 	}
 	#mysite-logo
 	{
@@ -598,12 +618,8 @@
 	}
     .top-sec
 	{
-		min-width: 200px; margin: 30px auto 0px;
-		max-width: 615px; width: 92%;
-	}
-	header .nv-style-ele:not(.horzn-fx) 
-	{
-		display: none;
+		min-width: 200px; margin: 0px auto 0px;
+		max-width: 615px; width: 100%;
 	}
 	header.top-sec
 	{
@@ -626,7 +642,7 @@
 	{
 		padding: 14px 14px 0px;
 		min-width: 200px; margin: 0px 0px 10px;
-		width: 92%; max-width: 615px;
+		width: 100%; max-width: 615px;
 	}
 	.nav-out
 	{
@@ -640,17 +656,6 @@
 	{
 		font-size: calc(var(--base-fnt) - 2px);
 	}
-	.nav-phn a:not(:last-of-type)::after 
-	{
-	    margin-right: 10px;
-	}
-/*
-	.ft-out
-	{
-		padding: 17px 20px 15px 20px;
-		max-width: 75%;
-	}
-*/
     .copyright-text
     {
     	width: auto;
@@ -733,11 +738,7 @@
 	}
 	.width-cut
 	{
-		margin: 0px; flex: 0 1 100%;
-	}
-	footer .horzn-fx
-	{
-		display: none;
+		margin: 0px auto; flex: 0 1 100%;
 	}
 	.ft-top-sec
 	{
