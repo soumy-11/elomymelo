@@ -142,6 +142,10 @@
 		text-decoration: none; font-size: calc(var(--base-fnt) - 3px);
 		color: var(--txt-clr); white-space: nowrap;
 	}
+    .nav-phn a:not(:last-of-type)::after 
+	{
+	    margin-right: 10px;
+	}
 	.nav-out a:not(:last-of-type)::after
 	{
 	    -webkit-text-stroke: 1px rgb(from var(--lnk-clr) r g b / 0.8);
@@ -470,6 +474,10 @@
 	{
 		--base-fnt: 18px;
 	}
+	#add-article-html .art-head-common 
+	{
+    	font-size: 16px !important;
+    }
 	.date
 	{
         border: none;
@@ -502,10 +510,6 @@
 	{
 		--base-fnt: 16px;
 	}
-	.art-head-common
-	{
-        font-size: 16px !important;
-    }
     .bar-smack
     {
     	display: none;
@@ -551,10 +555,6 @@
     {
     	flex: 1; width: 10px;
     }
-    .nav-phn a:not(:last-of-type)::after 
-	{
-	    margin-right: 10px;
-	}
 	footer .horzn-fx
 	{
 		display: none;
