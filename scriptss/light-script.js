@@ -508,7 +508,8 @@ window.addEventListener('resize', trigPad);
 function trigPad()
 {
 	clearTimeout(window.resized);
-    window.resized = setTimeout(() => { detectCharacter(); adsNone(); }, 1700);
+    window.resized = setTimeout(() => { detectCharacter(); adsNone();
+    fxFoot.style.width = footer.getBoundingClientRect().width + "px"; }, 1700);
 }
 
 function adsNone()
