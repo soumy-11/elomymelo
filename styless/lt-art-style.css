@@ -127,7 +127,7 @@
 .noti-main {
     position: absolute;
     inset: 0;
-    width: 75%;
+    width: 90%;
     height: max-content;
     margin: auto;
     padding: 0 20px;
@@ -178,8 +178,8 @@
     padding: 15px 25px;
     font-family: roboto, sans-serif;
     font-size: 16px !important;
-    color: #b0b0b0;
-    background: #464646;
+    color: var(--txt-clr);
+    background: var(--bg-clr);
     border: none;
     border-radius: 40px;
     cursor: pointer;
@@ -193,6 +193,12 @@
 .noti-button:nth-of-type(2) {
     color: var(--txt-clr);
     background: var(--bg-clr);
+}
+
+@media only screen and (min-width: 615px) and (max-width: 1095px) {
+    .middle-text {
+        line-height: 25px !important;
+    }
 }
 
 @media only screen and (min-width: 615px) {
