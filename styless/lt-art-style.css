@@ -121,7 +121,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(from var(--bg-clr) r g b / 90%);
 }
 
 .noti-main {
@@ -133,8 +133,7 @@
     padding: 0 20px;
     text-align: center;
     font-family: roboto, sans-serif;
-    color: rgba(255, 255, 255, 0.5);
-    background: black;
+    background: var(--bdy-clr);
     border-radius: 20px;
 }
 
@@ -145,7 +144,7 @@
     width: max-content;
     margin: 40px auto 25px;
     padding: 10px 10px 6px;
-    border: 4px solid #545454;
+    border: 4px var(--hlt-clr2) solid;
     border-radius: 90px;
 }
 
@@ -156,10 +155,10 @@
     width: auto;
     margin: 5px auto;
     padding: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #b9b9b9;
-    border: 3px solid #545454;
+    font-size: var(--base-fnt);
+    line-height: 25px;
+    color: var(--txt-clr);
+    border: 3px var(--hlt-clr2) solid;
     border-radius: 15px;
 }
 
@@ -178,7 +177,7 @@
     margin: 15px;
     padding: 15px 25px;
     font-family: roboto, sans-serif;
-    font-size: 14px;
+    font-size: 16px !important;
     color: #b0b0b0;
     background: #464646;
     border: none;
@@ -186,33 +185,23 @@
     cursor: pointer;
 }
 
+.noti-button:nth-of-type(1) {
+    color: var(--bg-clr) !important;
+    background: var(--lbl-clr) !important;
+}
+
+.noti-button:nth-of-type(2) {
+    color: var(--txt-clr);
+    background: var(--bg-clr);
+}
+
 @media only screen and (min-width: 615px) {
     .noti-main {
         width: 580px;
-        background: white;
     }
 
     .middle-text {
-        font-size: 18px;
-        line-height: 25px;
-        color: #565656;
-        border: 3px solid #cdcdcd;
-    }
-
-    .top-img {
-        border: 4px solid #cdcdcd;
-    }
-
-    .noti-button:nth-of-type(1) {
-        font-size: 17px !important;
-        color: #cfcfcf !important;
-        background: #45484a !important;
-    }
-
-    .noti-button:nth-of-type(2) {
-        font-size: 17px;
-        color: #5b5b5b;
-        background: #e6e6e6;
+        line-height: 30px;
     }
 
     .act-buttons {
