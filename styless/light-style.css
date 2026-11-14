@@ -158,12 +158,12 @@
 	}
 	.bnr-img
 	{
-		background: var(--bg-clr); height: auto;
+		background: var(--bg-clr); box-sizing: content-box; aspect-ratio: 1000 / 282;
 		border-radius: 20px; flex: 1 1 0; padding: 20px;
 	}
 	.bnr-img img
 	{
-		height: 100%; width: 100%; visibility: hidden;
+		display: block; width: 100%; visibility: hidden;
 	}
 	#bars-rows
     {
