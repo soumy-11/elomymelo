@@ -108,15 +108,15 @@ function ltSideBars()
 }
 
 document.querySelectorAll(".bnr-img").forEach(cntnr => { cntnr.innerHTML = `<img>`; });
-const bnrImg = document.getElementById("bnr-img-contnr");
-const imgs = bnrImg.querySelectorAll("img");
+const bnrImg = document.getElementById("bnr-img-contnr"); const imgs = bnrImg.querySelectorAll("img");
+imgs[1].onclick = () => window.location.href = "all-reviews.html" + "#before-article-01";
+imgs[0].onclick = () => window.location.href = "all-reviews.html";
 
 function updtImg() { const smmd = window.matchMedia("(max-width: 615px)").matches;
-if (window.matchMedia("(prefers-color-scheme: dark)").matches && !smmd) { imgs[0].src = "images/img-left-drk.png"; 
+if (window.matchMedia("(prefers-color-scheme: dark)").matches && !smmd) { imgs[0].src = "images/img-left-drk.png"; imgs[0].id = "bgdrk0";
 imgs[1].src = "images/img-right-drk.png"; } if (window.matchMedia("(prefers-color-scheme: light)").matches && !smmd) {
-imgs[0].src = "images/img-left.png"; imgs[1].src = "images/img-right.png"; } if (smmd) {
-imgs[0].src = "images/bnr-img-phn.png"; } imgs.forEach(img => { 
-img.style.visibility = "visible"; }); } updtImg();
+imgs[0].src = "images/img-left.png"; imgs[0].id = "bglit0"; imgs[1].src = "images/img-right.png"; } if (smmd) {
+imgs[0].src = "images/bnr-img-phn.png"; imgs[0].id = "bnr-img-phn"; } } updtImg();
 
 // for detecting new news articles, h2 tags 
 const rplsSec = document.getElementById('add-article-html');
