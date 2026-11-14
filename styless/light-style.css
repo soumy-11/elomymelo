@@ -583,6 +583,14 @@
 	{
     	height: 15px;
     }
+    .bnr-img
+	{
+		padding: 14px;
+	}
+    .bnr-img img
+	{
+		border-radius: 15px;
+	}
 	.bnr-img:last-of-type 
 	{
 	    display: none;
