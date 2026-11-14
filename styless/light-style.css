@@ -156,14 +156,18 @@
 	{
 		flex-wrap: nowrap;
 	}
+	#bnr-img-phn
+	{
+		display: none;
+	}
 	.bnr-img
 	{
-		background: var(--bg-clr); box-sizing: content-box; aspect-ratio: 1000 / 282;
+		background: var(--bg-clr); box-sizing: content-box; aspect-ratio: 1003 / 287;
 		border-radius: 20px; flex: 1 1 0; padding: 20px;
 	}
 	.bnr-img img
 	{
-		display: block; width: 100%; visibility: hidden;
+		display: block; width: 100%;
 	}
 	#bars-rows
     {
@@ -583,9 +587,13 @@
 	{
     	height: 15px;
     }
+    #bnr-img-phn
+	{
+		display: block;
+	}
     .bnr-img
 	{
-		padding: 14px;
+		padding: 14px; aspect-ratio: 1000 / 282;
 	}
     .bnr-img img
 	{
