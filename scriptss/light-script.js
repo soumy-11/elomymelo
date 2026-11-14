@@ -107,6 +107,7 @@ function ltSideBars()
     ele.innerHTML = '<div class="sidebar-ads bar-color"></div>'; });
 }
 
+document.querySelectorAll(".bnr-img").forEach(cntnr => { cntnr.innerHTML = `<img>`; });
 const bnrImg = document.getElementById("bnr-img-contnr");
 const imgs = bnrImg.querySelectorAll("img");
 
