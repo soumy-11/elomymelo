@@ -103,16 +103,22 @@ if (bgmd && window.innerWidth > 1010)
 
 function ltSideBars()
 {
-    document.querySelectorAll(".side-bars.bar-smack").forEach(ele => {
-    ele.innerHTML = '<div class="sidebar-ads bar-color"></div>'; });
+    document.querySelectorAll(".side-bars.bar-smack").forEach((ele, i) => {
+    ele.innerHTML = i === 0 ? `<div class="sdbar-contnt bar-color"><img src="images/img-left.png" onclick="window.open('all-reviews.html', '_blank')"></div>` : `<div class="sdbar-contnt bar-color"><img 
+    src="images/img-right.png" onclick="window.open('index.html#before-article-01', '_blank')"></div>`; });
+
+    const imgs = document.querySelectorAll(".side-bars.bar-smack img");
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) { imgs[0].src = "images/img-left-drk.png";
+    imgs[1].src = "images/img-right-drk.png"; }
 }
 
 document.querySelectorAll(".bnr-img").forEach(cntnr => { cntnr.innerHTML = `<img>`; });
 const bnrImg = document.getElementById("bnr-img-contnr"); const imgs = bnrImg.querySelectorAll("img");
-imgs[1].onclick = () => window.location.href = "all-reviews.html" + "#before-article-01";
-imgs[0].onclick = () => window.location.href = "all-reviews.html";
+imgs[0].onclick = () => window.open("all-reviews.html", "_blank"); imgs[0].alt = "all product review articles";
+imgs[1].onclick = () => window.open("index.html#before-article-01", "_blank");
+imgs[1].alt = "latest and comparison articles";
 
-function updtImg() { const smmd = window.matchMedia("(max-width: 615px)").matches;
+function updtImg() { const smmd = window.matchMedia("(max-width: 850px)").matches;
 if (window.matchMedia("(prefers-color-scheme: dark)").matches && !smmd) { imgs[0].src = "images/img-left-drk.png"; imgs[0].id = "bgdrk0";
 imgs[1].src = "images/img-right-drk.png"; } if (window.matchMedia("(prefers-color-scheme: light)").matches && !smmd) {
 imgs[0].src = "images/img-left.png"; imgs[0].id = "bglit0"; imgs[1].src = "images/img-right.png"; } if (smmd) {
