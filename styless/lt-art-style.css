@@ -69,7 +69,7 @@
     font-size: 15px;
     line-height: 23px;
     color: var(--txt-clr);
-    border: 3px solid var(--bg-ads);
+    border: 3px rgb(from var(--hlt-clr2) r g b / 50%) solid;
     border-radius: 14px;
 }
 
@@ -94,7 +94,6 @@
         display: inline-block;
         width: fit-content;
         font-size: 17px;
-        border: 7px solid var(--bg-ads);
     }
 
     .latest_articles {
