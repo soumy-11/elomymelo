@@ -487,6 +487,10 @@
 	    --brdr-dt: #445668;
 	    --bdy-clr: black;
     }
+	img
+	{
+		opacity: 0.95;
+	}
     .outline-item:hover
 	{
 	    background: var(--hdr-clr); color: black;
