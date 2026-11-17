@@ -84,7 +84,7 @@ function observeSidebarAds()
 
 const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
 const ltArtStyle = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:16px 35px 14px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9;background:#f0f4f8}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:15px 20px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:18px}.art-head-common a{color:#5881aa!important;text-decoration:none}.fixed-dis-phone,.fixed-dis-desk{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto}#more-info-after-2{border:3px #EAEAEA solid;padding:10px 13px 12px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:15px;line-height:23px;border-radius:14px}.art-description-common{display:none}@media only screen and (max-width:615px){.fixed-dis-desk{display:none}.art-head-common{padding:12px 20px;font-size:16px}}@media only screen and (min-width:615px){#more-info-after-2{width:fit-content;display:inline-block;border:7px #f0f4f8 solid;font-size:17px}.latest_articles{top:20px}#before-article-01{margin:0px;height:0px}.fixed-dis-phone{display:none}}';
-const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;top:30px;inset-inline:0;margin:auto}.spinner-anim{animation:spin 0.6s linear infinite;will-change:transform;transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}'
+const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;top:30px;inset-inline:0;margin:auto}.spinner-anim{transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}'
 
 // for sidebar ads loading process
 function loadAd(adDiv)
@@ -177,6 +177,7 @@ async function run(url, processor, section)
     const temp = document.createElement("div"); temp.innerHTML = html;
     const finalHTML = await processor(temp);
     section.innerHTML = finalHTML;
+	stopSpinner();
 }
 
 async function loadSection(id, url, processor)
@@ -187,6 +188,7 @@ async function loadSection(id, url, processor)
     const style = document.createElement("style");
     style.textContent = ldrStyle; section.appendChild(style);
     section.insertAdjacentHTML("beforeend", loadersvg);
+	stopSpinner = startSpinner();
 
     for (let i = 0; i < 2; i++) {
     try { return await run(url, processor, section); }
@@ -278,6 +280,34 @@ function rltdHeight()
     const topDiff = rltdTop - artTop + 500; const artHeight = artText.offsetHeight;
     const newHeight = artHeight - topDiff; if (newHeight > initialHeight) {
     rltdOut.style.height = newHeight + "px"; } }
+}
+
+let stopSpinner;
+function startSpinner() {
+    const spinner = document.querySelector(".spinner-anim");
+
+    const duration = 600;
+    let startTime = null;
+    let animationId;
+
+    function rotate(timestamp) {
+        if (!spinner.isConnected) return;
+
+        if (startTime === null) startTime = timestamp;
+
+        const elapsed = timestamp - startTime;
+        const angle = (elapsed % duration) / duration * 360;
+
+        spinner.style.transform = "rotate(" + angle + "deg)";
+
+        animationId = requestAnimationFrame(rotate);
+    }
+
+    animationId = requestAnimationFrame(rotate);
+
+    return function() {
+        cancelAnimationFrame(animationId);
+    };
 }
 
 async function startLoads()
