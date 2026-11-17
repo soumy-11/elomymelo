@@ -168,16 +168,21 @@ function cleanHtml(temp)
     return temp.innerHTML;
 }
 
+const spinnerControllers = new Map();
 async function run(url, processor, section)
 {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const html = await response.text();
-    const temp = document.createElement("div"); temp.innerHTML = html;
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
     const finalHTML = await processor(temp);
     section.innerHTML = finalHTML;
-	stopSpinner();
+
+    spinnerControllers.get(section.id)?.();
+    spinnerControllers.delete(section.id);
 }
 
 async function loadSection(id, url, processor)
@@ -186,19 +191,67 @@ async function loadSection(id, url, processor)
     if (!section) return;
 
     const style = document.createElement("style");
-    style.textContent = ldrStyle; section.appendChild(style);
+    style.textContent = ldrStyle;
+    section.appendChild(style);
+
     section.insertAdjacentHTML("beforeend", loadersvg);
-	stopSpinner = startSpinner();
+
+    spinnerControllers.set(id, startSpinner(id));
 
     for (let i = 0; i < 2; i++) {
-    try { return await run(url, processor, section); }
-    catch (err) { console.error(`Attempt ${i + 1} failed:`, err);
+        try {
+            return await run(url, processor, section);
+        }
+        catch (err) {
+            console.error(`Attempt ${i + 1} failed:`, err);
 
-    if (i === 0) {
-    await new Promise(res => setTimeout(res, 5000)); }
-    else { section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
-    Sorry, the content you are looking for has failed to load
-    </div>`; } } }
+            if (i === 0) {
+                await new Promise(res => setTimeout(res, 5000));
+            }
+            else {
+                section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
+                    Sorry, the content you are looking for has failed to load
+                </div>`;
+
+                spinnerControllers.get(id)?.();
+                spinnerControllers.delete(id);
+            }
+        }
+    }
+}
+
+function startSpinner(id) {
+    const parent = document.getElementById(id);
+    if (!parent) return;
+
+    const duration = 600;
+    let startTime = null;
+    let animationId;
+
+    function rotate(timestamp) {
+        if (!parent.isConnected) return;
+
+        const spinners = parent.querySelectorAll(".spinner-anim");
+
+        if (!spinners.length) return;
+
+        if (startTime === null) startTime = timestamp;
+
+        const elapsed = timestamp - startTime;
+        const angle = (elapsed % duration) / duration * 360;
+
+        spinners.forEach(spinner => {
+            spinner.style.transform = "rotate(" + angle + "deg)";
+        });
+
+        animationId = requestAnimationFrame(rotate);
+    }
+
+    animationId = requestAnimationFrame(rotate);
+
+    return function() {
+        cancelAnimationFrame(animationId);
+    };
 }
 
 function loadFeatured()
@@ -280,34 +333,6 @@ function rltdHeight()
     const topDiff = rltdTop - artTop + 500; const artHeight = artText.offsetHeight;
     const newHeight = artHeight - topDiff; if (newHeight > initialHeight) {
     rltdOut.style.height = newHeight + "px"; } }
-}
-
-let stopSpinner;
-function startSpinner() {
-    const spinner = document.querySelector(".spinner-anim");
-
-    const duration = 600;
-    let startTime = null;
-    let animationId;
-
-    function rotate(timestamp) {
-        if (!spinner.isConnected) return;
-
-        if (startTime === null) startTime = timestamp;
-
-        const elapsed = timestamp - startTime;
-        const angle = (elapsed % duration) / duration * 360;
-
-        spinner.style.transform = "rotate(" + angle + "deg)";
-
-        animationId = requestAnimationFrame(rotate);
-    }
-
-    animationId = requestAnimationFrame(rotate);
-
-    return function() {
-        cancelAnimationFrame(animationId);
-    };
 }
 
 async function startLoads()
