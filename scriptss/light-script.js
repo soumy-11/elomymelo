@@ -475,11 +475,12 @@ function ltrplsSec()
 {
     const loaderStyle = document.createElement('style');
     loaderStyle.id = 'loader-style'; loaderStyle.textContent = ldrStyle;
-    document.head.appendChild(loaderStyle); if(rplsSec) 
-    { rplsSec.innerHTML = loadersvg; }
+    document.head.appendChild(loaderStyle); if(rplsSec) { rplsSec.innerHTML = loadersvg; }
+	spinnerControllers.set("rplsSec", startSpinner("add-article-html"));
 
     fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
+	spinnerControllers.get("rplsSec")?.(); spinnerControllers.delete("rplsSec");
     document.getElementById('loader-style')?.remove();
 
     const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
