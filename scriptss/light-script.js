@@ -145,6 +145,37 @@ if (dlabel.includes("earbud")) rltdurl = earbud;
 else if (dlabel.includes("smartphone")) rltdurl = smartphone;
 else if (dlabel.includes("speaker")) rltdurl = speaker;
 
+let cssLoaded = false; let cssPromise;
+function loadCSS(url)
+{
+    if (cssLoaded) return Promise.resolve();
+
+    if (!cssPromise)
+    {
+        console.log("Creating CSS Promise");
+        cssPromise = new Promise((resolve, reject) =>
+        {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = url;
+
+            link.onload = () => { cssLoaded = true; resolve(); };
+            link.onerror = reject;
+
+            document.head.appendChild(link);
+        }).catch(async err =>
+        {
+            cssPromise = null;
+
+            await new Promise(res => setTimeout(res, 1000));
+
+            return loadCSS(url);
+        });
+    }
+
+    return cssPromise;
+}
+
 function cleanHtml(temp)
 {
     const targetLink = [...temp.getElementsByTagName("a")].find(a =>
@@ -184,9 +215,9 @@ async function loadSection(id, url, processor)
 {
     const section = document.getElementById(id);
     if (!section) return; const style = document.createElement("style");
-    style.textContent = ldrStyle; section.appendChild(style);
-    section.insertAdjacentHTML("beforeend", loadersvg);
-    await new Promise(rs => setTimeout(rs, 900));
+    style.textContent = ldrStyle; section.appendChild(style); section.insertAdjacentHTML("beforeend", loadersvg);
+    if (!cssLoaded) { try { await loadCSS("styles/lt-art-style.css"); } catch (err) { 
+    console.error("CSS failed to load:", err); } }
 
     for (let i = 0; i < 2; i++) { try { return await run(url, processor, section); }
     catch (err) { console.error(`Attempt ${i + 1} failed:`, err); if (i === 0) { await new Promise(res => setTimeout(res, 5000)); }
@@ -392,7 +423,7 @@ async function ltrplsSec()
     document.head.appendChild(loaderStyle); if(rplsSec) 
     { rplsSec.innerHTML = loadersvg; }
 
-    await new Promise(resolve => setTimeout(resolve, 900));
+    await new Promise(resolve => setTimeout(resolve, 500));
     fetch("https://elomymelo.com/text-files/inside-article-div-n.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
     document.getElementById('loader-style')?.remove();
