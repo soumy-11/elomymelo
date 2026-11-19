@@ -23,7 +23,7 @@ if (sdbar.length >= 2)
 function popNav()
 {
     const navstyle = document.createElement('style'); navstyle.type = 'text/css'; navstyle.id = 'nav-style';
-    navstyle.innerHTML = '.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgb(from var(--bg-clr) r g b / 90%);z-index:1000;overflow:auto}.nav-main{position:absolute;inset:0;padding:0 20px;margin:auto;width:75%;height:max-content;min-height:500px;text-align:center;border-radius:20px;background:var(--bdy-clr)}.nv-cross{width:50px;height:50px;margin-inline:auto;display:flex;align-items:center;justify-content:center;color:var(--txt-clr);background:var(--bg-clr);border-radius:50%;font-size:30px;margin-top:-25px;border:3px var(--hlt-clr2) solid;cursor:pointer}.content-outline{position:absolute;inset:0;margin:auto;width:75%;height:max-content}.outline-item{background:var(--bg-clr);padding:0;border-color:var(--bg-clr)}.outline-item a{display:block;text-decoration:none;color:var(--txt-clr);font-size:var(--base-fnt);padding:10px 20px}.outline-item:hover a{color:#404040}';
+    navstyle.innerHTML = '.nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgb(from var(--bg-clr) r g b / 90%);z-index:1000;overflow:auto}.nav-main{position:absolute;inset:0;padding:0 20px;margin:auto;width:75%;height:max-content;min-height:500px;text-align:center;border-radius:20px;background:var(--bdy-clr)}.nv-cross{width:50px;height:50px;margin-inline:auto;display:flex;align-items:center;justify-content:center;color:var(--txt-clr);background:var(--bg-clr);border-radius:50%;font-size:30px;font-family:Arial,sans-serif;margin-top:-25px;border:3px var(--hlt-clr2) solid;cursor:pointer}.content-outline{position:absolute;inset:0;margin:auto;width:75%;height:max-content}.outline-item{background:var(--bg-clr);padding:0;border-color:var(--bg-clr)}.outline-item a{display:block;text-decoration:none;color:var(--txt-clr);font-size:var(--base-fnt);padding:10px 20px}.outline-item:hover a{color:#404040}';
     document.head.appendChild(navstyle);
 
     const navdiv = document.createElement('div');
@@ -82,9 +82,8 @@ function observeSidebarAds()
     sidebar.style.removeProperty("min-height"); });
 }
 
-const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`
-const ltArtStyle = '.latest_articles{inset-inline:0;width:max-content;position:relative;margin:0 auto;top:30px;padding:16px 35px 14px 35px;font-family:monospace;font-size:15px;border-radius:55px;background-color:#f0f4f8;color:#567ea7;font-weight:bolder}#before-article-01{position:relative;margin:5px;height:2px}.articles-common-lt-style{height:auto}.latest-art-pic-common{width:100%;height:auto;border-radius:14px 14px 5px 5px;aspect-ratio:auto 16/9;background:#f0f4f8}.art-head-common{text-align:center;margin:0 auto;font-weight:bolder;font-family:sans-serif;padding:15px 20px;border-radius:5px 5px 14px 14px;background-color:#f0f4f8;font-size:18px}.art-head-common a{color:#5881aa!important;text-decoration:none}.fixed-dis-phone,.fixed-dis-desk{position:relative;height:auto;min-height:200px;display:flex;justify-content:center;padding:12px 4px;background:#EAEAEA;border-radius:14px;width:auto}#more-info-after-2{border:3px #EAEAEA solid;padding:10px 13px 12px;text-align:center;font-family:sans-serif;width:73%;color:#6f6f6f;margin:0 auto 20px;font-size:15px;line-height:23px;border-radius:14px}.art-description-common{display:none}@media only screen and (max-width:615px){.fixed-dis-desk{display:none}.art-head-common{padding:12px 20px;font-size:16px}}@media only screen and (min-width:615px){#more-info-after-2{width:fit-content;display:inline-block;border:7px #f0f4f8 solid;font-size:17px}.latest_articles{top:20px}#before-article-01{margin:0px;height:0px}.fixed-dis-phone{display:none}}';
-const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;top:30px;inset-inline:0;margin:auto}.spinner-anim{transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}'
+const adsCode = `<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3654432220074510" data-ad-slot="5979513854" data-ad-format="auto" data-full-width-responsive="true"></ins>`;
+const ldrStyle = '@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.loader-container{width:64px;height:64px;position:absolute;top:30px;inset-inline:0;margin:auto}.spinner-anim{animation:spin 0.6s linear infinite;transform-origin:center}.svg-arc{stroke:#68ABD4;stroke-width:6;fill:none;stroke-linecap:round}@media only screen and (max-width:1375px){.loader-container{width:50px;height:50px}}';
 
 // for sidebar ads loading process
 function loadAd(adDiv)
@@ -104,12 +103,12 @@ if (bgmd && window.innerWidth > 1010)
 function ltSideBars()
 {
     document.querySelectorAll(".side-bars.bar-smack").forEach((ele, i) => {
-    ele.innerHTML = i === 0 ? `<div class="sdbar-contnt bar-color"><img src="images/img-left.png" onclick="window.open('all-reviews.html', '_blank')"></div>` : `<div class="sdbar-contnt bar-color"><img 
-    src="images/img-right.png" onclick="window.open('index.html#before-article-01', '_blank')"></div>`; });
+    ele.innerHTML = i === 0 ? `<div class="sdbar-contnt bar-color"><img src="images/img-left.webp" onclick="window.open('all-reviews.html', '_blank')"></div>` : `<div class="sdbar-contnt bar-color"><img 
+    src="images/img-right.webp" onclick="window.open('index.html#before-article-01', '_blank')"></div>`; });
 
     const imgs = document.querySelectorAll(".side-bars.bar-smack img");
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) { imgs[0].src = "images/img-left-drk.png";
-    imgs[1].src = "images/img-right-drk.png"; }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) { imgs[0].src = "images/img-left-drk.webp";
+    imgs[1].src = "images/img-right-drk.webp"; }
 }
 
 document.querySelectorAll(".bnr-img").forEach(cntnr => { cntnr.innerHTML = `<img>`; });
@@ -119,10 +118,10 @@ imgs[1].onclick = () => window.open("index.html#before-article-01", "_blank");
 imgs[1].alt = "latest and comparison articles";
 
 function updtImg() { const smmd = window.matchMedia("(max-width: 850px)").matches;
-if (window.matchMedia("(prefers-color-scheme: dark)").matches && !smmd) { imgs[0].src = "images/img-left-drk.png"; imgs[0].id = "bgdrk0";
-imgs[1].src = "images/img-right-drk.png"; } if (window.matchMedia("(prefers-color-scheme: light)").matches && !smmd) {
-imgs[0].src = "images/img-left.png"; imgs[0].id = "bglit0"; imgs[1].src = "images/img-right.png"; } if (smmd) {
-imgs[0].src = "images/bnr-img-phn.png"; imgs[0].id = "bnr-img-phn"; } } updtImg();
+if (window.matchMedia("(prefers-color-scheme: dark)").matches && !smmd) { imgs[0].src = "images/img-left-drk.webp"; imgs[0].id = "bgdrk0";
+imgs[1].src = "images/img-right-drk.webp"; } if (window.matchMedia("(prefers-color-scheme: light)").matches && !smmd) {
+imgs[0].src = "images/img-left.webp"; imgs[0].id = "bglit0"; imgs[1].src = "images/img-right.webp"; } if (smmd) {
+imgs[0].src = "images/bnr-img-phn.webp"; imgs[0].id = "bnr-img-phn"; } } updtImg();
 
 // for detecting new news articles, h2 tags 
 const rplsSec = document.getElementById('add-article-html');
@@ -132,12 +131,14 @@ const loadersvg = `<div class="loader-container"><svg viewBox="0 0 100 100" clas
 <path d="M 85.36 50 A 40 40 0 0 1 78.28 78.28" class="svg-arc" transform="rotate(250 50 50)"/>
 </svg></div>` // for loader html insertion 
 
-const URL_FEATURED = "https://docs.elomymelo.com/text-files/inside-article-div-1.txt";
-const URL_POPULAR = "https://docs.elomymelo.com/text-files/inside-article-div-2.txt";
+const URL_FEATURED = "https://elomymelo.com/text-files/inside-article-div-fe.txt";
+const URL_POPULAR = "https://elomymelo.com/text-files/inside-article-div-po.txt";
 
 const dlabel = document.getElementById("label").textContent.toLowerCase();
-const earbud = "https://docs.elomymelo.com/text-files/for-earbuds.txt";
-const other = "https://docs.elomymelo.com/text-files/for-others.txt";
+const earbud = "https://elomymelo.com/text-files/for-earbuds.txt";
+const smartphone = "https://elomymelo.com/text-files/for-others.txt";
+const speaker = "https://elomymelo.com/text-files/for-speakers.txt";
+const other = "https://elomymelo.com/text-files/for-others.txt";
 
 let rltdurl = other;
 if (dlabel.includes("earbud")) rltdurl = earbud;
@@ -168,126 +169,39 @@ function cleanHtml(temp)
     return temp.innerHTML;
 }
 
-const spinnerControllers = new Map();
 async function run(url, processor, section)
 {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const html = await response.text();
-    const temp = document.createElement("div");
-    temp.innerHTML = html;
-
+    const temp = document.createElement("div"); temp.innerHTML = html;
     const finalHTML = await processor(temp);
     section.innerHTML = finalHTML;
-
-    spinnerControllers.get(section.id)?.();
-    spinnerControllers.delete(section.id);
 }
 
 async function loadSection(id, url, processor)
 {
     const section = document.getElementById(id);
-    if (!section) return;
-
-    const style = document.createElement("style");
-    style.textContent = ldrStyle;
-    section.appendChild(style);
-
+    if (!section) return; const style = document.createElement("style");
+    style.textContent = ldrStyle; section.appendChild(style);
     section.insertAdjacentHTML("beforeend", loadersvg);
+    await new Promise(rs => setTimeout(rs, 900));
 
-    spinnerControllers.set(id, startSpinner(id));
-
-    for (let i = 0; i < 2; i++) {
-        try {
-            return await run(url, processor, section);
-        }
-        catch (err) {
-            console.error(`Attempt ${i + 1} failed:`, err);
-
-            if (i === 0) {
-                await new Promise(res => setTimeout(res, 5000));
-            }
-            else {
-                section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
-                    Sorry, the content you are looking for has failed to load
-                </div>`;
-
-                spinnerControllers.get(id)?.();
-                spinnerControllers.delete(id);
-            }
-        }
-    }
+    for (let i = 0; i < 2; i++) { try { return await run(url, processor, section); }
+    catch (err) { console.error(`Attempt ${i + 1} failed:`, err); if (i === 0) { await new Promise(res => setTimeout(res, 5000)); }
+    else { section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
+    Sorry, the content you are looking for has failed to load </div>`; } } }
 }
 
-function startSpinner(id) {
-    const parent = document.getElementById(id);
-    if (!parent) return;
-
-    const duration = 600;
-    let startTime = null;
-    let animationId;
-
-    function rotate(timestamp) {
-        if (!parent.isConnected) return;
-
-        const spinners = parent.querySelectorAll(".spinner-anim");
-
-        if (!spinners.length) return;
-
-        if (startTime === null) startTime = timestamp;
-
-        const elapsed = timestamp - startTime;
-        const angle = (elapsed % duration) / duration * 360;
-
-        spinners.forEach(spinner => {
-            spinner.style.transform = "rotate(" + angle + "deg)";
-        });
-
-        animationId = requestAnimationFrame(rotate);
-    }
-
-    animationId = requestAnimationFrame(rotate);
-
-    return function() {
-        cancelAnimationFrame(animationId);
-    };
-}
-
-function loadFeatured()
-{
-    return loadSection(
-        "featured",
-        URL_FEATURED,
-        async (temp) =>
-        {
-            return temp.innerHTML;
-        }
-    );
-}
-
-function loadPopular()
-{
-    return loadSection(
-        "popular",
-        URL_POPULAR,
-        cleanHtml
-    );
-}
+function loadFeatured() { return loadSection("featured", URL_FEATURED, cleanHtml); }
+function loadPopular() { return loadSection("popular", URL_POPULAR, cleanHtml); }
 
 function loadRelated()
 {
     const rltdText = document.getElementById("rltd-text");
-    if (rltdurl === other)
-    {
-        rltdText.textContent = "CONTENT";
-    }
-
-    return loadSection(
-        "related",
-        rltdurl,
-        cleanHtml
-    );
+    if (rltdurl === other) { rltdText.textContent = "CONTENT"; }
+    return loadSection("related", rltdurl, cleanHtml);
 }
 
 function createAdDiv(parent) 
@@ -405,7 +319,7 @@ function setActiveItem(item)
 const endLinks = document.querySelector(".end-links-con");
 function endlinks()
 {
-    if (endLinks) { fetch("https://docs.elomymelo.com/text-files/end-links.txt")
+    if (endLinks) { fetch("https://elomymelo.com/text-files/end-links.txt")
     .then(response => response.text()).then(data => { endLinks.innerHTML = data; })
     .catch(error => { console.error("end links error:", error);
     setTimeout(endlinks, 2000); }); }
@@ -471,16 +385,16 @@ function secFtrObsrvr()
 if (!obsrvr) { secFtrObsrvr(); }
 
 let ltrplsRetry;
-function ltrplsSec() 
+async function ltrplsSec() 
 {
     const loaderStyle = document.createElement('style');
     loaderStyle.id = 'loader-style'; loaderStyle.textContent = ldrStyle;
-    document.head.appendChild(loaderStyle); if(rplsSec) { rplsSec.innerHTML = loadersvg; }
-	spinnerControllers.set("rplsSec", startSpinner("add-article-html"));
+    document.head.appendChild(loaderStyle); if(rplsSec) 
+    { rplsSec.innerHTML = loadersvg; }
 
-    fetch("https://docs.elomymelo.com/text-files/inside-article-div.txt")
+    await new Promise(resolve => setTimeout(resolve, 900));
+    fetch("https://elomymelo.com/text-files/inside-article-div-n.txt")
     .then(response => response.text()).then(data => { if(rplsSec) { rplsSec.innerHTML = data;
-	spinnerControllers.get("rplsSec")?.(); spinnerControllers.delete("rplsSec");
     document.getElementById('loader-style')?.remove();
 
     const phoneAd = rplsSec.querySelector(".fixed-dis-phone"); const deskAd = rplsSec.querySelector(".fixed-dis-desk");
