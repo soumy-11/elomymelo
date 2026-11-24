@@ -188,7 +188,7 @@ async function loadSection(id, url, processor)
     section.insertAdjacentHTML("beforeend", loadersvg);
 
     for (let i = 0; i < 2; i++) { try { return await run(url, processor, section); }
-    catch (err) { console.error(`Attempt ${i + 1} failed:`, err); if (i === 0) { await new Promise(res => setTimeout(res, 5000)); }
+    catch (err) { console.error(`Attempt ${i + 1} failed:`, err); if (i === 0) { await new Promise(res => setTimeout(res, 2500)); }
     else { section.innerHTML = `<div class="error-state" style="text-align:center;display:block">
     Sorry, the content you are looking for has failed to load </div>`; } } }
 }
