@@ -251,7 +251,7 @@ function rltdHeight()
 function loadScripts() 
 {
     const pushScript = document.createElement("script");
-    pushScript.src = "scripts/push-script.js"; pushScript.async = false;
+    pushScript.src = "scriptss/push-script.js"; pushScript.async = false;
     document.head.appendChild(pushScript);
 
     const gtagScript = document.createElement("script");
