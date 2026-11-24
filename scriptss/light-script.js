@@ -285,7 +285,7 @@ async function startLoads()
     await Promise.allSettled([featuredDone, popularDone]);
     observeSidebarAds(); loadScripts();
 }
-let obsrvr; if (bgmd) { startLoads(); obsrvr = true; }
+let obsrvr; if (bgmd) { startLoads(); obsrvr = true; } else { loadScripts(); }
 
 function outline(container)
 {
